@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="container-fluid">
 				<!-- begin mobile sidebar expand / collapse button -->
 				<div class="navbar-header">
-					<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> Color Admin</a>
+					<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> Smart EDU</a>
 					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -113,7 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<li class="dropdown navbar-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 							<img src="assets/img/user-13.jpg" alt="" /> 
-							<span class="hidden-xs">Adam Schwartz</span> <b class="caret"></b>
+							<span class="hidden-xs">Developer</span> <b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu animated fadeInLeft">
 							<li class="arrow"></li>
@@ -143,8 +143,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<a href="javascript:;"><img src="assets/img/user-13.jpg" alt="" /></a>
 						</div>
 						<div class="info">
-							Sean Ngu
-							<small>Front end developer</small>
+							Developer
+							<small>Admin</small>
 						</div>
 					</li>
 				</ul>
