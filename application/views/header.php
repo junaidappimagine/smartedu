@@ -15,7 +15,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link href="<?php echo base_url(); ?>assets/css/style-smartedu.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/css/theme/default-smartedu.css" rel="stylesheet" id="theme" />
-	<!-- <script src="<?php echo base_url(); ?>assets/plugins/pace/pace.min.js"></script> -->
+
+    <script src="<?php echo base_url(); ?>assets/plugins/pace/pace.min.js"></script>
+	<!-- <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery-1.9.1.min.js"></script> -->
+
+	<!-- <script src="<?php echo base_url(); ?>assets/js/jquery-1.11.3.min.js"></script> -->
+	<script src="<?php echo base_url(); ?>assets/js/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
 	
 	
 </head>
@@ -69,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </li>
                             <li class="media">
                                 <a href="javascript:;">
-                                    <div class="media-left"><img src="assets/img/user-1.jpg" class="media-object" alt="" /></div>
+                                    <div class="media-left"><img src="<?php echo base_url(); ?>assets/img/user-1.jpg" class="media-object" alt="" /></div>
                                     <div class="media-body">
                                         <h6 class="media-heading">John Smith</h6>
                                         <p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
@@ -79,7 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </li>
                             <li class="media">
                                 <a href="javascript:;">
-                                    <div class="media-left"><img src="assets/img/user-2.jpg" class="media-object" alt="" /></div>
+                                    <div class="media-left"><img src="<?php echo base_url(); ?>assets/img/user-2.jpg" class="media-object" alt="" /></div>
                                     <div class="media-body">
                                         <h6 class="media-heading">Olivia</h6>
                                         <p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
@@ -112,7 +118,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</li>
 					<li class="dropdown navbar-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-							<img src="assets/img/user-13.jpg" alt="" /> 
+							<img src="<?php echo base_url(); ?>assets/img/user-13.jpg" alt="" /> 
 							<span class="hidden-xs">Developer</span> <b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu animated fadeInLeft">
@@ -140,7 +146,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<ul class="nav">
 					<li class="nav-profile">
 						<div class="image">
-							<a href="javascript:;"><img src="assets/img/user-13.jpg" alt="" /></a>
+							<a href="javascript:;"><img src="<?php echo base_url(); ?>assets/img/user-13.jpg" alt="" /></a>
 						</div>
 						<div class="info">
 							Developer
@@ -152,52 +158,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<!-- begin sidebar nav -->
 				<ul class="nav">
 					<li class="nav-header">Navigation</li>
-					<li class="has-sub">
-						<a href="javascript:;">
-						    <b class="caret pull-right"></b>
+					<li class="has-sub active">
+						<a href="<?php echo base_url(); ?>dashboardC/index">
 						    <i class="fa fa-laptop"></i>
 						    <span>Dashboard</span>
 					    </a>
-						<ul class="sub-menu">
-						    <li><a href="index.html">Dashboard v1</a></li>
-						    <li><a href="index_v2.html">Dashboard v2</a></li>
-						</ul>
+						
 					</li>
 					<li class="has-sub">
 						<a href="javascript:;">
-							<span class="badge pull-right">10</span>
-							<i class="fa fa-inbox"></i> 
-							<span>Email</span>
+							<span class="caret pull-right"></span>
+							<i class="fa fa-suitcase"></i> 
+							<span>Payroll & Payslip</span>
 						</a>
 						<ul class="sub-menu">
-						    <li><a href="email_inbox.html">Inbox v1</a></li>
-						    <li><a href="email_inbox_v2.html">Inbox v2</a></li>
-						    <li><a href="email_compose.html">Compose</a></li>
-						    <li><a href="email_detail.html">Detail</a></li>
+						    <li><a href="#">Payroll Category</a></li>
+						    <li><a href="<?php echo base_url();?>dashboardC/Create_Payroll_Groupview">Payroll Groups</a></li>
+						    <li><a href="#">Assign Groups</a></li>
 						</ul>
 					</li>
-					<li class="has-sub">
-						<a href="javascript:;">
-						    <b class="caret pull-right"></b>
-						    <i class="fa fa-suitcase"></i>
-						    <span>UI Elements <span class="label label-theme m-l-5">NEW</span></span> 
-						</a>
-						<ul class="sub-menu">
-							<li><a href="ui_general.html">General</a></li>
-							<li><a href="ui_typography.html">Typography</a></li>
-							<li><a href="ui_tabs_accordions.html">Tabs & Accordions</a></li>
-							<li><a href="ui_unlimited_tabs.html">Unlimited Nav Tabs <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
-							<li><a href="ui_modal_notification.html">Modal & Notification</a></li>
-							<li><a href="ui_widget_boxes.html">Widget Boxes</a></li>
-							<li><a href="ui_media_object.html">Media Object</a></li>
-							<li><a href="ui_buttons.html">Buttons</a></li>
-							<li><a href="ui_icons.html">Icons</a></li>
-							<li><a href="ui_simple_line_icons.html">Simple Line Icons</a></li>
-							<li><a href="ui_ionicons.html">Ionicons</a></li>
-						</ul>
-					</li>
-					
-					
 					
 					
 			        <!-- begin sidebar minify button -->
