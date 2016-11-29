@@ -1,12 +1,9 @@
-   <html>
-        <head>
+
             <style>
                 .panel-body h1{
                     font-size: 18px;
                 }       
             </style>
-        </head>     
-        <body>
                <div id="content" class="content">
                  <ol class="breadcrumb pull-right">
                          <li><a href="javascript:;">Home</a></li>
@@ -227,7 +224,5 @@
                 
                    }
                </script>
-          </body>
-     </html>
 
     
