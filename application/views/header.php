@@ -172,7 +172,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<span>Payroll & Payslip</span>
 						</a>
 						<ul class="sub-menu">
-						    <li><a href="#">Payroll Category</a></li>
+						    <li><a href="<?php echo base_url();?>dashboardC/Payroll_Categoryview">Payroll Category</a></li>
 						    <li><a href="<?php echo base_url();?>dashboardC/Create_Payroll_Groupview">Payroll Groups</a></li>
 						    <li><a href="#">Assign Groups</a></li>
 						</ul>
@@ -190,4 +190,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="sidebar-bg"></div>
 		<!-- end #sidebar -->
 
-
+		
+		
+		
+		
+		
