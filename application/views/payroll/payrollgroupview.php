@@ -20,10 +20,10 @@
                 <h4 class="panel-title">Payroll Group</h4>
             </div>
             <div class="panel-body">
-                <p></p>
-                <input type="button" class="btn btn-success btn btn-sm col-sm-offset-10" name="Create_Payroll_group" value="+ Create Payroll group">
-                <p></p>
-                <br>
+                <p>
+                <a class="btn btn-primary btn-sm"  href="<?php echo site_url('payrollgroup/Add_Payroll_Groupview');?>"><i class="fa fa-plus fa-1x"></i> <span class="f-s-14 f-w-500"> Add</span></a>
+                <!--<input type="button" class="btn btn-success btn btn-sm col-sm-offset-10" name="Create_Payroll_group" value="+ Create Payroll group">-->
+                </p>
             <!--<div class="panel-body">-->
             <div class="table-responsive">
                 <table id="data-table" class="table table-bordered">

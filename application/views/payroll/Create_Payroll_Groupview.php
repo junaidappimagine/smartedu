@@ -71,7 +71,7 @@
                                                </div>
                                                 <h1 class="page-header">Selected Payroll Categories </h1><hr>
                                                <div class="panel-body">
-                                                   <table class="table table-bordered">
+                                                   <table class="table table-bordered" id="table_dest">
                                                        <thead>
                                                            <tr style="background-color: #d9edf7;border-color: #b6e2ef;">
                                                              <th>Payroll Category</th>
@@ -93,7 +93,7 @@
                                                <p></p>
                                                <h1 class="page-header">Add Payroll Categories </h1><hr>
                                              <div class="panel-body">
-                                                  <table class="table table-bordered ">
+                                                  <table class="table table-bordered " id="table_source">
                                                       <thead>
                                                           <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
                                                               <th>Category Name</th>
@@ -110,7 +110,7 @@
                                                               <td>Basic</td>
                                                               <td>BA</td>
                                                               <td>50%GROSS</td>
-                                                              <td><a>ADD</a></td>
+                                                              <td><a class='move-row' alt='ADD'></a></td>
                                                           </tr>
                                                           <tr>
                                                               <th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></th>
@@ -119,13 +119,13 @@
                                                               <td>Provident fund</td>
                                                               <td>PF</td>
                                                               <td>10%GROSS</td>
-                                                              <td><a>ADD</a></td>
+                                                              <td><a class='move-row' alt='ADD'></a></td>
                                                           </tr>
                                                           <tr>
                                                               <td>Provident fund</td>
                                                               <td>LOP</td>
                                                               <td>1.5%GROSS</td>
-                                                              <td><a>ADD</a></td>
+                                                              <td><a class='move-row' alt='ADD'></a></td>
                                                           </tr>
                                                       </tbody>
                                                   </table>
@@ -148,39 +148,203 @@
                                                            <div class="col-md-2"></div>
                                                    </div>
                                              </div>
-                                             <div  class="form-group hidden" id="EnableLOP" >
-                                                   <label class="col-md-2 control-label">LOP Calculation Method *</label>
-                                                   <div class="col-md-4">
-                                                       <select class="form-control input-sm" id="selectType" onchange="CalculationMethod()">
-                                                            <option>Select value Type</option>
+                                             <!--<div  class="form-group hidden" id="EnableLOP" >-->
+                                             <!--      <label class="col-md-2 control-label">LOP Calculation Method *</label>-->
+                                             <!--      <div class="col-md-4">-->
+                                             <!--          <select class="form-control input-sm" id="selectType" onchange="CalculationMethod()">-->
+                                             <!--               <option>Select value Type</option>-->
+                                             <!--               <option>Numeric</option>-->
+                                             <!--               <option>Formula</option>-->
+                                             <!--               <option>Conditional Formula</option>-->
+                                             <!--          </select>-->
+                                             <!--      </div>-->
+                                             <!--</div>-->
+                                             <!--<div  class="form-group hidden" id="numeric" >-->
+                                             <!--      <label class="col-md-2 control-label">Amount</label>-->
+                                             <!--      <div class="col-md-4">-->
+                                             <!--          <input type="text" class="form-control input-sm" name="amount">-->
+                                             <!--      </div>-->
+                                             <!--</div>-->
+                                             <!--<div  class="form-group hidden" id="formula" >-->
+                                             <!--      <label class="col-md-2 control-label">Formula</label>-->
+                                             <!--      <div class="col-md-4">-->
+                                             <!--          <textarea class="form-control" placeholder="Textarea" rows="5"></textarea>-->
+                                             <!--      </div>-->
+                                             <!--</div>-->
+                                             
+                                             
+                                             <div class="form-group hidden" id="EnableLOP" >
+                                                  <label class="col-md-2 control-label">Value type <span  class="imp">*</span> </label>
+                                                  <div class="col-md-4">
+                                                       <select name="value"  class="form-control input-sm" id="value_type">
+                                                            <option>select value type</option>
                                                             <option>Numeric</option>
                                                             <option>Formula</option>
                                                             <option>Conditional Formula</option>
                                                        </select>
-                                                   </div>
+                                                  </div>
+                                             </div>		    
+                                             <div class="form-group" id="numeric">
+                                                  <label class="col-md-2 control-label">Amount <span class="imp">*</span> </label>
+                                                  <div class="col-md-4">
+                                                       <input type="text" class="form-control input-sm" placeholder="" />
+                                                  </div>
                                              </div>
-                                             <div  class="form-group hidden" id="numeric" >
-                                                   <label class="col-md-2 control-label">Amount</label>
-                                                   <div class="col-md-4">
-                                                       <input type="text" class="form-control input-sm" name="amount">
-                                                   </div>
+                                             <div class="form-group" id="formula">
+                                                  <label class="col-md-2 control-label">Formula <span class="imp">*</span> </label>
+                                                  <div class="col-md-4">
+                                                       <textarea  style="width: 100%;" rows="3"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                  </div>
+                                                  <div class="col-md-1">
+                                                       <a href="#">Validate</a>
+                                                  </div>
+                                                  <div class="col-md-4">
+                                                       <ul class="nav nav-tabs">
+                                                            <li class="active"><a data-toggle="tab" href="#categories">Payroll categories</a></li>
+                                                            <li><a data-toggle="tab" href="#formula">Formula Examples</a></li>
+                                                       </ul>
+                                                       <div class="tab-content well">
+                                                            <div id="categories" class="tab-pane fade in active">
+                                                                 <h6 class="section_header">Standard codes</h6>
+                                                                 <div class="row">
+                                                                      <div class="col-md-6">Gross pay</div>
+                                                                      <div class="col-md-offset-2 col-md-4">GROSS</div>
+                                                                 </div>
+                                                                 <div class="row">
+                                                                      <div class="col-md-6">Number of working days</div>
+                                                                      <div class="col-md-offset-2 col-md-4">NWD</div>
+                                                                 </div>
+                                                                      <h6 class="section_header">Earnings</h6>
+                                                                 <div class="row">
+                                                                      <div class="col-md-6">Basic</div>
+                                                                      <div class="col-md-offset-2 col-md-4">Travelling </div>
+                                                                 </div>
+                                                                 <div class="row">
+                                                                      <div class="col-md-6">Number of working days</div>
+                                                                      <div class="col-md-offset-2 col-md-4">NWD</div>
+                                                                 </div>
+                                                                      <h6 class="section_header">Deductions</h6>
+                                                            </div>
+                                                            <div id="formula" class="tab-pane fade">
+                                                                 <ul>
+                                                                      <li>content 1</li>
+                                                                      <li>content 2</li>
+                                                                      <li>content 3</li>
+                                                                 </ul>
+                                                            </div>
+                                                       </div>
+                                                  </div>
                                              </div>
-                                             <div  class="form-group hidden" id="formula" >
-                                                   <label class="col-md-2 control-label">Formula</label>
-                                                   <div class="col-md-4">
-                                                       <textarea class="form-control" placeholder="Textarea" rows="5"></textarea>
-                                                   </div>
+                                             <div class="row" id="conditional_formula">
+                                                  <div class="col-md-offset-2 col-md-6" style="border:1px solid;">
+                                                       <h6  class="section_header">Condition</h6>
+                                                       <div class="form-group">
+                                                            <label class="col-md-2 control-label">if</label>
+                                                            <div class="col-md-8">
+                                                                    <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                               <a href="#">Validate</a>
+                                                            </div>
+                                                       </div>
+                                                       <div class="form-group">
+                                                           <label class="col-md-2 control-label"></label>
+                                                           <div class="col-md-8">
+                                                                <select name="value"  class="form-control input-sm">
+                                                                      <option>select value type</option>
+                                                                      <option>Numeric</option>
+                                                                      <option>Formula</option>
+                                                                      <option>Conditional Formula</option>
+                                                                </select>
+                                                           </div>
+                                                       </div>
+                                                       <div class="form-group" id="">
+                                                            <label class="col-md-2 control-label"></label>
+                                                            <div class="col-md-8">
+                                                                 <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                 <a href="#">Validate</a>
+                                                            </div>
+                                                       </div>
+                                                       <div class="form-group" id="">
+                                                           <label class="col-md-2 control-label">then</label>
+                                                            <div class="col-md-8">
+                                                                 <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                 <a href="#">Validate</a>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                                  <div class="col-md-4">
+                                                       <ul class="nav nav-tabs">
+                                                            <li class="active"><a data-toggle="tab" href="#categories">Payroll categories</a></li>
+                                                            <li><a data-toggle="tab" href="#formula">Formula Examples</a></li>
+                                                       </ul>
+                                                  <div class="tab-content well">
+                                                       <div id="categories" class="tab-pane fade in active">
+                                                            <h6 class="section_header">Standard codes</h6>
+                                                            <div class="row">
+                                                                 <div class="col-md-6">Gross pay</div>
+                                                                 <div class="col-md-offset-2 col-md-4">GROSS</div>
+                                                            </div>
+                                                            <div class="row">
+                                                                 <div class="col-md-6">Number of working days</div>
+                                                                 <div class="col-md-offset-2 col-md-46">NWD</div>
+                                                            </div>
+                                                                <h6 class="section_header">Earnings</h6>
+                                                            <div class="row">
+                                                                 <div class="col-md-6">Basic</div>
+                                                                 <div class="col-md-offset-2 col-md-4">Travelling </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                 <div class="col-md-6">Number of working days</div>
+                                                                 <div class="col-md-offset-2 col-md-4">NWD</div>
+                                                            </div>
+                                                                <h6 class="section_header">Deductions</h6>
+                                                       </div>
+                                                       <div id="formula" class="tab-pane fade">
+                                                            <ul>
+                                                                 <li>content 1</li>
+                                                                 <li>content 2</li>
+                                                                 <li>content 3</li>
+                                                            </ul>
+                                                       </div>
+                                                  </div>
+                                                  </div>
+                                                  <div class="row">
+                                                       <div class="col-md-offset-2 col-md-3">
+                                                            <a href="#"><i class="fa fa-plus fa-1x">&nbsp;</i> Add another condition</a>
+                                                       </div>
+                                                  </div>
+                                                  <br><br>
+                                                  <div class="row">
+                                                       <div class="col-md-offset-2 col-md-6" style="border:1px solid;">
+                                                            <h6>Default Condition</h6>
+                                                            <p class="section_header">If above condition cannot be performed, this condition will be considered</p>
+                                                            <div class="form-group">
+                                                                    <label class="col-md-2 control-label">Value</label>
+                                                                    <div class="col-md-8">
+                                                                           <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                           <a href="#">Validate</a>
+                                                                    </div>
+                                                            </div>
+                                                       </div>
+                                                  </div>
                                              </div>
                                              <hr>
                                              <div class="form-group">
-                                                   <div class="col-md-8 col-sm-offset-2">
-                                                       <div class="col-md-4">
-                                                            <button type="submit" class="btn btn-sm btn-success">Create Payroll Group</button>
-                                                       </div>
-                                                       <div class="col-md-4">
-                                                           <button type="submit" class="btn btn-sm btn-danger">Cancel</button>
-                                                       </div>
-                                                   </div>
+                                                  <div class="col-md-8 col-sm-offset-2">
+                                                      <div class="col-md-4">
+                                                           <button type="submit" class="btn btn-sm btn-success">Create Payroll Group</button>
+                                                      </div>
+                                                      <div class="col-md-4">
+                                                          <button type="submit" class="btn btn-sm btn-danger">Cancel</button>
+                                                      </div>
+                                                  </div>
                                              </div>
                                            </form>
                                        </div>
@@ -189,6 +353,25 @@
                          </div>
                     </div>
                <script>
+                    $(document).ready(function() {
+    $("#table_source").on("click",".move-row", function() {
+     alert();
+        var tr = $(this).closest("tr").remove().clone();
+        console.log(tr);
+        tr.find("a.move-row")
+            //.attr("src", "remove_image_path.jpg")
+            .attr("alt", "Remove");
+        $("#table_dest tbody").append(tr);
+    });
+
+    $("#table_dest").on("click"," a.move-row", function() {
+        var tr = $(this).closest("tr").remove().clone();
+        tr.find("a.move-row")
+            //.attr("src", "move_image_path.jpg")
+            .attr("alt", "ADD");
+        $("#table_source tbody").append(tr);
+    });
+});
                     function selectPreference()
                     {
                        if($('#Pyment').val() == 'Weekly') {
@@ -223,6 +406,35 @@
                     }
                 
                    }
+                    
+                  $('#numeric').hide();
+                          $('#formula').hide();
+                          $('#conditional_formula').hide();
+                          $(document).ready(function() {
+                  $("#value_type").change(function(){
+                                          //alert();
+                                  console.log($(this).val());
+                                   if($(this).val()==='Numeric')
+                                           {
+                                                  $('#numeric').show();
+                                              $('#formula').hide();
+                                                  $('#conditional_formula').hide();
+                                           }
+                                           else if($(this).val()==='Formula')
+                                           {
+                                                  $('#numeric').hide();
+                                                  $('#formula').show();
+                                                  $('#conditional_formula').hide();
+                                           }
+                                           else if($(this).val()==='Conditional Formula')
+                                           {
+                                                  $('#numeric').hide();
+                                                  $('#formula').hide();
+                                                  $('#conditional_formula').show();
+                                           }
+                                  });
+                          });
+		
                </script>
 
     

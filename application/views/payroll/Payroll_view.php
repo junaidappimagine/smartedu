@@ -29,13 +29,19 @@
                             </div>
                             <div class="panel-body" >
                                 <div class="col-md-12 row" >
-                                    <h1 class="page-header"><b>Payroll Group Details</b></h1>
+                                    <div class="col-sm-10">
+                                        <h1 class="page-header"><b>Payroll Group Details</b></h1>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a href="<?php echo base_url('payrollgroup/Payroll_Edit');?>" name="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i>Edit</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 row" > 
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Payroll Group Name </label>
-                                         <label class="col-md-10">
+                                         <label class="col-md-8">
                                             : &nbsp; BASIC
                                          </label>
-                                        
                                     </div>
                                 </div>
                                 <div class="row col-md-12">
