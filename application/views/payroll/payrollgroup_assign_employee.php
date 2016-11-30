@@ -23,19 +23,23 @@
                     <div class="container" style="width: 100%">
                     <p><br></p>
                     <form class="form-horizontal">
-                        <div class="form-group">
-                            <label class="col-md-2">Department</label>
-                            <label class="col-md-1"><b>:</b></label>
-                            <div class="col-md-3">
-                                <select class="form-control">
-                                   <option>All Department</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                        </div>
+                        <table class="mytable" width="40%">
+                            <tr>
+                               <td><label class="col-md-12 ">Department</label></td>
+                               <td><label class="col-md-12 "><b>:</b></label></td>
+                               <td>
+                                   <div class="col-sm-12">
+                                 <select class="form-control input-sm">
+                                     <option>All Department</option>
+                                     <option>2</option>
+                                     <option>3</option>
+                                     <option>4</option>
+                                     <option>5</option>
+                                 </select>
+                             </div>
+                           </td>
+                           </tr>
+                        </table>
                     </form>
                     <div class="table-responsive">
                         <p><br> </p>

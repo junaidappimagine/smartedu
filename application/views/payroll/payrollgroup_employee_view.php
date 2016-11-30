@@ -52,63 +52,32 @@
                   <p></p>
                   <br>
                   <form class="form-horizontal">
-                    
                     <table class="mytable" width="40%">
                         <tr>
-                            <td><label class="col-md-12 ">Default Input</label></td>
+                            <td><label class="col-md-12 ">Payroll group</label></td>
                             <td><label class="col-md-12 "><b>:</b></label></td>
-                            <td><label class="col-md-12 ">Default Input</label></td>
+                            <td><label class="col-md-12 "><b>BASIC</b></label></td>
                         </tr>
-                         <tr>
-                            <td><label class="col-md-12 ">Default Input</label></td>
+                        <tr>
+                            <td><label class="col-md-12 ">Department</label></td>
                             <td><label class="col-md-12 "><b>:</b></label></td>
                             <td>
                                 <div class="col-sm-12">
-                              <select class="form-control input-sm">
-                                  <option>All Department</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                              </select>
-                          </div>
-                        </td>
+                                    <select class="form-control input-sm">
+                                        <option>All Department</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                 </div>
+                            </td>
                         </tr>
                     </table>
                     <div>
                         <p></p>
                         <br>
                     </div>
-                    <!--<div class="form-group">-->
-                    <!--    <label class="col-md-2" style="text-align: left;margin-left: 15px">Payroll Group &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:</label>-->
-                    <!--    <label class="col-md-9">Default Input</label>-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                    <!--    <label class="col-md-2 control-label" style="text-align: left;margin-left: 15px">Department &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:</label>-->
-                    <!--    <div class="col-md-3">-->
-                    <!--        <select class="form-control input-sm">-->
-                    <!--              <option>All Department</option>-->
-                    <!--              <option>2</option>-->
-                    <!--              <option>3</option>-->
-                    <!--              <option>4</option>-->
-                    <!--              <option>5</option>-->
-                    <!--        </select>-->
-                    <!---->
-                    <!--    </div>-->
-                    <!--</div>                    -->
-                    
-    <!--                  <div class="form-group">
-                          <label class="col-sm-2" style="text-align: left;">Payroll Group</label>
-                          <label class="col-sm-1" style="text-align: left;">:</label>
-                          <label class="col-sm-9">Basic</label>
-                      </div>
-                      
-                      <div class="form-group">
-                          <label class="col-sm-2" style="text-align: left;">Department</label>
-                          <label class="col-sm-1" style="text-align: left;">:</label>
-                          <div class="col-sm-3">
-                          </div>
-                      </div>-->
                   </form>
                  <!-- </div>-->
                 <!--  <div class="panel-body">-->
@@ -128,7 +97,7 @@
                               <tr>
                                   <td>Employee 1</td>
                                   <td>Administration</td>
-                                  <td>System admin/td>
+                                  <td>System admin</td>
                                   <td>03-10-2016</td>
                                   <td>
                                       <a href="<?php echo base_url('payrollgroup/view_payroll');?>"><button type="button" class="btn btn-warning btn btn-xs"">View Payroll</button></a>
