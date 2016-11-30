@@ -21,24 +21,25 @@ class dashboardC extends CI_Controller {
 	function __construct(){
 	    parent::__construct();
 	}
-	public function index()
-	{
-		$this->load->view('header');
-		$this->load->view('dashboard');
-		$this->load->view('footer');
+	function index(){
+	    $this->load->view('header');
+	    $this->load->view('dashboard');
+	    $this->load->view('footer');
 	}
-	public function Create_Payroll_Groupview()
-	{
-		$this->load->view('header');
-		$this->load->view('payroll/Create_Payroll_Groupview');
-		$this->load->view('footer');
+	function Create_Payroll_Groupview(){
+	    $this->load->view('header');
+	    $this->load->view('payroll/payrollgroupview');
+	    $this->load->view('footer');
 	}
-	
+	function Assign_Employees(){
+		$this->load->view('header');
+		$this->load->view('footer');
+		$this->load->view('payroll/payrollgroup_assign_employee');
+	}
 	function Payroll_Categoryview(){
-		
-		$this->load->view('header');
-		$this->load->view('payroll/Payroll_Categoryview');
-		$this->load->view('footer');
+	    $this->load->view('header');
+	    $this->load->view('payroll/Payroll_Categoryview');
+	    $this->load->view('footer');
 		
 	}
 	

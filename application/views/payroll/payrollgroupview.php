@@ -43,7 +43,7 @@
                             <td>BA,ALL,CAT1</td>
                             <td>Monthly</td>
                             <td>
-                                <a href="#"><button type="button" class="btn btn-warning btn btn-xs"">View</button></a>
+                                <a href="<?php echo base_url('payrollgroup/Payroll_view');?>"><button type="button" class="btn btn-warning btn btn-xs"">View</button></a>
                                 <a href="<?php echo base_url('payrollgroup/payrollgroup_Employees_view');?>"><button type="button" class="btn btn-info btn btn-xs">Employee</button></a>
                             </td>
                         </tr>

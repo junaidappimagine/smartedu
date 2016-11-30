@@ -1,3 +1,27 @@
+<style>
+    @media only screen and (min-width: 320px) and (max-width: 359px){
+    .mytable{
+        width: 250px !important;
+        }
+    }
+    @media only screen and (min-width: 360px) and (max-width: 500px){
+    .mytable{
+        width: 290px !important;
+        }
+    }
+    @media only screen and (min-width: 500px) and (max-width: 769px){
+        .mytable{
+            width: 450px !important;
+            /*background-color: blue;*/
+        }
+    }
+    @media only screen and (min-width: 800px) and (max-width: 980px){
+        .mytable{
+            width: 500px !important;
+            /*background-color: red;*/
+        }
+    }
+</style>
 <div id="content" class="content">
         <!-- begin breadcrumb -->
         <ol class="breadcrumb pull-right">

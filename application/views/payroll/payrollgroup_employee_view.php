@@ -12,13 +12,15 @@
     @media only screen and (min-width: 500px) and (max-width: 769px){
         .mytable{
             width: 450px !important;
-           /* background-color: red;*/
+            /*background-color: blue;*/
         }
-    @media only screen and (min-width: 770px) and (max-width: 980px){
+    }
+    @media only screen and (min-width: 800px) and (max-width: 980px){
         .mytable{
             width: 500px !important;
-           /* background-color: red;*/
+            /*background-color: red;*/
         }
+    }
 </style>
 
 <div id="content" class="content">
@@ -46,7 +48,7 @@
               <!--  <div class="panel-body">-->
                 <div class="container" style="width: 100% !important">
                   <p></p>
-                  <a href="<?php echo base_url('payrollgroup/payrollgroup_Assign_Employees');?>"><button type="button" class="btn btn-info btn btn-sm col-sm-offset-11" name="Create_Payroll_group">+ Assign</button></a>
+                  <a href="<?php echo base_url('payrollgroup/payrollgroup_Assign_Employees');?>"><button type="button" class="btn btn-info btn btn-sm " name="Create_Payroll_group">+ Assign</button></a>
                   <p></p>
                   <br>
                   <form class="form-horizontal">
