@@ -31,7 +31,7 @@
                                                <div class="form-group">
                                                   <label class="col-md-2 control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Payroll Group Name *</label>
                                                    <div class="col-md-4">
-                                                      <input type="text" class="form-control input-sm" placeholder="Payroll Group Name" />
+                                                      <input type="text" class="form-control input-sm" placeholder="Payroll Group Name" value="<?php if($mode=='edit') echo 'mani';?>"/>
                                                    </div>
                                                </div>
                                                <h1 class="page-header">Salary Preference</h1><hr>
@@ -43,6 +43,7 @@
                                                            <option>Weekly</option>
                                                            <option>monthly</option>
                                                        </select>
+                                                       
                                                    </div>
                                                </div>
                                                 <div class="form-group hidden" id="PayslipDay">
@@ -55,22 +56,51 @@
                                                            <option>Wednesday</option>
                                                            <option>Thursday</option>
                                                            <option>Friday</option>
-                                                           <option>Saturday</option>
+                                                           <option selected >Saturday</option>
                                                        </select>
                                                    </div>
                                                </div>
                                                  <div class="form-group hidden" id="PayslipDate">
                                                    <label class="col-md-2 control-label">Payslip generation date *</label>
                                                    <div class="col-md-4">
-                                                       <select class="form-control input-sm" onchange="">
-                                                           <option>1</option>
-                                                           <option>2</option>
-                                                           <option>3</option>
+                                                       <select class="form-control input-sm" onchange="" >
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option >4</option>
+                                                            <option selected>5</option>
+                                                            <option>6</option>
+                                                            <option>7</option>
+                                                            <option>8</option>
+                                                            <option>9</option>
+                                                            <option>10</option>
+                                                            <option>11</option>
+                                                            <option>12</option>
+                                                            <option>13</option>
+                                                            <option>14</option>
+                                                            <option>15</option>
+                                                            <option>16</option>
+                                                            <option>17</option>
+                                                            <option>18</option>
+                                                            <option>19</option>
+                                                            <option>20</option>
+                                                            <option>21</option>
+                                                            <option>22</option>
+                                                            <option>23</option>
+                                                            <option>24</option>
+                                                            <option>25</option>
+                                                            <option>26</option>
+                                                            <option>27</option>
+                                                            <option>28</option>
+                                                            <option>29</option>
+                                                            <option>30</option>
                                                        </select>
+                                                      
                                                    </div>
                                                </div>
                                                 <h1 class="page-header">Selected Payroll Categories </h1><hr>
                                                <div class="panel-body">
+                                                   <?php if($mode!='edit') { ?>
                                                    <table class="table table-bordered" id="table_dest">
                                                        <thead>
                                                            <tr style="background-color: #d9edf7;border-color: #b6e2ef;">
@@ -81,18 +111,100 @@
                                                            </tr>
                                                        </thead>
                                                        <tbody>
-                                                           <tr>
-                                                             <td>Add payroll categories from the below table</td>
-                                                             <td></td>
-                                                             <td></td>
-                                                             <td></td>
-                                                           </tr>
+                                                          <tr id="earn"><td colspan="4">Earnings</td></tr>
+                                                          <tr><td colspan="4">No data</td></tr>
+                                                          <tr id="ded"><td colspan="4">Deduction</td></tr>
+                                                          <tr><td colspan="4">No data</td></tr>
                                                        </tbody>
                                                    </table>
+                                                    <?php }else{ ?>
+                                                    <table class="table table-bordered " id="table_source">
+                                                      <thead>
+                                                          <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
+                                                              <th>Category Name</th>
+                                                              <th>Category Code</th>
+                                                              <th>Value</th>
+                                                              <th></th>
+                                                          </tr>
+                                                          <tr >
+                                                              <th colspan="4" style="background: #f0f3f5 none repeat scroll 0 0;">Earnings</th>
+                                                          </tr>
+                                                      </thead>
+                                                      <tbody>
+                                                          <tr>
+                                                              <td>Basic</td>
+                                                              <td>BA</td>
+                                                              <td>50%GROSS</td>
+                                                              <td><input type="button" name="test" class='move-row btn btn-primary input-sm' value="ADD"></td>
+                                                          </tr>
+                                                          <tr>
+                                                              <th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></th>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Provident fund</td>
+                                                              <td>PF</td>
+                                                              <td>10%GROSS</td>
+                                                              <td><input type="button" name="test" class='move-row btn btn-primary input-sm' value="ADD"></td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>Provident fund</td>
+                                                              <td>LOP</td>
+                                                              <td>1.5%GROSS</td>
+                                                              <td><input type="button" name="test" class='move-row btn btn-primary input-sm' value="ADD"></td>
+                                                          </tr>
+                                                      </tbody>
+                                                  </table>
+                                                        <?php 
+                                                   }
+                                                   ?>
+                                                   
+                                                   
+                                                   
                                                </div>
                                                <p></p>
                                                <h1 class="page-header">Add Payroll Categories </h1><hr>
                                              <div class="panel-body">
+                                                  <?php if($mode!='edit') { ?>
+                                                  <table class="table table-bordered " id="table_source">
+                                                      <thead>
+                                                          <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
+                                                              <th>Category Name</th>
+                                                              <th>Category Code</th>
+                                                              <th>Value</th>
+                                                              <th></th>
+                                                          </tr>
+                                                          <!--<tr id="earn1">-->
+                                                          <!--    <th colspan="4" style="background: #f0f3f5 none repeat scroll 0 0;">Earnings</th>-->
+                                                          <!--</tr>-->
+                                                      </thead>
+                                                      <tbody>
+                                                       <tr id="earn_id"><td colspan="4">Earnings</td></tr>
+                                                          <tr id="erng">
+                                                              <td>Basic</td>
+                                                              <td>BA</td>
+                                                              <td>50%GROSS</td>
+                                                              <td><input type="button" class='move-row-ec btn btn-primary input-sm' value="ADD"></td>
+                                                          </tr>
+                                                          <!--<tr id="ded1">-->
+                                                          <!--    <th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></th>-->
+                                                          <!--</tr>-->
+                                                          <tr id="deduct_id"><td colspan="4">Deduction</td></tr>
+                                                          <tr id="deduct">
+                                                              <td>Provident fund</td>
+                                                              <td>PF</td>
+                                                              <td>10%GROSS</td>
+                                                              <td><input type="button" class='move-row-dc btn btn-primary input-sm' value="ADD" ></td>
+                                                          </tr>
+                                                          <tr id="deduct1">
+                                                              <td>Provident fund</td>
+                                                              <td>LOP</td>
+                                                              <td>1.5%GROSS</td>
+                                                              <td><input type="button" class='move-row-dc1 btn btn-primary input-sm' value="ADD"></td>
+                                                          </tr>
+                                                      </tbody>
+                                                  </table>
+                                                  <?php }else{ ?>
+                                                  
                                                   <table class="table table-bordered " id="table_source">
                                                       <thead>
                                                           <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
@@ -104,31 +216,25 @@
                                                           <tr>
                                                               <th colspan="4" style="background: #f0f3f5 none repeat scroll 0 0;">Earnings</th>
                                                           </tr>
+                                                          <tr>
+                                                              <td colspan="4"><center>No Data</center> </td>
+                                                          </tr>
                                                       </thead>
                                                       <tbody>
-                                                          <tr>
-                                                              <td>Basic</td>
-                                                              <td>BA</td>
-                                                              <td>50%GROSS</td>
-                                                              <td><a class='move-row' alt='ADD'></a></td>
-                                                          </tr>
+                                                         
                                                           <tr>
                                                               <th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></th>
                                                           </tr>
                                                           <tr>
-                                                              <td>Provident fund</td>
-                                                              <td>PF</td>
-                                                              <td>10%GROSS</td>
-                                                              <td><a class='move-row' alt='ADD'></a></td>
+                                                              <td colspan="4"><center>No Data</center> </td>
                                                           </tr>
-                                                          <tr>
-                                                              <td>Provident fund</td>
-                                                              <td>LOP</td>
-                                                              <td>1.5%GROSS</td>
-                                                              <td><a class='move-row' alt='ADD'></a></td>
-                                                          </tr>
+                                                          
                                                       </tbody>
                                                   </table>
+                                                  
+                                                       <?php 
+                                                   }
+                                                   ?>
                                              </div><p></p>
                                              <h1 class="page-header">Loss of Pay Criteria <br><small>Applicable if the salary must be deducted from employee salary</small></h1><hr>
                                              <div class="form-group">
@@ -141,7 +247,7 @@
                                                        </div>
                                                        <div class="col-md-4">
                                                             <label class="radio-inline">
-                                                                <input type="radio" name="LOP" value="option2" onclick="DisableDeduction()"/>
+                                                                <input type="radio" name="LOP" value="option2" onclick="DisableDeduction()" checked/>
                                                                 LOP not applicable
                                                             </label>
                                                        </div>
@@ -354,24 +460,55 @@
                     </div>
                <script>
                     $(document).ready(function() {
-    $("#table_source").on("click",".move-row", function() {
-     alert();
-        var tr = $(this).closest("tr").remove().clone();
-        console.log(tr);
-        tr.find("a.move-row")
-            //.attr("src", "remove_image_path.jpg")
-            .attr("alt", "Remove");
-        $("#table_dest tbody").append(tr);
-    });
-
-    $("#table_dest").on("click"," a.move-row", function() {
-        var tr = $(this).closest("tr").remove().clone();
-        tr.find("a.move-row")
-            //.attr("src", "move_image_path.jpg")
-            .attr("alt", "ADD");
-        $("#table_source tbody").append(tr);
-    });
-});
+                         $(".move-row-ec").on("click",function() {
+                             var valu=$('#earn');
+                              $('#erng').clone().insertAfter(valu).removeAttr('id').find('input').attr('value','remove').removeClass('btn-primary').addClass('btn-danger move-row-es');
+                              $('#erng').remove();
+                            
+                         });
+                         $(".move-row-dc").on("click",function() {
+                             
+                              var valu1=$('#ded');
+                              $('#deduct').clone().insertAfter(valu1).removeAttr('id').find('input').attr('value','remove').removeClass('btn-primary').addClass('btn-danger');
+                              $('#deduct').remove();
+                         });
+                          $(".move-row-dc1").on("click",function() {
+                             //alert('oou');
+                              var valu1=$('#ded');
+                              $('#deduct1').clone().insertAfter(valu1).removeAttr('id').find('input').attr('value','remove').removeClass('btn-primary').addClass('btn-danger ');
+                              $('#deduct1').remove();
+                         });
+                        //$('.move-row-ec').parents('tr:first').find('input').attr('value','remove').removeClass('btn-primary').addClass('btn-danger');
+                         $(".move-row-ec").on("click",function() {
+                              alert();
+                               var valu=$('#earn_id');
+                            
+                              $('#data').remove();
+                              
+                              var valu2=$('#deduct_id');
+                              $('#deduct').clone().insertAfter(valu2).removeAttr('id').attr('');
+                              $('#deduct').remove();
+                         });
+                         
+                         //$("#table_source").on("click","input.move-row", function() {
+                         //     var valu=$('#earn');
+                         //var tr = $(this).closest("tr");
+                         //     console.log(tr,"tr");
+                         //     $('#earn').clone().insertAfter(tr).removeAttr('id','hello123');
+                         //     tr.remove();
+                         //     tr.find("input.move-row")
+                         //     .attr("value", "Remove");
+                         ////$("#table_dest tbody").append(tr);
+                         //});
+                         //$("#table_dest").on("click"," input.move-row", function() {
+                         //    var tr = $(this).closest("tr").remove().clone();
+                         //    tr.find("input.move-row")
+                         //        .attr("value", "ADD");
+                         //    $("#table_source tbody").append(tr);
+                         //});
+                            
+                    });
+                 
                     function selectPreference()
                     {
                        if($('#Pyment').val() == 'Weekly') {
@@ -385,6 +522,7 @@
                          $('#PayslipDay').addClass('hidden');
                        }
                    }
+                   
                    function EnableDeduction()
                    {
                          $("#EnableLOP").removeClass('hidden');
