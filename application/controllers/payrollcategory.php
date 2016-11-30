@@ -20,6 +20,21 @@ class payrollcategory extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view('header');
+		$this->load->view('footer');
+		$this->load->view('payroll/createpayroll');
+		
 	}
+	 
+	 public function  Create_Payroll_Category()
+	 {
+		
+		$this->load->view('header');
+		$this->load->view('footer');
+		$this->load->view('payroll/createpayroll');
+		
+		
+	 }
+	
+	
 }

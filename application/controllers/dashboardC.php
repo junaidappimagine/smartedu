@@ -33,4 +33,15 @@ class dashboardC extends CI_Controller {
 		$this->load->view('payroll/Create_Payroll_Groupview');
 		$this->load->view('footer');
 	}
+	
+	function Payroll_Categoryview(){
+		
+		$this->load->view('header');
+		$this->load->view('payroll/Payroll_Categoryview');
+		$this->load->view('footer');
+		
+	}
+	
+	
+	
 }
