@@ -43,6 +43,12 @@ class dashboardC extends CI_Controller {
 		
 	}
 	
-	
+	function employee_category(){
+		
+		$this->load->view('header');
+		$this->load->view('payroll/employee_category');
+		$this->load->view('footer');
+		
+	}
 	
 }
