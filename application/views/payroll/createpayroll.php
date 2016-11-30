@@ -23,7 +23,7 @@
 	
 	border:1px solid;
 }
-	
+	.hidden{ display: none; }
 	
 </style>
 
@@ -154,89 +154,149 @@
 										</div>
 									    <div class="row" id="conditional_formula">
 											<div class="row">
-											<div class="col-md-offset-1 col-md-5" style="border:1px solid;">
-												<h6  class="section_header">Condition</h6>
-												<div class="form-group">
-													<label class="col-md-2 control-label">if</label>
-													<div class="col-md-8">
-														<textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
-													</div>
-													<div class="col-md-2">
-													   <a href="#">Validate</a>
-													</div>
-												</div>
-												<div class="form-group">
-													 <label class="col-md-2 control-label"></label>
-														<div class="col-md-8">
-															<select name="value"  class="form-control input-sm">
-																<option>select value type</option>
-																<option>Numeric</option>
-																<option>Formula</option>
-																<option>Conditional Formula</option>
-															</select>
+											    <div class="col-md-offset-1 col-md-5" style="border:1px solid;"  >
+													<div class="row section_header">
+														<div class="col-md-2">
+															<h6>Condition </h6>
 														</div>
-												</div>
-												<div class="form-group" id="">
-													<label class="col-md-2 control-label"></label>
-													<div class="col-md-8">
-														<textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+														<!--<div class="col-md-offset-9 col-md-1">
+															<a href="#"  class="cancel hidden">[X]</a>
+														</div>-->
 													</div>
-													<div class="col-md-2">
-													   <a href="#">Validate</a>
+													<br>
+													<div class="form-group">
+														<label class="col-md-2 control-label">if</label>
+														<div class="col-md-8">
+															<textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+														</div>
+														<div class="col-md-2">
+														   <a href="#">Validate</a>
+														</div>
 													</div>
-												</div>
-												<div class="form-group" id="">
-													<label class="col-md-2 control-label">then</label>
-													<div class="col-md-8">
-														<textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+													<div class="form-group">
+														 <label class="col-md-2 control-label"></label>
+															<div class="col-md-8">
+																<select name="value"  class="form-control input-sm">
+																	<option>select value type</option>
+																	<option>Numeric</option>
+																	<option>Formula</option>
+																	<option>Conditional Formula</option>
+																</select>
+															</div>
 													</div>
-													<div class="col-md-2">
-													   <a href="#">Validate</a>
+													<div class="form-group" id="">
+														<label class="col-md-2 control-label"></label>
+														<div class="col-md-8">
+															<textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+														</div>
+														<div class="col-md-2">
+														   <a href="#">Validate</a>
+														</div>
 													</div>
-												</div>
+													<div class="form-group" id="">
+														<label class="col-md-2 control-label">then</label>
+														<div class="col-md-8">
+															<textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+														</div>
+														<div class="col-md-2">
+														   <a href="#">Validate</a>
+														</div>
+													</div>
+											   </div>
+												
+												<div class="col-md-offset-1 col-md-5" id="reference_code">
+													<ul class="nav nav-tabs">
+														<li class="active"><a data-toggle="tab" href="#categories">Payroll categories</a></li>
+														<li><a data-toggle="tab" href="#formula">Formula Examples</a></li>
+													</ul>
+													<div class="tab-content well">
+														<div id="categories" class="tab-pane fade in active">
+															<h6 class="section_header">Standard codes</h6>
+															 <div class="row">
+																<div class="col-md-6">Gross pay</div>
+																<div class="col-md-offset-2 col-md-4">GROSS</div>
+															 </div>
+															 <div class="row">
+																<div class="col-md-6">Number of working days</div>
+																<div class="col-md-offset-2 col-md-4">NWD</div>
+															 </div>
+															 <h6 class="section_header">Earnings</h6>
+															 <div class="row">
+																<div class="col-md-6">Basic</div>
+																<div class="col-md-offset-2 col-md-4">Travelling </div>
+															 </div>
+															 <div class="row">
+																<div class="col-md-6">Number of working days</div>
+																<div class="col-md-offset-2 col-md-4">NWD</div>
+															 </div>
+															 <h6 class="section_header">Deductions</h6>
+														</div>
+														<div id="formula" class="tab-pane fade">
+															<ul>
+																<li>content 1</li>
+																<li>content 2</li>
+																<li>content 3</li>
+															</ul>
+														</div>
+													</div>
+											    </div>
 											</div>
-											<div class="col-md-offset-1 col-md-5">
-												<ul class="nav nav-tabs">
-													<li class="active"><a data-toggle="tab" href="#categories">Payroll categories</a></li>
-													<li><a data-toggle="tab" href="#formula">Formula Examples</a></li>
-												</ul>
-												<div class="tab-content well">
-													<div id="categories" class="tab-pane fade in active">
-														<h6 class="section_header">Standard codes</h6>
-					                                     <div class="row">
-															<div class="col-md-6">Gross pay</div>
-															<div class="col-md-offset-2 col-md-4">GROSS</div>
-														 </div>
-														 <div class="row">
-															<div class="col-md-6">Number of working days</div>
-															<div class="col-md-offset-2 col-md-46">NWD</div>
-														 </div>
-														 <h6 class="section_header">Earnings</h6>
-					                                     <div class="row">
-															<div class="col-md-6">Basic</div>
-															<div class="col-md-offset-2 col-md-4">Travelling </div>
-														 </div>
-														 <div class="row">
-															<div class="col-md-6">Number of working days</div>
-															<div class="col-md-offset-2 col-md-4">NWD</div>
-														 </div>
-														 <h6 class="section_header">Deductions</h6>
-					                                </div>
-													<div id="formula" class="tab-pane fade">
-														<ul>
-															<li>content 1</li>
-															<li>content 2</li>
-															<li>content 3</li>
-														</ul>
+										    <br>
+											<div class="template hidden"  id="template">
+											<div class="col-md-offset-1 col-md-5 " style="border:1px solid;"   style="position:relative">
+													<div class="row section_header">
+														<div class="col-md-2">
+															<h6>Condition </h6>
+														</div>
+														<div class="col-md-offset-9 col-md-1">
+															<a href="#"  class="cancel">[X]</a>
+														</div>
 													</div>
-												</div>
+													<br>
+													<div class="form-group">
+														<label class="col-md-2 control-label">if</label>
+														<div class="col-md-8">
+															<textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+														</div>
+														<div class="col-md-2">
+														   <a href="#">Validate</a>
+														</div>
+													</div>
+													<div class="form-group">
+														 <label class="col-md-2 control-label"></label>
+															<div class="col-md-8">
+																<select name="value"  class="form-control input-sm">
+																	<option>select value type</option>
+																	<option>Numeric</option>
+																	<option>Formula</option>
+																	<option>Conditional Formula</option>
+																</select>
+															</div>
+													</div>
+													<div class="form-group" id="">
+														<label class="col-md-2 control-label"></label>
+														<div class="col-md-8">
+															<textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+														</div>
+														<div class="col-md-2">
+														   <a href="#">Validate</a>
+														</div>
+													</div>
+													<div class="form-group" id="">
+														<label class="col-md-2 control-label">then</label>
+														<div class="col-md-8">
+															<textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+														</div>
+														<div class="col-md-2">
+														   <a href="#">Validate</a>
+														</div>
+													</div>
+											   </div>
 											</div>
-											</div>
-											<br>
 											<div class="row">
-											<div class="col-md-offset-1 col-md-3">
-												<a href="#">Add another condition</a>
-											</div>
+												<div class="col-md-offset-1 col-md-3">
+													<a href="#" id="add">Add another condition</a>
+												</div>
 											</div>
 											<br><br>
 											 <div class="row">
@@ -262,10 +322,6 @@
 										<div class="col-md-6">
 											 <button type="button" class="btn btn-md btn-danger col-md-4">Cancel</button>
 										</div>
-										 <!--<div class="col-md-offset-3 col-md-5">
-										     <button type="button" class="btn btn-success col-md-5">Create Payroll Group</button>
-											 <button type="button" class="btn btn-danger col-md-5">Cancel</button
-										 </div>-->
 										</fieldset>
 									</form>
 								   
@@ -347,5 +403,16 @@
 						$('#conditional_formula').show();
 					 }
 				});
+				
 			});
-		</script>
+	      $('#add').click(function(){
+				var newEle= $('#template').clone(true).insertBefore('#template').removeClass('hidden');
+				//$(newEle).find(".cancel").removeClass("hidden");
+			$('.cancel').click(function(){
+				console.log($(this));
+				var ele=$(this).parent().parent().parent().remove();
+				console.log(ele);
+			});
+			
+		});
+</script>

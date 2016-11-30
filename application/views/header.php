@@ -177,7 +177,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						    <li><a href="<?php echo base_url();?>dashboardC/Assign_Employees">Assign Groups</a></li>
 						</ul>
 					</li>
-					
+					<li class="has-sub">
+						<a href="javascript:;">
+							<span class="caret pull-right"></span>
+							<i class="fa fa-suitcase"></i> 
+							<span>HR Configurations</span>
+						</a>
+						<ul class="sub-menu">
+						    <li><a href="<?php echo base_url();?>dashboardC/employee_category">Employee category</a></li>
+						   
+						</ul>
+					</li>
 					
 			        <!-- begin sidebar minify button -->
 					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
