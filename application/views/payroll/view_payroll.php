@@ -49,11 +49,21 @@
             <div class="panel-body">
                 <div class="container" style="width: 100% !important">
                 <?php if($mode=="View"){?>
-                    <a href="<?php echo base_url('payrollgroup/change_Payrollgroup_Edit');?>" name="edit" class="btn btn-xs btn-primary col-md-offset-11"><i class="fa fa-edit"></i>Edit</a>
+                    <a href="<?php echo base_url('payrollgroup/edit_Payroll');?>" name="edit" class="btn btn-xs btn-primary col-md-offset-11"><i class="fa fa-edit"></i>Edit</a>
                 <?php }else{?>
-                    <a class="hidden" href="<?php echo base_url('payrollgroup/change_Payrollgroup_Edit');?>" name="edit" class="btn btn-xs btn-primary col-md-offset-11"><i class="fa fa-edit"></i>Edit</a>
+                    <a class="hidden" href="<?php echo base_url('payrollgroup/edit_Payroll');?>" name="edit" class="btn btn-xs btn-primary col-md-offset-11"><i class="fa fa-edit"></i>Edit</a>
                 <?php }?>
                 <p></p>
+                <form class="form-inline" action="/" method="POST">
+                <div class="">
+                    <div class="form-group m-r-10 ">
+                        <label>namgsghg : *</label>
+                    </div>
+                    <div class="form-group m-r-10 ">
+                            <label>namgsghg</label>
+                    </div>
+                </div>
+                </form>
                     <form action="#">
                         <table class="mytable">
                             <legend>Employee Payroll</legend>

@@ -22,32 +22,38 @@ class payrollgroup extends CI_Controller {
     function assign_Payrollgroup_View(){
 	$this->load->view('header');
 	$this->load->view('footer');
-	$this->load->view('payroll/assign_payroll_group_view');
+	$data['mode']="View";
+	$this->load->view('payroll/assign_payroll_group_view',$data);
     }
     function assign_Payrollgroup_Edit(){
 	$this->load->view('header');
 	$this->load->view('footer');
-	$this->load->view('payroll/assign_payroll_group_edit');
+	$data['mode']="Edit";
+	$this->load->view('payroll/assign_payroll_group_view',$data);
     }
     function change_Payrollgroup_View(){
 	$this->load->view('header');
 	$this->load->view('footer');
-	$this->load->view('payroll/change_payroll_group_view');
+	$data['mode']="View";
+	$this->load->view('payroll/change_payroll_group_view',$data);
     }
     function change_Payrollgroup_Edit(){
 	$this->load->view('header');
 	$this->load->view('footer');
-	$this->load->view('payroll/change_payroll_group_edit');
+	$data['mode']="Edit";
+	$this->load->view('payroll/change_payroll_group_view',$data);
     }
     function view_Payroll(){
 	$this->load->view('header');
 	$this->load->view('footer');
-	$this->load->view('payroll/view_payroll');
+	$data['mode']="View";
+	$this->load->view('payroll/view_payroll',$data);
     }
       function edit_Payroll(){
 	$this->load->view('header');
 	$this->load->view('footer');
-	$this->load->view('payroll/edit_payroll');
+	$data['mode']="Edit";
+	$this->load->view('payroll/view_payroll',$data);
     }
     function Add_Payroll_Groupview()
 	{
