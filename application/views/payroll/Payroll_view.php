@@ -65,15 +65,15 @@
                                          </label>
                                     </div><br>
                                 </div>
-                                <div class="col-md-12 row">
-                                    <h1 class="page-header"><b>Loss of Pay Criteria</b></h1>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">LOP Calculation Method</label>
-                                         <label class="col-md-10">
-                                             : &nbsp; 10%GROSS
-                                         </label>
-                                    </div>
-                                </div>
+                                <!--<div class="col-md-12 row">-->
+                                <!--    <h1 class="page-header"><b>Loss of Pay Criteria</b></h1>-->
+                                <!--    <div class="form-group">-->
+                                <!--        <label class="col-md-2 control-label">LOP Calculation Method</label>-->
+                                <!--         <label class="col-md-10">-->
+                                <!--             : &nbsp; 10%GROSS-->
+                                <!--         </label>-->
+                                <!--    </div>-->
+                                <!--</div>-->
                                  <div class="col-md-12 row"><br>
                                     <h1 class="page-header"><b>Payroll Categories</b></h1>
                                     <p style="color:#333;">Earnings</p>
