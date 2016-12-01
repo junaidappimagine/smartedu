@@ -26,37 +26,32 @@
 			    <h4 class="panel-title">Working Days</h4>
 			</div>
 			<div class="panel-body">
-			    <!--<div class="well">-->
-				<!--<fieldset>-->
-				    <legend>Number of Working Days</legend>
+			    <legend>Number of Working Days</legend>
+				<div class="col-md-12">
+				    <h5>These values will be applied when using standard code <b>"NWD"</b> to calculate loss of pay.</h5>
+				    <p></p>
+				    <br>
+				</div>
+				<form class="form-horizontal">
 				    <div class="col-md-12">
-					<h5>These values will be applied when using standard code "NWD" to calculate loss of pay.</h5>
-					<p></p>
-					<br>
-				    </div>
-				    <form class="form-horizontal">
-					<div class="col-md-12">
-					    <div class="form-group">
-						<label class="col-sm-2 control-label">Monthly &nbsp; :</label>
-						<div class="col-sm-3">
-						  <input class="form-control input-sm" id=""  type="text">
-						</div>
+					<div class="form-group">
+					    <label class="col-sm-2 control-label">Monthly &nbsp; :</label>
+					    <div class="col-sm-3">
+					      <input class="form-control input-sm" id=""  type="text">
 					    </div>
-					    <div class="form-group">
-						<label class="col-sm-2 control-label">Weekly &nbsp; :</label>
-						<div class="col-sm-3">
-						  <input class="form-control input-sm" type="text">
-						</div>
-					    </div>
-					    <input type="button" class="btn btn-primary btn-sm col-md-offset-2" value="Save">
+					    <label class="col-sm-1 control-label">Days</label>
+					    
 					</div>
-				      </form>
-<!--				    </div>
--->				 <!-- <div class="panel-body">-->
-				   <!-- </div>-->
-				<!--</fieldset>-->
-			    <!--</div>-->
-			<!--end well-->
+					<div class="form-group">
+					    <label class="col-sm-2 control-label">Weekly &nbsp; :</label>
+					    <div class="col-sm-3">
+					      <input class="form-control input-sm" type="text">
+					    </div>
+					    <label class="col-sm-1 control-label">Days</label>
+					</div>
+					&nbsp;&nbsp;<input type="button" class="btn btn-primary btn-sm col-md-offset-2" value="Save">
+				    </div>
+				</form>
 			</div>
 		    <!-- end panel -->
 		    </div>
