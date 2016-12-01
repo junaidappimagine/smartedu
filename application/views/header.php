@@ -186,17 +186,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<ul class="sub-menu">
 						    <!--<li><a href="<?php echo base_url();?>dashboardC/employee_category">Employee category</a></li>-->
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
-									<a href="javascript:;">
-										<span class="caret pull-right"></span><span>Configurations</span>
-									</a>
-									<ul class="sub-menu">
-									   <li><a href="<?php echo base_url();?>hrSettingsC/employee_category">Employee category</a></li>
-									   <li><a href="<?php echo base_url();?>hrSettingsC/employee_department">Employee Department</a></li>
-									   <li><a href="<?php echo base_url();?>hrSettingsC/employee_position">Employee Position</a></li>
-									   <li><a href="<?php echo base_url();?>hrSettingsC/employee_grade">Employee Garde</a></li>
-									   <li><a href="<?php echo base_url();?>hrSettingsC/working_Days">Working Day Setting</a></li>
-									   <li><a href="<?php echo base_url();?>hrSettingsC/leave_Types">Leave Type Setting</a></li>
-									</ul>
+						    <a href="javascript:;">
+							    <span class="caret pull-right"></span><span>Configurations</span>
+						    </a>
+						    <ul class="sub-menu">
+						       <li><a href="<?php echo base_url();?>hrSettingsC/employee_category">Employee category</a></li>
+						       <li><a href="<?php echo base_url();?>hrSettingsC/employee_department">Employee Department</a></li>
+						       <li><a href="<?php echo base_url();?>hrSettingsC/employee_position">Employee Position</a></li>
+						       <li><a href="<?php echo base_url();?>hrSettingsC/employee_grade">Employee Garde</a></li>
+						       <li><a href="<?php echo base_url();?>hrSettingsC/working_Days">Working Day </a></li>
+						       <li><a href="<?php echo base_url();?>hrSettingsC/leave_Types">Leave Type </a></li>
+						       <li><a href="<?php echo base_url();?>hrSettingsC/Bank_Details">Bank Details</a></li>
+						</ul>
 							</li>
 						</ul>
 					</li>
