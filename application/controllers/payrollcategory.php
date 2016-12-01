@@ -36,5 +36,12 @@ class payrollcategory extends CI_Controller {
 		
 	 }
 	
+	function Payroll_Categoryview(){
+	    $this->load->view('header');
+	    $this->load->view('payroll/Payroll_Categoryview');
+	    $this->load->view('footer');
+		
+	}
+	
 	
 }
