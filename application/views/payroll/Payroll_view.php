@@ -34,6 +34,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <center><a href="<?php echo base_url('payrollgroup/Payroll_Edit');?>" name="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i>Edit</a></center>
+                                        <a href="<?php echo base_url('payrollgroup/payrollgroup_Employees_view');?>" name="edit" class="btn btn-xs btn-warning">Empolyee</a>
                                     </div>
                                 </div>
                                 <div class="col-md-12 row" > 

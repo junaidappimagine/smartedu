@@ -74,6 +74,7 @@
                             </tr>
                         </table>
                         <table class="mytable">
+                            <p></p>
                             <legend>Payroll Details</legend>
                             <tr>
                                 <td><label class="col-md-12 ">Payroll Group</label></td>
@@ -90,7 +91,7 @@
                                 <?php }else {?>
                                     <td>
                                        <div class="col-sm-12 ">
-                                           <input type="text" name="" class="form-control input-sm" >
+                                           <input type="text" name="" class="form-control input-sm" value="30500" >
                                        </div>
                                     </td>
                                     <td>    
@@ -103,6 +104,7 @@
                                  <?php }?>
                             </tr>   
                         </table>
+                        <p></p>
                         <legend>Payroll Category</legend>
                         <p>The Payroll amount are calculated based payroll category setup.you can edit the amount if needed</p>
                         <!--<div class="col-md-12" >-->
@@ -117,7 +119,7 @@
                                 <?php }else {?>
                                     <td>
                                        <div class="col-sm-12 form-group">
-                                           <input type="text" name="" class="form-control input-sm alignflied" >
+                                           <input type="text" name="" class="form-control input-sm alignflied" value="13277" >
                                        </div>
                                     </td>
                                     <td><label>INR</label></td>
@@ -133,7 +135,7 @@
                                  <?php }else {?>
                                     <td>
                                        <div class="col-sm-12 form-group">
-                                           <input type="text" name="" class="form-control input-sm alignflied" >
+                                           <input type="text" name="" class="form-control input-sm alignflied" value="8500" >
                                        </div>
                                     </td>
                                     <td><label>INR</label></td>
@@ -156,7 +158,7 @@
                                 <?php }else {?>
                                 <td>
                                        <div class="col-sm-12 form-group">
-                                           <input type="text" name="" class="form-control input-sm alignflied" >
+                                           <input type="text" name="" class="form-control input-sm alignflied" value="2000" >
                                        </div>
                                     </td>
                                 <td><label>INR</label></td>

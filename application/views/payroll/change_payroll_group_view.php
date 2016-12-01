@@ -68,17 +68,17 @@
                             <tr>
                                 <td><label class="col-md-12 ">Name</label></td>
                                 <td><label class="col-md-12 "><b>:</b></label></td>
-                                <td><label class="col-md-12 ">Employee1</label></td>
+                                <td><label class="col-md-12 ">Employee 2</label></td>
                             </tr>
                             <tr>
                                 <td><label class="col-md-12 ">Department</label></td>
                                 <td><label class="col-md-12 "><b>:</b></label></td>
-                                <td><label class="col-md-12 ">Administration</label></td>
+                                <td><label class="col-md-12 ">Teaching</label></td>
                             </tr>
                              <tr>
                                 <td><label class="col-md-12 ">Position</label></td>
                                 <td><label class="col-md-12 "><b>:</b></label></td>
-                                <td><label class="col-md-12 ">System Admin</label></td>
+                                <td><label class="col-md-12 ">Junior Teacher</label></td>
                             </tr>
                         </table>
                         <table class="mytable">
@@ -98,7 +98,7 @@
                                 <?php }else {?>
                                     <td>
                                        <div class="col-sm-12 ">
-                                           <input type="text" name="" class="form-control input-sm" >
+                                           <input type="text" name="" class="form-control input-sm" value="30500" >
                                        </div>
                                     </td>
                                     <td>    
@@ -125,7 +125,7 @@
                                 <?php }else {?>
                                     <td>
                                        <div class="col-sm-12 form-group">
-                                           <input type="text" name="" class="form-control input-sm alignflied" >
+                                           <input type="text" name="" class="form-control input-sm alignflied" value="13277" >
                                        </div>
                                     </td>
                                     <td><label>INR</label></td>
@@ -141,7 +141,7 @@
                                  <?php }else {?>
                                     <td>
                                        <div class="col-sm-12 form-group">
-                                           <input type="text" name="" class="form-control input-sm alignflied" >
+                                           <input type="text" name="" class="form-control input-sm alignflied" value="8500" >
                                        </div>
                                     </td>
                                     <td><label>INR</label></td>
@@ -164,7 +164,7 @@
                                 <?php }else {?>
                                 <td>
                                        <div class="col-sm-12 form-group">
-                                           <input type="text" name="" class="form-control input-sm alignflied" >
+                                           <input type="text" name="" class="form-control input-sm alignflied" value="2000" >
                                        </div>
                                     </td>
                                 <td><label>INR</label></td>
