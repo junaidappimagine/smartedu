@@ -172,7 +172,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<span>Payroll & Payslip</span>
 						</a>
 						<ul class="sub-menu">
-						    <li><a href="<?php echo base_url();?>dashboardC/Payroll_Categoryview">Payroll Category</a></li>
+						    <li><a href="<?php echo base_url();?>payrollcategory/Payroll_Categoryview">Payroll Category</a></li>
 						    <li><a href="<?php echo base_url();?>dashboardC/Create_Payroll_Groupview">Payroll Groups</a></li>
 						    <li><a href="<?php echo base_url();?>dashboardC/Assign_Employees">Assign Groups</a></li>
 						</ul>
@@ -190,10 +190,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<span class="caret pull-right"></span><span>Configurations</span>
 									</a>
 									<ul class="sub-menu">
-									   <li><a href="<?php echo base_url();?>dashboardC/employee_category">Employee category</a></li>
-									   <li><a href="<?php echo base_url();?>dashboardC/employee_category">Employee Department</a></li>
-									   <li><a href="<?php echo base_url();?>dashboardC/employee_category">Employee Position</a></li>
-									   <li><a href="<?php echo base_url();?>dashboardC/employee_category">Employee Garde</a></li>
+									   <li><a href="<?php echo base_url();?>hrSettingsC/employee_category">Employee category</a></li>
+									   <li><a href="<?php echo base_url();?>hrSettingsC/employee_department">Employee Department</a></li>
+									   <li><a href="<?php echo base_url();?>hrSettingsC/employee_position">Employee Position</a></li>
+									   <li><a href="<?php echo base_url();?>hrSettingsC/employee_grade">Employee Garde</a></li>
 									</ul>
 							</li>
 						</ul>
