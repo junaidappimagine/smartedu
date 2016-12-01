@@ -21,7 +21,7 @@
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+				<!--<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>-->
 			    </div>
 			    <h4 class="panel-title">Leave Type</h4>
 			</div>
@@ -34,11 +34,12 @@
 				    <br>
 				</div>
 				<div class="col-md-2">
-				    <a href="<?php echo base_url('hrSettingsC/leaveTypesAdd'); ?>"><input type="button" class="btn btn-primary btn-sm col-md-offset-7" value="+ ADD"></a>
+				    <a href="<?php echo base_url('hrSettingsC/leaveTypesAdd'); ?>"><input type="button" class="btn btn-success btn-sm col-md-offset-7" value="+ ADD"></a>
 				</div>
 			    </div>
-			    <div class="col-md-12">
-				<table class="table table-bordered">
+			    <div class="table-responsive col-md-12 ">
+				 <!--<div class="table-responsive">-->
+				<table class="table table-bordered ">
 				    <thead>
 					<tr>
 					    <th>Leave Type</th>
@@ -49,26 +50,25 @@
 					<tr>
 					    <th colspan="4">Active leave Type</th>
 					</tr>
-
 				    </thead>
 				    <tbody>
 					<tr>
 					    <td>Sick leave</td>
 					    <td>SL</td>
 					    <td>01-sep-2016</td>
-					    <td><a href="">Edit	</a></td>
+					    <td><a href="<?php echo base_url('hrSettingsC/leaveTypeEdit/Sickleave/SL/01-sep-2016');?>" name="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i>Edit</a></td>
 					</tr>
 					<tr>
 					    <td>Causal leave</td>
 					    <td>CL</td>
 					    <td>01-sep-2016</td>
-					    <td><a href="">Edit	</a></td>
+					    <td><a href="<?php echo base_url('hrSettingsC/leaveTypeEdit/Causalleave/CL/01-sep-2016');?>" name="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i>Edit</a></td>
 					</tr>
 					<tr>
 					    <td>Maternity leave</td>
 					    <td>ML</td>
 					    <td>01-sep-2016</td>
-					    <td><a href="">Edit	</a></td>
+					    <td><a href="<?php echo base_url('hrSettingsC/leaveTypeEdit/Maternityleave/MsL/01-sep-2016');?>" name="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i>Edit</a></td>
 					</tr>
 				    </tbody>
 				</table>
