@@ -421,7 +421,7 @@
                                                            <button type="submit" class="btn btn-sm btn-success">Create Payroll Group</button>
                                                       </div>
                                                       <div class="col-md-4">
-                                                          <button type="submit" class="btn btn-sm btn-danger">Cancel</button>
+                                                          <input type="button" class="btn btn-sm btn-danger" onclick="window.history.back();" value="Cancel" >
                                                       </div>
                                                   </div>
                                              </div>
