@@ -25,7 +25,7 @@
                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                                 </div>
-                               <h4 class="panel-title">View</h4>
+                               <h4 class="panel-title">Payroll Group View</h4>
                             </div>
                             <div class="panel-body" >
                                 <div class="col-md-12 row" >
@@ -33,7 +33,7 @@
                                         <h1 class="page-header"><b>Payroll Group Details</b></h1>
                                     </div>
                                     <div class="col-sm-2">
-                                        <a href="<?php echo base_url('payrollgroup/Payroll_Edit');?>" name="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i>Edit</a>
+                                        <center><a href="<?php echo base_url('payrollgroup/Payroll_Edit');?>" name="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i>Edit</a></center>
                                     </div>
                                 </div>
                                 <div class="col-md-12 row" > 
@@ -84,16 +84,22 @@
                                                     <th>Value</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            </tbody>
+                                                      <tbody>
+                                                       <tr id="earn_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
+                                                          <tr id="erng">
+                                                              <td>Basic (BA)</td>
+                                                              <td>50%GROSS</td>
+                                                          </tr>
+                                                          <tr id="deduct_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
+                                                          <tr id="deduct">
+                                                              <td>Provident fund (PF)</td>
+                                                              <td>10%GROSS</td>
+                                                          </tr>
+                                                          <tr id="deduct1">
+                                                              <td>Provident fund (LOP)</td>
+                                                              <td>1.5%GROSS</td>
+                                                          </tr>
+                                                      </tbody>
                                         </table>
                                     </div><br>
                                      <p style="color:#333;">Deduction</p>
@@ -106,14 +112,10 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
+                                                <tr id="earn"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
+                                                <tr><td colspan="4">No data</td></tr>
+                                                <tr id="ded"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
+                                                <tr><td colspan="4">No data</td></tr>
                                             </tbody>
                                         </table><br>
                                     </div>
