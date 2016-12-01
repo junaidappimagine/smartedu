@@ -37,18 +37,26 @@
                                                <div class="form-group">
                                                   <label class="col-md-2 control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Payroll Group Name *</label>
                                                    <div class="col-md-4">
-                                                      <input type="text" class="form-control input-sm" placeholder="Payroll Group Name" value="<?php if($mode=='edit') echo 'mani';?>"/>
+                                                      <input type="text" class="form-control input-sm" placeholder="Payroll Group Name" value="<?php if($mode=='edit') echo 'BASIC';?>"/>
                                                    </div>
                                                </div>
                                                <h1 class="page-header">Salary Preference</h1><hr>
                                                <div class="form-group">
                                                    <label class="col-md-2 control-label">Pyment Frequency *</label>
                                                    <div class="col-md-4">
+                                                         <?php if($mode!='edit') { ?>
                                                        <select class="form-control input-sm" id="Pyment" onchange="selectPreference()">
                                                            <option selected>Daily</option>
                                                            <option>Weekly</option>
                                                            <option>monthly</option>
                                                        </select>
+                                                           <?php } else { ?>
+                                                       <select class="form-control input-sm" id="Pyment" onchange="onloadPreference()">
+                                                           <option>Daily</option>
+                                                           <option>Weekly</option>
+                                                           <option selected>monthly</option>
+                                                       </select>
+                                                           <?php } ?>
                                                        
                                                    </div>
                                                </div>
@@ -142,7 +150,7 @@
                                                               <td>Basic</td>
                                                               <td>BA</td>
                                                               <td>50%GROSS</td>
-                                                              <td><input type="button" class='move-row-ec btn btn-danger btn-td input-sm-td ' value="Remove"></td>
+                                                              <td><input type="button" class='move-row-ec btn btn-danger btn-td input-sm-td ' value="Remove" onclick="addEarning_edit($(this))"></td>
                                                           </tr>
                                                           <!--<tr id="ded1">-->
                                                           <!--    <th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></th>-->
@@ -152,13 +160,13 @@
                                                               <td>Provident fund</td>
                                                               <td>PF</td>
                                                               <td>10%GROSS</td>
-                                                              <td><input type="button" class='move-row-dc btn btn-danger btn-td input-sm-td' value="Remove" ></td>
+                                                              <td><input type="button" class='move-row-dc btn btn-danger btn-td input-sm-td' value="Remove" onclick="addDeduction_edit($(this))"></td>
                                                           </tr>
                                                           <tr id="deduct1">
                                                               <td>Provident fund</td>
                                                               <td>LOP</td>
                                                               <td>1.5%GROSS</td>
-                                                              <td><input type="button" class='move-row-dc1 btn btn-danger btn-td input-sm-td' value="Remove"></td>
+                                                              <td><input type="button" class='move-row-dc1 btn btn-danger btn-td input-sm-td' value="Remove" onclick="addDeduction_edit($(this))"></td>
                                                           </tr>
                                                       </tbody>
                                                   </table>
@@ -191,7 +199,7 @@
                                                               <td>Basic</td>
                                                               <td>BA</td>
                                                               <td>50%GROSS</td>
-                                                              <td><input type="button" class='move-row-ec btn btn-primary btn-td input-sm-td ' value="Add"></td>
+                                                              <td><input type="button" class='move-row-ec btn btn-primary btn-td input-sm-td ' value="Add" onclick="addEarning($(this))"></td>
                                                           </tr>
                                                           <!--<tr id="ded1">-->
                                                           <!--    <th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></th>-->
@@ -201,13 +209,13 @@
                                                               <td>Provident fund</td>
                                                               <td>PF</td>
                                                               <td>10%GROSS</td>
-                                                              <td><input type="button" class='move-row-dc btn btn-primary btn-td input-sm-td' value="Add" ></td>
+                                                              <td><input type="button" class='move-row-dc btn btn-primary btn-td input-sm-td' value="Add" onclick="addDeduction($(this))"></td>
                                                           </tr>
                                                           <tr id="deduct1">
                                                               <td>Provident fund</td>
                                                               <td>LOP</td>
                                                               <td>1.5%GROSS</td>
-                                                              <td><input type="button" class='move-row-dc1 btn btn-primary btn-td input-sm-td' value="Add"></td>
+                                                              <td><input type="button" class='move-row-dc1 btn btn-primary btn-td input-sm-td' value="Add" onclick="addDeduction($(this))"></td>
                                                           </tr>
                                                       </tbody>
                                                   </table>
@@ -432,81 +440,55 @@
                          </div>
                     </div>
                <script>
-               <?php if($mode!= 'edit') { ?>
-                    function check_es() {
-                         var valu=$('#earn_id');
-                              $('#es').clone().insertAfter(valu).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
-                              $('#es').remove();
-                   }
-                    function check_ds() {
-                         var valu2=$('#deduct_id');
-                              $('#ds').clone().insertAfter(valu2).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
-                              $('#ds').remove();
-                              
-                    }
-                    function check_ds1() {
-                         var valu2=$('#deduct_id');
-                              $('#ds1').clone().insertAfter(valu2).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
-                              $('#ds1').remove();
-                        
-                    }
-               <?php } else { ?>
-               function check_ese() {
-                        var valu=$('#earn_id');
-                             $('#es').clone().insertAfter(valu).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
-                             $('#es').remove();
-                  }
-                   function check_dse() {
-                        var valu2=$('#deduct_id');
-                             $('#ds').clone().insertAfter(valu2).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
-                             $('#ds').remove();
-                             
-                   }
-                   function check_dse1() {
-                        var valu2=$('#deduct_id');
-                             $('#ds1').clone().insertAfter(valu2).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
-                             $('#ds1').remove();
-                       
-                   }
-               <?php } ?>
+                    <?php if($mode!= 'edit') { ?>
+                    function addEarning($this){
+                             var valu=$('#earn');
+                             $this.parents('tr').clone().insertAfter(valu).removeAttr('id').attr('id','es').find('input').attr('value','Remove').removeClass('btn-primary ').addClass('btn-danger').attr('onclick', 'removeEarning($(this))');
+                              $this.parents('tr').remove();  
+                         }
+                         function addDeduction($this){  
+                            var valu1=$('#ded');
+                              $this.parents('tr').clone().insertAfter(valu1).removeAttr('id').attr('id','ds').find('input').attr('value','Remove').removeClass('btn-primary move-row-dc').addClass('btn-danger move-row-ds').attr('onclick', 'removeDeduction($(this))');
+                              $this.parents('tr').remove();
+                         }
+                         function removeEarning($this) {
+                              var valu=$('#earn_id');
+                              $this.parents('tr').clone().insertAfter(valu).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary').attr('onclick', 'addEarning($(this))');
+                              $this.parents('tr').remove();
+                         }
+                         function removeDeduction($this) {
+                              var valu2=$('#deduct_id');
+                              $this.parents('tr').clone().insertAfter(valu2).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary').attr('onclick', 'addDeduction($(this))');
+                              $this.parents('tr').remove();
+                         }
+                         <?php } else { ?>
+                           
+                         function addEarning_edit($this){
+                             var valu=$('#earn');
+                             $this.parents('tr').clone().insertAfter(valu).removeAttr('id').attr('id','es').find('input').attr('value','Add').removeClass('btn-danger ').addClass('btn-primary').attr('onclick', 'removeEarning_edit($(this))');
+                              $this.parents('tr').remove();  
+                         }
+                         function addDeduction_edit($this){  
+                            var valu1=$('#ded');
+                              $this.parents('tr').clone().insertAfter(valu1).removeAttr('id').attr('id','ds').find('input').attr('value','Add').removeClass('btn-danger move-row-dc').addClass('btn-primary move-row-ds').attr('onclick', 'removeDeduction_edit($(this))');
+                              $this.parents('tr').remove();
+                         }
+                         function removeEarning_edit($this) {
+                              var valu=$('#earn_id');
+                              $this.parents('tr').clone().insertAfter(valu).removeAttr('id').find('input').attr('value','Remove').removeClass('btn-primary').addClass('btn-danger').attr('onclick', 'addEarning_edit($(this))');
+                              $this.parents('tr').remove();
+                         }
+                         function removeDeduction_edit($this) {
+                              var valu2=$('#deduct_id');
+                              $this.parents('tr').clone().insertAfter(valu2).removeAttr('id').find('input').attr('value','Remove').removeClass('btn-primary').addClass('btn-danger').attr('onclick', 'addDeduction_edit($(this))');
+                              $this.parents('tr').remove();
+                         }
+                         <?php } ?>
                     $(document).ready(function() {
-                         <?php if($mode!= 'edit') { ?>
-                              $(".move-row-ec").on("click",function() {
-                                  var valu=$('#earn');
-                                   $('#erng').clone().insertAfter(valu).removeAttr('id').attr('id','es').find('input').attr('value','Remove').removeClass('btn-primary move-row-ec').addClass('btn-danger').attr('onclick', 'check_es()');
-                                   $('#erng').remove();
-                                 
-                              });
-                              $(".move-row-dc").on("click",function() {
-                                 var valu1=$('#ded');
-                                   $('#deduct').clone().insertAfter(valu1).removeAttr('id').attr('id','ds').find('input').attr('value','Remove').removeClass('btn-primary move-row-dc').addClass('btn-danger move-row-ds').attr('onclick', 'check_ds()');
-                                   $('#deduct').remove();
-                              });
-                               $(".move-row-dc1").on("click",function() {
-                                   var valu1=$('#ded');
-                                   $('#deduct1').clone().insertAfter(valu1).removeAttr('id').attr('id','ds1').find('input').attr('value','Remove').removeClass('btn-primary move-row-dc1').addClass('btn-danger move-row-ds1').attr('onclick', 'check_ds1()');
-                                   $('#deduct1').remove();
-                              });
-                          <?php } else { ?>
-                              $(".move-row-ec").on("click",function() {
-                                var valu=$('#earn');
-                                 $('#erng').clone().insertAfter(valu).removeAttr('id').attr('id','es').find('input').attr('value','Add').removeClass('btn-danger move-row-ec').addClass('btn-primary').attr('onclick', 'check_ese()');
-                                 $('#erng').remove();
-                               
-                            });
-                            $(".move-row-dc").on("click",function() {
-                               var valu1=$('#ded');
-                                 $('#deduct').clone().insertAfter(valu1).removeAttr('id').attr('id','ds').find('input').attr('value','Add').removeClass('btn-danger move-row-dc').addClass('btn-primary move-row-ds').attr('onclick', 'check_dse()');
-                                 $('#deduct').remove();
-                            });
-                             $(".move-row-dc1").on("click",function() {
-                                 var valu1=$('#ded');
-                                 $('#deduct1').clone().insertAfter(valu1).removeAttr('id').attr('id','ds1').find('input').attr('value','Add').removeClass('btn-danger move-row-dc1').addClass('btn-primary move-row-ds1').attr('onclick', 'check_dse1()');
-                                 $('#deduct1').remove();
-                            });
-                          <?php } ?>
                        
-                    });
+                   });
+                  
+                   <?php if($mode!='edit') { ?>
                     function selectPreference()
                     {
                        if($('#Pyment').val() == 'Weekly') {
@@ -520,6 +502,28 @@
                          $('#PayslipDay').addClass('hidden');
                        }
                    }
+                   <?php } else { ?>
+                   
+                    function onloadPreference()
+                    {
+                         $('#PayslipDate').removeClass('hidden');
+                       if($('#Pyment').val() == 'Weekly') {
+                         $('#PayslipDate').addClass('hidden');
+                         $('#PayslipDay').removeClass('hidden');
+                       }else if($("#Pyment").val()=='monthly') {
+                         $('#PayslipDay').addClass('hidden');
+                         $('#PayslipDate').removeClass('hidden');
+                       } else{
+                         $('#PayslipDate').addClass('hidden');
+                         $('#PayslipDay').addClass('hidden');
+                       
+                       }
+                   }
+                   <?php } ?>
+                        
+              
+                    
+                                      
                    
                    function EnableDeduction()
                    {
