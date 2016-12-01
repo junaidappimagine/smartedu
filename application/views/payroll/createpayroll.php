@@ -63,13 +63,13 @@
 										<div class="form-group">
 											<label class="col-md-2 control-label">Payroll Category name <span class="imp">*</span> </label>
 											<div class="col-md-4">
-												<input type="text" class="form-control input-sm" placeholder="" />
+												<input type="text" class="form-control input-sm" placeholder="" value="<?php if($mode=='edit'){ echo $val1 ;} ?>"/>
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-2 control-label">Category code <span  class="imp">*</span></label>
 											<div class="col-md-4">
-												<input type="text" class="form-control input-sm" placeholder="" d/>
+												<input type="text" class="form-control input-sm" placeholder="" value="<?php if($mode=='edit'){ echo $val2 ;}?>" />
 											</div>
 											<div class="col-md-5">
 												<span><p class="tips" align="justify">You can use numbers and formulas, category code will be used to create formulas to calculate the wage amount for other payroll categories</p></span>
@@ -79,7 +79,7 @@
 											 <label class="col-md-2 control-label">Category type <span  class="imp">*</span> </label>
 											 <div class="col-md-4">
 												<label class="radio-inline">
-													   <input type="radio" class="" name="optradio">Earnings
+													   <input type="radio" class="" value=""  <?php if($mode=='edit'){ echo 'checked="checked"' ;}?> name="optradio">Earnings
 												</label>
 											   <label class="radio-inline">
 														<input type="radio" class="" name="optradio">Deductions
@@ -95,7 +95,7 @@
 												<select name="value"  class="form-control input-sm" id="value_type">
 													<option>select value type</option>
 													<option>Numeric</option>
-													<option>Formula</option>
+													<option  <?php if($mode=='edit'){ echo 'selected="selected"' ;}?> >Formula</option>
 													<option>Conditional Formula</option>
 												</select>
 											</div>
@@ -107,10 +107,12 @@
 												<input type="text" class="form-control input-sm" placeholder="" />
 											</div>
 										</div>
+
+									
 										<div class="form-group" id="formula">
 											<label class="col-md-2 control-label">Formula <span class="imp">*</span> </label>
 											<div class="col-md-4">
-												<textarea  style="width: 100%;" rows="3"  class="form-control input-sm" cols="38" name=""> </textarea> 
+												<textarea  style="width: 100%;" rows="3"  class="form-control input-sm" cols="38" name="" value="" > </textarea> 
 											</div>
 											<div class="col-md-1">
 												<a href="#">Validate</a>
@@ -152,6 +154,8 @@
 												</div>
 											</div>
 										</div>
+										
+										
 									    <div class="row" id="conditional_formula">
 											<div class="row">
 											    <div class="col-md-offset-1 col-md-5" style="border:1px solid;"  >
@@ -420,6 +424,7 @@
 			$('#formula').hide();
 			$('#conditional_formula').hide();
 			$(document).ready(function() {
+				
                 $("#value_type").change(function(){
 					//alert();
 			        console.log($(this).val());
