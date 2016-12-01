@@ -1,13 +1,13 @@
 <div id="content" class="content">
         <!-- begin breadcrumb -->
         <ol class="breadcrumb pull-right">
-            <li><a href="javascript:;">Home</a></li>
-            <li><a href="javascript:;">Page Options</a></li>
-            <li class="active">Blank Page</li>
+            <li><a href="javascript:;">HR</a></li>
+            <li><a href="javascript:;">Payroll and Payslip</a></li>
+            <li class="active">Payroll Group View </li>
         </ol>
         <!-- end breadcrumb -->
         <!-- begin page-header -->
-        <h1 class="page-header">Payroll Group <small></small></h1>
+        <h1 class="page-header">HR Management | Payroll Groups <small></small></h1>
         <!-- end page-header -->
         <div class="panel panel-inverse">
             <div class="panel-heading">
@@ -17,7 +17,7 @@
                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                 </div>
-                <h4 class="panel-title">Payroll Group</h4>
+                <h4 class="panel-title">Payroll Groups List</h4>
             </div>
             <div class="panel-body">
                 <p>

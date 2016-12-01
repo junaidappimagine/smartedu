@@ -160,7 +160,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<li class="nav-header">Navigation</li>
 					<li class="has-sub active">
 						<a href="<?php echo base_url(); ?>dashboardC/index">
-						    <i class="fa fa-laptop"></i>
+						    <i class="fa fa-laptop text-warning"></i>
 						    <span>Dashboard</span>
 					    </a>
 						
@@ -168,19 +168,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<li class="has-sub">
 						<a href="javascript:;">
 							<span class="caret pull-right"></span>
-							<i class="fa fa-suitcase"></i> 
-							<span>Payroll & Payslip</span>
-						</a>
-						<ul class="sub-menu">
-						    <li><a href="<?php echo base_url();?>payrollcategory/Payroll_Categoryview">Payroll Category</a></li>
-						    <li><a href="<?php echo base_url();?>payrollgroup/Create_Payroll_Groupview">Payroll Groups</a></li>
-						    <li><a href="<?php echo base_url();?>payrollgroup/Assign_Employees">Assign Groups</a></li>
-						</ul>
-					</li>
-					<li class="has-sub">
-						<a href="javascript:;">
-							<span class="caret pull-right"></span>
-							<i class="fa fa-suitcase"></i> 
+							<i class="fa fa-suitcase text-warning"></i> 
 							<span>HR</span>
 						</a>
 						<ul class="sub-menu">
@@ -198,6 +186,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						       <li><a href="<?php echo base_url();?>hrSettingsC/leave_Types">Leave Type </a></li>
 						       <li><a href="<?php echo base_url();?>hrSettingsC/Bank_Details">Bank Details</a></li>
 						</ul>
+							</li>
+							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+						    <a href="javascript:;">
+							    <span class="caret pull-right"></span><span>Payroll and Payslip</span>
+						    </a>
+						    <ul class="sub-menu">
+							    <li><a href="<?php echo base_url();?>payrollcategory/Payroll_Categoryview">Payroll Category</a></li>
+							    <li><a href="<?php echo base_url();?>payrollgroup/Create_Payroll_Groupview">Payroll Groups</a></li>
+							</ul>
 							</li>
 						</ul>
 					</li>
