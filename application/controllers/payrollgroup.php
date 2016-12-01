@@ -77,4 +77,10 @@ class payrollgroup extends CI_Controller {
 	    $this->load->view('payroll/Create_Payroll_Groupview',$data);
 	    $this->load->view('footer');
 	}
+	function Bank_Details()
+	{
+	    $this->load->view('header');
+	    $this->load->view('payroll/bank_Details');
+	    $this->load->view('footer');
+	}
 }
