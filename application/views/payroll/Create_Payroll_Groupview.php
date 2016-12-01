@@ -124,7 +124,7 @@
                                                        </tbody>
                                                    </table>
                                                     <?php }else{ ?>
-                                                    <table class="table table-bordered " id="table_source">
+                                                  <table class="table table-bordered " id="table_source">
                                                       <thead>
                                                           <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
                                                               <th>Category Name</th>
@@ -132,31 +132,33 @@
                                                               <th>Value</th>
                                                               <th></th>
                                                           </tr>
-                                                          <tr >
-                                                              <th colspan="4" style="background: #f0f3f5 none repeat scroll 0 0;">Earnings</th>
-                                                          </tr>
+                                                          <!--<tr id="earn1">-->
+                                                          <!--    <th colspan="4" style="background: #f0f3f5 none repeat scroll 0 0;">Earnings</th>-->
+                                                          <!--</tr>-->
                                                       </thead>
                                                       <tbody>
-                                                          <tr>
+                                                       <tr id="earn_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
+                                                          <tr id="erng">
                                                               <td>Basic</td>
                                                               <td>BA</td>
                                                               <td>50%GROSS</td>
-                                                              <td><input type="button" name="test" class='move-row btn btn-danger btn-td input-sm-td' value="Remove"></td>
+                                                              <td><input type="button" class='move-row-ec btn btn-danger btn-td input-sm-td ' value="Remove"></td>
                                                           </tr>
-                                                          <tr>
-                                                              <th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></th>
-                                                          </tr>
-                                                          <tr>
+                                                          <!--<tr id="ded1">-->
+                                                          <!--    <th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></th>-->
+                                                          <!--</tr>-->
+                                                          <tr id="deduct_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
+                                                          <tr id="deduct">
                                                               <td>Provident fund</td>
                                                               <td>PF</td>
                                                               <td>10%GROSS</td>
-                                                              <td><input type="button" name="test" class='move-row btn btn-danger btn-td input-sm-td' value="Remove"></td>
+                                                              <td><input type="button" class='move-row-dc btn btn-danger btn-td input-sm-td' value="Remove" ></td>
                                                           </tr>
-                                                          <tr>
+                                                          <tr id="deduct1">
                                                               <td>Provident fund</td>
                                                               <td>LOP</td>
                                                               <td>1.5%GROSS</td>
-                                                              <td><input type="button" name="test" class='move-row btn btn-danger btn-td input-sm-td' value="Remove"></td>
+                                                              <td><input type="button" class='move-row-dc1 btn btn-danger btn-td input-sm-td' value="Remove"></td>
                                                           </tr>
                                                       </tbody>
                                                   </table>
@@ -211,32 +213,22 @@
                                                   </table>
                                                   <?php }else{ ?>
                                                   
-                                                  <table class="table table-bordered " id="table_source">
-                                                      <thead>
-                                                          <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
-                                                              <th>Category Name</th>
-                                                              <th>Category Code</th>
-                                                              <th>Value</th>
-                                                              <th></th>
-                                                          </tr>
-                                                          <tr>
-                                                              <th colspan="4" style="background: #f0f3f5 none repeat scroll 0 0;">Earnings</th>
-                                                          </tr>
-                                                          <tr>
-                                                              <td colspan="4"><center>No Data</center> </td>
-                                                          </tr>
-                                                      </thead>
-                                                      <tbody>
-                                                         
-                                                          <tr>
-                                                              <th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></th>
-                                                          </tr>
-                                                          <tr>
-                                                              <td colspan="4"><center>No Data</center> </td>
-                                                          </tr>
-                                                          
-                                                      </tbody>
-                                                  </table>
+                                                 <table class="table table-bordered" id="table_dest">
+                                                       <thead>
+                                                           <tr style="background-color: #d9edf7;border-color: #b6e2ef;">
+                                                             <th>Payroll Category</th>
+                                                             <th>Code</th>
+                                                             <th>Value</th>
+                                                             <th></th>
+                                                           </tr>
+                                                       </thead>
+                                                       <tbody>
+                                                          <tr id="earn"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
+                                                          <tr><td colspan="4">No data</td></tr>
+                                                          <tr id="ded"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
+                                                          <tr><td colspan="4">No data</td></tr>
+                                                       </tbody>
+                                                   </table>
                                                   
                                                        <?php 
                                                    }
@@ -440,59 +432,80 @@
                          </div>
                     </div>
                <script>
+               <?php if($mode!= 'edit') { ?>
                     function check_es() {
-                               var valu=$('#earn_id');
+                         var valu=$('#earn_id');
                               $('#es').clone().insertAfter(valu).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
                               $('#es').remove();
-                         }
+                   }
                     function check_ds() {
-                    var valu2=$('#deduct_id');
-                         $('#ds').clone().insertAfter(valu2).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
-                         $('#ds').remove();
-                         
+                         var valu2=$('#deduct_id');
+                              $('#ds').clone().insertAfter(valu2).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
+                              $('#ds').remove();
+                              
                     }
                     function check_ds1() {
-                           var valu2=$('#deduct_id');
-                         $('#ds1').clone().insertAfter(valu2).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
-                         $('#ds1').remove();
+                         var valu2=$('#deduct_id');
+                              $('#ds1').clone().insertAfter(valu2).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
+                              $('#ds1').remove();
                         
-                    };
+                    }
+               <?php } else { ?>
+               function check_ese() {
+                        var valu=$('#earn_id');
+                             $('#es').clone().insertAfter(valu).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
+                             $('#es').remove();
+                  }
+                   function check_dse() {
+                        var valu2=$('#deduct_id');
+                             $('#ds').clone().insertAfter(valu2).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
+                             $('#ds').remove();
+                             
+                   }
+                   function check_dse1() {
+                        var valu2=$('#deduct_id');
+                             $('#ds1').clone().insertAfter(valu2).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
+                             $('#ds1').remove();
+                       
+                   }
+               <?php } ?>
                     $(document).ready(function() {
-                         $(".move-row-ec").on("click",function() {
-                             var valu=$('#earn');
-                              $('#erng').clone().insertAfter(valu).removeAttr('id').attr('id','es').find('input').attr('value','Remove').removeClass('btn-primary move-row-ec').addClass('btn-danger').attr('onclick', 'check_es()');
-                              $('#erng').remove();
-                            
-                         });
-                         $(".move-row-dc").on("click",function() {
-                            var valu1=$('#ded');
-                              $('#deduct').clone().insertAfter(valu1).removeAttr('id').attr('id','ds').find('input').attr('value','Remove').removeClass('btn-primary move-row-dc').addClass('btn-danger move-row-ds').attr('onclick', 'check_ds()');
-                              $('#deduct').remove();
-                         });
-                          $(".move-row-dc1").on("click",function() {
-                              var valu1=$('#ded');
-                              $('#deduct1').clone().insertAfter(valu1).removeAttr('id').attr('id','ds1').find('input').attr('value','Remove').removeClass('btn-primary move-row-dc1').addClass('btn-danger move-row-ds1').attr('onclick', 'check_ds1()');
-                              $('#deduct1').remove();
-                         });
-                        //$('.move-row-ec').parents('tr:first').find('input').attr('value','remove').removeClass('btn-primary').addClass('btn-danger');
-      
-                         //$("#table_source").on("click","input.move-row", function() {
-                         //     var valu=$('#earn');
-                         //var tr = $(this).closest("tr");
-                         //     console.log(tr,"tr");
-                         //     $('#earn').clone().insertAfter(tr).removeAttr('id','hello123');
-                         //     tr.remove();
-                         //     tr.find("input.move-row")
-                         //     .attr("value", "Remove");
-                         ////$("#table_dest tbody").append(tr);
-                         //});
-                         //$("#table_dest").on("click"," input.move-row", function() {
-                         //    var tr = $(this).closest("tr").remove().clone();
-                         //    tr.find("input.move-row")
-                         //        .attr("value", "ADD");
-                         //    $("#table_source tbody").append(tr);
-                         //});
-                            
+                         <?php if($mode!= 'edit') { ?>
+                              $(".move-row-ec").on("click",function() {
+                                  var valu=$('#earn');
+                                   $('#erng').clone().insertAfter(valu).removeAttr('id').attr('id','es').find('input').attr('value','Remove').removeClass('btn-primary move-row-ec').addClass('btn-danger').attr('onclick', 'check_es()');
+                                   $('#erng').remove();
+                                 
+                              });
+                              $(".move-row-dc").on("click",function() {
+                                 var valu1=$('#ded');
+                                   $('#deduct').clone().insertAfter(valu1).removeAttr('id').attr('id','ds').find('input').attr('value','Remove').removeClass('btn-primary move-row-dc').addClass('btn-danger move-row-ds').attr('onclick', 'check_ds()');
+                                   $('#deduct').remove();
+                              });
+                               $(".move-row-dc1").on("click",function() {
+                                   var valu1=$('#ded');
+                                   $('#deduct1').clone().insertAfter(valu1).removeAttr('id').attr('id','ds1').find('input').attr('value','Remove').removeClass('btn-primary move-row-dc1').addClass('btn-danger move-row-ds1').attr('onclick', 'check_ds1()');
+                                   $('#deduct1').remove();
+                              });
+                          <?php } else { ?>
+                              $(".move-row-ec").on("click",function() {
+                                var valu=$('#earn');
+                                 $('#erng').clone().insertAfter(valu).removeAttr('id').attr('id','es').find('input').attr('value','Add').removeClass('btn-danger move-row-ec').addClass('btn-primary').attr('onclick', 'check_ese()');
+                                 $('#erng').remove();
+                               
+                            });
+                            $(".move-row-dc").on("click",function() {
+                               var valu1=$('#ded');
+                                 $('#deduct').clone().insertAfter(valu1).removeAttr('id').attr('id','ds').find('input').attr('value','Add').removeClass('btn-danger move-row-dc').addClass('btn-primary move-row-ds').attr('onclick', 'check_dse()');
+                                 $('#deduct').remove();
+                            });
+                             $(".move-row-dc1").on("click",function() {
+                                 var valu1=$('#ded');
+                                 $('#deduct1').clone().insertAfter(valu1).removeAttr('id').attr('id','ds1').find('input').attr('value','Add').removeClass('btn-danger move-row-dc1').addClass('btn-primary move-row-ds1').attr('onclick', 'check_dse1()');
+                                 $('#deduct1').remove();
+                            });
+                          <?php } ?>
+                       
                     });
                     function selectPreference()
                     {
