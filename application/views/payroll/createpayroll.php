@@ -249,7 +249,8 @@
 															<h6>Condition </h6>
 														</div>
 														<div class="col-md-offset-9 col-md-1">
-															<a href="#"  class="cancel">[X]</a>
+															<a  class="cancel">[X]</a>
+															
 														</div>
 													</div>
 													<br>
@@ -333,7 +334,7 @@
 											
 											<div class="row">
 												<div class="col-md-offset-1 col-md-3">
-													<a href="#" id="add">Add another condition</a>
+													<a id="add">Add another condition</a>
 												</div>
 											</div>
 											<br><br>
