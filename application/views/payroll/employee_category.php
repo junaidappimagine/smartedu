@@ -24,13 +24,16 @@
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                             </div>
-                            <h4 class="panel-title">Employee Category</h4>
+                            <h4 class="panel-title">Configurations</h4>
                         </div>
                         <div class="panel-body">
                             <div class="well">
                                 <fieldset>
                                     <legend>Employee Category</legend>
                                  <!-- <div class="panel-body">-->
+								     <div class="row">
+										<div class="col-md-4"><button type="button" class="btn btn-primary" id="Add" value="Add" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus">Add</i></a></div>
+									 </div><br>
                                      <table class="table table-bordered table-responsive" >
                                          <thead>
                                              <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
@@ -41,15 +44,15 @@
                                         </thead>
                                          <tbody>
                                              <tr>
-                                                 <td> <input type="radio" value="" name="status"> &nbsp;&nbsp;Category 1(C1)</td>
-                                                 <td><a onclick="" name="edit" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></a>
-                                                 <a onclick="" name="edelete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
+                                                 <td> <span class="badge badge-success">-</span> &nbsp;&nbsp;Category 1(C1)</td>
+                                                 <td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button>
+                                                 <button type="button"  name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
                                                 
                                             </tr>
                                             <tr>
-                                                 <td> <input type="radio" value="" name="status">&nbsp;&nbsp;Category 2(C2)</td>
-                                                 <td><a onclick="" name="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
-                                                 <a onclick="" name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
+                                                 <td><span class="badge badge-danger">-</span>&nbsp;&nbsp;Category 2(C2)</td>
+                                                 <td><button type="button" name="edit"  id="edit2" value="edit2" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button>
+                                                 <button onclick="" name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
                                                 
                                             </tr>
                                         </tbody>
@@ -111,13 +114,13 @@
         
 <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-md">
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Edit Employee Category</h4>
+          <h4 class="modal-title" id="header"></h4>
         </div>
         <div class="modal-body">
            <!-- <div class="panel-group">
@@ -129,30 +132,30 @@
                                <div class="form-group">
                                    <label class="col-md-2 control-label">Name</label>
                                    <div class="col-md-4">
-                                       <input type="text" class="form-control input-sm" placeholder="" />
+                                       <input type="text" class="form-control input-sm" id="name" placeholder="" />
                                    </div>
                                </div>
                                <div class="form-group">
                                    <label class="col-md-2 control-label">Prefix</label>
                                    <div class="col-md-4">
-                                       <input type="text" class="form-control input-sm" placeholder="" d/>
+                                       <input type="text" class="form-control input-sm" id="prefix" placeholder="" d/>
                                    </div>
                                </div>
                                <div class="form-group">
                                    <label class="col-md-2 control-label">Status</label>
-                                   <div class="col-md-4">
-                                      <label class="radio-inline">
-                                             <input type="radio" class="" name="optradio">Active
-                                      </label>
-                                     <label class="radio-inline">
-                                              <input type="radio" class="" name="optradio">Inactive
-                                      </label>
+                                   <div class="col-md-6">
+									 <label class="radio-inline">
+										<input type="radio" name="optradio" id="radio_1">Active
+									  </label>
+									  <label class="radio-inline">
+										<input type="radio" name="optradio" id="radio_2">Inactive
+									</label>
                                    </div>
                                </div><br>
                                <div class="form-group">
                                        <label class="col-md-2 control-label"></label>
                                        <div class="col-md-5">
-                                           <button type="button" class="btn btn-primary btn-sm">Update</button>
+                                           <button type="button" class="btn btn-primary btn-sm" id="action" >Create</button>
                                        </div>
                                </div>
                            </form>
@@ -168,5 +171,45 @@
       
     </div>
   </div>
+<script>
+	
+	$(document).ready(function() {
+		$('button').click(function(){
+			console.log($(this).val());
+			if($(this).val()=='Add')
+			{
+				//alert();
+				$('.modal-title').text('Create Employee Category');
+				$('#action').text('Create');
+				$("#radio_1").prop("checked", false);
+				 $("#radio_2").prop("checked", false);
+			
+				$('#name').val('');
+				$('#prefix').val('');
+			}
+		else if($(this).val()=='edit')
+			{
+				//alert();
+				$('.modal-title').text('Edit Employee Category');
+				$('#action').text('Update');
+			    $("#radio_1").prop("checked", true);
+				$('#name').val('Category 1');
+				$('#prefix').val('C1');
+			}
+			else if($(this).val()=='edit2')
+			{
+				//alert();
+				$('.modal-title').text('Edit Employee Category');
+				$('#action').text('Update');
+			    $("#radio_2").prop("checked", true);
+				$("#radio_1").prop("checked", false);
+				$('#name').val('Category 2');
+				$('#prefix').val('C2');
+			}
+		});
+	});
+</script>	
+	
+	
   
 		
