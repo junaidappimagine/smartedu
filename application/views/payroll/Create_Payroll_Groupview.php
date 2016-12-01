@@ -2,7 +2,13 @@
             <style>
                 .panel-body h1{
                     font-size: 18px;
-                }       
+                }
+                .btn-td {
+                    padding: 0px 5px;
+                }
+                .input-sm-td {
+                    height: 22px;
+               }
             </style>
                <div id="content" class="content">
                  <ol class="breadcrumb pull-right">
@@ -111,9 +117,9 @@
                                                            </tr>
                                                        </thead>
                                                        <tbody>
-                                                          <tr id="earn"><td colspan="4">Earnings</td></tr>
+                                                          <tr id="earn"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
                                                           <tr><td colspan="4">No data</td></tr>
-                                                          <tr id="ded"><td colspan="4">Deduction</td></tr>
+                                                          <tr id="ded"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
                                                           <tr><td colspan="4">No data</td></tr>
                                                        </tbody>
                                                    </table>
@@ -135,7 +141,7 @@
                                                               <td>Basic</td>
                                                               <td>BA</td>
                                                               <td>50%GROSS</td>
-                                                              <td><input type="button" name="test" class='move-row btn btn-primary input-sm' value="ADD"></td>
+                                                              <td><input type="button" name="test" class='move-row btn btn-danger btn-td input-sm-td' value="Remove"></td>
                                                           </tr>
                                                           <tr>
                                                               <th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></th>
@@ -144,13 +150,13 @@
                                                               <td>Provident fund</td>
                                                               <td>PF</td>
                                                               <td>10%GROSS</td>
-                                                              <td><input type="button" name="test" class='move-row btn btn-primary input-sm' value="ADD"></td>
+                                                              <td><input type="button" name="test" class='move-row btn btn-danger btn-td input-sm-td' value="Remove"></td>
                                                           </tr>
                                                           <tr>
                                                               <td>Provident fund</td>
                                                               <td>LOP</td>
                                                               <td>1.5%GROSS</td>
-                                                              <td><input type="button" name="test" class='move-row btn btn-primary input-sm' value="ADD"></td>
+                                                              <td><input type="button" name="test" class='move-row btn btn-danger btn-td input-sm-td' value="Remove"></td>
                                                           </tr>
                                                       </tbody>
                                                   </table>
@@ -178,28 +184,28 @@
                                                           <!--</tr>-->
                                                       </thead>
                                                       <tbody>
-                                                       <tr id="earn_id"><td colspan="4">Earnings</td></tr>
+                                                       <tr id="earn_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
                                                           <tr id="erng">
                                                               <td>Basic</td>
                                                               <td>BA</td>
                                                               <td>50%GROSS</td>
-                                                              <td><input type="button" class='move-row-ec btn btn-primary input-sm' value="ADD"></td>
+                                                              <td><input type="button" class='move-row-ec btn btn-primary btn-td input-sm-td ' value="Add"></td>
                                                           </tr>
                                                           <!--<tr id="ded1">-->
                                                           <!--    <th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></th>-->
                                                           <!--</tr>-->
-                                                          <tr id="deduct_id"><td colspan="4">Deduction</td></tr>
+                                                          <tr id="deduct_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
                                                           <tr id="deduct">
                                                               <td>Provident fund</td>
                                                               <td>PF</td>
                                                               <td>10%GROSS</td>
-                                                              <td><input type="button" class='move-row-dc btn btn-primary input-sm' value="ADD" ></td>
+                                                              <td><input type="button" class='move-row-dc btn btn-primary btn-td input-sm-td' value="Add" ></td>
                                                           </tr>
                                                           <tr id="deduct1">
                                                               <td>Provident fund</td>
                                                               <td>LOP</td>
                                                               <td>1.5%GROSS</td>
-                                                              <td><input type="button" class='move-row-dc1 btn btn-primary input-sm' value="ADD"></td>
+                                                              <td><input type="button" class='move-row-dc1 btn btn-primary btn-td input-sm-td' value="Add"></td>
                                                           </tr>
                                                       </tbody>
                                                   </table>
@@ -254,31 +260,6 @@
                                                            <div class="col-md-2"></div>
                                                    </div>
                                              </div>
-                                             <!--<div  class="form-group hidden" id="EnableLOP" >-->
-                                             <!--      <label class="col-md-2 control-label">LOP Calculation Method *</label>-->
-                                             <!--      <div class="col-md-4">-->
-                                             <!--          <select class="form-control input-sm" id="selectType" onchange="CalculationMethod()">-->
-                                             <!--               <option>Select value Type</option>-->
-                                             <!--               <option>Numeric</option>-->
-                                             <!--               <option>Formula</option>-->
-                                             <!--               <option>Conditional Formula</option>-->
-                                             <!--          </select>-->
-                                             <!--      </div>-->
-                                             <!--</div>-->
-                                             <!--<div  class="form-group hidden" id="numeric" >-->
-                                             <!--      <label class="col-md-2 control-label">Amount</label>-->
-                                             <!--      <div class="col-md-4">-->
-                                             <!--          <input type="text" class="form-control input-sm" name="amount">-->
-                                             <!--      </div>-->
-                                             <!--</div>-->
-                                             <!--<div  class="form-group hidden" id="formula" >-->
-                                             <!--      <label class="col-md-2 control-label">Formula</label>-->
-                                             <!--      <div class="col-md-4">-->
-                                             <!--          <textarea class="form-control" placeholder="Textarea" rows="5"></textarea>-->
-                                             <!--      </div>-->
-                                             <!--</div>-->
-                                             
-                                             
                                              <div class="form-group hidden" id="EnableLOP" >
                                                   <label class="col-md-2 control-label">Value type <span  class="imp">*</span> </label>
                                                   <div class="col-md-4">
@@ -459,37 +440,42 @@
                          </div>
                     </div>
                <script>
+                    function check_es() {
+                               var valu=$('#earn_id');
+                              $('#es').clone().insertAfter(valu).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
+                              $('#es').remove();
+                         }
+                    function check_ds() {
+                    var valu2=$('#deduct_id');
+                         $('#ds').clone().insertAfter(valu2).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
+                         $('#ds').remove();
+                         
+                    }
+                    function check_ds1() {
+                           var valu2=$('#deduct_id');
+                         $('#ds1').clone().insertAfter(valu2).removeAttr('id').find('input').attr('value','Add').removeClass('btn-danger').addClass('btn-primary');
+                         $('#ds1').remove();
+                        
+                    };
                     $(document).ready(function() {
                          $(".move-row-ec").on("click",function() {
                              var valu=$('#earn');
-                              $('#erng').clone().insertAfter(valu).removeAttr('id').find('input').attr('value','remove').removeClass('btn-primary').addClass('btn-danger move-row-es');
+                              $('#erng').clone().insertAfter(valu).removeAttr('id').attr('id','es').find('input').attr('value','Remove').removeClass('btn-primary move-row-ec').addClass('btn-danger').attr('onclick', 'check_es()');
                               $('#erng').remove();
                             
                          });
                          $(".move-row-dc").on("click",function() {
-                             
-                              var valu1=$('#ded');
-                              $('#deduct').clone().insertAfter(valu1).removeAttr('id').find('input').attr('value','remove').removeClass('btn-primary').addClass('btn-danger');
+                            var valu1=$('#ded');
+                              $('#deduct').clone().insertAfter(valu1).removeAttr('id').attr('id','ds').find('input').attr('value','Remove').removeClass('btn-primary move-row-dc').addClass('btn-danger move-row-ds').attr('onclick', 'check_ds()');
                               $('#deduct').remove();
                          });
                           $(".move-row-dc1").on("click",function() {
-                             //alert('oou');
                               var valu1=$('#ded');
-                              $('#deduct1').clone().insertAfter(valu1).removeAttr('id').find('input').attr('value','remove').removeClass('btn-primary').addClass('btn-danger ');
+                              $('#deduct1').clone().insertAfter(valu1).removeAttr('id').attr('id','ds1').find('input').attr('value','Remove').removeClass('btn-primary move-row-dc1').addClass('btn-danger move-row-ds1').attr('onclick', 'check_ds1()');
                               $('#deduct1').remove();
                          });
                         //$('.move-row-ec').parents('tr:first').find('input').attr('value','remove').removeClass('btn-primary').addClass('btn-danger');
-                         $(".move-row-ec").on("click",function() {
-                              alert();
-                               var valu=$('#earn_id');
-                            
-                              $('#data').remove();
-                              
-                              var valu2=$('#deduct_id');
-                              $('#deduct').clone().insertAfter(valu2).removeAttr('id').attr('');
-                              $('#deduct').remove();
-                         });
-                         
+      
                          //$("#table_source").on("click","input.move-row", function() {
                          //     var valu=$('#earn');
                          //var tr = $(this).closest("tr");
@@ -508,7 +494,6 @@
                          //});
                             
                     });
-                 
                     function selectPreference()
                     {
                        if($('#Pyment').val() == 'Weekly') {
