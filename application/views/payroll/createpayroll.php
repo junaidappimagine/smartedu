@@ -241,9 +241,9 @@
 													</div>
 											    </div>
 											</div>
-										    <br>
-											<div class="template hidden"  id="template">
-											<div class="col-md-offset-1 col-md-5 " style="border:1px solid;"   style="position:relative">
+											
+											<div class="row template hidden" id="template" style="margin-top: 50px">
+											    <div class="col-md-offset-1 col-md-5" style="border:1px solid;"  >
 													<div class="row section_header">
 														<div class="col-md-2">
 															<h6>Condition </h6>
@@ -292,7 +292,45 @@
 														</div>
 													</div>
 											   </div>
+												
+												<div class="col-md-offset-1 col-md-5" id="reference_code">
+													<ul class="nav nav-tabs">
+														<li class="active"><a data-toggle="tab" href="#categories">Payroll categories</a></li>
+														<li><a data-toggle="tab" href="#formula">Formula Examples</a></li>
+													</ul>
+													<div class="tab-content well">
+														<div id="categories" class="tab-pane fade in active">
+															<h6 class="section_header">Standard codes</h6>
+															 <div class="row">
+																<div class="col-md-6">Gross pay</div>
+																<div class="col-md-offset-2 col-md-4">GROSS</div>
+															 </div>
+															 <div class="row">
+																<div class="col-md-6">Number of working days</div>
+																<div class="col-md-offset-2 col-md-4">NWD</div>
+															 </div>
+															 <h6 class="section_header">Earnings</h6>
+															 <div class="row">
+																<div class="col-md-6">Basic</div>
+																<div class="col-md-offset-2 col-md-4">Travelling </div>
+															 </div>
+															 <div class="row">
+																<div class="col-md-6">Number of working days</div>
+																<div class="col-md-offset-2 col-md-4">NWD</div>
+															 </div>
+															 <h6 class="section_header">Deductions</h6>
+														</div>
+														<div id="formula" class="tab-pane fade">
+															<ul>
+																<li>content 1</li>
+																<li>content 2</li>
+																<li>content 3</li>
+															</ul>
+														</div>
+													</div>
+											    </div>
 											</div>
+											
 											<div class="row">
 												<div class="col-md-offset-1 col-md-3">
 													<a href="#" id="add">Add another condition</a>
@@ -406,13 +444,12 @@
 				
 			});
 	      $('#add').click(function(){
-				var newEle= $('#template').clone(true).insertBefore('#template').removeClass('hidden');
-				//$(newEle).find(".cancel").removeClass("hidden");
-			$('.cancel').click(function(){
-				console.log($(this));
-				var ele=$(this).parent().parent().parent().remove();
-				console.log(ele);
+				var newEle= $('#template').clone(true).insertBefore('#template').addClass('clonediv').removeClass('hidden');
+				$(newEle).find("div#reference_code").remove();
+				$('.cancel').click(function(){
+					console.log($(this).val());
+					var ele=$(this).parents('.clonediv').remove();
+					console.log(ele);
+			   });
 			});
-			
-		});
 </script>
