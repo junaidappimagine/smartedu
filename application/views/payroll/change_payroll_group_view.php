@@ -105,7 +105,7 @@
                                        <div class="col-sm-12">
                                             <label>INR &nbsp;</label>
                                             <input type="button" name="" class="btn btn-primary btn btn-sm gross_btn" value="Calculate">
-                                            <input type="button" name="" class="btn btn-danger btn btn-sm gross_btn" value="Cancel">
+                                            <input type="button" name="" class="btn btn-danger btn btn-sm gross_btn" onclick="window.history.back();"  value="Cancel">
                                         </div>
                                     </td>
                                  <?php }?>
@@ -187,7 +187,7 @@
                                 <br>
                                     <center>
                                         <input class="btn btn-success btn btn-sm " value="Assign" type="submit">
-                                        <input class="btn btn-danger btn btn-sm " name="" value="Cancel" type="button">
+                                        <input class="btn btn-danger btn btn-sm " name="" onclick="window.history.back();" value="Cancel" type="button">
                                     </center>
                             </div>
                         <?php }?>
