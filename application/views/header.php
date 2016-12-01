@@ -181,11 +181,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<a href="javascript:;">
 							<span class="caret pull-right"></span>
 							<i class="fa fa-suitcase"></i> 
-							<span>HR Configurations</span>
+							<span>HR</span>
 						</a>
 						<ul class="sub-menu">
-						    <li><a href="<?php echo base_url();?>dashboardC/employee_category">Employee category</a></li>
-						   
+						    <!--<li><a href="<?php echo base_url();?>dashboardC/employee_category">Employee category</a></li>-->
+							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+									<a href="javascript:;">
+										<span class="caret pull-right"></span><span>Configurations</span>
+									</a>
+									<ul class="sub-menu">
+									   <li><a href="<?php echo base_url();?>dashboardC/employee_category">Employee category</a></li>
+									   <li><a href="<?php echo base_url();?>dashboardC/employee_category">Employee Department</a></li>
+									   <li><a href="<?php echo base_url();?>dashboardC/employee_category">Employee Position</a></li>
+									   <li><a href="<?php echo base_url();?>dashboardC/employee_category">Employee Garde</a></li>
+								   </ul>
+							</li>
 						</ul>
 					</li>
 					
