@@ -32,23 +32,28 @@ class dashboardC extends CI_Controller {
 	    $this->load->view('footer');
 	}
 	function Assign_Employees(){
-		$this->load->view('header');
-		$this->load->view('footer');
-		$this->load->view('payroll/payrollgroup_assign_employee');
+	    $this->load->view('header');
+	    $this->load->view('footer');
+	    $this->load->view('payroll/payrollgroup_assign_employee');
 	}
 	function Payroll_Categoryview(){
 	    $this->load->view('header');
 	    $this->load->view('payroll/Payroll_Categoryview');
 	    $this->load->view('footer');
-		
 	}
-	
 	function employee_category(){
-		
-		$this->load->view('header');
-		$this->load->view('payroll/employee_category');
-		$this->load->view('footer');
-		
+	    $this->load->view('header');
+	    $this->load->view('payroll/employee_category');
+	    $this->load->view('footer');
 	}
-	
+	function working_Days(){
+	    $this->load->view('header');
+	    $this->load->view('payroll/working_days');
+	    $this->load->view('footer');
+	}
+	function leave_Types(){
+	    $this->load->view('header');
+	    $this->load->view('payroll/leave_type');
+	    $this->load->view('footer');
+	}
 }

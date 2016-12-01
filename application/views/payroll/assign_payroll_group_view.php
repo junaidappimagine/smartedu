@@ -55,7 +55,7 @@
                 <?php }?>
                 <p></p>
                     <form action="#">
-                        <table class="mytable">
+                        <table class="mytable table-responsive">
                             <legend>Employee Payroll</legend>
                             <tr>
                                 <td><label class="col-md-12 ">Name</label></td>
@@ -73,7 +73,7 @@
                                 <td><label class="col-md-12 ">System Admin</label></td>
                             </tr>
                         </table>
-                        <table class="mytable">
+                        <table class="mytable table-responsive">
                             <legend>Payroll Details</legend>
                             <tr>
                                 <td><label class="col-md-12 ">Payroll Group</label></td>
@@ -106,7 +106,7 @@
                         <legend>Payroll Category</legend>
                         <p>The Payroll amount are calculated based payroll category setup.you can edit the amount if needed</p>
                         <!--<div class="col-md-12" >-->
-                        <table class="mytable" width="">
+                        <table class="mytable table-responsive" width="">
                             <!--<legend>Earnings</legend>-->
                              <h4>Earnings</h4>
                             <tr>
@@ -145,7 +145,7 @@
                                 <td><label class="col-md-12 "><b>2200 INR</b></label></td>
                             </tr>
                         </table>
-                        <table class="mytable" width="">
+                        <table class="mytable table-responsive" width="">
                             <!--<legend>Deduction</legend>-->
                             <h4>Deduction</h4>
                             <tr>

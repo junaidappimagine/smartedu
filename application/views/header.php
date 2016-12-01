@@ -194,7 +194,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									   <li><a href="<?php echo base_url();?>dashboardC/employee_category">Employee Department</a></li>
 									   <li><a href="<?php echo base_url();?>dashboardC/employee_category">Employee Position</a></li>
 									   <li><a href="<?php echo base_url();?>dashboardC/employee_category">Employee Garde</a></li>
-								   </ul>
+									</ul>
 							</li>
 						</ul>
 					</li>
