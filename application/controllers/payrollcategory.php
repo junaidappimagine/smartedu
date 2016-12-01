@@ -23,25 +23,41 @@ class payrollcategory extends CI_Controller {
 		$this->load->view('header');
 		$this->load->view('footer');
 		$this->load->view('payroll/createpayroll');
-		
 	}
-	 
-	 public function  Create_Payroll_Category()
-	 {
+	function Payroll_Categoryview()
+	{
+		$this->load->view('header');
+		$this->load->view('payroll/Payroll_Categoryview');
+		$this->load->view('footer');
+	}
+	function  Create_Payroll_Category()
+	{
+	    $this->load->view('header');
+		$this->load->view('footer');
+		$data['mode']='add';
+		$this->load->view('payroll/Createpayroll',$data);
+	}
+	function  Payroll_Categorydetails(){ 
 		
 		$this->load->view('header');
 		$this->load->view('footer');
-		$this->load->view('payroll/createpayroll');
 		
+		$data['val1']=$this->input->get('var1');
+		$data['val2']=$this->input->get('var2');
+		$data['val3']=$this->input->get('var3');
+		//print_r($data1); exit;
 		
-	 }
-	
-	function Payroll_Categoryview(){
-	    $this->load->view('header');
-	    $this->load->view('payroll/Payroll_Categoryview');
-	    $this->load->view('footer');
-		
+		$this->load->view('payroll/Payroll_Categorydetails',$data);
 	}
-	
-	
+	function Edit_Payroll_Category(){
+		
+	    $this->load->view('header');
+		$this->load->view('footer');
+			
+		$data['val1']=$this->input->get('var1');
+		$data['val2']=$this->input->get('var2');
+		$data['val3']=$this->input->get('var3');
+		$data['mode']='edit';
+		$this->load->view('payroll/Createpayroll',$data);
+	}
 }
