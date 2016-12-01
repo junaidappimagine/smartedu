@@ -173,7 +173,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</a>
 						<ul class="sub-menu">
 						    <li><a href="<?php echo base_url();?>payrollcategory/Payroll_Categoryview">Payroll Category</a></li>
-						    <li><a href="<?php echo base_url();?>dashboardC/Create_Payroll_Groupview">Payroll Groups</a></li>
+						    <li><a href="<?php echo base_url();?>payrollgroup/Create_Payroll_Groupview">Payroll Groups</a></li>
 						    <li><a href="<?php echo base_url();?>dashboardC/Assign_Employees">Assign Groups</a></li>
 						</ul>
 					</li>
@@ -194,6 +194,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									   <li><a href="<?php echo base_url();?>hrSettingsC/employee_department">Employee Department</a></li>
 									   <li><a href="<?php echo base_url();?>hrSettingsC/employee_position">Employee Position</a></li>
 									   <li><a href="<?php echo base_url();?>hrSettingsC/employee_grade">Employee Garde</a></li>
+									   <li><a href="<?php echo base_url();?>hrSettingsC/working_Days">Working Day Setting</a></li>
+									   <li><a href="<?php echo base_url();?>hrSettingsC/leave_Types">Leave Type Setting</a></li>
 									</ul>
 							</li>
 						</ul>
