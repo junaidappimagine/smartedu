@@ -34,7 +34,7 @@
         </ol>
         <!-- end breadcrumb -->
         <!-- begin page-header -->
-        <h1 class="page-header">Payroll Group Employees View <small></small></h1>
+        <h1 class="page-header">View Employee Payroll <small></small></h1>
         <!-- end page-header -->
         <div class="panel panel-inverse">
             <div class="panel-heading">
@@ -44,7 +44,7 @@
                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                 </div>
-                <h4 class="panel-title">Payroll Group Employees View</h4>
+                <h4 class="panel-title">View Employee Payroll</h4>
             </div>
             <div class="panel-body">
                 <div class="container" style="width: 100% !important">
@@ -54,16 +54,6 @@
                     <a class="hidden" href="<?php echo base_url('payrollgroup/edit_Payroll');?>" name="edit" class="btn btn-xs btn-primary col-md-offset-11"><i class="fa fa-edit"></i>Edit</a>
                 <?php }?>
                 <p></p>
-                <form class="form-inline" action="/" method="POST">
-                <div class="">
-                    <div class="form-group m-r-10 ">
-                        <label>namgsghg : *</label>
-                    </div>
-                    <div class="form-group m-r-10 ">
-                            <label>namgsghg</label>
-                    </div>
-                </div>
-                </form>
                     <form action="#">
                         <table class="mytable">
                             <legend>Employee Payroll</legend>

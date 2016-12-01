@@ -7,7 +7,7 @@
         </ol>
         <!-- end breadcrumb -->
         <!-- begin page-header -->
-        <h1 class="page-header">Payroll Group Employees View <small></small></h1>
+        <h1 class="page-header">Assign Employees<small></small></h1>
         <!-- end page-header -->
         <div class="panel panel-inverse">
             <div class="panel-heading">
@@ -17,7 +17,7 @@
                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                 </div>
-                <h4 class="panel-title">Payroll Group Employees View</h4>
+                <h4 class="panel-title">Assign Employees</h4>
             </div>
             <div class="panel-body">
                     <div class="container" style="width: 100%">
@@ -30,11 +30,10 @@
                                <td>
                                    <div class="col-sm-12">
                                  <select class="form-control input-sm">
-                                     <option>All Department</option>
-                                     <option>2</option>
-                                     <option>3</option>
-                                     <option>4</option>
-                                     <option>5</option>
+                                    <option>All Department</option>
+                                    <option>English</option>
+                                    <option>Maths</option>
+                                    <option>Science</option>
                                  </select>
                              </div>
                            </td>

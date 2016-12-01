@@ -34,7 +34,12 @@
         </ol>
         <!-- end breadcrumb -->
         <!-- begin page-header -->
-        <h1 class="page-header">Payroll Group Employees View <small></small></h1>
+        <?php if($mode=='View'){?>
+            <h1 class="page-header">Assign Payroll Group Employees View<small></small></h1>
+        <?php }else{?>
+            <h1 class="page-header">Assign Payroll Group Employees Edit<small></small></h1>
+        <?php }?>
+        
         <!-- end page-header -->
         <div class="panel panel-inverse">
             <div class="panel-heading">
@@ -44,7 +49,11 @@
                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                 </div>
-                <h4 class="panel-title">Payroll Group Employees View</h4>
+                <?php if($mode=='View'){?>
+                    <h4 class="panel-title">Assign Payroll Group Employees View</h4>
+                <?php }else{?>
+                    <h4 class="panel-title">Assign Payroll Group Employees Edit</h4>
+                <?php }?>
             </div>
             <div class="panel-body">
                 <div class="container" style="width: 100% !important">
