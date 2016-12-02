@@ -692,12 +692,12 @@
                          $('#add').click(function(){
 				var newEle= $('#template').clone(true).insertBefore('#template').addClass('clonediv').removeClass('hidden');
 				$(newEle).find("div#reference_code").remove();
-				$('.cancel').click(function(){
+			});
+                         $('.cancel').click(function(){
 					console.log($(this).val());
 					var ele=$(this).parents('.clonediv').remove();
 					console.log(ele);
 			   });
-			});
                 
                </script>
 
