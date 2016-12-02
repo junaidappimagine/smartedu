@@ -78,47 +78,53 @@
                                     <h1 class="page-header"><b>Payroll Categories</b></h1>
                                     <p style="color:#333;">Earnings</p>
                                     <div class="panel-body">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
-                                                    <th>Payroll Category name(Code)</th>
-                                                    <th>Value</th>
-                                                </tr>
-                                            </thead>
-                                                      <tbody>
-                                                       <tr id="earn_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
-                                                          <tr id="erng">
-                                                              <td>Basic (BA)</td>
-                                                              <td>50%GROSS</td>
-                                                          </tr>
-                                                          <tr id="deduct_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
-                                                          <tr id="deduct">
-                                                              <td>Provident fund (PF)</td>
-                                                              <td>10%GROSS</td>
-                                                          </tr>
-                                                          <tr id="deduct1">
-                                                              <td>Provident fund (LOP)</td>
-                                                              <td>1.5%GROSS</td>
-                                                          </tr>
-                                                      </tbody>
-                                        </table>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
+                                                        <th>Payroll Category name(Code)</th>
+                                                        <th>Value</th>
+                                                    </tr>
+                                                </thead>
+                                                          <tbody>
+                                                           <tr id="earn_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
+                                                              <tr id="erng">
+                                                                  <td>Basic (BA)</td>
+                                                                  <td>50%GROSS</td>
+                                                              </tr>
+                                                              <tr id="deduct_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
+                                                              <tr id="deduct">
+                                                                  <td>Provident fund (PF)</td>
+                                                                  <td>10%GROSS</td>
+                                                              </tr>
+                                                              <tr id="deduct1">
+                                                                  <td>Provident fund (LOP)</td>
+                                                                  <td>1.5%GROSS</td>
+                                                              </tr>
+                                                          </tbody>
+                                            </table>
+
+                                        </div>
                                     </div><br>
                                      <p style="color:#333;">Deduction</p>
                                     <div class="panel-body">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
-                                                    <th>Payroll Category name(Code)</th>
-                                                    <th>Value</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr id="earn"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
-                                                <tr><td colspan="4">No data</td></tr>
-                                                <tr id="ded"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
-                                                <tr><td colspan="4">No data</td></tr>
-                                            </tbody>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
+                                                        <th>Payroll Category name(Code)</th>
+                                                        <th>Value</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr id="earn"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
+                                                    <tr><td colspan="4">No data</td></tr>
+                                                    <tr id="ded"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
+                                                    <tr><td colspan="4">No data</td></tr>
+                                                </tbody>
                                         </table><br>
+
+                                        </div>
                                     </div>
 
                                 </div>
