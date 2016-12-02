@@ -54,7 +54,7 @@
                                                        <select class="form-control input-sm" id="Pyment" onchange="onloadPreference()">
                                                            <option>Daily</option>
                                                            <option>Weekly</option>
-                                                           <option selected>monthly</option>
+                                                           <option selected value="monthly">monthly</option>
                                                        </select>
                                                            <?php } ?>
                                                        
@@ -115,61 +115,67 @@
                                                 <h1 class="page-header">Selected Payroll Categories </h1><hr>
                                                <div class="panel-body">
                                                    <?php if($mode!='edit') { ?>
-                                                   <table class="table table-bordered" id="table_dest">
-                                                       <thead>
-                                                           <tr style="background-color: #d9edf7;border-color: #b6e2ef;">
-                                                             <th>Payroll Category</th>
-                                                             <th>Code</th>
-                                                             <th>Value</th>
-                                                             <th></th>
-                                                           </tr>
-                                                       </thead>
-                                                       <tbody>
-                                                          <tr id="earn"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
-                                                          <tr><td colspan="4">No data</td></tr>
-                                                          <tr id="ded"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
-                                                          <tr><td colspan="4">No data</td></tr>
-                                                       </tbody>
-                                                   </table>
+                                                   <div class="table-responsive">
+                                                       <table class="table table-bordered" id="table_dest">
+                                                            <thead>
+                                                                <tr style="background-color: #d9edf7;border-color: #b6e2ef;">
+                                                                  <th>Payroll Category</th>
+                                                                  <th>Code</th>
+                                                                  <th>Value</th>
+                                                                  <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                               <tr id="earn"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
+                                                               <tr><td colspan="4">No data</td></tr>
+                                                               <tr id="ded"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
+                                                               <tr><td colspan="4">No data</td></tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                   </div>
                                                     <?php }else{ ?>
-                                                  <table class="table table-bordered " id="table_source">
-                                                      <thead>
-                                                          <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
-                                                              <th>Category Name</th>
-                                                              <th>Category Code</th>
-                                                              <th>Value</th>
-                                                              <th></th>
-                                                          </tr>
-                                                          <!--<tr id="earn1">-->
-                                                          <!--    <th colspan="4" style="background: #f0f3f5 none repeat scroll 0 0;">Earnings</th>-->
-                                                          <!--</tr>-->
-                                                      </thead>
-                                                      <tbody>
-                                                       <tr id="earn_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
-                                                          <tr id="erng">
-                                                              <td>Basic</td>
-                                                              <td>BA</td>
-                                                              <td>50%GROSS</td>
-                                                              <td><input type="button" class='move-row-ec btn btn-danger btn-td input-sm-td ' value="Remove" onclick="addEarning_edit($(this))"></td>
-                                                          </tr>
-                                                          <!--<tr id="ded1">-->
-                                                          <!--    <th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></th>-->
-                                                          <!--</tr>-->
-                                                          <tr id="deduct_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
-                                                          <tr id="deduct">
-                                                              <td>Provident fund</td>
-                                                              <td>PF</td>
-                                                              <td>10%GROSS</td>
-                                                              <td><input type="button" class='move-row-dc btn btn-danger btn-td input-sm-td' value="Remove" onclick="addDeduction_edit($(this))"></td>
-                                                          </tr>
-                                                          <tr id="deduct1">
-                                                              <td>Provident fund</td>
-                                                              <td>LOP</td>
-                                                              <td>1.5%GROSS</td>
-                                                              <td><input type="button" class='move-row-dc1 btn btn-danger btn-td input-sm-td' value="Remove" onclick="addDeduction_edit($(this))"></td>
-                                                          </tr>
-                                                      </tbody>
-                                                  </table>
+                                                  <div class="table-responsive">
+                                                            <table class="table table-bordered " id="table_source">
+                                                            <thead>
+                                                                <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
+                                                                    <th>Category Name</th>
+                                                                    <th>Category Code</th>
+                                                                    <th>Value</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                                <!--<tr id="earn1">-->
+                                                                <!--    <th colspan="4" style="background: #f0f3f5 none repeat scroll 0 0;">Earnings</th>-->
+                                                                <!--</tr>-->
+                                                            </thead>
+                                                            <tbody>
+                                                             <tr id="earn_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
+                                                                <tr id="erng">
+                                                                    <td>Basic</td>
+                                                                    <td>BA</td>
+                                                                    <td>50%GROSS</td>
+                                                                    <td><input type="button" class='move-row-ec btn btn-danger btn-td input-sm-td ' value="Remove" onclick="addEarning_edit($(this))"></td>
+                                                                </tr>
+                                                                <!--<tr id="ded1">-->
+                                                                <!--    <th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></th>-->
+                                                                <!--</tr>-->
+                                                                <tr id="deduct_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
+                                                                <tr id="deduct">
+                                                                    <td>Provident fund</td>
+                                                                    <td>PF</td>
+                                                                    <td>10%GROSS</td>
+                                                                    <td><input type="button" class='move-row-dc btn btn-danger btn-td input-sm-td' value="Remove" onclick="addDeduction_edit($(this))"></td>
+                                                                </tr>
+                                                                <tr id="deduct1">
+                                                                    <td>Provident fund</td>
+                                                                    <td>LOP</td>
+                                                                    <td>1.5%GROSS</td>
+                                                                    <td><input type="button" class='move-row-dc1 btn btn-danger btn-td input-sm-td' value="Remove" onclick="addDeduction_edit($(this))"></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                   </div>
                                                         <?php 
                                                    }
                                                    ?>
@@ -181,62 +187,67 @@
                                                <h1 class="page-header">Add Payroll Categories </h1><hr>
                                              <div class="panel-body">
                                                   <?php if($mode!='edit') { ?>
-                                                  <table class="table table-bordered " id="table_source">
-                                                      <thead>
-                                                          <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
-                                                              <th>Category Name</th>
-                                                              <th>Category Code</th>
-                                                              <th>Value</th>
-                                                              <th></th>
-                                                          </tr>
-                                                          <!--<tr id="earn1">-->
-                                                          <!--    <th colspan="4" style="background: #f0f3f5 none repeat scroll 0 0;">Earnings</th>-->
-                                                          <!--</tr>-->
-                                                      </thead>
-                                                      <tbody>
-                                                       <tr id="earn_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
-                                                          <tr id="erng">
-                                                              <td>Basic</td>
-                                                              <td>BA</td>
-                                                              <td>50%GROSS</td>
-                                                              <td><input type="button" class='move-row-ec btn btn-primary btn-td input-sm-td ' value="Add" onclick="addEarning($(this))"></td>
-                                                          </tr>
-                                                          <!--<tr id="ded1">-->
-                                                          <!--    <th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></th>-->
-                                                          <!--</tr>-->
-                                                          <tr id="deduct_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
-                                                          <tr id="deduct">
-                                                              <td>Provident fund</td>
-                                                              <td>PF</td>
-                                                              <td>10%GROSS</td>
-                                                              <td><input type="button" class='move-row-dc btn btn-primary btn-td input-sm-td' value="Add" onclick="addDeduction($(this))"></td>
-                                                          </tr>
-                                                          <tr id="deduct1">
-                                                              <td>Provident fund</td>
-                                                              <td>LOP</td>
-                                                              <td>1.5%GROSS</td>
-                                                              <td><input type="button" class='move-row-dc1 btn btn-primary btn-td input-sm-td' value="Add" onclick="addDeduction($(this))"></td>
-                                                          </tr>
-                                                      </tbody>
-                                                  </table>
+                                                   <div class="table-responsive">
+                                                        <table class="table table-bordered " id="table_source">
+                                                            <thead>
+                                                                <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
+                                                                    <th>Category Name</th>
+                                                                    <th>Category Code</th>
+                                                                    <th>Value</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                                <!--<tr id="earn1">-->
+                                                                <!--    <th colspan="4" style="background: #f0f3f5 none repeat scroll 0 0;">Earnings</th>-->
+                                                                <!--</tr>-->
+                                                            </thead>
+                                                            <tbody>
+                                                             <tr id="earn_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
+                                                                <tr id="erng">
+                                                                    <td>Basic</td>
+                                                                    <td>BA</td>
+                                                                    <td>50%GROSS</td>
+                                                                    <td><input type="button" class='move-row-ec btn btn-primary btn-td input-sm-td ' value="Add" onclick="addEarning($(this))"></td>
+                                                                </tr>
+                                                                <!--<tr id="ded1">-->
+                                                                <!--    <th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></th>-->
+                                                                <!--</tr>-->
+                                                                <tr id="deduct_id"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
+                                                                <tr id="deduct">
+                                                                    <td>Provident fund</td>
+                                                                    <td>PF</td>
+                                                                    <td>10%GROSS</td>
+                                                                    <td><input type="button" class='move-row-dc btn btn-primary btn-td input-sm-td' value="Add" onclick="addDeduction($(this))"></td>
+                                                                </tr>
+                                                                <tr id="deduct1">
+                                                                    <td>Provident fund</td>
+                                                                    <td>LOP</td>
+                                                                    <td>1.5%GROSS</td>
+                                                                    <td><input type="button" class='move-row-dc1 btn btn-primary btn-td input-sm-td' value="Add" onclick="addDeduction($(this))"></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                   </div>
                                                   <?php }else{ ?>
-                                                  
-                                                 <table class="table table-bordered" id="table_dest">
-                                                       <thead>
-                                                           <tr style="background-color: #d9edf7;border-color: #b6e2ef;">
-                                                             <th>Payroll Category</th>
-                                                             <th>Code</th>
-                                                             <th>Value</th>
-                                                             <th></th>
-                                                           </tr>
-                                                       </thead>
-                                                       <tbody>
-                                                          <tr id="earn"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
-                                                          <tr><td colspan="4">No data</td></tr>
-                                                          <tr id="ded"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
-                                                          <tr><td colspan="4">No data</td></tr>
-                                                       </tbody>
-                                                   </table>
+                                                   <div class="table-responsive">
+                                                       <table class="table table-bordered" id="table_dest">
+                                                            <thead>
+                                                                <tr style="background-color: #d9edf7;border-color: #b6e2ef;">
+                                                                  <th>Payroll Category</th>
+                                                                  <th>Code</th>
+                                                                  <th>Value</th>
+                                                                  <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                               <tr id="earn"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Earnings</b></td></tr>
+                                                               <tr><td colspan="4">No data</td></tr>
+                                                               <tr id="ded"><td colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deduction</b></td></tr>
+                                                               <tr><td colspan="4">No data</td></tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                   </div>
                                                   
                                                        <?php 
                                                    }
@@ -323,104 +334,205 @@
                                                   </div>
                                              </div>
                                              <div class="row" id="conditional_formula">
-                                                  <div class="col-md-offset-2 col-md-6" style="border:1px solid;">
-                                                       <h6  class="section_header">Condition</h6>
-                                                       <div class="form-group">
-                                                            <label class="col-md-2 control-label">if</label>
-                                                            <div class="col-md-8">
-                                                                    <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                         <div class="row">
+                                                             <div class="col-md-offset-1 col-md-5" style="border:1px solid;"  >
+                                                                         <div class="row section_header">
+                                                                                 <div class="col-md-2">
+                                                                                         <h6>Condition </h6>
+                                                                                 </div>
+                                                                                 <!--<div class="col-md-offset-9 col-md-1">
+                                                                                         <a href="#"  class="cancel hidden">[X]</a>
+                                                                                 </div>-->
+                                                                         </div>
+                                                                         <br>
+                                                                         <div class="form-group">
+                                                                                 <label class="col-md-2 control-label">if</label>
+                                                                                 <div class="col-md-8">
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                                                 </div>
+                                                                                 <div class="col-md-2">
+                                                                                    <a href="#">Validate</a>
+                                                                                 </div>
+                                                                         </div>
+                                                                         <div class="form-group">
+                                                                                  <label class="col-md-2 control-label"></label>
+                                                                                         <div class="col-md-8">
+                                                                                                 <select name="value"  class="form-control input-sm">
+                                                                                                         <option>select value type</option>
+                                                                                                         <option>Numeric</option>
+                                                                                                         <option>Formula</option>
+                                                                                                         <option>Conditional Formula</option>
+                                                                                                 </select>
+                                                                                         </div>
+                                                                         </div>
+                                                                         <div class="form-group" id="">
+                                                                                 <label class="col-md-2 control-label"></label>
+                                                                                 <div class="col-md-8">
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                                                 </div>
+                                                                                 <div class="col-md-2">
+                                                                                    <a href="#">Validate</a>
+                                                                                 </div>
+                                                                         </div>
+                                                                         <div class="form-group" id="">
+                                                                                 <label class="col-md-2 control-label">then</label>
+                                                                                 <div class="col-md-8">
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                                                 </div>
+                                                                                 <div class="col-md-2">
+                                                                                    <a href="#">Validate</a>
+                                                                                 </div>
+                                                                         </div>
                                                             </div>
-                                                            <div class="col-md-2">
-                                                               <a href="#">Validate</a>
+                                                                 
+                                                                 <div class="col-md-offset-1 col-md-5" id="reference_code">
+                                                                         <ul class="nav nav-tabs">
+                                                                                 <li class="active"><a data-toggle="tab" href="#categories">Payroll categories</a></li>
+                                                                                 <li><a data-toggle="tab" href="#formula">Formula Examples</a></li>
+                                                                         </ul>
+                                                                         <div class="tab-content well">
+                                                                                 <div id="categories" class="tab-pane fade in active">
+                                                                                         <h6 class="section_header">Standard codes</h6>
+                                                                                          <div class="row">
+                                                                                                 <div class="col-md-6">Gross pay</div>
+                                                                                                 <div class="col-md-offset-2 col-md-4">GROSS</div>
+                                                                                          </div>
+                                                                                          <div class="row">
+                                                                                                 <div class="col-md-6">Number of working days</div>
+                                                                                                 <div class="col-md-offset-2 col-md-4">NWD</div>
+                                                                                          </div>
+                                                                                          <h6 class="section_header">Earnings</h6>
+                                                                                          <div class="row">
+                                                                                                 <div class="col-md-6">Basic</div>
+                                                                                                 <div class="col-md-offset-2 col-md-4">Travelling </div>
+                                                                                          </div>
+                                                                                          <div class="row">
+                                                                                                 <div class="col-md-6">Number of working days</div>
+                                                                                                 <div class="col-md-offset-2 col-md-4">NWD</div>
+                                                                                          </div>
+                                                                                          <h6 class="section_header">Deductions</h6>
+                                                                                 </div>
+                                                                                 <div id="formula" class="tab-pane fade">
+                                                                                         <ul>
+                                                                                                 <li>content 1</li>
+                                                                                                 <li>content 2</li>
+                                                                                                 <li>content 3</li>
+                                                                                         </ul>
+                                                                                 </div>
+                                                                         </div>
+                                                             </div>
+                                                         </div>
+                                                         
+                                                         <div class="row template hidden" id="template" style="margin-top: 50px">
+                                                             <div class="col-md-offset-1 col-md-5" style="border:1px solid;"  >
+                                                                         <div class="row section_header">
+                                                                                 <div class="col-md-2">
+                                                                                         <h6>Condition </h6>
+                                                                                 </div>
+                                                                                 <div class="col-md-offset-9 col-md-1">
+                                                                                         <a  class="cancel">[X]</a>
+                                                                                         
+                                                                                 </div>
+                                                                         </div>
+                                                                         <br>
+                                                                         <div class="form-group">
+                                                                                 <label class="col-md-2 control-label">if</label>
+                                                                                 <div class="col-md-8">
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                                                 </div>
+                                                                                 <div class="col-md-2">
+                                                                                    <a href="#">Validate</a>
+                                                                                 </div>
+                                                                         </div>
+                                                                         <div class="form-group">
+                                                                                  <label class="col-md-2 control-label"></label>
+                                                                                         <div class="col-md-8">
+                                                                                                 <select name="value"  class="form-control input-sm">
+                                                                                                         <option>select value type</option>
+                                                                                                         <option>Numeric</option>
+                                                                                                         <option>Formula</option>
+                                                                                                         <option>Conditional Formula</option>
+                                                                                                 </select>
+                                                                                         </div>
+                                                                         </div>
+                                                                         <div class="form-group" id="">
+                                                                                 <label class="col-md-2 control-label"></label>
+                                                                                 <div class="col-md-8">
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                                                 </div>
+                                                                                 <div class="col-md-2">
+                                                                                    <a href="#">Validate</a>
+                                                                                 </div>
+                                                                         </div>
+                                                                         <div class="form-group" id="">
+                                                                                 <label class="col-md-2 control-label">then</label>
+                                                                                 <div class="col-md-8">
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                                                 </div>
+                                                                                 <div class="col-md-2">
+                                                                                    <a href="#">Validate</a>
+                                                                                 </div>
+                                                                         </div>
                                                             </div>
-                                                       </div>
-                                                       <div class="form-group">
-                                                           <label class="col-md-2 control-label"></label>
-                                                           <div class="col-md-8">
-                                                                <select name="value"  class="form-control input-sm">
-                                                                      <option>select value type</option>
-                                                                      <option>Numeric</option>
-                                                                      <option>Formula</option>
-                                                                      <option>Conditional Formula</option>
-                                                                </select>
-                                                           </div>
-                                                       </div>
-                                                       <div class="form-group" id="">
-                                                            <label class="col-md-2 control-label"></label>
-                                                            <div class="col-md-8">
-                                                                 <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
-                                                            </div>
-                                                            <div class="col-md-2">
-                                                                 <a href="#">Validate</a>
-                                                            </div>
-                                                       </div>
-                                                       <div class="form-group" id="">
-                                                           <label class="col-md-2 control-label">then</label>
-                                                            <div class="col-md-8">
-                                                                 <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
-                                                            </div>
-                                                            <div class="col-md-2">
-                                                                 <a href="#">Validate</a>
-                                                            </div>
-                                                       </div>
-                                                  </div>
-                                                  <div class="col-md-4">
-                                                       <ul class="nav nav-tabs">
-                                                            <li class="active"><a data-toggle="tab" href="#categories">Payroll categories</a></li>
-                                                            <li><a data-toggle="tab" href="#formula">Formula Examples</a></li>
-                                                       </ul>
-                                                  <div class="tab-content well">
-                                                       <div id="categories" class="tab-pane fade in active">
-                                                            <h6 class="section_header">Standard codes</h6>
-                                                            <div class="row">
-                                                                 <div class="col-md-6">Gross pay</div>
-                                                                 <div class="col-md-offset-2 col-md-4">GROSS</div>
-                                                            </div>
-                                                            <div class="row">
-                                                                 <div class="col-md-6">Number of working days</div>
-                                                                 <div class="col-md-offset-2 col-md-46">NWD</div>
-                                                            </div>
-                                                                <h6 class="section_header">Earnings</h6>
-                                                            <div class="row">
-                                                                 <div class="col-md-6">Basic</div>
-                                                                 <div class="col-md-offset-2 col-md-4">Travelling </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                 <div class="col-md-6">Number of working days</div>
-                                                                 <div class="col-md-offset-2 col-md-4">NWD</div>
-                                                            </div>
-                                                                <h6 class="section_header">Deductions</h6>
-                                                       </div>
-                                                       <div id="formula" class="tab-pane fade">
-                                                            <ul>
-                                                                 <li>content 1</li>
-                                                                 <li>content 2</li>
-                                                                 <li>content 3</li>
-                                                            </ul>
-                                                       </div>
-                                                  </div>
-                                                  </div>
-                                                  <div class="row">
-                                                       <div class="col-md-offset-2 col-md-3">
-                                                            <a href="#"><i class="fa fa-plus fa-1x">&nbsp;</i> Add another condition</a>
-                                                       </div>
-                                                  </div>
-                                                  <br><br>
-                                                  <div class="row">
-                                                       <div class="col-md-offset-2 col-md-6" style="border:1px solid;">
-                                                            <h6>Default Condition</h6>
-                                                            <p class="section_header">If above condition cannot be performed, this condition will be considered</p>
-                                                            <div class="form-group">
-                                                                    <label class="col-md-2 control-label">Value</label>
-                                                                    <div class="col-md-8">
-                                                                           <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
-                                                                    </div>
-                                                                    <div class="col-md-2">
-                                                                           <a href="#">Validate</a>
-                                                                    </div>
-                                                            </div>
-                                                       </div>
-                                                  </div>
+                                                                 <div class="col-md-offset-1 col-md-5" id="reference_code">
+                                                                         <ul class="nav nav-tabs">
+                                                                                 <li class="active"><a data-toggle="tab" href="#categories">Payroll categories</a></li>
+                                                                                 <li><a data-toggle="tab" href="#formula">Formula Examples</a></li>
+                                                                         </ul>
+                                                                         <div class="tab-content well">
+                                                                                 <div id="categories" class="tab-pane fade in active">
+                                                                                         <h6 class="section_header">Standard codes</h6>
+                                                                                          <div class="row">
+                                                                                                 <div class="col-md-6">Gross pay</div>
+                                                                                                 <div class="col-md-offset-2 col-md-4">GROSS</div>
+                                                                                          </div>
+                                                                                          <div class="row">
+                                                                                                 <div class="col-md-6">Number of working days</div>
+                                                                                                 <div class="col-md-offset-2 col-md-4">NWD</div>
+                                                                                          </div>
+                                                                                          <h6 class="section_header">Earnings</h6>
+                                                                                          <div class="row">
+                                                                                                 <div class="col-md-6">Basic</div>
+                                                                                                 <div class="col-md-offset-2 col-md-4">Travelling </div>
+                                                                                          </div>
+                                                                                          <div class="row">
+                                                                                                 <div class="col-md-6">Number of working days</div>
+                                                                                                 <div class="col-md-offset-2 col-md-4">NWD</div>
+                                                                                          </div>
+                                                                                          <h6 class="section_header">Deductions</h6>
+                                                                                 </div>
+                                                                                 <div id="formula" class="tab-pane fade">
+                                                                                         <ul>
+                                                                                                 <li>content 1</li>
+                                                                                                 <li>content 2</li>
+                                                                                                 <li>content 3</li>
+                                                                                         </ul>
+                                                                                 </div>
+                                                                         </div>
+                                                             </div>
+                                                         </div>
+                                                         
+                                                         <div class="row">
+                                                                 <div class="col-md-offset-1 col-md-3">
+                                                                         <a id="add"><i class="fa fa-plus fa-1x">Add another condition</i></a>
+                                                                 </div>
+                                                         </div>
+                                                         <br><br>
+                                                          <div class="row">
+                                                                 <div class="col-md-offset-1 col-md-5" style="border:1px solid;">
+                                                                         <h6>Default Condition</h6>
+                                                                         <p class="section_header">If above condition cannot be performed, this condition will be considered</p>
+                                                                         <div class="form-group">
+                                                                                 <label class="col-md-2 control-label">Value</label>
+                                                                                 <div class="col-md-8">
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                                                 </div>
+                                                                                 <div class="col-md-2">
+                                                                                    <a href="#">Validate</a>
+                                                                                 </div>
+                                                                         </div>
+                                                                 </div>
+                                                          </div>
                                              </div>
                                              <hr>
                                              <div class="form-group">
@@ -484,9 +596,7 @@
                               $this.parents('tr').remove();
                          }
                          <?php } ?>
-                    $(document).ready(function() {
-                       
-                   });
+                 
                   
                    <?php if($mode!='edit') { ?>
                     function selectPreference()
@@ -503,7 +613,7 @@
                        }
                    }
                    <?php } else { ?>
-                   
+                    
                     function onloadPreference()
                     {
                          $('#PayslipDate').removeClass('hidden');
@@ -520,10 +630,7 @@
                        }
                    }
                    <?php } ?>
-                        
-              
-                    
-                                      
+                               
                    
                    function EnableDeduction()
                    {
@@ -575,6 +682,23 @@
                                   });
                           });
 		
+                         $(document).ready(function(){
+                             var resData = $('#Pyment').val();
+                             if (resData=='monthly') {
+                                  $('#PayslipDay').addClass('hidden');
+                                  $('#PayslipDate').removeClass('hidden');
+                             }
+                         });
+                         $('#add').click(function(){
+				var newEle= $('#template').clone(true).insertBefore('#template').addClass('clonediv').removeClass('hidden');
+				$(newEle).find("div#reference_code").remove();
+				$('.cancel').click(function(){
+					console.log($(this).val());
+					var ele=$(this).parents('.clonediv').remove();
+					console.log(ele);
+			   });
+			});
+                
                </script>
 
     
