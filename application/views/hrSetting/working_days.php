@@ -2,9 +2,9 @@
 	<div id="content" class="content">
 		<!-- begin breadcrumb -->
 	    <ol class="breadcrumb pull-right">
-		    <li><a href="javascript:;">Home</a></li>
-		    <li><a href="javascript:;">Form Stuff</a></li>
-		    <li class="active">Form Elements</li>
+		<li><a href="javascript:;">HR</a></li>
+		<li><a href="javascript:;">Configurations</a></li>
+		<li class="active">Working Days</li>
 	    </ol>
 	    <!-- end breadcrumb -->
 	    <!-- begin page-header -->

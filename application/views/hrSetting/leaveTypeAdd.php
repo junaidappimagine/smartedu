@@ -42,44 +42,26 @@
 				<form class="form-horizontal">
 				    <div class="col-md-12">
 					<div class="form-group">
-					    <label class="col-sm-2 control-label">Leave Name &nbsp; :</label>
-					    <div class="col-sm-3">
+					    <label class="col-md-2 control-label">Leave Name &nbsp; :</label>
+					    <div class="col-md-3">
 						<input class="form-control input-sm" type="text" value="<?php if($Mode=="Edit"){ echo $Type ;}?>">
 					    </div>
 					</div>
 					<div class="form-group">
-					    <label class="col-sm-2 control-label">Leave Code &nbsp; :</label>
-					    <div class="col-sm-3">
+					    <label class="col-md-2 control-label">Leave Code &nbsp; :</label>
+					    <div class="col-md-3">
 						<input class="form-control input-sm" type="text" value="<?php if($Mode=="Edit"){ echo $Code ;}?>">
 					    </div>
 					</div>
 					<div class="form-group">
-					    <label class="col-sm-2 control-label">Leave Count &nbsp; :</label>
-					    <div class="col-sm-3">
+					    <label class="col-md-2 control-label">Leave Count &nbsp; :</label>
+					    <div class="col-md-3">
 						<input class="form-control input-sm" type="text" value="<?php if($Mode=="Edit"){ echo $Date ;}?>">
 					    </div>
 					</div>
 					<div class="form-group">
 						<label class="col-md-2 control-label">Leave Balance &nbsp; :</label>
 						<div class="col-md-9">
-						<!--     <div class="radio">-->
-						<!--	<p></p>-->
-						<!--	<div class="col-md-12 row" >-->
-						<!--	    <p>Mange how to reset employee leave balance</p>-->
-						<!--	</div>-->
-						<!--	<div class="col-md-3 row">-->
-						<!--	    <label class="radio-inline">-->
-						<!--		<input name="optionsRadios" value="option1" type="radio">-->
-						<!--		Allow leave carry forward-->
-						<!--	    </label>-->
-						<!--	</div>-->
-						<!--	<div class="col-md-3">-->
-						<!--	    <label class="radio-inline">-->
-						<!--		<input name="optionsRadios" value="option2" type="radio">-->
-						<!--		Discard leave balance-->
-						<!--	    </label>-->
-						<!--	</div>-->
-						<!--    </div>-->
 	    					    <div class="radio">
 							<div class="col-md-12 row">
 							<p></p>
@@ -87,23 +69,22 @@
 							</div>
 							<div class="col-md-3 row">
 							<label class="radio-inline">
-							    <input name="optionsRadios" class="checkVal" value="option1" type="radio">
+							    <input name="name" id="checkval" class="checkallow" value="option1" type="radio">
 							    Allow leave carry forward
 							</label>
 							</div>
 							<div class="col-md-3">
 							<label class="radio-inline">
-							    <input name="optionsRadios" id="" class="checkVal" value="option2" type="radio">
+							    <input name="name" id="" checked class="checkallow"  value="option2" type="radio">
 							    Discard leave balance
 							</label>
 							</div>
 						    </div>
 			
-						    <div class="radio">
-							<p></p>
+						    <div class="radio hidden" id="allowdive">
 							<div class="col-md-12 row">
 							<p></p>
-							<p>Minimum number of leave that can be carry forward</p>
+							<p >Minimum number of leave that can be carry forward</p>
 							</div>
 							<div class="col-md-3 row">
 							<label class="radio-inline">
@@ -136,7 +117,7 @@
 						    </div>
 						</div>
 					    </div>
-					    <div class="form-group">
+					    <div class="form-group" id=''>
 						<label class="col-md-2 control-label">Additional Leaves &nbsp; :</label>
 						<div class="col-md-9">
 						    <div class="radio">
@@ -213,6 +194,7 @@
 	</div>
 
 <script>
+    
     //$("#countfiled").hide();
     $('.checkVal').on("click",function(){
 	if($("#specialCount").is(':checked'))
@@ -220,7 +202,18 @@
 	else
 	    $("#countfiled").addClass('hidden');
 	});
-    if($("#specialCount").is(':checked')){
+	if($("#specialCount").is(':checked')){
 	$("#countfiled").removeClass('hidden');  // checked
-    }
+	}
+	
+	if($("#checkval").is(':checked')){
+	    $("#allowdive").removeClass('hidden');  // checked
+	}
+	$('.checkallow').on("click",function(){
+	    if($("#checkval").is(':checked'))
+	     //console.log($(this).is(':checked'));
+		$("#allowdive").removeClass('hidden');
+	     else
+	    $("#allowdive").addClass('hidden');
+	})
 </script>

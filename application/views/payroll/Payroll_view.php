@@ -8,12 +8,11 @@
         </head>     
         <body>
             <div id="content" class="content">
-                 <ol class="breadcrumb pull-right">
-                         <li><a href="javascript:;">Home</a></li>
-                         <li><a href="javascript:;">Form Stuff</a></li>
-                         <li class="active">Form Elements</li>
-                 </ol>
-            
+                <ol class="breadcrumb pull-right">
+                    <li><a href="javascript:;">HR</a></li>
+                    <li><a href="javascript:;">Payroll and Payslip</a></li>
+                    <li class="active">Payroll Group View </li>
+                </ol>
                  <h1 class="page-header">HR Management | Payroll Group </h1>
                  <div class="row">
                     <div class="col-md-12">
@@ -23,7 +22,7 @@
                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                                   <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                                   <!--<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>-->
                                 </div>
                                <h4 class="panel-title">Payroll Group View</h4>
                             </div>
