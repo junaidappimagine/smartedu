@@ -57,6 +57,8 @@ class payrollcategory extends CI_Controller {
 		$data['val1']=$this->input->get('var1');
 		$data['val2']=$this->input->get('var2');
 		$data['val3']=$this->input->get('var3');
+		$data['val4']=$this->input->get('var4');
+		
 		$data['mode']='edit';
 		$this->load->view('payroll/Createpayroll',$data);
 	}
