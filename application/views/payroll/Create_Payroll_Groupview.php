@@ -297,11 +297,11 @@
                                                   </div>
                                                   <div class="col-md-4">
                                                        <ul class="nav nav-tabs">
-                                                            <li class="active"><a data-toggle="tab" href="#categories">Payroll categories</a></li>
-                                                            <li><a data-toggle="tab" href="#formula">Formula Examples</a></li>
+                                                            <li class="active"><a data-toggle="tab" href="#r1">Payroll categories</a></li>
+                                                            <li><a data-toggle="tab" href="#r2">Formula Examples</a></li>
                                                        </ul>
                                                        <div class="tab-content well">
-                                                            <div id="categories" class="tab-pane fade in active">
+                                                            <div id="r1" class="tab-pane fade in active">
                                                                  <h6 class="section_header">Standard codes</h6>
                                                                  <div class="row">
                                                                       <div class="col-md-6">Gross pay</div>
@@ -322,7 +322,7 @@
                                                                  </div>
                                                                       <h6 class="section_header">Deductions</h6>
                                                             </div>
-                                                            <div id="formula" class="tab-pane fade">
+                                                            <div id="r2" class="tab-pane fade">
                                                                  <ul>
                                                                       <li>content 1</li>
                                                                       <li>content 2</li>
@@ -386,11 +386,11 @@
                                                                  
                                                                  <div class="col-md-offset-1 col-md-5" id="reference_code">
                                                                          <ul class="nav nav-tabs">
-                                                                                 <li class="active"><a data-toggle="tab" href="#categories">Payroll categories</a></li>
-                                                                                 <li><a data-toggle="tab" href="#formula">Formula Examples</a></li>
+                                                                                 <li class="active"><a data-toggle="tab" href="#r3">Payroll categories</a></li>
+                                                                                 <li><a data-toggle="tab" href="#r4">Formula Examples</a></li>
                                                                          </ul>
                                                                          <div class="tab-content well">
-                                                                                 <div id="categories" class="tab-pane fade in active">
+                                                                                 <div id="r3" class="tab-pane fade in active">
                                                                                          <h6 class="section_header">Standard codes</h6>
                                                                                           <div class="row">
                                                                                                  <div class="col-md-6">Gross pay</div>
@@ -411,7 +411,7 @@
                                                                                           </div>
                                                                                           <h6 class="section_header">Deductions</h6>
                                                                                  </div>
-                                                                                 <div id="formula" class="tab-pane fade">
+                                                                                 <div id="r4" class="tab-pane fade">
                                                                                          <ul>
                                                                                                  <li>content 1</li>
                                                                                                  <li>content 2</li>
