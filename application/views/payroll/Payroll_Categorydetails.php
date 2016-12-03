@@ -8,7 +8,7 @@
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Form Elements </h1>
+			<h1 class="page-header">Payroll and Payslip | Payroll Category</h1>
 			<!-- end page-header -->
 			
 			<!-- begin row -->
