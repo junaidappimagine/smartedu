@@ -185,6 +185,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						       <li><a href="<?php echo base_url();?>hrSettingsC/working_Days">Working Day </a></li>
 						       <li><a href="<?php echo base_url();?>hrSettingsC/leave_Types">Leave Type </a></li>
 						       <li><a href="<?php echo base_url();?>hrSettingsC/Bank_Details">Bank Details</a></li>
+						       <li><a href="<?php echo base_url();?>hrSettingsC/additional_Details">Additional Details</a></li>
+						       <li><a href="<?php echo base_url();?>hrSettingsC/employeeSearch">Employee Search</a></li>
+						       
 						</ul>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
