@@ -28,70 +28,73 @@
                         </div>
                         <div class="panel-body">
                             <div class="well">
-                                <fieldset>
+                                <!--<fieldset>-->
                                     <legend>Payroll Categories</legend>
-                                  <div class="row">
-                                        <div class="col-md-4"><a href="<?php echo base_url('payrollcategory/Create_Payroll_Category'); ?>" class="btn btn-primary" role="button">Create Payroll Category</a></div>
-                                    </div> <br>
-                                <div class="panel-body">
-                                   
-                                     <h6>List of payroll categories that define employee earnings.</h6>
-                                     <table class="table table-bordered ">
-                                         <thead>
-                                             <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
-                                                 <th>Category Name</th>
-                                                 <th>Category Code</th>
-                                                 <th>Value</th>
-                                                 <th></th>
-                                             </tr>
-                                             <tr>
-                                                 <th colspan="4" style="background: #f0f3f5 none repeat scroll 0 0;">Earnings</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody>
-                                             <tr>
-                                                 <td>Basic</td>
-                                                 <td>BA</td>
-                                                 <td>50%GROSS</td>
-                                                 <td><a href="<?php echo base_url('payrollcategory/Payroll_Categorydetails?var1=Basic&var2=BA&var3=50%GROSS'); ?>"> View </a></td>
-                                             </tr>
-                                        </tbody>
-                                     </table>
-                                     <h6>List of payroll categories that define employee deductions.</h6>
-                                      <table class="table table-bordered ">
-                                         <thead>
-                                             <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
-                                                 <th>Category Name</th>
-                                                 <th>Category Code</th>
-                                                 <th>Value</th>
-                                                 <th></th>
-                                             </tr>
-                                             <tr>
-                                                 <th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deductions</b></th>
-                                             </tr>
-                                         </thead>
-                                         <tbody>
-                                            <tr>
-                                                 <td>Provident fund</td>
-                                                 <td>PF</td>
-                                                 <td>10%GROSS</td>
-                                                 <td><a href="<?php echo base_url('payrollcategory/Payroll_Categorydetails?var1=Provident fund&var2=PF&var3=10%GROSS'); ?>"> View </a></td>
-                                             </tr>
-                                             <tr>
-                                                 <td>Provident fund</td>
-                                                 <td>LOP</td>
-                                                 <td>1.5%GROSS</td>
-                                                <td><a href="<?php echo base_url('payrollcategory/Payroll_Categorydetails/Provident fund?var1=Provident Fund&var2=LOP&var3=1.5%GROSS'); ?>"> View </a></td>
-                                             </tr>
-                                         </tbody>
-                                     </table>
-                                </div>
-                            </fieldset>
-                        </div>
+									<div class="row">
+										<div class="col-md-4"><a href="<?php echo base_url('payrollcategory/Create_Payroll_Category'); ?>" class="btn btn-primary btn-sm" role="button">Create Payroll Category</a></div>
+                                    </div><br>
+									<div class="panel-body">
+									<h6>List of payroll categories that define employee earnings.</h6>
+										<div class="table-responsive">
+											<table class="table table-bordered">
+												<thead>
+													<tr style="background-color: #d9edf7; border-color: #b6e2ef;">
+														<th>Category Name</th>
+														<th>Category Code</th>
+														<th>Value</th>
+														<th></th>
+													</tr>
+													<tr>
+														<th colspan="4" style="background: #f0f3f5 none repeat scroll 0 0;">Earnings</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Basic</td>
+														<td>BA</td>
+														<td>50%GROSS</td>
+														<td><a href="<?php echo base_url('payrollcategory/Payroll_Categorydetails?var1=Basic&var2=BA&var3=50%GROSS'); ?>"> View </a></td>
+													</tr>
+											   </tbody>
+											</table>
+										</div>
+                                    <h6>List of payroll categories that define employee deductions.</h6>
+										<div class="table-responsive">
+											<table class="table table-bordered ">
+												<thead>
+													<tr style="background-color: #d9edf7; border-color: #b6e2ef;">
+														<th>Category Name</th>
+														<th>Category Code</th>
+														<th>Value</th>
+														<th></th>
+													</tr>
+													<tr>
+														<th colspan="4" style="color:#333;background: #f0f3f5 none repeat scroll 0 0;"><b>Deductions</b></th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Provident fund</td>
+														<td>PF</td>
+														<td>10%GROSS</td>
+														<td><a href="<?php echo base_url('payrollcategory/Payroll_Categorydetails?var1=Provident fund&var2=PF&var3=10%GROSS'); ?>"> View </a></td>
+													 </tr>
+													 <tr>
+														<td>Provident fund</td>
+														<td>LOP</td>
+														<td>1.5%GROSS</td>
+														<td><a href="<?php echo base_url('payrollcategory/Payroll_Categorydetails/Provident fund?var1=Provident Fund&var2=LOP&var3=1.5%GROSS'); ?>"> View </a></td>
+													 </tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								<!--</fieldset>-->
+							</div>
                         <!--end well-->
-                    </div>
+						</div>
                     <!-- end panel -->
-                </div>
+					</div>
                 <!-- end col-12-->
 				
                 <!-- begin col-6 -->
