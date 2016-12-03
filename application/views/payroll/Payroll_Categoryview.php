@@ -8,7 +8,7 @@
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Form Elements </h1>
+			<h1 class="page-header">Payroll and Payslip | Payroll Category</h1>
 			<!-- end page-header -->
 			
 			<!-- begin row -->
@@ -24,12 +24,12 @@
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                             </div>
-                            <h4 class="panel-title">Payroll Category</h4>
+                            <h4 class="panel-title">Payroll Categories</h4>
                         </div>
                         <div class="panel-body">
                             <div class="well">
                                 <!--<fieldset>-->
-                                    <legend>Payroll Categories</legend>
+                                   <!-- <legend>Payroll Categories</legend>-->
 									<div class="row">
 										<div class="col-md-4"><a href="<?php echo base_url('payrollcategory/Create_Payroll_Category'); ?>" class="btn btn-primary btn-sm" role="button">Create Payroll Category</a></div>
                                     </div><br>
