@@ -122,33 +122,33 @@
 			  <h4 class="modal-title" id="header"></h4>
 			</div>
 			<div class="modal-body">
-            <div class="panel-body">
-			    <div class="col-md-offset-3">
-					<form method="" action="" class="form-horizontal">
-						<div class="form-group">
-							<label class="col-md-2 control-label">Name</label>
-							<div class="col-md-4">
-								<input type="text" class="form-control input-sm" id="name" placeholder="" />
+				<div class="panel-body">
+					<div class="col-md-offset-3">
+						<form method="" action="" class="form-horizontal">
+							<div class="form-group">
+								<label class="col-md-2 control-label">Name</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control input-sm" id="name" placeholder="" />
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-2 control-label">Prefix</label>
-							<div class="col-md-4">
-								<input type="text" class="form-control input-sm" id="prefix" placeholder="" d/>
+							<div class="form-group">
+								<label class="col-md-2 control-label">Prefix</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control input-sm" id="prefix" placeholder="" d/>
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-2 control-label">Status</label>
-							<div class="col-md-6">
-							  <label class="radio-inline">
-								 <input type="radio" name="optradio" id="radio_1">Active
-							   </label>
-							   <label class="radio-inline">
-								 <input type="radio" name="optradio" id="radio_2">Inactive
-							 </label>
-							</div>
-						</div><br>
-						<div class="form-group">
+							<div class="form-group">
+								<label class="col-md-2 control-label">Status</label>
+								<div class="col-md-6">
+								  <label class="radio-inline">
+									 <input type="radio" name="optradio" id="radio_1">Active
+								   </label>
+								   <label class="radio-inline">
+									 <input type="radio" name="optradio" id="radio_2">Inactive
+								 </label>
+								</div>
+							</div><br>
+							<div class="form-group">
 								<label class="col-md-2 control-label"></label>
 								<div class="col-md-2">
 									<button type="button" class="btn btn-primary btn-sm" id="action" >Create</button>
@@ -156,10 +156,10 @@
 								<div class="col-md-2">
 									 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancel</button>
 								</div>
-						</div>
-					</form>
+							</div>
+						</form>
+					</div>
 				</div>
-		   </div>
 			</div>
 		</div>
 	</div>

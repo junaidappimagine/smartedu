@@ -156,7 +156,7 @@
 								<div class="col-md-2">
 									 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancel</button>
 								</div>
-						</div>
+							</div>
 						</form>
 					</div>
 				</div>
