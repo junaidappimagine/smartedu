@@ -79,10 +79,10 @@
 											 <label class="col-md-2 control-label">Category type <span  class="imp">*</span> </label>
 											 <div class="col-md-4">
 												<label class="radio-inline">
-													   <input type="radio" class="" value=""  <?php if($mode=='edit'){ echo 'checked="checked"' ;}?> name="optradio">Earnings
+													   <input type="radio" class="" value="earnings"  <?php if($mode=='edit' && $val4=="earnings"){ echo 'checked="checked"' ;}?> name="optradio">Earnings
 												</label>
 											   <label class="radio-inline">
-														<input type="radio" class="" name="optradio">Deductions
+														<input type="radio" class=""  value="deductions" <?php if($mode=='edit' && $val4=="deductions"){ echo 'checked="checked"' ;}?> name="optradio">Deductions
 												</label>
 											 </div>
 										</div><br>
@@ -100,30 +100,27 @@
 												</select>
 											</div>
 										</div>
-									    
-									   <div class="form-group" id="numeric">
+									    <div class="form-group" id="numeric">
 											<label class="col-md-2 control-label">Amount <span class="imp">*</span> </label>
 											<div class="col-md-4">
 												<input type="text" class="form-control input-sm" placeholder="" />
 											</div>
 										</div>
-
-									
 										<div class="form-group" id="formula">
 											<label class="col-md-2 control-label">Formula <span class="imp">*</span> </label>
 											<div class="col-md-4">
-												<textarea  style="width: 100%;" rows="3"  class="form-control input-sm" cols="38" name="" value="" > </textarea> 
+												<textarea  style="width: 100%;" rows="3"  class="form-control input-sm" cols="38" name="" value="" ><?php if($mode=='edit'){ echo $val3 ;}?> </textarea> 
 											</div>
 											<div class="col-md-1">
 												<a href="#">Validate</a>
 											</div>
 											<div class="col-md-5">
 												<ul class="nav nav-tabs">
-													<li class="active"><a data-toggle="tab" href="#categories">Payroll categories</a></li>
-													<li><a data-toggle="tab" href="#formula">Formula Examples</a></li>
+													<li class="active"><a data-toggle="tab" href="#t1">Payroll categories</a></li>
+													<li><a data-toggle="tab" href="#t2">Formula Examples</a></li>
 												</ul>
 												<div class="tab-content well">
-													<div id="categories" class="tab-pane fade in active">
+													<div id="t1" class="tab-pane fade in active">
 														<h6 class="section_header">Standard codes</h6>
 					                                     <div class="row">
 															<div class="col-md-6">Gross pay</div>
@@ -144,7 +141,7 @@
 														 </div>
 														 <h6 class="section_header">Deductions</h6>
 					                                </div>
-													<div id="formula" class="tab-pane fade">
+													<div id="t2" class="tab-pane fade">
 														<ul>
 															<li>content 1</li>
 															<li>content 2</li>
@@ -154,9 +151,7 @@
 												</div>
 											</div>
 										</div>
-										
-										
-									    <div class="row" id="conditional_formula">
+										<div class="row" id="conditional_formula">
 											<div class="row">
 											    <div class="col-md-offset-1 col-md-5" style="border:1px solid;"  >
 													<div class="row section_header">
@@ -207,14 +202,13 @@
 														</div>
 													</div>
 											   </div>
-												
-												<div class="col-md-offset-1 col-md-5" id="reference_code">
+												<div class="col-md-offset-1 col-md-5" id="reference_code1">
 													<ul class="nav nav-tabs">
-														<li class="active"><a data-toggle="tab" href="#categories">Payroll categories</a></li>
-														<li><a data-toggle="tab" href="#formula">Formula Examples</a></li>
+														<li class="active"><a data-toggle="tab" href="#t3">Payroll categories</a></li>
+														<li><a data-toggle="tab" href="#t4">Formula Examples</a></li>
 													</ul>
 													<div class="tab-content well">
-														<div id="categories" class="tab-pane fade in active">
+														<div id="t3" class="tab-pane fade in active">
 															<h6 class="section_header">Standard codes</h6>
 															 <div class="row">
 																<div class="col-md-6">Gross pay</div>
@@ -235,7 +229,7 @@
 															 </div>
 															 <h6 class="section_header">Deductions</h6>
 														</div>
-														<div id="formula" class="tab-pane fade">
+														<div id="t4" class="tab-pane fade">
 															<ul>
 																<li>content 1</li>
 																<li>content 2</li>
@@ -359,11 +353,11 @@
 											 </div>
 									    </div>
 										 <br>
-										<div class="col-md-offset-2 col-md-4">
-										     <button type="button" class="btn btn-md btn-success col-md-6">Create Payroll Group</button>
+										<div class="col-md-offset-2 col-md-2">
+										     <button type="button" class="btn btn-sm btn-success">Create Payroll Group</button>
 										 </div>
-										<div class="col-md-6">
-											 <button type="button" class="btn btn-md btn-danger col-md-4">Cancel</button>
+										<div class="col-md-4">
+											 <button type="button" class="btn btn-sm btn-danger col-md-5">Cancel</button>
 										</div>
 										</fieldset>
 									</form>
@@ -419,43 +413,51 @@
             <!-- end row -->
       </div>
 		<!-- end #content -->
-		<script>
+<script>
+$('#numeric').hide();
+$('#formula').hide();
+$('#conditional_formula').hide();
+$(document).ready(function() {
+	
+	var readData=$('#value_type').val();
+	if(readData=='Formula')
+	{
 		$('#numeric').hide();
+		$('#formula').show();
+		$('#conditional_formula').hide();
+	}
+	
+	$("#value_type").change(function(){
+		//alert();
+		console.log($(this).val());
+		 if($(this).val()==='Numeric')
+		 {
+			$('#numeric').show();
 			$('#formula').hide();
 			$('#conditional_formula').hide();
-			$(document).ready(function() {
-				
-                $("#value_type").change(function(){
-					//alert();
-			        console.log($(this).val());
-			         if($(this).val()==='Numeric')
-					 {
-						$('#numeric').show();
-					    $('#formula').hide();
-						$('#conditional_formula').hide();
-					 }
-					 else if($(this).val()==='Formula')
-					 {
-						$('#numeric').hide();
-						$('#formula').show();
-						$('#conditional_formula').hide();
-					 }
-					 else if($(this).val()==='Conditional Formula')
-					 {
-						$('#numeric').hide();
-						$('#formula').hide();
-						$('#conditional_formula').show();
-					 }
-				});
-				
-			});
-			$('#add').click(function(){
-				var newEle= $('#template').clone(true).insertBefore('#template').addClass('clonediv').removeClass('hidden');
-				$(newEle).find("div#reference_code").remove();
-				$('.cancel').click(function(){
-				    console.log($(this).val());
-				    var ele=$(this).parents('.clonediv').remove();
-				    console.log(ele);
-			   });
-			});
+		 }
+		 else if($(this).val()==='Formula')
+		 {
+			$('#numeric').hide();
+			$('#formula').show();
+			$('#conditional_formula').hide();
+		 }
+		 else if($(this).val()==='Conditional Formula')
+		 {
+			$('#numeric').hide();
+			$('#formula').hide();
+			$('#conditional_formula').show();
+		 }
+	});
+	
+});
+$('#add').click(function(){
+	var newEle= $('#template').clone(true).insertBefore('#template').addClass('clonediv').removeClass('hidden');
+	$(newEle).find("div#reference_code").remove();
+});
+$('.cancel').click(function(){
+		console.log($(this).val());
+		var ele=$(this).parents('.clonediv').remove();
+		console.log(ele);
+});
 </script>
