@@ -8,7 +8,7 @@
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Form Elements </h1>
+			<h1 class="page-header">HR Configurations | Employee Grade</h1>
 			<!-- end page-header -->
 			
 			<!-- begin row -->
@@ -24,12 +24,12 @@
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                             </div>
-                            <h4 class="panel-title">Configurations</h4>
+                            <h4 class="panel-title">Employee Grade</h4>
                         </div>
                         <div class="panel-body">
                             <div class="well">
-                                <fieldset>
-                                    <legend>Employee Category</legend>
+                               <!-- <fieldset>
+                                    <legend>Employee Category</legend>-->
                                  <!-- <div class="panel-body">-->
 								     <div class="row">
 										<div class="col-md-4"><button type="button" class="btn btn-primary btn-sm" id="Add" value="Add" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus">Add</i></a></div>
@@ -55,7 +55,7 @@
                                         </tbody>
                                      </table>
                                    <!-- </div>-->
-                            </fieldset>
+                          <!--  </fieldset>-->
                         </div>
                         <!--end well-->
                     </div>
@@ -178,7 +178,7 @@ $(document).ready(function(){
             //alert();
             $('.modal-title').text('Create Employee Category');
             $('#action').text('Create');
-            $("#radio_1").prop("checked", false);
+            $("#radio_1").prop("checked", true);
             $("#radio_2").prop("checked", false);
             $('#name').val('');
             $('#day').val('');
