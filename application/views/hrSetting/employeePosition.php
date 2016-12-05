@@ -24,32 +24,34 @@
                             <!--<legend>Employee Position</legend>-->
                             <div class="row">
                                 <div class="col-md-4"><button type="button" class="btn btn-primary" id="Add" value="Add" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus fa-1x"></i><span class="f-s-14 f-w-500"> Add</span></a></div>
-                                        </div><br>
-                                     <table class="table table-bordered table-responsive" >
-                                         <thead>
-                                             <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
-                                                 <th width="600px">Categories</th>
-                                                 <th width="300px">Active</th>
-                                                 <th width="300px">Action</th>
-                                                 
-                                            </tr>
-                                        </thead>
-                                         <tbody>
-                                             <tr>
-                                                 <td> <span class="badge badge-success">-</span> &nbsp;&nbsp;Position 1(p1)</td>
-                                                 <td>Y</td>
-                                                 <td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button>
+                            </div><br>
+                                <div class="panel-body">
+				   <div class="table-responsive">
+				        <table id="data-table" class="table table-striped table-bordered">
+					    <thead>
+					       <tr>
+						   <th>Categories</th>
+						   <th>Active</th>
+						   <th>Action</th>
+					       </tr>
+					    </thead>
+					    <tbody>
+					        <tr class="odd gradeX">
+                                                    <td> <span class="badge badge-success">-</span> &nbsp;&nbsp;Position 1(p1)</td>
+                                                    <td>Y</td>
+                                                    <td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button>
                                                     <button type="button" name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
-                                            </tr>
-                                    <tr>
-                                        <td><span class="badge badge-danger">-</span>&nbsp;&nbsp;Position 2(p2)</td>
-                                        <td>N</td>
-                                        <td><button type="button" name="edit" id="`34578" value="edit2" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button>
-                                            <button onclick="" name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
-
-                                    </tr>
-                                    </tbody>
-                                    </table>
+					        </tr>
+					        <tr class="even gradeC">
+						    <td><span class="badge badge-danger">-</span>&nbsp;&nbsp;Position 2(p2)</td>
+                                                    <td>N</td>
+                                                    <td><button type="button" name="edit" id="`34578" value="edit2" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button>
+                                                        <button onclick="" name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
+					         </tr>
+					    </tbody>
+				        </table>
+				    </div>
+			        </div>
                         </fieldset>
                         </div>
                         </div>
