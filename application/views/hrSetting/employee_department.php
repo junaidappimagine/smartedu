@@ -30,9 +30,9 @@
                             <div class="well">
                                <!-- <fieldset>
                                     <legend>Employee Department</legend>-->
-									<div class="row">
-										<div class="col-md-4"><button type="button" class="btn btn-primary btn-sm" id="Add" value="Add" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i><span class="f-s-14 f-w-500"> Add</span></a></div>
-									 </div><br>
+				 <div class="row">
+					<div class="col-md-4"><button type="button" class="btn btn-primary btn-sm" id="Add" value="Add" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i><span class="f-s-14 f-w-500"> Add</span></a></div>
+				 </div><br>
                                      <table class="table table-bordered table-responsive" >
                                         <thead>
                                              <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
@@ -57,7 +57,35 @@
                                         </tbody>
                                      </table>
                               <!--  </fieldset>-->
-							</div>
+			        	<div class="panel-body">
+						<div class="table-responsive">
+						     <table id="data-table" class="table table-striped table-bordered">
+							 <thead>
+							    <tr>
+								<th>Employee Department</th>
+								<th>Active</th>
+								<th>Action</th>
+							    </tr>
+							 </thead>
+							 <tbody>
+							        <tr>
+									<td> <span class="badge badge-success">-</span> &nbsp;&nbsp;Department 1(D1)</td>
+									 <td>Y</td>
+									<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button>
+									<button type="button"  name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
+								</tr>
+							        <tr>
+									<td><span class="badge badge-danger">-</span>&nbsp;&nbsp;Department 2(D2)</td>
+															 <td>N</td>
+									<td><button type="button" name="edit"  id="edit2" value="edit2" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button>
+									<button onclick="" name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
+								</tr>
+							 </tbody>
+						     </table>
+						 </div>
+					 </div>
+
+				</div>
                         <!--end well-->
                     </div>
                     <!-- end panel -->
