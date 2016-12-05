@@ -11,6 +11,9 @@
 <![endif]-->
 <script src="<?php echo base_url(); ?>assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/DataTables/js/jquery.dataTables.js"></script>
+
+<script src="<?php echo base_url(); ?>assets/js/table-manage-default.demo.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/apps.min.js"></script>
 <!-- Common js to use common script added by rafeeq 29-Nov-2016 -->
 <script src="<?php echo base_url(); ?>assets/js/common.js"></script>
@@ -19,6 +22,7 @@
 <script>
 		$(document).ready(function() {
 			App.init();
+			TableManageDefault.init();
 			//DashboardV2.init();
 		});
 	</script>

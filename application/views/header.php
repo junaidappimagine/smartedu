@@ -16,8 +16,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link href="<?php echo base_url(); ?>assets/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/css/theme/default-smartedu.css" rel="stylesheet" id="theme" />
 
+	<link href="<?php echo base_url(); ?>assets/plugins/DataTables/css/data-table.css" rel="stylesheet" />
+	
+	
     <script src="<?php echo base_url(); ?>assets/plugins/pace/pace.min.js"></script>
 	<!-- <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery-1.9.1.min.js"></script> -->
+	
 
 	<!-- <script src="<?php echo base_url(); ?>assets/js/jquery-1.11.3.min.js"></script> -->
 	<script src="<?php echo base_url(); ?>assets/js/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
