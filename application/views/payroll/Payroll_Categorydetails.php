@@ -28,89 +28,94 @@
                         </div>
                         <div class="panel-body">
                             <div class="well">
-								<form class="form-horizontal">
-									<fieldset>
-									<legend>Payroll Category Details</legend>
-										<div class="form-group">
-											<label class="col-md-2 control-label">Payroll Category name</label>
-											<div class="col-md-4">
-												<input type="text" class="form-control input-sm" placeholder="" id="name" value="<?php echo $val1; ?>" />
-											</div>
-											<div class="col-md-offset-10">
-												<!--<a href="<?php echo base_url('payrollcategory/Edit_Payroll_Category/?var1=Basic&var2=BA&var3=50%GROSS'); ?>" role="button" class="btn btn-primary" ><i class="fa fa-edit">Edit </i></a>-->
-												<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit">Edit </i></button>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-md-2 control-label">Category code</label>
-											<div class="col-md-4">
-												<input type="text" class="form-control input-sm" placeholder="" id="code" value="<?php echo $val2; ?>" />
-											</div>
-										</div>
-										<div class="form-group ">
-											 <label class="col-md-2 control-label">Category type </label>
-											 <div class="col-md-4">
-												<label class="radio-inline">
-													<input type="radio"  <?php if($val2=='BA') { echo 'checked="checked"'; } ?>  name="optradio" value="earnings" id="earnings">Earnings
-												</label>
-											   <label class="radio-inline">
-													<input type="radio" <?php if($val2=='PF' || $val2=='LOP') { echo 'checked="checked"'; } ?> name="optradio" value="deductions" id="deductions">Deductions
-												</label>
-											 </div>
-										</div>
-										<hr>
-										<div class="form-group">
-											<label class="col-md-2 control-label">Value type</label>
-											<div class="col-md-4">
-												<input type="text" class="form-control input-sm"  placeholder="" value="Formula "  />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-md-2 control-label">Defualt Value</label>
-											<div class="col-md-4">
-												<input type="text" class="form-control input-sm"  placeholder=""  id="default_type" value="<?php echo $val3; ?>"   />
-											</div>
-										</div>
-										<br>
-									   <legend>Associated Payroll Groups</legend>
-									   <p>List of payroll groups that have been set up using this payroll category :</p>
-									   <div class="col-md-6">
-											<?php if($val2=='BA') { ?>
-												<table class="table table-bordered">
-													<tbody>
-														<tr>
-															<td class="col-md-3" style="text-align:center">Basic</td>
-															<td class="col-md-3" style="text-align:center">Monthly</td>
-														</tr>
-													</tbody>
-												</table>
-											<?php } elseif($val2=='PF') { ?>
-											<table class="table table-bordered">
-												<tbody>
-													<tr>
-														<td class="col-md-3" style="text-align:center">20000</td>
-														<td class="col-md-3" style="text-align:center">Monthly</td>
-													</tr>
-													<tr>
-														<td class="col-md-3" style="text-align:center">Current Payslip</td>
-														<td class="col-md-3" style="text-align:center">Monthly</td>
-													</tr>
-												</tbody>
-											</table>
-											<?php } elseif($val2=='LOP') { ?>
-												<table class="table table-bordered">
-													<tbody>
-														<tr>
-															<td class="col-md-3" style="text-align:center">20000</td>
-															<td class="col-md-3" style="text-align:center">Monthly</td>
-														</tr>
-													</tbody>
-												</table>
-											<?php } ?>
-										</div>
-									</fieldset>
-								</form>
+					<form class="form-horizontal">
+						<fieldset>
+							<legend>
+							<div class="col-sm-10">
+								<h1 class="page-header" style="font-size:21px;">Payroll Category Details</h1>
 							</div>
+								<div class="col-sm-2">
+									<!--<a href="<?php echo base_url('payrollcategory/Edit_Payroll_Category/?var1=Basic&var2=BA&var3=50%GROSS'); ?>" role="button" class="btn btn-primary" ><i class="fa fa-edit">Edit </i></a>-->
+									<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit">Edit </i></button>
+								</div>
+							</legend>
+							<div class="form-group">
+								<label class="col-md-2 control-label">Payroll Category name</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control input-sm" placeholder="" id="name" value="<?php echo $val1; ?>" />
+								</div>
+
+							</div>
+							<div class="form-group">
+								<label class="col-md-2 control-label">Category code</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control input-sm" placeholder="" id="code" value="<?php echo $val2; ?>" />
+								</div>
+							</div>
+							<div class="form-group ">
+								 <label class="col-md-2 control-label">Category type </label>
+								 <div class="col-md-4">
+									<label class="radio-inline">
+										<input type="radio"  <?php if($val2=='BA') { echo 'checked="checked"'; } ?>  name="optradio" value="earnings" id="earnings">Earnings
+									</label>
+								   <label class="radio-inline">
+										<input type="radio" <?php if($val2=='PF' || $val2=='LOP') { echo 'checked="checked"'; } ?> name="optradio" value="deductions" id="deductions">Deductions
+									</label>
+								 </div>
+							</div>
+							<hr>
+							<div class="form-group">
+								<label class="col-md-2 control-label">Value type</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control input-sm"  placeholder="" value="Formula "  />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-2 control-label">Defualt Value</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control input-sm"  placeholder=""  id="default_type" value="<?php echo $val3; ?>"   />
+								</div>
+							</div>
+							<br>
+						   <legend>Associated Payroll Groups</legend>
+						   <p>List of payroll groups that have been set up using this payroll category :</p>
+						   <div class="col-md-6">
+								<?php if($val2=='BA') { ?>
+									<table class="table table-bordered">
+										<tbody>
+											<tr>
+												<td class="col-md-3" style="text-align:center">Basic</td>
+												<td class="col-md-3" style="text-align:center">Monthly</td>
+											</tr>
+										</tbody>
+									</table>
+								<?php } elseif($val2=='PF') { ?>
+								<table class="table table-bordered">
+									<tbody>
+										<tr>
+											<td class="col-md-3" style="text-align:center">20000</td>
+											<td class="col-md-3" style="text-align:center">Monthly</td>
+										</tr>
+										<tr>
+											<td class="col-md-3" style="text-align:center">Current Payslip</td>
+											<td class="col-md-3" style="text-align:center">Monthly</td>
+										</tr>
+									</tbody>
+								</table>
+								<?php } elseif($val2=='LOP') { ?>
+									<table class="table table-bordered">
+										<tbody>
+											<tr>
+												<td class="col-md-3" style="text-align:center">20000</td>
+												<td class="col-md-3" style="text-align:center">Monthly</td>
+											</tr>
+										</tbody>
+									</table>
+								<?php } ?>
+							</div>
+						</fieldset>
+					</form>
+				</div>
                         </div>
                     </div>
                     <!-- end panel -->
