@@ -1,7 +1,6 @@
     <html>
         <head>
-           <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
-            
+            <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
             <style>
                 .panel-body h1{
                  font-size: 15px;
