@@ -1,4 +1,3 @@
-<script type="text/javascript" src="<?php echo base_url();?>assets/bootstrap-filestyle/src/bootstrap-filestyle.min.js"> </script>
 
 <!-- begin #content -->
 <div id="content" class="content">
