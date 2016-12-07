@@ -1,5 +1,5 @@
 <!-- Javascript files to load here -->
-
+<script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery-1.9.1.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -18,6 +18,11 @@
 <!-- Common js to use common script added by rafeeq 29-Nov-2016 -->
 <script src="<?php echo base_url(); ?>assets/js/common.js"></script>
 <!-- Common js to use common script added by rafeeq 29-Nov-2016 -->
+
+<!-- Added by Vijayaraj 05-12-16-->
+	<script src="<?php echo base_url(); ?>assets/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+	<script src="<?php echo base_url(); ?>assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/form-wizards.demo.min.js"></script>
 
 <script>
 		$(document).ready(function() {
