@@ -88,11 +88,11 @@
                                                     <label class="col-md-4 control-label">Input Method</label>
                                                     <div class="col-md-4">
                                                         <select name="value" class="form-control input-sm" id="method" onchange="inputMethod()">
-								<option selected >select Method</option>
-								<option value="area">text area</option>
-								<option value="select">select box</option>
-								<option value="box">check box</option>
-								<option value="down">Drop down</option>
+								<option selected >Select Method</option>
+								<option value="area">Text Area</option>
+								<option value="select">Text Box</option>
+								<option value="box">Check Box</option>
+								<option value="down">Drop Down</option>
 							</select>
 
                                                         <div class="form-group input_fields_wrap hidden" id="addfield">
