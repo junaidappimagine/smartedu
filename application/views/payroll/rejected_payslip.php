@@ -39,9 +39,10 @@
 					<div class="col-sm-4">
 					    
 					</div>
-					<div class="col-sm-2">
-					     <label class="label-control"></label> 
-					     <p>Filter<p> 
+					<div class="col-sm-1">
+					    <br><br>
+				    		<p>Filters</p>
+					    
 					</div>
 					<div class="col-sm-3">
 					    <label class="label-control">Payroll group </label>
