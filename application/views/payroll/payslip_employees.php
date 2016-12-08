@@ -117,7 +117,7 @@
                                                     <td>-</td>
                                                    <td>
                                                     <div class="col-sm-5">
-                                                        <a href="<?php echo base_url('payslip/generate_payslip'); ?>"> <button class="btn btn-warning btn-xs">Update Payroll</button> </a>
+                                                        <a href="<?php echo base_url(''); ?>"> <button class="btn btn-warning btn-xs">Update Payroll</button> </a>
                                                     </div>
                                                     <div class="col-sm-4">
                                                          <a href="<?php echo base_url('payslip/generatedPayslips_view'); ?>"> <button class="btn btn-primary btn-xs">View Payslips</button></a>
@@ -153,7 +153,7 @@
                                                     <td>-</td>
                                                     <td>
                                                         <div class="col-sm-5">
-                                                            <a href="<?php echo base_url('payslip/generate_payslip'); ?>"> <button class="btn btn-warning btn-xs">Update Payroll</button> </a>
+                                                            <a href="<?php echo base_url(''); ?>"> <button class="btn btn-warning btn-xs">Update Payroll</button> </a>
                                                         </div>
                                                         <div class="col-sm-5">
                                                             <a href="<?php echo base_url('payslip/generatedPayslips_view'); ?>"> <button class="btn btn-primary btn-xs">View Payslips</button></a>
