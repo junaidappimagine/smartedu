@@ -30,15 +30,12 @@
                             </div>
                             <div class="panel-body" >
 				<div class="col-md-12 row">
-                                  
-				    
 				    <div class="col-md-12 row">
 					  <h1 class="page-header"><b> Generate Employee Payslip: Keerthi (EMP003)</<b></h1>
 					<div class="form-group">
-					   
 						<section class="col-sm-3 form-group">
 						    <span class='input-group'>
-							<input type='text' id="datePicker" name="dailyDate" class="form-control datetimepicker defaultdate" value="<?php echo date('M-Y'); ?>" />
+							<input type='text' id="datePicker" name="dailyDate" class="form-control input-sm input-group datetimepicker defaultdate" value="<?php echo date('M-Y'); ?>" />
 							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 						        </span>
 						    </span>                                 					    
@@ -308,9 +305,8 @@
 	   
             $(document).ready(function(){
                          
-	    $('#datePicker')
-		.datepicker({
-		    format: 'M-Y'
+	    $('#datePicker').datepicker({
+		    format: 'M-yyyy'
 		});
 	   
 		
