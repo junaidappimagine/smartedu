@@ -9,6 +9,12 @@
                 tr.group:hover {
                     background-color: #ddd !important;
                 }
+              /*  btn-group-sm > .btn, .btn-sm {
+                    border-radius: 3px;
+                    font-size: 12px;
+                    line-height: 0.5;
+                    padding: 4px 3px;
+                }*/
             </style>
         </head>     
         <body>
@@ -32,8 +38,16 @@
                                <h4 class="panel-title">Employees</h4>
                             </div>
                             <div class="panel-body" >
-                                            <h1 class="page-header"><b>Payslips for Employees</b></h1>
-                                        <hr>
+                                <div class="form-group col-sm-12">
+                                    <div class="col-sm-10">
+                                          <h1 class="page-header"><b>Payslips for Employees</b></h1>
+                                    </div>
+                                     <div class="col-sm-2">
+                                         <a href="<?php echo base_url('payslip/rejected_payslip'); ?>"> <button class="btn btn-warning btn-xs">Rejected payslip</button> </a>
+                                     </div>
+                                </div>  <hr>
+                                          
+                                      
                                
                                         <table id="example" class="display" width="100%" cellspacing="0">
                                             <thead>
@@ -67,10 +81,10 @@
                                                     <td>May 2017</td>
                                                     <td>
                                                         <div class="col-sm-5">
-                                                            <a href="<?php echo base_url('payslip/generate_payslip'); ?>"> <button class="btn btn-warning btn-sm">Generate payslip</button> </a>
+                                                            <a href="<?php echo base_url('payslip/generate_payslip'); ?>"> <button class="btn btn-warning btn-xs">Generate payslip</button> </a>
                                                         </div>
                                                          <div class="col-sm-4">
-                                                            <a href="<?php echo base_url(''); ?>"> <button class="btn btn-primary btn-sm">View Payslips</button></a>
+                                                            <a href="<?php echo base_url('payslip/generatedPayslips_view'); ?>"> <button class="btn btn-primary btn-xs">View Payslips</button></a>
                                                         </div>
                                                         
                                                         
@@ -85,10 +99,10 @@
                                                     <td>April 2017</td>
                                                     <td>
                                                         <div class="col-sm-5">
-                                                            <a href="<?php echo base_url('payslip/generate_payslip'); ?>"> <button class="btn btn-warning btn-sm">Generate payslip</button> </a>
+                                                            <a href="<?php echo base_url('payslip/generate_payslip'); ?>"> <button class="btn btn-warning btn-xs">Generate payslip</button> </a>
                                                         </div>
                                                          <div class="col-sm-4">
-                                                            <a href="<?php echo base_url(''); ?>"> <button class="btn btn-primary btn-sm">View Payslips</button></a>
+                                                            <a href="<?php echo base_url('payslip/generatedPayslips_view'); ?>"> <button class="btn btn-primary btn-xs">View Payslips</button></a>
                                                         </div>
                                                         
                                                         
@@ -103,10 +117,10 @@
                                                     <td>-</td>
                                                    <td>
                                                     <div class="col-sm-5">
-                                                        <a href="<?php echo base_url('payslip/generate_payslip'); ?>"> <button class="btn btn-warning btn-sm">Update Payroll</button> </a>
+                                                        <a href="<?php echo base_url('payslip/generate_payslip'); ?>"> <button class="btn btn-warning btn-xs">Update Payroll</button> </a>
                                                     </div>
                                                     <div class="col-sm-4">
-                                                         <a href="<?php echo base_url(''); ?>"> <button class="btn btn-primary btn-sm">View Payslips</button></a>
+                                                         <a href="<?php echo base_url('payslip/generatedPayslips_view'); ?>"> <button class="btn btn-primary btn-xs">View Payslips</button></a>
                                                     </div>
                                                     
                                                     </td>
@@ -120,10 +134,10 @@
                                                     <td>January 2017</td>
                                                     <td>
                                                          <div class="col-sm-5">
-                                                            <a href="<?php echo base_url('payslip/generate_payslip'); ?>"> <button class="btn btn-warning btn-sm">Generate payslip</button> </a>
+                                                            <a href="<?php echo base_url('payslip/generate_payslip'); ?>"> <button class="btn btn-warning btn-xs">Generate payslip</button> </a>
                                                          </div>
                                                          <div class="col-sm-4">
-                                                            <a href="<?php echo base_url(''); ?>"> <button class="btn btn-primary btn-sm">View Payslips</button></a>
+                                                            <a href="<?php echo base_url('payslip/generatedPayslips_view'); ?>"> <button class="btn btn-primary btn-xs">View Payslips</button></a>
                                                          </div>
                                                         
                                                         
@@ -139,10 +153,10 @@
                                                     <td>-</td>
                                                     <td>
                                                         <div class="col-sm-5">
-                                                            <a href="<?php echo base_url('payslip/generate_payslip'); ?>"> <button class="btn btn-warning btn-sm">Update Payroll</button> </a>
+                                                            <a href="<?php echo base_url('payslip/generate_payslip'); ?>"> <button class="btn btn-warning btn-xs">Update Payroll</button> </a>
                                                         </div>
                                                         <div class="col-sm-5">
-                                                            <a href="<?php echo base_url(''); ?>"> <button class="btn btn-primary btn-sm">View Payslips</button></a>
+                                                            <a href="<?php echo base_url('payslip/generatedPayslips_view'); ?>"> <button class="btn btn-primary btn-xs">View Payslips</button></a>
                                                         </div>
                                                         
                                                         
