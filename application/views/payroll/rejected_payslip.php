@@ -82,8 +82,6 @@
                                              </table>
                                          </div>
 				</div>
-				
-                            
                             </div>
                         </div>
                     </div>
@@ -92,13 +90,10 @@
         <script>
 	   
             $(document).ready(function(){
-                         
-	    $('#datePicker')
-		.datepicker({
-		    format: 'M-Y'
-		});
-	   
-		
+		$('#datePicker')
+		    .datepicker({
+			format: 'M-Y'
+		    });
             });
 	    function filterData() {
 		$("#add").removeClass('hidden');
