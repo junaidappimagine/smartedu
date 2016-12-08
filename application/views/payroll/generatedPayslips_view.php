@@ -62,6 +62,9 @@
 					<label class="col-sm-2">Current Payslip</label>
                                         <label class="col-sm-2"><a>View Payroll</a></label> 
 				    </div>
+				     <div class="form-group">
+					
+				     </div>
 				</div>
 				
                                 <div class="row">
@@ -88,38 +91,63 @@
 					<div class="row" >
 					    <div class="table-responsive">
 						<table id="data-table" class="table table-striped table-bordered">
-						   <thead>
-						   <tr>
-							   <th>Pay period</th>
-							   <th>Salary</th>
-							   <th>Payslip status</th>
-							   <th></th>           
-						   </tr>
-						   </thead>
-						   <tbody>
-						       <tr>
-							   <td>December 2016</td>
-							   <td>31000.00</td>
-							   <td>Pending</td>
-							   <td>View Payslip Delete payslip PDF report</td>
-						       </tr>
-						       <tr>
-							   <td>march 2016</td>
-							   <td>31000.00</td>
-							   <td>Pending</td>
-							   <td>View Payslip Delete payslip PDF report</td>
-						       </tr>
-						       <tr>
-							   <td>February 2016</td>
-							   <td>31000.00</td>
-							   <td>Approved</td>
-							   <td>View Payslip PDF report</td>
-						       </tr>
-						   </tbody>
-					   </table>
-
+						    <thead>
+						    <tr>
+							    <th>Pay period</th>
+							    <th>Salary</th>
+							    <th>Payslip status</th>
+							    <th></th>           
+						    </tr>
+						    </thead>
+						    <tbody>
+							<tr>
+							    <td>December 2016</td>
+							    <td>31000.00</td>
+							    <td>Pending</td>
+							    <td><a>View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
+							</tr>
+							<tr>
+							    <td>march 2016</td>
+							    <td>31000.00</td>
+							    <td>Pending</td>
+							    <td><a>View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
+							</tr>
+							<tr>
+							    <td>February 2016</td>
+							    <td>31000.00</td>
+							    <td>Approved</td>
+							    <td><a>View Payslip</a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
+							</tr>
+						    </tbody>
+						</table>
 					    </div>
-				   </div>
+				    </div>
+				    <div class="modal fade" id="myModal" role="dialog">
+					<div class="modal-dialog modal-md">
+					    <div class="modal-content">
+						<div class="modal-header">
+						    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">
+							<i class="fa  fa-times-circle "></i>
+						    </button>
+						    <h4 class="modal-title" id="header">Delete payslip</h4>
+						</div>
+						<div class="modal-body">
+						    <div class="panel-body">
+							<div class="col-md-offset-3">
+							    <form method="" action="" class="form-horizontal">
+								<p>The payslip of Sheena for pay period December 2016 will be deleted.</p>
+							    </form>
+							</div>
+						    </div>
+						</div>
+						<div class="modal-footer">
+						    
+						</div>
+					    </div>
+					</div>
+				    </div>
+
+					
                                  </div>
                                 </div>
                             </div>
