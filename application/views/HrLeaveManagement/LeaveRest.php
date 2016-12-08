@@ -4,11 +4,11 @@
     <ol class="breadcrumb pull-right">
 		<li><a href="javascript:;">Home</a></li>
 		<li><a href="javascript:;">Employee Leave Management</a></li>
-		<li class="active">Leave Rest Records</li>
+		<li class="active">Leave Reset Records</li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">Leave Rest Records<small></small></h1>
+    <h1 class="page-header">Leave Reset Records<small></small></h1>
     <!-- end page-header -->
     <!-- begin row -->
     <div class="row">
@@ -22,7 +22,7 @@
 				    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
 				    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 				</div>
-				<h4 class="panel-title">Leave Rest Records</h4>
+				<h4 class="panel-title">Leave Reset Records</h4>
 			    </div>
 			    <div class="panel-body" id="crop-avatar">
 				    <div class="container" style="width: 100% !important">
