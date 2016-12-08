@@ -20,7 +20,7 @@
 <script src="<?php echo base_url(); ?>assets/js/table-manage-default.demo.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/apps.min.js"></script>
 <!-- Common js to use common script added by rafeeq 29-Nov-2016 -->
-<script src="<?php echo base_url(); ?>assets/js/common.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/controls/common.js"></script>
 <!-- Common js to use common script added by rafeeq 29-Nov-2016 -->
 <script src="<?php echo base_url();?>assets/js/moment.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/bootstrap-datetimepicker2/js/moment-with-locales.js"></script>
