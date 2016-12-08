@@ -81,7 +81,7 @@
                                                     <label class="col-md-4 control-label">Employee Category</label>
                                                     <div class="col-md-4">
                                                         <select name="value" class="form-control input-sm" id="cat">
-                                                            <option>select Category</option>
+                                                            <option>Select Category</option>
                                                             <option value="p1">p1</option>
                                                             <option value="p2">p2</option>
                                                             
