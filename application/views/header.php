@@ -27,6 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- Added By Vijayaraj -->
 	<link href="<?php echo base_url(); ?>assets/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
+	<link href="<?php echo base_url(); ?>assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" />
 
 	
 	
