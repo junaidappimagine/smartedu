@@ -30,7 +30,13 @@
                             </div>
                             <div class="panel-body" >
 				<div class="col-md-12 row">
-					  <h1 class="page-header"><b> Generate Payslips - Keerthi (EMP003) </<b></h1>
+				    <div class="col-md-10">
+					<h1 class="page-header"><b> Generate Payslips - Keerthi (EMP003) </<b></h1>
+				    </div>
+				    <div class="col-md-2">
+					<a href="<?php echo base_url('payslip/generate_payslip'); ?>"> <button class="btn btn-warning btn-xs">Generate payslip</button> </a>
+				    </div>
+					  
 				</div>
 				<div class="col-md-12" style="border-bottom: 1px solid gray" >
 				   
@@ -54,27 +60,34 @@
 					<label class="col-sm-2" style="text-align: left;">Payroll group</label>
 					<label class="col-sm-1" style="text-align: left;">:</label>
 					<label class="col-sm-2">Current Payslip</label>
-                                        <label class="col-sm-2"><a>Current Payslip</a></label>
+                                        <label class="col-sm-2"><a>View Payroll</a></label> 
 				    </div>
-				</div><br>
+				</div>
+				
                                 <div class="row">
-                                        <div class="col-md-3">
-                                                
+                                        <div class="col-md2">
+                                            
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-10"><br><br>
                                                 <div class="form-group">
-                                                        <label>Payslip Status</label>
-                                                        <select class="form-control selectpicker input-sm"  data-style="btn-white btn-sm" name="" id="filter" onchange="filterData()">
+						        <label class="col-sm-6"></label>
+						          
+                                                        <label class="col-sm-2"><p></p><p>Payslip Status</p></label>
+							<div class="col-md-4">
+							    <select class="form-control selectpicker input-sm"  data-style="btn-white btn-sm" name="" id="filter" onchange="filterData()">
                                                                 <option value="All" selected="selected">All</option>
                                                                 <option value="English">Pending</option>
                                                                 <option value="Hindi">Approved</option>
                                                         </select>
+							</div>
+                                                        
                                                 </div>
                                         </div>
                                 </div>
                                  <div class="container-fluid">
 					<div class="row" >
-					   <table border="1" class="table" style="width: 100% !important; overflow: scroll;">
+					    <div class="table-responsive">
+						<table id="data-table" class="table table-striped table-bordered">
 						   <thead>
 						   <tr>
 							   <th>Pay period</th>
@@ -104,6 +117,8 @@
 						       </tr>
 						   </tbody>
 					   </table>
+
+					    </div>
 				   </div>
                                  </div>
                                 </div>
