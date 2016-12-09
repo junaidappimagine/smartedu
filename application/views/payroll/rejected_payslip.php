@@ -46,7 +46,7 @@
 					</div>
 					<div class="col-sm-3">
 					    <label class="label-control">Payroll group </label>
-					    <select class="form-control input-sm">
+					    <select class="form-control selectpicker" data-style="btn-white btn-sm" >
 						<option>All Payroll Groups</option>
 						
 					    </select>
@@ -54,7 +54,7 @@
 					</div>
 					<div class="col-sm-3">
 					    <label class="label-control ">Employee department </label>
-					    <select class="form-control input-sm">
+					    <select class="form-control selectpicker" data-style="btn-white btn-sm" >
 						<option>All Departments</option>
 						
 					    </select>

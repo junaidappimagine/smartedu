@@ -38,7 +38,7 @@
 				    </div>
 					  
 				</div>
-				<div class="col-md-12" style="border-bottom: 1px solid gray" >
+				<div class="col-md-12" >
 				   
 				    <div class="form-group">
 					<label class="col-sm-2" style="text-align: left;">Name</label>
@@ -60,43 +60,38 @@
 					<label class="col-sm-2" style="text-align: left;">Payroll group</label>
 					<label class="col-sm-1" style="text-align: left;">:</label>
 					<label class="col-sm-2">Current Payslip</label>
-                                        <label class="col-sm-2"><a>View Payroll</a></label> 
+                                        <label class="col-sm-2"><a>View Payroll</a></label>   
 				    </div>
-				     <div class="form-group">
-					
-				     </div>
+				    <div class="form-group">
+					<p></p>
+					<p></p>
+				    </div>
+				    <legend style=" padding-bottom: 90px;"></legend>
+				  
 				</div>
-				
                                 <div class="row">
-                                        <div class="col-md2">
-                                            
-                                        </div>
-                                        <div class="col-md-10"><br><br>
-                                                <div class="form-group">
-						        <label class="col-sm-6"></label>
-						          
-                                                        <label class="col-sm-2"><p></p><p>Payslip Status</p></label>
-							<div class="col-md-4">
-							    <select class="form-control selectpicker input-sm"  data-style="btn-white btn-sm" name="" id="filter" onchange="filterData()">
-                                                                <option value="All" selected="selected">All</option>
-                                                                <option value="English">Pending</option>
-                                                                <option value="Hindi">Approved</option>
-                                                        </select>
-							</div>
-                                                        
-                                                </div>
-                                        </div>
-                                </div>
-                                 <div class="container-fluid">
-					<div class="row" >
+					<div class="form-group">
+					    <div class="col-md-10">
+						<label class="col-md-2 control-label"><p></p><p>Payslip Status</p></label>
+					    <div class="col-md-3">
+						<select class="form-control selectpicker" data-style="btn-white btn-sm"  id="dropdown1">
+						    <option value="" selected="selected">All</option>
+						    <option value="Pending">Pending</option>
+						    <option value="Approved">Approved</option>
+						</select>
+					    </div>
+					    </div>
+                                    </div>
+                                </div><br>
+                                  <div class="form-group col-sm-12">
 					    <div class="table-responsive">
 						<table id="data-table" class="table table-striped table-bordered">
 						    <thead>
 						    <tr>
-							    <th>Pay period</th>
-							    <th>Salary</th>
-							    <th>Payslip status</th>
-							    <th></th>           
+							<th>Pay period</th>
+							<th>Salary</th>
+							<th>Payslip status</th>
+							<th></th>           
 						    </tr>
 						    </thead>
 						    <tbody>
@@ -104,13 +99,13 @@
 							    <td>December 2016</td>
 							    <td>31000.00</td>
 							    <td>Pending</td>
-							    <td><a>View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
+							    <td><a>View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
 							</tr>
 							<tr>
 							    <td>march 2016</td>
 							    <td>31000.00</td>
 							    <td>Pending</td>
-							    <td><a>View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
+							    <td><a>View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
 							</tr>
 							<tr>
 							    <td>February 2016</td>
@@ -120,34 +115,7 @@
 							</tr>
 						    </tbody>
 						</table>
-					    </div>
 				    </div>
-				    <div class="modal fade" id="myModal" role="dialog">
-					<div class="modal-dialog modal-md">
-					    <div class="modal-content">
-						<div class="modal-header">
-						    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">
-							<i class="fa  fa-times-circle "></i>
-						    </button>
-						    <h4 class="modal-title" id="header">Delete payslip</h4>
-						</div>
-						<div class="modal-body">
-						    <div class="panel-body">
-							<div class="col-md-offset-3">
-							    <form method="" action="" class="form-horizontal">
-								<p>The payslip of Sheena for pay period December 2016 will be deleted.</p>
-							    </form>
-							</div>
-						    </div>
-						</div>
-						<div class="modal-footer">
-						    
-						</div>
-					    </div>
-					</div>
-				    </div>
-
-					
                                  </div>
                                 </div>
                             </div>
@@ -156,20 +124,35 @@
                 </div>
             </body>
         <script>
-	   
+	       
             $(document).ready(function(){
-                         
-	    $('#datePicker')
-		.datepicker({
-		    format: 'M-Y'
-		});
-	   
+	 	 
+		$('#datePicker')
+		    .datepicker({
+			format: 'M-Y'
+		    });
+		    } );
+		    
+		    function filterData() {
+			$("#add").removeClass('hidden');
+		    }
+		    $(".btnDelete").click(function(){
+			var $row = $(this).parents('tr');
+		    
+			    bootbox.confirm("Are you sure you want to delete?", function(confirmed) {   
+			if (confirmed) {
+			 
+			 $row.remove();
+			}    
+		    });
+		  
+		    
+	    });
+	    $('#dropdown1').on('change', function () {
 		
-            });
-	    function filterData() {
-		$("#add").removeClass('hidden');
-	    }
-	    
+		 var table =  $('#data-table').DataTable();
+                    table.columns(2).search( this.value ).draw();
+                } );
         </script>
      </html>
 

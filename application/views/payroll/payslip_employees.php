@@ -39,17 +39,34 @@
                             </div>
                             <div class="panel-body" >
                                 <div class="form-group col-sm-12">
-                                    <div class="col-sm-10">
-                                          <h1 class="page-header"><b>Payslips for Employees</b></h1>
+                                    <div class="row">
+                                        <div class="col-sm-10">
+                                              <h1 class="page-header"><b>Payslips for Employees</b></h1>
+                                        </div>
+                                         <div class="col-sm-2">
+                                             <a href="<?php echo base_url('payslip/rejected_payslip'); ?>"> <button class="btn btn-warning btn-xs">Rejected payslip</button> </a>
+                                         </div>
                                     </div>
-                                     <div class="col-sm-2">
-                                         <a href="<?php echo base_url('payslip/rejected_payslip'); ?>"> <button class="btn btn-warning btn-xs">Rejected payslip</button> </a>
-                                     </div>
                                 </div>  <hr>
-                                          
-                                      
-                               
-                                        <table id="example" class="display" width="100%" cellspacing="0">
+                                 <div class="form-group col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <p></p>
+                                            <label>Department</label>
+                                        </div>
+                                         <div class="col-sm-3">
+                                            <select class="form-control selectpicker" id="dropdown1" data-style="btn-white btn-sm">
+                                                <option value="Maths">Maths</option>
+                                                <option value="English">English</option>
+                                                <option value="Hindi">Hindi</option>
+                                                <option value="Social">Social</option>
+                                                <option value="Social Studies">Social Studies</option>
+                                            </select><br><br>
+                                         </div>
+                                    </div>
+                                </div>  
+                               <div class="form-group col-sm-12">
+                                     <table id="example" class="display" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr>
                                                     <th>Employee name</th>
@@ -129,7 +146,7 @@
                                                 <tr>
                                                     <td>Manikandan (EMP013)</td>
                                                     <td>Current Payslip</td>
-                                                    <td>social</td>
+                                                    <td>Social</td>
                                                     <td>Salaried - Monthly</td>
                                                     <td>January 2017</td>
                                                     <td>
@@ -147,7 +164,7 @@
                                                 <tr>
                                                     <td>vijay (EMP010)</td>
                                                     <td>-</td>
-                                                    <td>social Studies</td>
+                                                    <td>Social Studies</td>
 
                                                     <td>-</td>
                                                     <td>-</td>
@@ -166,6 +183,8 @@
                                                 
                                             </tbody>
                                         </table>
+
+                               </div>
                                   <!--  </div>-->
                             </div>
                         </div>
@@ -209,6 +228,13 @@
                         table.order( [ 2, 'asc' ] ).draw();
                     }
                 } );
+                
+                $('#dropdown1').on('change', function () {
+                    table.rows().search( this.value ).draw();
+                } );
+                
+                
+                
             } );
             </script>
             
