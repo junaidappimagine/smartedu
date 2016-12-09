@@ -1,3 +1,7 @@
+
+<style type="text/css">
+	a { color: inherit; } 
+</style>
 <!-- begin #content -->
 <div id="content" class="content">
     <!-- begin breadcrumb -->
@@ -97,7 +101,12 @@
 				          					<label>Reset date</label>
 				          				</div>
 				          				<div class="col-md-4" style="line-height: 50px;">
-				          					<input type="text" name="" class="form-control input-sm">
+				          					<span class="input-group">
+											<input type="text" class="form-control dateSet input-sm" id="from_date" value="<?php echo date('d F Y');?>">
+											<span class="input-group-addon" >
+											    <span class="glyphicon glyphicon-calendar"></span>
+											</span>
+										    </span>
 				          				</div>
 				        			</div>
 				        			<div class="col-md-offset-4"><button class="btn btn-inverse input-sm">Reset Leaves</button></div>
@@ -117,6 +126,12 @@
     <!-- end row -->
 </div>
 <script type="text/javascript">
+	$(document).ready(function(){
+	    $('.dateSet').datepicker({
+			format: 'd MM yyyy',
+	    });
+	})
+
 	table_body='<tr><td colspan="10" align="center">No Employee Found</td></tr>';
 	var employeeList=[{'name':'vijay','number':'A001','dept':'hindi','lastDate':'01/11/16'},{'name':'rafeeq','number':'A002','dept':'english','lastDate':'12/07/16'},{'name':'mani','number':'A003','dept':'english','lastDate':'11/11/16'},{'name':'senthil','number':'A004','dept':'english','lastDate':'10/12/16'}];
 	$('#searchEmp').keyup(function(){
@@ -150,6 +165,3 @@
 	}
 
 </script>
-<style type="text/css">
-	a { color: inherit; } 
-</style>

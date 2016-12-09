@@ -1,3 +1,6 @@
+<style type="text/css">
+	a { color: inherit; } 
+</style>
 <!-- begin #content -->
 <div id="content" class="content">
     <!-- begin breadcrumb -->
@@ -64,6 +67,3 @@
     <!-- end row -->
 </div>
 
-<style type="text/css">
-	a { color: inherit; } 
-</style>

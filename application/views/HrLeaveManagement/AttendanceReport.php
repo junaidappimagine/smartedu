@@ -1,3 +1,17 @@
+<style type="text/css">
+	.table1 {
+		margin-bottom: 20px;
+	    max-width: 100%;
+	    width: 90%;
+	    border-color: #e2e7eb;
+    	border-radius: 3px;
+    	border-collapse: collapse;
+    	border-spacing: 0;
+	}
+	a { 
+		color: inherit;
+	} 
+</style>
 <!-- begin #content -->
 <div id="content" class="content">
     <!-- begin breadcrumb -->
@@ -27,24 +41,38 @@
 			    <div class="panel-body" id="crop-avatar">
 				    <div class="container">
 				    	<form class="form-inline" id="showDateWise">
-				    		<div class="col-md-2">
+				    	<div class="row">
+				    		<section class="col-sm-2 form-group">
 				    		<p></p>
-				    			<label>Filter By Date</label>
-				    		</div>
-							    <div class="form-group">
-							      <label>From &nbsp;</label>
-							      <input type="text" class="form-control" placeholder="From Date">
-							    </div>
-							    <div class="form-group">
-							      <label>To &nbsp;</label>
-							      <input type="text" class="form-control" placeholder="To Date">
-							    </div>
-							    <div class="form-group col-md-offset-1">
-							      <button class="btn btn-inverse" type="button" id="displayBothDate">View</button>
-							      <span style="margin-left: 20px;cursor:pointer" id="removeDateForm"><u>Cancel</u></span>
-							    </div>
+				    			<label>Filter by Date</label>
+				    		</section>
+			    			<section class="col-sm-3 form-group">
+				    			<label class="control-label">From &nbsp;</label>
+							    <span class="input-group">
+								<input type="text" class="form-control dateSet input-sm" id="from_date">
+								<span class="input-group-addon" >
+								    <span class="glyphicon glyphicon-calendar"></span>
+								</span>
+							    </span>
+							</section>
+							<section class="col-sm-3 form-group">
+								<label class="control-label">To &nbsp;</label>
+							    <span class="input-group">
+								<input type="text" class="form-control dateSet input-sm" id="upto_date">
+								<span class="input-group-addon" >
+								    <span class="glyphicon glyphicon-calendar"></span>
+								</span>
+							    </span>
+							</section>
+						   <section class="col-sm-3 form-group">
+						      <button class="btn btn-inverse" type="button" id="displayBothDate">View</button>
+						      <span style="margin-left: 20px;cursor:pointer" id="removeDateForm"><u>Cancel</u></span>
+						    </section>
+						    <hr>
+						    <br>
+						   </div>
 						 </form>
-				    	<hr>
+				    	
 
 					    <div class="row">
 				    		<div class="col-md-3">
@@ -81,8 +109,8 @@
 					    	</div>
 					    	<div class="col-md-6 hide" id="bothDate">
 					    		<div class="form-group" style="margin-top: 27px;">
-					    			<label>Date &nbsp;06/12/2016</label>
-					    			<label style="margin-left: 25px;">To 06/12/2016</label>
+					    			<label id="fr_date"></label>
+					    			<label style="margin-left: 25px;" id="to_date"></label>
 					    			<span style="cursor:pointer;margin-left: 25px;" id="changeDate"><u>Change Date</u></span> &nbsp;&nbsp;
 					    			<span style="cursor:pointer" id="resetPage"><u>Reset</u></span>
 					    		</div>
@@ -132,6 +160,12 @@
 	$(document).ready(function() {
 		filterTable();
 		$('#showDateWise').hide();
+		var date = new Date();
+		    date.setDate(date.getDate());
+		    $('.dateSet').datepicker({
+				format: 'd MM yyyy',
+				minDate: date
+		    });
 	});
 	var attandance_report=[
 		{'employee':'vijay','ls_total_leaves':'10','ls_additional_leaves':'5','ls_loss_of_pay':'5000','cl_total_leaves':'10','cl_additional_leaves':'5','cl_loss_of_pay':'5000','subject':'English'},
@@ -224,25 +258,16 @@
 		$('#displayBothDate').click(function(){
 			$('#bothDate').removeClass('hide');
 			$('#showDateWise').hide();
+			var fromdate=$('#from_date').val();
+			var uptodate=$('#upto_date').val();
+			$('#fr_date').text('Date -'+fromdate);
+			$('#to_date').text('To -'+uptodate);
 		})
 		$('#changeDate').click(function(){
 			$('#showDateWise').show();
 			$('#bothDate').addClass('hide');
 		})
 		$('#resetPage').click(function() {
-		    location.reload();
+		    window.location.href=window.location.href;
 		});
-
 </script>
-<style type="text/css">
-	.table1 {
-		margin-bottom: 20px;
-	    max-width: 100%;
-	    width: 90%;
-	    border-color: #e2e7eb;
-    	border-radius: 3px;
-    	border-collapse: collapse;
-    	border-spacing: 0;
-	}
-	a { color: inherit; } 
-</style>

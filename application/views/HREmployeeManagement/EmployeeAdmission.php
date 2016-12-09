@@ -1,4 +1,13 @@
 
+<style type="text/css">
+	a { color: inherit; } 
+	#set_bck_color {
+		background-color: rgb(45, 53, 60);
+	    border-radius: 6px;
+	    color: white;
+	    width: 125px;
+	}
+</style>
 <!-- begin #content -->
 <div id="content" class="content">
     <!-- begin breadcrumb -->
@@ -52,7 +61,13 @@
 											<div class="form-group">
 											    <label class="control-label col-md-2">Joining date</label>
 											    <div class="col-md-4">
-											      <input type="text" class="form-control" id="" placeholder="">
+											      <!-- <input type="text" class="form-control" id="" placeholder=""> -->
+												    <span class="input-group">
+														<input type="text" class="form-control dateSet input-sm" size="30" id="from_date">
+														<span class="input-group-addon" >
+														    <span class="glyphicon glyphicon-calendar"></span>
+														</span>
+													</span>
 											    </div>
 											</div>
 											<div class="form-group">
@@ -549,33 +564,23 @@
             <!-- end row -->
     <!-- end row -->
 </div>
-<script type="text/javascript">
-	// $(":file").filestyle();
-	$(":file").filestyle({icon: false});
-	
-</script>
 <script>
-		$(document).ready(function() {
-			App.init();
-			FormWizard.init();
-			$("#set_color").hover(function(){
-		        $(this).css("color", "white");
-		    });
-		});
-		var displayData='<table border="1" class="table"><thead><th>Sr.No</th><th>Employee Name</th><th>Employee Id</th><th>Department</th></thead><tbody><tr><td colspan="4"><center>No Employee Found</center></td></tr></tbody></table>';
-		function showAllData(){
-			$('#showtable').html(displayData);
-		}
-		$('#empid').keyup(function(){
-			$('#showtable').html(displayData);
-		})
-	</script>
-	<style type="text/css">
-		a { color: inherit; } 
-		#set_bck_color {
-			background-color: rgb(45, 53, 60);
-		    border-radius: 6px;
-		    color: white;
-		    width: 125px;
-		}
-	</style>
+	$(document).ready(function() {
+		App.init();
+		FormWizard.init();
+		$("#set_color").hover(function(){
+	        $(this).css("color", "white");
+	    });
+	    $('.dateSet').datepicker({
+			format: 'd MM yyyy',
+	    });
+	    $(":file").filestyle({icon: false});
+	});
+	var displayData='<table border="1" class="table"><thead><th>Sr.No</th><th>Employee Name</th><th>Employee Id</th><th>Department</th></thead><tbody><tr><td colspan="4"><center>No Employee Found</center></td></tr></tbody></table>';
+	function showAllData(){
+		$('#showtable').html(displayData);
+	}
+	$('#empid').keyup(function(){
+		$('#showtable').html(displayData);
+	})
+</script>
