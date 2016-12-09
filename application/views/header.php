@@ -205,6 +205,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							    <ul class="sub-menu">
 								    <li><a href="<?php echo base_url();?>payrollcategory/Payroll_Categoryview">Payroll Category</a></li>
 								    <li><a href="<?php echo base_url();?>payrollgroup/Create_Payroll_Groupview">Payroll Groups</a></li>
+								    <li><a href="<?php echo base_url();?>payslip/payslipFor_employees">Payslips for Employees</a></li>
+								    <li><a href="<?php echo base_url();?>payslip/rejected_payslip">Rejected Payslips</a></li>
 								</ul>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
