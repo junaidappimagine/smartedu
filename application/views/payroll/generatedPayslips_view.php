@@ -60,7 +60,7 @@
 					<label class="col-sm-2" style="text-align: left;">Payroll group</label>
 					<label class="col-sm-1" style="text-align: left;">:</label>
 					<label class="col-sm-2">Current Payslip</label>
-                                        <label class="col-sm-2"><a>View Payroll</a></label>   
+                                        <label class="col-sm-2"><a href="<?php echo base_url('payslip/view_Payroll');?>">View Payroll</a></label>   
 				    </div>
 				    <div class="form-group">
 					<p></p>
@@ -99,19 +99,19 @@
 							    <td>December 2016</td>
 							    <td>31000.00</td>
 							    <td>Pending</td>
-							    <td><a>View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
+							    <td><a href="<?php echo base_url('payslip/viewPayslip');?>">View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
 							</tr>
 							<tr>
 							    <td>march 2016</td>
 							    <td>31000.00</td>
 							    <td>Pending</td>
-							    <td><a>View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
+							    <td><a href="<?php echo base_url('payslip/viewPayslip');?>">View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
 							</tr>
 							<tr>
 							    <td>February 2016</td>
 							    <td>31000.00</td>
 							    <td>Approved</td>
-							    <td><a>View Payslip</a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
+							    <td><a href="<?php echo base_url('payslip/viewPayslip');?>">View Payslip</a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
 							</tr>
 						    </tbody>
 						</table>
