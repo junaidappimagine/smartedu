@@ -98,7 +98,7 @@
                                                     <td>May 2017</td>
                                                     <td>
                                                         <div class="col-sm-5">
-                                                            <a href="<?php echo base_url('payslip/generate_payslip'); ?>"> <button class="btn btn-warning btn-xs">Generate payslip</button> </a>
+                                                            <a href="<?php echo base_url('payslip/generate_payslip?var1=Keerthi (EMP003)&var2=Maths'); ?>"> <button class="btn btn-warning btn-xs">Generate payslip</button> </a>
                                                         </div>
                                                          <div class="col-sm-4">
                                                             <a href="<?php echo base_url('payslip/generatedPayslips_view'); ?>"> <button class="btn btn-primary btn-xs">View Payslips</button></a>
@@ -116,7 +116,7 @@
                                                     <td>April 2017</td>
                                                     <td>
                                                         <div class="col-sm-5">
-                                                            <a href="<?php echo base_url('payslip/generate_payslip'); ?>"> <button class="btn btn-warning btn-xs">Generate payslip</button> </a>
+                                                            <a href="<?php echo base_url('payslip/generate_payslip?var1=Senthil (EMP007)&var2=English'); ?>"> <button class="btn btn-warning btn-xs">Generate payslip</button> </a>
                                                         </div>
                                                          <div class="col-sm-4">
                                                             <a href="<?php echo base_url('payslip/generatedPayslips_view'); ?>"> <button class="btn btn-primary btn-xs">View Payslips</button></a>
@@ -151,7 +151,7 @@
                                                     <td>January 2017</td>
                                                     <td>
                                                          <div class="col-sm-5">
-                                                            <a href="<?php echo base_url('payslip/generate_payslip'); ?>"> <button class="btn btn-warning btn-xs">Generate payslip</button> </a>
+                                                            <a href="<?php echo base_url('payslip/generate_payslip?var1=Manikandan (EMP013)&var2=Social'); ?>"> <button class="btn btn-warning btn-xs">Generate payslip</button> </a>
                                                          </div>
                                                          <div class="col-sm-4">
                                                             <a href="<?php echo base_url('payslip/generatedPayslips_view'); ?>"> <button class="btn btn-primary btn-xs">View Payslips</button></a>
@@ -170,7 +170,7 @@
                                                     <td>-</td>
                                                     <td>
                                                         <div class="col-sm-5">
-                                                            <a href="<?php echo base_url(''); ?>"> <button class="btn btn-warning btn-xs">Update Payroll</button> </a>
+                                                            <a href="<?php echo base_url(''); ?>"> <button class="btn btn-warning btn-xs">Generate payslip</button> </a>
                                                         </div>
                                                         <div class="col-sm-5">
                                                             <a href="<?php echo base_url('payslip/generatedPayslips_view'); ?>"> <button class="btn btn-primary btn-xs">View Payslips</button></a>

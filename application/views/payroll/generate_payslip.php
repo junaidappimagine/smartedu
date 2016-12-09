@@ -31,7 +31,7 @@
                             <div class="panel-body" >
 				<div class="col-md-12 row">
 				    <div class="col-md-12 row">
-					  <h1 class="page-header"><b> Generate Employee Payslip: Keerthi (EMP003)</<b></h1>
+					  <h1 class="page-header"><b> Generate Employee Payslip: <?php echo $result ;?></<b></h1>
 					<div class="form-group">
 						<section class="col-sm-3 form-group">
 						    <span class='input-group'>
@@ -44,25 +44,25 @@
 				    </div>
                                 </div>
 				
-				<div class="col-md-12" style="border-bottom: 1px solid gray" >
+				<div class="col-md-12">
 				   
 				    <div class="form-group">
 					<label class="col-sm-2" style="text-align: left;">Name</label>
 					<label class="col-sm-1" style="text-align: left;">:</label>
-					<label class="col-sm-9">Keerthi</label>
+					<label class="col-sm-9"><?php echo $result ;?></label>
 				    </div>
 				    <div class="form-group">
 					<label class="col-sm-2" style="text-align: left;">Department</label>
 					<label class="col-sm-1" style="text-align: left;">:</label>
-					<label class="col-sm-9">Hindi</label>
+					<label class="col-sm-9"><?php echo $result1 ;?></label>
 				    </div>
 				    <div class="form-group">
 					<label class="col-sm-2" style="text-align: left;">Position</label>
 					<label class="col-sm-1" style="text-align: left;">:</label>
 					<label class="col-sm-9">System Admin</label>
-				    </div>
+				    </div><legend style="padding-bottom: 80px;"></legend>
 				</div>
-				 <hr>
+				 
 				    
 				<div class="col-md-12">
 				     <h1 class="page-header"><b> Payroll Details </b></h1>

@@ -40,28 +40,27 @@
                                         <div class="form-group">
                                             <label class="col-sm-4" style="text-align: left;">Pay period</label>
                                             <label class="col-sm-1" style="text-align: left;">:</label>
-                                            <label class="col-sm-6"><b>February 2016</b></label>
+                                            <label class="col-sm-6"><b><?php echo $result1 ;?></b></label>
                                         </div>
                                     </div>
                                      <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="col-sm-3" style="text-align: left;">Status </label>
                                             <label class="col-sm-1" style="text-align: left;">:</label>
-                                            <label class="col-sm-6"><b>February 2016</b></label>
+                                            <label class="col-sm-6"><b><?php echo $result3 ;?></b></label>
                                         </div><br><br>
                                     </div><br><br>
                                 </div>
 				<div class="col-md-12">
-				   
 				    <div class="form-group">
 					<label class="col-sm-2" style="text-align: left;">Name</label>
 					<label class="col-sm-1" style="text-align: left;">:</label>
-					<label class="col-sm-9">Keerthi (EMP003)</label>
+					<label class="col-sm-9"><?php echo $result ;?></label>
 				    </div>
 				    <div class="form-group">
 					<label class="col-sm-2" style="text-align: left;">Department</label>
 					<label class="col-sm-1" style="text-align: left;">:</label>
-					<label class="col-sm-9">Hindi</label>
+					<label class="col-sm-9"><?php echo $result2 ;?></label>
 				    </div>
 				    <div class="form-group">
 					<label class="col-sm-2" style="text-align: left;">Position</label>

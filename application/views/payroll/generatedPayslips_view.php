@@ -99,19 +99,19 @@
 							    <td>December 2016</td>
 							    <td>31000.00</td>
 							    <td>Pending</td>
-							    <td><a href="<?php echo base_url('payslip/viewPayslip');?>">View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
+							    <td><a href="<?php echo base_url('payslip/viewPayslip?var1=keerthi&var2=December 2016&var3=Maths&var4=Pending');?>">View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
 							</tr>
 							<tr>
 							    <td>march 2016</td>
 							    <td>31000.00</td>
 							    <td>Pending</td>
-							    <td><a href="<?php echo base_url('payslip/viewPayslip');?>">View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
+							    <td><a href="<?php echo base_url('payslip/viewPayslip?var1=Senthil&var2=march 2016&var3=Hindi&var4=Pending');?>">View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
 							</tr>
 							<tr>
 							    <td>February 2016</td>
 							    <td>31000.00</td>
 							    <td>Approved</td>
-							    <td><a href="<?php echo base_url('payslip/viewPayslip');?>">View Payslip</a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
+							    <td><a href="<?php echo base_url('payslip/viewPayslip?var1=Rafeeq&var2=February 2016&var3=English&var4=Approved');?>">View Payslip</a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
 							</tr>
 						    </tbody>
 						</table>
