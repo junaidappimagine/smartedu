@@ -30,9 +30,9 @@
                             <div class="well">
                                <!-- <fieldset>
                                     <legend>Employee Category</legend>-->
-				<div class="row">
-					<div class="col-md-4"><button type="button" class="btn btn-primary btn-sm" id="Add" value="Add" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i><span class="f-s-14 f-w-500"> Add </span></a></div>
-				 </div><br>
+								<div class="row">
+									<div class="col-md-4"><button type="button" class="btn btn-primary btn-sm" id="Add" value="Add" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i><span class="f-s-14 f-w-500"> Add </span></a></div>
+								 </div><br>
                                    
                                 <!--</fieldset>-->
 				        <div class="panel-body">
