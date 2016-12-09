@@ -23,7 +23,7 @@
                         <fieldset>
                             <!--<legend>Employee Position</legend>-->
                             <div class="row">
-                                <div class="col-md-4"><button type="button" class="btn btn-primary" id="Add" value="Add" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus fa-1x"></i><span class="f-s-14 f-w-500"> Add</span></a></div>
+                                <div class="col-md-4"><button type="button" class="btn btn-primary btn-sm" id="Add" value="Add" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus fa-1x"></i><span class="f-s-14 f-w-500"> Add</span></a></div>
                             </div><br>
                                 <div class="panel-body">
 				   <div class="table-responsive">
