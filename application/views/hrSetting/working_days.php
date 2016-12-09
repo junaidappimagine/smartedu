@@ -8,7 +8,7 @@
 	    </ol>
 	    <!-- end breadcrumb -->
 	    <!-- begin page-header -->
-	    <h1 class="page-header">Working Days </h1>
+	    <h1 class="page-header">HR Configurations | Working Days </h1>
 	    <!-- end page-header -->
 	    <!-- begin row -->
 	    <div class="row">
