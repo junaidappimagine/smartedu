@@ -18,7 +18,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<link href="<?php echo base_url(); ?>assets/plugins/DataTables/css/data-table.css" rel="stylesheet" />
 	
-    <script src="<?php echo base_url(); ?>assets/plugins/pace/pace.min.js"></script>
+	<link href="<?php echo base_url(); ?>assets/plugins/bootstrap-datetimepicker2/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+	<link href="<?php echo base_url(); ?>assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
+	<link href="<?php echo base_url(); ?>assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
+	
+	<script src="<?php echo base_url(); ?>assets/plugins/pace/pace.min.js"></script>
 	<!-- <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery-1.9.1.min.js"></script> -->
 
 	<!-- <script src="<?php echo base_url(); ?>assets/js/jquery-1.11.3.min.js"></script> -->
