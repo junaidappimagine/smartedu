@@ -193,10 +193,10 @@
 							</div>
 							<div class="col-md-offset-1 col-md-3">
 								<div class="col-md-6">  
-									<a href="#" target="_blank" class="btn btn-primary btn-sm">Delete Payslip</a>
+									<a href="#"  class="btn btn-primary btn-sm">Delete Payslip</a>
 								</div>
 								<div class="col-md-6">  
-								   <a href="#" target="_blank" class="btn btn-primary btn-sm">PDF Report</a>
+								   <a href="#" class="btn btn-primary btn-sm">PDF Report</a>
 							   </div>
 							</div>
 							
