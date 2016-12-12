@@ -7,17 +7,24 @@ class HR_EmployeeMgmnt extends CI_Controller {
 	}
 	function EmployeeAdmission(){
 		$this->load->view('header');
-		$this->load->view('footer');
 		$this->load->view('HREmployeeManagement/EmployeeAdmission');
+		$this->load->view('footer');
+
 	}
 	function AddPayroll(){
 		$this->load->view('header');
-		$this->load->view('footer');
 		$this->load->view('HREmployeeManagement/AddPayroll');
+		$this->load->view('footer');
+
 	}
 	function EmployeeSubjectAssociation(){
 		$this->load->view('header');
+		$this->load->view('HREmployeeManagement/EmployeeSubjectAssociation');
 		$this->load->view('footer');
-		$this->load->view('HREmployeeManagement/EmployeeSubjectAssociation');	
+	}
+	function tabletest(){
+		$this->load->view('header');
+		$this->load->view('HREmployeeManagement/testtable');
+		$this->load->view('footer');
 	}
 }
