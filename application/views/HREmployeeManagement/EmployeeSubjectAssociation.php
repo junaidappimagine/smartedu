@@ -1,4 +1,4 @@
-	<
+
 	<div id="content" class="content">
 		<!-- begin breadcrumb -->
 	    <ol class="breadcrumb pull-right">
@@ -98,4 +98,5 @@
 		</div>
 	    </div>
 	</div>
+<script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery-1.9.1.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/controls/employeesubjectasso.js"></script>

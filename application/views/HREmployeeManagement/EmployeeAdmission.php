@@ -1,4 +1,12 @@
-
+<style type="text/css">
+		a { color: inherit; } 
+		#set_bck_color {
+			background-color: rgb(45, 53, 60);
+		    border-radius: 6px;
+		    color: white;
+		    width: 125px;
+		}
+	</style>
 <style type="text/css">
 	a { color: inherit; } 
 	#set_bck_color {
@@ -564,9 +572,11 @@
             <!-- end row -->
     <!-- end row -->
 </div>
+
+<script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery-1.9.1.min.js"></script>
 <script>
 	$(document).ready(function() {
-		App.init();
+		//App.init();
 		FormWizard.init();
 		$("#set_color").hover(function(){
 	        $(this).css("color", "white");
