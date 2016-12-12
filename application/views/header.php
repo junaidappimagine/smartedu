@@ -197,14 +197,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							       <li><a href="<?php echo base_url();?>hrSettingsC/leave_Types">Leave Type </a></li>
 							       <li><a href="<?php echo base_url();?>hrSettingsC/Bank_Details">Bank Details</a></li>
 							       <li><a href="<?php echo base_url();?>hrSettingsC/additional_Details">Additional Details</a></li>
-							       <li><a href="<?php echo base_url();?>hrSettingsC/employeeSearch">Employee Search</a></li>
-								</ul>
+							    </ul>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
 						    	<a href="javascript:;"><span class="caret pull-right"></span><span>Payroll and Payslip</span></a>
 							    <ul class="sub-menu">
 								    <li><a href="<?php echo base_url();?>payrollcategory/Payroll_Categoryview">Payroll Category</a></li>
 								    <li><a href="<?php echo base_url();?>payrollgroup/Create_Payroll_Groupview">Payroll Groups</a></li>
+								    <li><a href="<?php echo base_url();?>payslip/payslip_payrollgroup_view">Payslips for Payroll Groups</a></li>
 								    <li><a href="<?php echo base_url();?>payslip/payslipFor_employees">Payslips for Employees</a></li>
 								    <li><a href="<?php echo base_url();?>payslip/rejected_payslip">Rejected Payslips</a></li>
 								    <li><a href="<?php echo base_url();?>payslip/EmpPayslip">Payslip Report</a></li>
@@ -226,6 +226,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								    <li><a href="<?php echo base_url();?>HR_EmployeeMgmnt/EmployeeAdmission">Employee admission</a></li>
 								    <li><a href="<?php echo base_url();?>HR_EmployeeMgmnt/EmployeeSubjectAssociation">Employee subject association</a></li>
 								</ul>
+							</li>
+							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+							    <a href="<?php echo base_url();?>hrSettingsC/employeeSearch"><span>Employee Search</span></a>
 							</li>
 						</ul>
 					</li>
