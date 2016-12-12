@@ -237,7 +237,7 @@
 		$('tbody').html(table_body);
 		}
 		function dataAdding(current_data){
-			return table_body+='<tr><td>'+current_data.employee+'</td><td>'+current_data.ls_total_leaves+'</td><td>'+current_data.ls_additional_leaves+'</td><td>'+current_data.ls_loss_of_pay+'</td><td>'+current_data.cl_total_leaves+'</td><td>'+current_data.cl_additional_leaves+'</td><td>'+current_data.cl_loss_of_pay+'</td><td>'+current_data.cl_total_leaves+'</td><td>'+current_data.cl_additional_leaves+'</td><td>'+current_data.cl_loss_of_pay+'</td></tr>';
+			return table_body+='<tr><td><a style="text-decoration: none;" href="<?php echo base_url('HrLeaveMgmntCtrl/employeeLeaveDetails');?>">'+current_data.employee+'</a></td><td>'+current_data.ls_total_leaves+'</td><td>'+current_data.ls_additional_leaves+'</td><td>'+current_data.ls_loss_of_pay+'</td><td>'+current_data.cl_total_leaves+'</td><td>'+current_data.cl_additional_leaves+'</td><td>'+current_data.cl_loss_of_pay+'</td><td>'+current_data.cl_total_leaves+'</td><td>'+current_data.cl_additional_leaves+'</td><td>'+current_data.cl_loss_of_pay+'</td></tr>';
 		}
 		function subjectHeadingAdding(current_subject){
 			return table_body+='<tr style="background-color: #e2e7eb !important;color:Black;"><td>'+current_subject.subject+'</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>';

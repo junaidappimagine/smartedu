@@ -1,3 +1,19 @@
+<!--<style>
+
+	body {
+		margin: 40px 10px;
+		padding: 0;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		font-size: 14px;
+	}
+
+	#calendar {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+</style>-->
+
 <!-- begin #content -->
 <div id="content" class="content">
     <!-- begin breadcrumb -->
@@ -107,7 +123,7 @@
 				          				</div>
 				        			</div>
 				        			<div class="modal-footer">
-				          				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				          				<button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
 				        			</div>
 				      			</div>
 				    		</div>
@@ -213,9 +229,9 @@ $(document).ready(function() {
 		
 		$('#calendar').fullCalendar({
 			header: {
-				left: 'prev,next today',
+				left: 'prev',
 				center: 'title',
-				right: 'month,agendaWeek,agendaDay'
+				right: 'next'
 			},
 			// defaultDate: '2016-09-12',
 			// navLinks: true, // can click day/week names to navigate views
@@ -303,18 +319,4 @@ function seccsdsd(){
 	// $('#myModal').show();
 }
 </script>
-<style>
 
-	body {
-		margin: 40px 10px;
-		padding: 0;
-		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-		font-size: 14px;
-	}
-
-	#calendar {
-		max-width: 900px;
-		margin: 0 auto;
-	}
-
-</style>

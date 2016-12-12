@@ -1,8 +1,7 @@
-
+<!-- begin #content -->
 <style type="text/css">
 	a { color: inherit; } 
 </style>
-<!-- begin #content -->
 <div id="content" class="content">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
@@ -101,15 +100,10 @@
 				          					<label>Reset date</label>
 				          				</div>
 				          				<div class="col-md-4" style="line-height: 50px;">
-				          					<span class="input-group">
-											<input type="text" class="form-control dateSet input-sm" id="from_date" value="<?php echo date('d F Y');?>">
-											<span class="input-group-addon" >
-											    <span class="glyphicon glyphicon-calendar"></span>
-											</span>
-										    </span>
+				          					<input type="text" name="" class="form-control input-sm">
 				          				</div>
 				        			</div>
-				        			<div class="col-md-offset-4"><button class="btn btn-inverse input-sm">Reset Leaves</button></div>
+				        			<div class="col-md-offset-4"><a href="<?php echo base_url('HrLeaveMgmntCtrl/resetLogs');?>"><button class="btn btn-inverse input-sm">Reset Leaves</button></a></div>
 				        			<!-- <div class="modal-footer">
 				          				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				        			</div> -->
@@ -126,14 +120,8 @@
     <!-- end row -->
 </div>
 <script type="text/javascript">
-	$(document).ready(function(){
-	    $('.dateSet').datepicker({
-			format: 'd MM yyyy',
-	    });
-	})
-
 	table_body='<tr><td colspan="10" align="center">No Employee Found</td></tr>';
-	var employeeList=[{'name':'vijay','number':'A001','dept':'hindi','lastDate':'01/11/16'},{'name':'rafeeq','number':'A002','dept':'english','lastDate':'12/07/16'},{'name':'mani','number':'A003','dept':'english','lastDate':'11/11/16'},{'name':'senthil','number':'A004','dept':'english','lastDate':'10/12/16'}];
+	var employeeList=[{'name':'Vijay','number':'A001','dept':'hindi','lastDate':'01/11/16'},{'name':'Rafeeq','number':'A002','dept':'english','lastDate':'12/07/16'},{'name':'Mani','number':'A003','dept':'english','lastDate':'11/11/16'},{'name':'Senthil','number':'A004','dept':'english','lastDate':'10/12/16'}];
 	$('#searchEmp').keyup(function(){
 		$('#employeeTable').removeClass('hide');
 		$('tbody').html(table_body);
@@ -161,7 +149,10 @@
 	}
 	function getAllEmployeeList(CurrentValue){
 		// console.log(CurrentValue,'CurrentValue');
-		return tableData+='<tr><td>'+CurrentValue.name+'</td><td>'+CurrentValue.name+'</td><td>'+CurrentValue.name+'</td><td>'+CurrentValue.name+'</td></tr>';
+		//return tableData+='<tr><td class="emp_names" style="cursor:pointer">'+CurrentValue.name+'</td><td>'+CurrentValue.number+'</td><td>'+CurrentValue.dept+'</td><td>'+CurrentValue.lastDate+'</td></tr>';
+		return tableData+='<tr><td class="emp_names" style="cursor:pointer;"><a style="text-decoration: none;" href="<?php echo base_url('HrLeaveMgmntCtrl/Resetemployeeleaves'); ?>">'+CurrentValue.name+'</a></td><td>'+CurrentValue.number+'</td><td>'+CurrentValue.dept+'</td><td>'+CurrentValue.lastDate+'</td></tr>';
 	}
-
+	//$('.emp_names').on('click',function(){
+	//	alert();
+	//    });
 </script>
