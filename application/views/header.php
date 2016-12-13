@@ -232,7 +232,63 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</li>
 						</ul>
 					</li>
-					
+					<li class="has-sub">
+						<a href="javascript:;">
+							<span class="caret pull-right"></span>
+							<i class="fa fa-suitcase text-warning"></i> 
+							<span>Finance</span>
+						</a>
+						<ul class="sub-menu">
+						    <li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+							    <a href="javascript:;">
+								    <span class="caret pull-right"></span><span>Asset Liability Management</span>
+							    </a>
+							    <ul class="sub-menu">
+							       <li><a href="#">Asset</a></li>
+							       <li><a href="#">Liability</a></li>
+							    </ul>
+							</li>
+							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+						    	<a href="javascript:;"><span>Finance Categories</span></a>
+							</li>
+							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+							    <a href="javascript:;"><span>Transactions</span></a>
+							</li>
+							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+							    <a href="javascript:;"><span>Donations</span></a>
+							</li>
+							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+							    <a href="javascript:;">
+								    <span class="caret pull-right"></span><span>Fees</span>
+							    </a>
+							    <ul class="sub-menu">
+									<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+										<a href="javascript:;">
+											<span class="caret pull-right"></span><span>Configurations</span>
+										</a>
+										<ul class="sub-menu">
+										   <li><a href="<?php echo base_url('feesCntrl/fees_category')?>">Category</a></li>
+										   <li><a href="<?php echo base_url('feesCntrl/fees_particular')?>">Particulars</a></li>
+										   <li><a href="<?php echo base_url('feesCntrl/fees_discount')?>">Fee Discount</a></li>
+										   <li><a href="<?php echo base_url('feesCntrl/fees_fine')?>">Fine</a></li>
+										</ul>
+								    </li>
+								    <li><a href="#">Schedule fee collection</a></li>
+								    <li><a href="#">Fee collection</a></li>
+									<li><a href="#">Fee defaulters</a></li>
+									<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+										<a href="javascript:;">
+											<span class="caret pull-right"></span><span>Fee Refund</span>
+										</a>
+										<ul class="sub-menu">
+										   <li><a href="#">Create Refund Rule</a></li>
+										   <li><a href="#">Apply Refund</a></li>
+										</ul>
+								    </li>
+							    </ul>
+							</li>
+						</ul>
+					</li>
 			        <!-- begin sidebar minify button -->
 					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
 			        <!-- end sidebar minify button -->
