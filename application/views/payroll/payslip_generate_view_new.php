@@ -32,7 +32,7 @@
                                 <div class="col-md-10 row">
                                     <h1 class="page-header"><b>Payroll group - Current Payslip</<b></h1>
                                     <div class="form-group">
-                                        <span class="col-md-4">Payroll group</span>
+                                        <span class="col-md-4">Pay period</span>
                                         <span class="col-md-4">Payment frequency</span>
                                         <span class="col-md-4">Payslips generated</span>
                                          <!--<label class="col-md-10">
@@ -100,7 +100,7 @@
                                                         <th>3550.00</th>
                                                         <th>Pending</th>
                                                         <td>
-                                                            <a>View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a>
+                                                            <a href="<?php echo base_url('payslip/viewPayslip?var1=ereererere rere&var2=January 2017&var3=Hindi&var4=Pending');?>">View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -110,7 +110,7 @@
                                                         <th>53250.00</th>
                                                         <th>Pending</th>
                                                         <td>
-                                                            <a>View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a>
+                                                            <a href="<?php echo base_url('payslip/viewPayslip?var1=Kunal&var2=January 2017&var3=Science&var4=Pending');?>">View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a>
                                                         </td>
                                                     </tr>
                                                 </tbody>
