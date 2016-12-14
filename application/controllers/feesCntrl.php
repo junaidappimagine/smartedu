@@ -63,6 +63,7 @@ class feesCntrl extends CI_Controller {
 		$this->load->view('footer');
 	}
 	//end particluar
+	
 	//start discount
 	function fees_discount()
 	{
@@ -90,6 +91,7 @@ class feesCntrl extends CI_Controller {
 		$this->load->view('footer');
    }
 	//end discount
+	
 	//start fine
 	function fees_fine()
 	{
@@ -116,4 +118,45 @@ class feesCntrl extends CI_Controller {
 		$this->load->view('fees/create_fine',$data);
 		$this->load->view('footer');
    }
+	//end fine
+	
+	//start schedule fee collection
+	function schedule_fee_collection()
+	{
+		$this->load->view('header');
+		$this->load->view('fees/schedule_fee_collection');
+		$this->load->view('footer');
+	}
+	function create_fee_collection()
+   {
+		$data["mode"]='add';
+		$this->load->view('header');
+		$this->load->view('fees/create_fee_collection',$data);
+		$this->load->view('footer');
+   }
+	function edit_fee_collection()
+	{
+		$data['result']=$this->input->get('var1');
+		$data['result1']=$this->input->get('var2');
+		$data["mode"]='edit';
+		$this->load->view('header');
+		$this->load->view('fees/create_fee_collection',$data);
+		$this->load->view('footer');
+   }
+	function fee_collection_list()
+   {
+		$data['result']=$this->input->get('var1');
+		$data['result1']=$this->input->get('var2');
+		$this->load->view('header');
+		$this->load->view('fees/fee_collection_list',$data);
+		$this->load->view('footer');
+   }
+	//schedule fee collection
+	//start fee collection
+	function fee_collection()
+	{
+		$this->load->view('header');
+		$this->load->view('fees/fee_collection');
+		$this->load->view('footer');
+	}
 }
