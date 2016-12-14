@@ -13,7 +13,15 @@
 	}
 
 </style>-->
+<style>
+    .fc-agenda-slots tr {
+    height: 60px;
+}
 
+.fc-event /*fc-event-vert fc-event-draggable fc-event-start fc-event-end*/{
+    position: absolute; top: 66px; left: 109px; width: 115.775px; height: 50px;
+}
+</style>
 <!-- begin #content -->
 <div id="content" class="content">
     <!-- begin breadcrumb -->
@@ -97,7 +105,7 @@
 				          					<label>Leave Type</label>
 				          				</div>
 				          				<div class="col-md-4">
-				          					<select class="form-control selectpicker input-sm" data-live-search="true" data-style="btn-white btn-sm">
+				          					<select class="form-control selectpicker input-sm" id="leave_type" data-live-search="true" data-style="btn-white btn-sm">
 				          						<option>Select Leave Type</option>
 				          						<option>Casual</option>
 				          						<option>Sick Leave</option>
@@ -107,23 +115,26 @@
 				        			<div class="row">
 				        				<div class="col-md-3"></div>
 								  		<label class="radio-inline">
-								          <input name="radioGroup" type="radio" checked=""> Full Day
+								          <input name="radioGroup" type="radio" value="Full Day" class="leave_days"> Full Day
 								        </label>
 								        <label class="radio-inline">
-								          <input name="radioGroup" type="radio"> Half Day
+								          <input name="radioGroup" type="radio" value="Half Day" class="leave_days"> Half Day
 								        </label>
 								  	</div>
 								  	<br>
-				        			<div class="row" style="line-height: 200%;">
+								    <div class="row" style="line-height: 200%;">
 				          				<div class="col-md-3">
 				          					<label>Reason</label>
 				          				</div>
 				          				<div class="col-md-3 form-group">
-				          					<textarea cols="40"></textarea>
+				          					<textarea cols="40" id="resoan_val"> </textarea>
+										<!--<input type="text" class="form-control" name="title">-->
 				          				</div>
 				        			</div>
 				        			<div class="modal-footer">
-				          				<button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+				          				<button type="button" id="Save_btn" onclick="getInputvalue()" class="btn btn-success">Save</button>
+									<button type="button" id="close" class="btn btn-success hide" data-dismiss="modal">Save</button>
+									
 				        			</div>
 				      			</div>
 				    		</div>
@@ -136,187 +147,103 @@
     </div>
     <!-- end row -->
 </div>
+    <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/fullcalendar/fullcalendar/fullcalendar.js"> </script>
+    <script src="<?php echo base_url();?>assets/js/calendar.demo.min.js"></script>
 <script>
-
-	// $(document).ready(function() {
-	// 	$('#calendar').fullCalendar({
-	// 		header: {
-	// 			left: 'prev',
-	// 			center: 'title',
-	// 			right: 'month,agendaWeek,agendaDay'
-	// 			// right: 'next'
-	// 		},
-	// 		// defaultDate: '2016-11-02',
-	// 		navLinks: true, // can click day/week names to navigate views
-	// 		selectable: true,
-	// 		selectHelper: true,
-	// 		select: function(start, end) {
-	// 			var title = prompt('Event Title:');
-	// 			var eventData;
-	// 			if (title) {
-	// 				eventData = {
-	// 					title: title,
-	// 					start: start,
-	// 					end: end
-	// 				};
-	// 				$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-	// 			}
-	// 			$('#calendar').fullCalendar('unselect');
-	// 		},
-	// 		editable: true,
-	// 		eventLimit: true, // allow "more" link when too many events
-	// 		// events: [
-	// 		// 	{
-	// 		// 		title: 'All Day Event',
-	// 		// 		start: '2016-09-01'
-	// 		// 	},
-	// 		// 	{
-	// 		// 		title: 'Long Event',
-	// 		// 		start: '2016-09-07',
-	// 		// 		end: '2016-09-10'
-	// 		// 	},
-	// 		// 	{
-	// 		// 		id: 999,
-	// 		// 		title: 'Repeating Event',
-	// 		// 		start: '2016-09-09T16:00:00'
-	// 		// 	},
-	// 		// 	{
-	// 		// 		id: 999,
-	// 		// 		title: 'Repeating Event',
-	// 		// 		start: '2016-09-16T16:00:00'
-	// 		// 	},
-	// 		// 	{
-	// 		// 		title: 'Conference',
-	// 		// 		start: '2016-09-11',
-	// 		// 		end: '2016-09-13'
-	// 		// 	},
-	// 		// 	{
-	// 		// 		title: 'Meeting',
-	// 		// 		start: '2016-09-12T10:30:00',
-	// 		// 		end: '2016-09-12T12:30:00'
-	// 		// 	},
-	// 		// 	{
-	// 		// 		title: 'Lunch',
-	// 		// 		start: '2016-09-12T12:00:00'
-	// 		// 	},
-	// 		// 	{
-	// 		// 		title: 'Meeting',
-	// 		// 		start: '2016-09-12T14:30:00'
-	// 		// 	},
-	// 		// 	{
-	// 		// 		title: 'Happy Hour',
-	// 		// 		start: '2016-09-12T17:30:00'
-	// 		// 	},
-	// 		// 	{
-	// 		// 		title: 'Dinner',
-	// 		// 		start: '2016-09-12T20:00:00'
-	// 		// 	},
-	// 		// 	{
-	// 		// 		title: 'Birthday Party',
-	// 		// 		start: '2016-09-13T07:00:00'
-	// 		// 	},
-	// 		// 	{
-	// 		// 		title: 'Click for Google',
-	// 		// 		url: 'http://google.com/',
-	// 		// 		start: '2016-09-28'
-	// 		// 	}
-	// 		// ]
-	// 	});
-		
-	// });
-
 $(document).ready(function() {
-		
-		$('#calendar').fullCalendar({
-			header: {
-				left: 'prev',
-				center: 'title',
-				right: 'next'
-			},
-			// defaultDate: '2016-09-12',
-			// navLinks: true, // can click day/week names to navigate views
-			selectable: true,
-			selectHelper: true,
-			select: function(start, end) {
-				$('.model_test').trigger('click');
-				// var title = prompt('Event Title:');
-				// var eventData;
-				// if (title) {
-				// 	eventData = {
-				// 		title: title,
-				// 		start: start,
-				// 		end: end
-				// 	};
-				// 	$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-				// }
-				// $('#myModal').show();
-				$('#calendar').fullCalendar('unselect');
-			},
-			editable: true,
-			eventLimit: true, // allow "more" link when too many events
-			events: [
-				{
-					title: 'All Day Event',
-					start: '2016-09-01'
-				},
-				{
-					title: 'Long Event',
-					start: '2016-09-07',
-					end: '2016-09-10'
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: '2016-09-09T16:00:00'
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: '2016-09-16T16:00:00'
-				},
-				{
-					title: 'Conference',
-					start: '2016-09-11',
-					end: '2016-09-13'
-				},
-				{
-					title: 'Meeting',
-					start: '2016-09-12T10:30:00',
-					end: '2016-09-12T12:30:00'
-				},
-				{
-					title: 'Lunch',
-					start: '2016-09-12T12:00:00'
-				},
-				{
-					title: 'Meeting',
-					start: '2016-09-12T14:30:00'
-				},
-				{
-					title: 'Happy Hour',
-					start: '2016-09-12T17:30:00'
-				},
-				{
-					title: 'Dinner',
-					start: '2016-09-12T20:00:00'
-				},
-				{
-					title: 'Birthday Party',
-					start: '2016-09-13T07:00:00'
-				},
-				{
-					title: 'Click for Google',
-					url: 'http://google.com/',
-					start: '2016-09-28'
-				}
-			]
-		});
+		Calendar.init();
+		$('.fc-agenda-allday').hide();	
+		//$('#calendar').fullCalendar({
+		//	header: {
+		//		left: 'prev',
+		//		center: 'title',
+		//		right: 'next'
+		//	},
+		//	 defaultDate: '2016-09-12',
+		//	 navLinks: true, // can click day/week names to navigate views
+		//	selectable: true,
+		//	selectHelper: true,
+		//	select: function(start, end) {
+		//		//$('.model_test').trigger('click');
+		//		 var title = prompt('Event Title:');
+		//		 var eventData;
+		//		 if (title) {
+		//		 	eventData = {
+		//		 		title: title,
+		//		 		start: start,
+		//		 		end: end
+		//		 	};
+		//		 	$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+		//		 }
+		//		// $('#myModal').show();
+		//		$('#calendar').fullCalendar('unselect');
+		//	},
+		//	editable: true,
+		//	eventLimit: true, // allow "more" link when too many events
+		//	events: [
+		//		{
+		//			title: 'All Day Event',
+		//			start: '2016-09-01'
+		//		},
+		//		{
+		//			title: 'Long Event',
+		//			start: '2016-09-07',
+		//			end: '2016-09-10'
+		//		},
+		//		{
+		//			id: 999,
+		//			title: 'Repeating Event',
+		//			start: '2016-09-09T16:00:00'
+		//		},
+		//		{
+		//			id: 999,
+		//			title: 'Repeating Event',
+		//			start: '2016-09-16T16:00:00'
+		//		},
+		//		{
+		//			title: 'Conference',
+		//			start: '2016-09-11',
+		//			end: '2016-09-13'
+		//		},
+		//		{
+		//			title: 'Meeting',
+		//			start: '2016-09-12T10:30:00',
+		//			end: '2016-09-12T12:30:00'
+		//		},
+		//		{
+		//			title: 'Lunch',
+		//			start: '2016-09-12T12:00:00'
+		//		},
+		//		{
+		//			title: 'Meeting',
+		//			start: '2016-09-12T14:30:00'
+		//		},
+		//		{
+		//			title: 'Happy Hour',
+		//			start: '2016-09-12T17:30:00'
+		//		},
+		//		{
+		//			title: 'Dinner',
+		//			start: '2016-09-12T20:00:00'
+		//		},
+		//		{
+		//			title: 'Birthday Party',
+		//			start: '2016-09-13T07:00:00'
+		//		},
+		//		{
+		//			title: 'Click for Google',
+		//			url: 'http://google.com/',
+		//			start: '2016-09-28'
+		//		}
+		//	]
+		//});
 		
 	});
 function seccsdsd(){
 	$('.model_test').trigger('click');
-	// alert('dddddddddddddddd');
-	// $('#myModal').show();
 }
+
+
+
 </script>
 

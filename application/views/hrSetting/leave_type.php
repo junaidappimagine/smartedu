@@ -23,18 +23,18 @@
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 				<!--<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>-->
 			    </div>
-			    <h4 class="panel-title">Leave Type</h4>
+			    <h4 class="panel-title">Leave Types</h4>
 			</div>
 			 <div class="panel-body">
 			    <legend>Leave Types</legend>
 			    <div class="row">
+				<div class="col-md-2">
+				    <a type="button" class="btn btn-primary btn-sm col-md-offset-0" href="<?php echo base_url('hrSettingsC/leaveTypesAdd'); ?>"><i class="fa fa-plus fa-1x"></i><span class="f-s-14 f-w-500"> Add</span></a>
+				</div>
 				<div class="col-md-10">
-				    <h5>Setup leave types that employees are allowed such as causal leaves,sick leaves.</h5>
+				    <h5 class="col-md-offset-0">Setup leave types that employees are allowed such as causal leaves,sick leaves.</h5>
 				    <p></p>
 				    <br>
-				</div>
-				<div class="col-md-2">
-				    <a type="button" class="btn btn-success btn-sm col-md-offset-7" href="<?php echo base_url('hrSettingsC/leaveTypesAdd'); ?>"><i class="fa fa-plus fa-1x"></i><span class="f-s-14 f-w-500"> Add</span></a>
 				</div>
 			    </div>
 			    	<div class="panel-body">

@@ -18,12 +18,15 @@
 var defaults = {
 
 	// display
-	defaultView: 'month',
+	defaultView: 'agendaWeek',
 	aspectRatio: 1.35,
 	header: {
-		left: 'title',
-		center: '',
-		right: 'today prev,next'
+		//left: 'title',
+		//center: '',
+		//right: 'today prev,next'
+		left: 'prev',
+		center: 'title',
+		right: 'next'
 	},
 	weekends: true,
 	weekNumbers: false,
@@ -95,9 +98,12 @@ var defaults = {
 // right-to-left defaults
 var rtlDefaults = {
 	header: {
+		//left: 'next,prev today',
+		//center: '',
+		//right: 'title'
 		left: 'next,prev today',
-		center: '',
-		right: 'title'
+		center: 'title',
+		right: 'prev'
 	},
 	buttonText: {
 		prev: "<span class='fc-text-arrow'>&rsaquo;</span>",
@@ -2753,7 +2759,7 @@ function AgendaDayView(element, calendar) {
 
 setDefaults({
 	allDaySlot: true,
-	allDayText: 'all-day',
+	allDayText: 'Name',
 	firstHour: 6,
 	slotMinutes: 30,
 	defaultEventMinutes: 120,
@@ -2965,11 +2971,11 @@ function AgendaView(element, calendar, viewName) {
 			
 			dayBind(allDayRow.find('td'));
 			
-			slotLayer.append(
-				"<div class='fc-agenda-divider " + headerClass + "'>" +
-				"<div class='fc-agenda-divider-inner'/>" +
-				"</div>"
-			);
+			//slotLayer.append(
+			//	"<div class='fc-agenda-divider " + headerClass + "'>" +
+			//	"<div class='fc-agenda-divider-inner'/>" +
+			//	"</div>"
+			//);
 			
 		}else{
 		
@@ -2990,18 +2996,25 @@ function AgendaView(element, calendar, viewName) {
 				.appendTo(slotContainer);
 		
 		s =
-			"<table class='fc-agenda-slots' style='width:100%' cellspacing='0'>" +
+			"<table class='fc-agenda-slots' style='width:100%' cellspacing='0'>" +			
 			"<tbody>";
 		d = zeroDate();
 		maxd = addMinutes(cloneDate(d), maxMinute);
 		addMinutes(d, minMinute);
+			//var data=[{"name":"Manikandan","subject":"English"},{"name":"Manikandan","subject":"English"},{"name":"Manikandan","subject":"English"},{"name":"Manikandan","subject":"English"},{"name":"Manikandan","subject":"English"},{"name":"Manikandan","subject":"English"}];
+			var data=[{"name":"Manikandan","subject":"English"},{"name":"Senthil","subject":"English"},{"name":"Manivannan","subject":"Hindi"},
+			  {"name":"Ganamani","subject":"English"},{"name":"Vijayraj","subject":"English"},{"name":"vingesh","subject":"Hindi"},
+			  {"name":"Subramani","subject":"English"},{"name":"Karthik","subject":"English"},{"name":"Rafeeq","subject":"Hindi"},
+			  {"name":"Bharathi","subject":"English"},{"name":"Mythliy","subject":"English"},{"name":"Raj","subject":"Hindi"},{"name":"Saranya","subject":"Hindi"},
+			  ];
 		slotCnt = 0;
-		for (i=0; d < maxd; i++) {
+		for (i=0; i < data.length; i++) {
 			minutes = d.getMinutes();
 			s +=
 				"<tr class='fc-slot" + i + ' ' + (!minutes ? '' : 'fc-minor') + "'>" +
-				"<th class='fc-agenda-axis " + headerClass + "'>" +
-				((!slotNormal || !minutes) ? formatDate(d, opt('axisFormat')) : '&nbsp;') +
+				"<th class='fc-agenda-axis " + headerClass + "'>" +data[i].name
+				//"<th class='fc-agenda-axis " + headerClass + "'>" +data[i].name+
+				/*((!slotNormal || !minutes) ? formatDate(d, opt('axisFormat')) : '&nbsp;') */+
 				"</th>" +
 				"<td class='" + contentClass + "'>" +
 				"<div style='position:relative'>&nbsp;</div>" +
@@ -3033,6 +3046,7 @@ function AgendaView(element, calendar, viewName) {
 		dayTable = $(html).appendTo(element);
 
 		dayHead = dayTable.find('thead');
+		console.log(dayHead);
 		dayHeadCells = dayHead.find('th').slice(1, -1); // exclude gutter
 		dayBody = dayTable.find('tbody');
 		dayBodyCells = dayBody.find('td').slice(0, -1); // exclude gutter
@@ -3955,7 +3969,7 @@ function AgendaEventRenderer() {
 	}
 	
 	
-	function slotSegHtml(event, seg) {
+	function slotSegHtml(event, seg) {//hereeere
 		var html = "<";
 		var url = event.url;
 		var skinCss = getSkinCss(event, opt);
@@ -3989,9 +4003,9 @@ function AgendaEventRenderer() {
 				"'" +
 			">" +
 			"<div class='fc-event-inner'>" +
-			"<div class='fc-event-time'>" +
-			htmlEscape(formatDates(event.start, event.end, opt('timeFormat'))) +
-			"</div>" +
+			//"<div class='fc-event-time'>" +
+			//htmlEscape(formatDates(event.start, event.end, opt('timeFormat'))) +
+			//"</div>" +
 			"<div class='fc-event-title'>" +
 			htmlEscape(event.title || '') +
 			"</div>" +

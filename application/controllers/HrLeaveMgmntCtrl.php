@@ -60,5 +60,4 @@ class HrLeaveMgmntCtrl extends CI_Controller {
 		$this->load->view('HrLeaveManagement/EmployeeLeaveDetails');
 		$this->load->view('footer');
 	}
-	 
 }

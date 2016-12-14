@@ -1,7 +1,7 @@
 <!-- Javascript files to load here -->
 <!--commented by senthil-->
 
-<!--<script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery-1.9.1.min.js"></script>-->
+	<!--<script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery-1.9.1.min.js"></script>-->
 
 <!--commented by senthil-->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
@@ -32,7 +32,7 @@
 	<script src="<?php echo base_url(); ?>assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/form-wizards.demo.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>assets/bootstrap-filestyle/bootstrap-filestyle.min.js"> </script>
-	<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/fullcalendar/fullcalendar/fullcalendar.js"> </script>
+	
 	<script type="text/javascript" src="<?php echo base_url();?>assets/js/bootbox.min.js"> </script>
 
 <script>

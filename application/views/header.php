@@ -32,9 +32,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link href="<?php echo base_url(); ?>assets/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" />
-
-	
-	
 </head>
 <body>
 <!-- begin #page-loader -->
@@ -192,9 +189,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							       <li><a href="<?php echo base_url();?>hrSettingsC/employee_category">Employee category</a></li>
 							       <li><a href="<?php echo base_url();?>hrSettingsC/employee_department">Employee Department</a></li>
 							       <li><a href="<?php echo base_url();?>hrSettingsC/employee_position">Employee Position</a></li>
-							       <li><a href="<?php echo base_url();?>hrSettingsC/employee_grade">Employee Garde</a></li>
+							       <li><a href="<?php echo base_url();?>hrSettingsC/employee_grade">Employee Grade</a></li>
 							       <li><a href="<?php echo base_url();?>hrSettingsC/working_Days">Working Day </a></li>
-							       <li><a href="<?php echo base_url();?>hrSettingsC/leave_Types">Leave Type </a></li>
+							       <li><a href="<?php echo base_url();?>hrSettingsC/leave_Types">Leave Types </a></li>
 							       <li><a href="<?php echo base_url();?>hrSettingsC/Bank_Details">Bank Details</a></li>
 							       <li><a href="<?php echo base_url();?>hrSettingsC/additional_Details">Additional Details</a></li>
 							    </ul>
