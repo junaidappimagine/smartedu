@@ -270,8 +270,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										   <li><a href="<?php echo base_url('feesCntrl/fees_fine')?>">Fine</a></li>
 										</ul>
 								    </li>
-								    <li><a href="#">Schedule fee collection</a></li>
-								    <li><a href="#">Fee collection</a></li>
+								    <li><a href="<?php echo base_url('feesCntrl/schedule_fee_collection')?>" >Schedule fee collection</a></li>
+								    <li><a href="<?php echo base_url('feesCntrl/fee_collection')?>">Fee collection</a></li>
 									<li><a href="#">Fee defaulters</a></li>
 									<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
 										<a href="javascript:;">
