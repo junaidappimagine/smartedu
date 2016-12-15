@@ -2,7 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class feesCntrl extends CI_Controller {
-
+   function __construct(){
+      parent::__construct();
+      $this->load->helper('dompdf_helper');
+      //$this->load->model('payroll/payslipmodel');
+      $this->load->library('session');
+      $this->load->helper('url');
+    }
    function index()
    {
 		$this->load->view('header');
@@ -159,4 +165,52 @@ class feesCntrl extends CI_Controller {
 		$this->load->view('fees/fee_collection');
 		$this->load->view('footer');
 	}
+	 function ViewRefundRules()
+   {
+	        $this->load->view('header');
+		$this->load->view('fees/ViewRefundRules');
+		$this->load->view('footer');
+   }
+    function createRefundRule()
+   {
+      $data["mode"]='add';
+      $this->load->view('header');
+      $this->load->view('fees/createRefundRule',$data);
+      $this->load->view('footer');
+   }
+   function refundRule_edit()
+   {
+      $data["mode"]='edit';
+      $this->load->view('header');
+      $this->load->view('fees/createRefundRule',$data);
+      $this->load->view('footer');
+   }
+   function view_refund()
+   {
+      $this->load->view('header');
+      $this->load->view('fees/view_refund');
+      $this->load->view('footer');
+   }
+    function apply_refund()
+   {
+      $this->load->view('header');
+      $this->load->view('fees/applyRefund');
+      $this->load->view('footer');
+   }
+   function refund_pdf_generate()
+    {
+      $html=$this->load->view('pdf/refund',$data=array(),true);
+      pdf_create($html,"test",$stream=TRUE,'portrait');   
+    }
+   function feesDefaulters()
+   {
+      $this->load->view('header');
+      $this->load->view('fees/feesDefaulters');
+      $this->load->view('footer');
+   }
+    function defaulter_pdf_generate()
+    {
+      $html=$this->load->view('pdf/default',$data=array(),true);
+      pdf_create($html,"test",$stream=TRUE,'portrait');   
+    }
 }
