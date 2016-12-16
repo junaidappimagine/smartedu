@@ -272,14 +272,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								    </li>
 								    <li><a href="<?php echo base_url('feesCntrl/schedule_fee_collection')?>" >Schedule fee collection</a></li>
 								    <li><a href="<?php echo base_url('feesCntrl/fee_collection')?>">Fee collection</a></li>
-									<li><a href="#">Fee defaulters</a></li>
+								    <li><a href="<?php echo base_url('feesCntrl/feesDefaulters')?>">Fee defaulters</a></li>
 									<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
 										<a href="javascript:;">
 											<span class="caret pull-right"></span><span>Fee Refund</span>
 										</a>
 										<ul class="sub-menu">
-										   <li><a href="#">Create Refund Rule</a></li>
-										   <li><a href="#">Apply Refund</a></li>
+										    <li><a href="<?php echo base_url('feesCntrl/ViewRefundRules ')?>">Create Refund Rule</a></li>
+										    <li><a href="<?php echo base_url('feesCntrl/view_refund')?>">View Refund</a></li>
+										    <li><a href="<?php echo base_url('feesCntrl/apply_refund')?>">Apply Refund</a></li>
 										</ul>
 								    </li>
 							    </ul>
