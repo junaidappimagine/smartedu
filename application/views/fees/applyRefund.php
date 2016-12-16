@@ -56,16 +56,17 @@
 					<tbody>
 					    <tr class="hidden" id="termData1">
                                                 <td>1</td>
+                                                <td>Karthik</td>
+                                                <td>G01 - A</td>
                                                 <td>STD001 </td>
-                                                <td>G11501</td>
-                                                <td>Karthik </td>
-                                                <td><a  href="<?php echo base_url('feesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
+                                                
 					    </tr>
 					    <tr class="hidden" id="termData2">
                                                 <td>2</td>
-                                                <td>STD002</td>
-                                                <td>G11502</td>
                                                 <td>Arun</td>
+						<td>G01 - B</td>
+                                                <td>STD003</td>
+                                                <td></td>
                                                 <td><a  href="<?php echo base_url('feesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
 					    </tr>
                                             <tr  class="hidden" id="noData">

@@ -29,11 +29,11 @@
 			 <div class="form-group">
 			      <label class="col-md-2 col-md-offset-2 control-label"> <h1 class="page-header"><b>Select Class :</b></h1></label>
 				 <div class="col-md-3">
-					 <select id="" class="form-control selectpicker"  data-style="btn-white btn-sm">
+					 <select id="selectClass" class="form-control selectpicker"  data-style="btn-white btn-sm">
 						 <option value="">Select Class</option>
-						 <option value="">Grade 1</option>
-						 <option value="">Class 1</option>
-						 <option value="">Standard 1</option>
+						 <option value="Grade1">Grade1</option>
+						 <option value="">Class1</option>
+						 <option value="">Standard1</option>
 					 </select>
 				 </div>
 			 </div>
@@ -42,10 +42,11 @@
 			 <div class="form-group">
 			     <label class="col-md-2 col-md-offset-2 control-label"> <h1 class="page-header"><b>Select Batch :</b></h1></label>
 				   <div class="col-md-3">
-					<select id="" class="form-control selectpicker"  data-style="btn-white btn-sm">
+					<select id="emptyBatch" class="form-control selectpicker "  data-style="btn-white btn-sm">
 					     <option value="">Select Batch</option>
-					     <option value="">Go1-A</option>
+					      <option value="G01" class="hidden show">G01-A</option>
 					</select>
+					
 				   </div>
 			 </div>
 		    </div>
@@ -66,7 +67,7 @@
 		</div>
 		    <br>
 	       <div class="panel-body hidden" id="panel">
-		    <div class="hidden" id="view">
+		  
 			    <div class="table-responsive">
 				   <table class="table table-bordered">
 					<thead>
@@ -117,7 +118,7 @@
 					</tbody>
 				   </table>
 			    </div>
-		    </div>
+		    
 		    <div class="col-sm-2 col-sm-offset-5">
 			 <a class="form-control btn btn-primary btn-sm" href="<?php echo base_url('feesCntrl/defaulter_pdf_generate');?>">PDF report</a>
 		    </div>  
@@ -130,6 +131,15 @@
  
     <script>
     $(document).ready(function(){
+     $('#selectClass').change(function(){
+	  
+	  if($(this).val()=='Grade1'){
+	       $('.show').removeClass('hidden');
+	       $('#emptyBatch').addClass('hidden');
+	  }else{
+	       $('.hidden').addClass('hidden');
+	  }
+     });
     $('#dropdown1').change(function(){
 	    console.log($(this).val());
 	    if($(this).val()=='Term1'  )
@@ -170,7 +180,7 @@
 	    }
 	    else
 	    {
-		    $('#view').addClass('hidden');
+		    $('#panel').addClass('hidden');
 	    }
     });
     });
