@@ -241,8 +241,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								    <span class="caret pull-right"></span><span>Asset Liability Management</span>
 							    </a>
 							    <ul class="sub-menu">
-							       <li><a href="#">Asset</a></li>
-							       <li><a href="#">Liability</a></li>
+								<li><a href="<?php echo base_url('AssetCntrl/assetView')?>">Asset</a></li>
+							       <li><a href="<?php echo base_url('AssetCntrl/liabilityView')?>">Liability</a></li>
 							    </ul>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
@@ -270,9 +270,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										   <li><a href="<?php echo base_url('feesCntrl/fees_fine')?>">Fine</a></li>
 										</ul>
 								    </li>
-								    <li><a href="<?php echo base_url('feesCntrl/schedule_fee_collection')?>" >Schedule fee collection</a></li>
-								    <li><a href="<?php echo base_url('feesCntrl/fee_collection')?>">Fee collection</a></li>
-								    <li><a href="<?php echo base_url('feesCntrl/feesDefaulters')?>">Fee defaulters</a></li>
+								    <li><a href="<?php echo base_url('feesCntrl/schedule_fee_collection')?>" >Schedule Fee Collection</a></li>
+								    <li><a href="<?php echo base_url('feesCntrl/fee_collection')?>">Fee Collection</a></li>
+								    <li><a href="<?php echo base_url('feesCntrl/feesDefaulters')?>">Fee Defaulters</a></li>
 									<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
 										<a href="javascript:;">
 											<span class="caret pull-right"></span><span>Fee Refund</span>
