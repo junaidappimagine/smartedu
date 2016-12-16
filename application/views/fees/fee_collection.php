@@ -1,23 +1,15 @@
 <style>
-	/*.main-content{
-    border: 6px solid brown;
-	border-radius: 15px;
-    background-color: lightblue;
-	}*/
 	hr.hrdesign{
 	display: block;
-    /*margin-top: 0.5em;
-    margin-bottom: 0.5em;*/
     margin-left: auto;
     margin-right: auto;
     border-style:inset;
     border-width: 1px;
 	}
-	.tpanel{
-	 border:4px solid aqua ;
-	border-radius: 15px;
-	}
 	td{
+		background-color: white!important;
+	}
+	 th{
 		background-color: white!important;
 	}
 	tbody:before {
@@ -30,15 +22,7 @@
 	{
 	text-align: right;
 	font-weight: bold;
-    /*content: "-";
-    display: block;
-    line-height: 1em;
-    color: transparent;*/
-    }
-	/*thead tr {
-        border-bottom: 10px solid white;
-    }*/
-	
+   }
 </style>
 
 <!-- begin #content -->
@@ -73,34 +57,38 @@
                             <div class="well">
 								<form class="form-horizontal">
 									<fieldset>
-										<div class="form-group">
-											<div class="col-md-offset-4 col-md-3">
-												<label><h4>Select a batch:</h4></label>
-												<div>
-													<select  class="form-control selectpicker"  data-style="btn-white btn-sm" id="batch">
-														<option value="">Select a batch:</option>
-														<option value="B.Tech">B.Tech</option>
-													</select>
+										<div class="row">
+											<div class="col-md-offset-2 col-md-3">
+												<div class="form-group">
+													<label><h4>Select a batch:</h4></label>
+														<div>
+															<select  class="form-control selectpicker"  data-style="btn-white btn-sm" id="batch">
+																<option value="">Select a batch:</option>
+																<option value="B.Tech">B.Tech</option>
+															</select>
+														</div>
 												</div>
 											</div>
-										</div>
-										<hr><br>
-										<div class="row hidden sub-content">
-											<div class="col-md-4">
+											<div class="col-md-offset-1 col-md-3">
 												<div class="form-group">
-													<label class="control-label col-md-5">Select a student:</label>
-													<div class="col-md-7">
-														<select id="dropdown1" class="form-control selectpicker" data-style="btn-white btn-sm">
-															<option value="">Select a student:</option>
-															<option value="kate">Kate</option>
-														</select>
+													<div class="col-md-">
+														<label><h4>Select a student:</h4></label>
+															<div>
+																<select id="dropdown1" class="form-control selectpicker" data-style="btn-white btn-sm" data-live-search="true">
+																	<option value="">Select a student:</option>
+																	<option value="kate">Kate</option>
+																</select>
+															</div>
 													</div>
 												</div>
 											</div>
-											<div class="col-md-4">
+											</div>
+										<hr>
+										<div class="row hidden sub-content">
+											<div class="col-md-offset-3 col-md-4">
 												<div class="form-group">
-													<label class="control-label col-md-5">Fee Collection:</label>
-													<div class="col-md-7">
+													<label class="control-label col-md-4">Fee Collection:</label>
+													<div class="col-md-8">
 														<select id="dropdown2" class="form-control selectpicker" data-style="btn-white btn-sm">
 															<option value="">Select a fee collection:</option>
 															<option value="Term 2 fee collection" class="hidden show">Term 2 fee collection</option>
@@ -110,13 +98,9 @@
 													</div>
 												</div>
 											</div>
-											<div class="col-md-offset-1 col-md-2 sub_content2 hidden">
-												<label>Fee Category name:</label><br>
-												<span>Term 1 Fee</span>
-											</div>
 											<hr>
 										</div>
-									    <div class="row sub_content3 hidden">
+										<div class="row sub_content3 hidden">
 											<div class="col-md-4">
 												<div class="form-group">
 													<label class="control-label col-md-5">Admission no:</label>
@@ -133,9 +117,13 @@
 													</div>
 												</div>
 											</div>
+											<div class="col-md-offset-1 col-md-2 sub_content2 hidden">
+												<label>Fee Category name:</label><br>
+												<span>Term 1 Fee</span>
+											</div>
 											<hr>
 										</div><br>
-										<div class="panel-body tpanel hidden">
+										<div class="panel-body tpanel hidden" style="background-color: #C3D9FF">
 											<div class="main-content" style="">
 												<div class="table-responsive">
 													<center>
@@ -172,8 +160,8 @@
 														<thead>
 															<tr style="background-color: #d9edf7; border-color: #b6e2ef;">
 																<th width="10%">Sl.No</th>
-																<th width="60%">Name</th>
-																<th width="20%">Discount</th>
+																<th width="60%">Discount</th>
+																<th width="20%">Discount amount</th>
 															</tr>
 														</thead>
 														<tbody>
@@ -195,7 +183,7 @@
 														<thead>
 															<tr style="background-color: #d9edf7; border-color: #b6e2ef;">
 																<th width="10%">Sl.No</th>
-																<th width="60%">Name</th>
+																<th width="60%">Fine</th>
 																<th width="20%">Fine amount</th>
 															</tr>
 														</thead>
@@ -262,11 +250,9 @@
 													<div class="col-md-offset-1 col-md-3">
 														<div class="form-group">
 															<label>Pyament Mode :</label>
-																<select id="dropdown1" class="form-control selectpicker" data-style="btn-white btn-sm">
-																	<option value="">All</option>
-																	<option value="English">English</option>
-																	<option value="Maths">Maths</option>
-																	<option value="Science">Science</option>
+																<select id="dropdown1" class="form-control selectpicker btn-sm" data-style="btn-white">
+																	<option value="">Cash</option>
+																	<option value=""></option>
 																</select>
 														</div>
 													</div>
@@ -282,13 +268,12 @@
 												<div class="row">
 													<div class="col-md-offset-1 col-md-3">
 														<div class="form-group">
-															<label>Pyament Date:</label>
-																<select id="dropdown1" class="form-control selectpicker" data-style="btn-white btn-sm">
-																	<option value="">All</option>
-																	<option value="English">English</option>
-																	<option value="Maths">Maths</option>
-																	<option value="Science">Science</option>
-																</select>
+															 <label>Payment Date:</label>
+															 <span class='input-group'>
+                                                                <input type='text' id="datePicker" name="dailyDate" class="form-control input-sm input-group datetimepicker defaultdate" value="" />
+																	<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                                                </span>
+																</span>  
 														</div>
 													</div>
 													<div class="col-md-3">
@@ -297,7 +282,7 @@
 													</div>
 												</div><br>
 												<div class="row">
-													<div class="col-md-offset-7 col-md-4" style="text-align-last:right;">
+													<div class="col-md-offset-7 col-md-4" style="text-align:right;">
 														<div class="form-group">
 															<button type="button" class="btn btn-primary btn-sm">Print Summary</button>
 															<button type="button" class="btn btn-primary btn-sm">Pay Fees</button>
@@ -310,8 +295,8 @@
 													</div>-->
 												</div>
 											</div>
-										</div><br>
-										<div class="panel-body tpanel2 hidden">
+										</div>
+										<div class="panel-body tpanel2 hidden" style="background-color: #C3D9FF">
 											<div class="main-content">
 												<div class="table-responsive">
 													<center>
@@ -332,14 +317,14 @@
 																<td>Term 2 fee collection</td>
 																<td class="design">7650.00</td>
 																<td class="design">7800.00</td>
-																<td></td>
+																<td><input type="text" value=""></td>
 															</tr>
 															<tr>
 																<td>2.</td>
 																<td>Fee str</td>
 																<td class="design">8000.00</td>
 																<td class="design">78150.00 </td>
-																<td></td>
+																<td><input type="text" value=""></td>
 															</tr>
 															<tr class="design">
 																<td colspan="4"  class="design">Total Amount to pay</td>
@@ -362,11 +347,9 @@
 													<div class="col-md-offset-1 col-md-3">
 														<div class="form-group">
 															<label>Pyament Mode :</label>
-																<select id="dropdown1" class="form-control selectpicker" data-style="btn-white btn-sm">
-																	<option value="">All</option>
-																	<option value="English">English</option>
-																	<option value="Maths">Maths</option>
-																	<option value="Science">Science</option>
+																<select id="dropdown1" class="form-control selectpicker btn-sm" data-style="btn-white">
+																	<option value="">Cash</option>
+																	<option value=""></option>
 																</select>
 														</div>
 													</div>
@@ -382,13 +365,12 @@
 												<div class="row">
 													<div class="col-md-offset-1 col-md-3">
 														<div class="form-group">
-															<label>Pyament Date:</label>
-																<select id="dropdown1" class="form-control selectpicker" data-style="btn-white btn-sm">
-																	<option value="">All</option>
-																	<option value="English">English</option>
-																	<option value="Maths">Maths</option>
-																	<option value="Science">Science</option>
-																</select>
+															<label>Payment Date:</label>
+															 <span class='input-group'>
+                                                                <input type='text' id="datePicker" name="dailyDate" class="form-control input-sm input-group datetimepicker defaultdate" value="" />
+																	<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                                                </span>
+															</span>  
 														</div>
 													</div>
 													<div class="col-md-3">
@@ -512,6 +494,9 @@
 <script>
 		
 		$(document).ready(function(){
+			 $('#datePicker').datepicker({
+                            format: 'dd-mm-yyyy'
+                        });
 			$('#batch').change(function(){
 				console.log($(this).val());
 				$('.sub-content').removeClass('hidden');
@@ -534,6 +519,7 @@
 				}
 				else
 				{
+					$('.tpanel2').addClass('hidden');
 					$('.tpanel').removeClass('hidden');
 					$('.sub_content3').removeClass('hidden');
 					$('.sub_content2').removeClass('hidden');
