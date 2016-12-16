@@ -213,4 +213,10 @@ class feesCntrl extends CI_Controller {
       $html=$this->load->view('pdf/default',$data=array(),true);
       pdf_create($html,"test",$stream=TRUE,'portrait');   
     }
+    function payFees()
+   {
+      $this->load->view('header');
+      $this->load->view('fees/payFees');
+      $this->load->view('footer');
+   }
 }
