@@ -29,8 +29,8 @@
 <body>
 <table>
     <tr>
-        <td> <img id="previewing" src="<?php echo base_url();?>/assets/img/logo.jpg"  name="profile" width="70px" height="70px"></td>
-        <td><h1>School Name</h1> City</td>
+        <td> <img id="previewing" src="<?php echo base_url();?>/assets/img/logo.jpg"  name="profile" width="60px" height="60px"></td>
+        <td><p>&nbsp;&nbsp;&nbsp;&nbsp; School Name <p>&nbsp;&nbsp;&nbsp;&nbsp; City</p><p> </td>
     </tr>
 </table>
 <div class="main">
