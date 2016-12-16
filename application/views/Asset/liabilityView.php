@@ -51,11 +51,9 @@
 			     </table>
 			  </div>
 		     </div>
-	  
-		    <div class="col-sm-2 col-sm-offset-5">
-			 <a class="form-control btn btn-primary btn-sm" href="<?php echo base_url('AssetCntrl/liability_pdf_generate');?>">PDF report</a>
+		    <div class="col-sm-2 col-sm-offset-4">
+                        <div class="col-md-2 col-md-offset-1"><a href="<?php echo base_url('AssetCntrl/liability_pdf_generate'); ?>" class="btn btn-primary btn-sm" role="button">PDF Report</a></div>
 		    </div>
-		   
 	       </div>
 		</div>
 	    </div>
