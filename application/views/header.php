@@ -173,6 +173,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					    </a>
 						
 					</li>
+					
+					    <li class="has-sub">
+						<a href="javascript:;">
+							<span class="caret pull-right"></span>
+							<i class="fa fa-suitcase text-warning"></i> 
+							<span>Configuration</span>
+						</a>
+						<ul class="sub-menu">
+						    <li><a href="<?php echo base_url();?>GrSettingsC/generalSettingView">General settings</a></li>
+							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+							    <a href="javascript:;">
+								    <span class="caret pull-right"></span><span>SMS Module</span>
+							    </a>
+							    <ul class="sub-menu">
+							       <li><a href="<?php echo base_url();?>GrSettingsC/smsSettings">SMS Settings</a></li>
+							       <li><a href="<?php echo base_url();?>GrSettingsC/sendStudents">Send SMS to Students</a></li>
+							       <li><a href="<?php echo base_url();?>GrSettingsC/sendBatches">Send SMS to Batches</a></li>
+							       <li><a href="<?php echo base_url();?>GrSettingsC/sendEmployees">Send SMS to Employees</a></li>
+							       <li><a href="<?php echo base_url();?>GrSettingsC/sendEmployeeDepartment">Send SMS to Employees Departments</a></li>
+							       <li><a href="<?php echo base_url();?>GrSettingsC/sendAll">Send SMS to all</a></li>
+							       <li><a href="<?php echo base_url();?>GrSettingsC/smslogs">SMS logs</a></li>
+							    </ul>
+							</li>
+						</ul>
+					</li>
+
+					
 					<li class="has-sub">
 						<a href="javascript:;">
 							<span class="caret pull-right"></span>
