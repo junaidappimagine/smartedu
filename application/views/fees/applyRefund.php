@@ -87,7 +87,7 @@
         $('#searchData').keyup(function(){
             var resdata=$('#searchData').val();
                //alert(resdata);
-                if(resdata =='ka')
+                if(resdata =='karthik')
                 {
                     $('#view').removeClass('hidden');
                     $('#termData1').removeClass('hidden');
@@ -95,7 +95,7 @@
                      $('#noData').addClass('hidden');
                    
                 }
-                else if (resdata =='ar' ) {
+                else if (resdata =='arun' ) {
                     $('#view').removeClass('hidden');
                     $('#termData2').removeClass('hidden');
                     $('#termData1').addClass('hidden');
