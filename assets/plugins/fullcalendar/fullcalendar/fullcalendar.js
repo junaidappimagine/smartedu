@@ -2318,7 +2318,7 @@ function BasicView(element, calendar, viewName) {
 
 
 	function buildBodyHTML() {
-		var contentClass = tm + "-widget-content";
+		var contentClass = tm + "-widget-content  newwventadd";
 		var html = '';
 		var row;
 		var col;
@@ -2333,7 +2333,7 @@ function BasicView(element, calendar, viewName) {
 			if (showWeekNumbers) {
 				date = cellToDate(row, 0);
 				html +=
-					"<td class='fc-week-number " + contentClass + "'>" +
+					"<td class='fc-week-number " + contentClass +"'>" +
 					"<div>" +
 					htmlEscape(formatDate(date, weekNumberFormat)) +
 					"</div>" +

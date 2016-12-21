@@ -204,6 +204,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<a href="javascript:;">
 							<span class="caret pull-right"></span>
 							<i class="fa fa-suitcase text-warning"></i> 
+							<span>Academics</span>
+						</a>
+						<ul class="sub-menu">
+							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+							    <a href="javascript:;">
+								    <span class="caret pull-right"></span><span>Timetable</span>
+							    </a>
+							    <ul class="sub-menu">
+							       <li class="has-sub">
+								    <a href="javascript:;"><b class="caret pull-right"></b>Configurations</a>
+								    <ul class="sub-menu" >
+									    <li><a href="<?php echo base_url();?>AcademicsC/classrommAllocation">Classromm Allocation</a></li>
+									    <li><a href="<?php echo base_url();?>AcademicsC/createWeekdays">Create Weekdays</a></li>
+									    <li><a href="<?php echo base_url();?>AcademicsC/setClassTimings">Set Class Timings</a></li>
+								    </ul>
+								</li>
+							       <li><a href="<?php echo base_url();?>AcademicsC/manageTimetable">Manage Timetable</a></li>
+							       <li><a href="<?php echo base_url();?>AcademicsC/timeTableView">View Timetable</a></li>
+							    </ul>
+							</li>
+						</ul>
+					</li>
+
+					<li class="has-sub">
+						<a href="javascript:;">
+							<span class="caret pull-right"></span>
+							<i class="fa fa-suitcase text-warning"></i> 
 							<span>HR</span>
 						</a>
 						<ul class="sub-menu">

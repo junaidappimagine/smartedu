@@ -90,4 +90,5 @@ class hrSettingsC extends CI_Controller {
 	$this->load->view('hrSetting/advancedSearch');
 	$this->load->view('footer');
     }
+   
 }

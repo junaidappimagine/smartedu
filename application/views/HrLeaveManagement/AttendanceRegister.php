@@ -13,6 +13,10 @@
 	}
 
 </style>-->
+<link href="<?php echo base_url(); ?>assets/dialog/themes_base_jquery-ui.css" rel="stylesheet" />
+<script src="<?php echo base_url(); ?>assets/dialog/jquery-1.9.1.js"></script>
+<script src="<?php echo base_url(); ?>assets/dialog/jquery-ui.js"></script>
+
 <style>
     .fc-agenda-slots tr {
     height: 60px;
@@ -22,6 +26,7 @@
     position: absolute; top: 66px; left: 109px; width: 115.775px; height: 50px;
 }
 </style>
+
 <!-- begin #content -->
 <div id="content" class="content">
     <!-- begin breadcrumb -->
@@ -54,6 +59,7 @@
 			    			<div class="col-md-2">
 			    				<label>Department</label>
 			    			</div>
+						<input type="hidden" id="hideeee">
 			    			<div class="col-md-3">
 				    			<select class="form-control selectpicker input-sm" data-live-search="true" data-style="btn-white btn-sm" name="">
 				    				<option>Select</option>
@@ -67,13 +73,66 @@
 				    			</select>
 			    			</div>
 			    		</div>
-			    		<button type="button" class="btn btn-info btn-lg model_test hidden" data-toggle="modal" data-target="#myModal">Open Modal</button>
+		    <button type="button" class="btn btn-info btn-lg model_test hidden" data-toggle="modal" data-target="#myModal">Open Modal</button>
 			    		<!-- <div class="vertical-box">
 			           
 	                        <div id="calendar" class="vertical-box-column p-15 calendar"></div>
 				        </div> -->
-			    		<div id='calendar'></div>
+			    	<div id='calendar'></div>
 			    	</form>
+				
+				
+				<div id="dialog" class="hidden">
+				<p>Please enter your name</p>
+				<textarea id="name"></textarea>
+				<input type="text" id="valuesofanem">
+				</div>
+			    
+<!--			    <label>Name entered: </label>-->
+			    <!--<label id="nameentered"></label><label id="sdasdasd"></label>-->
+			    <!--<br />-->
+			    <input type="button" class="hidden" id="open" value="Open Dialog" />
+							    
+				
+				
+				
+			<!--	<button id="bootbox" class="btn">Open dialog</button>-->
+			<!--	<div class="form-content" style="display:none;">-->
+			<!--	<form class="form" role="form">-->
+			<!--	  <div class="form-group">-->
+			<!--	    <label for="email">Leave Type</label>-->
+			<!--	    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" value="test@mail.ru"></input>-->
+			<!--	    <select class="form-control selectpicker input-sm" id="leave_type" data-live-search="true" data-style="btn-white btn-sm">-->
+			<!--		    <option selected>Select Leave Type</option>-->
+			<!--		    <option>Casual</option>-->
+			<!--		    <option>Sick Leave</option>-->
+			<!--	    </select>-->
+			<!--	  </div>-->
+			<!--	  <div class="form-group">-->
+			<!--	    <label for="valuename">Name</label>-->
+			<!--	    <input type="text" class="form-control valuename" id="valuename" name="Name" placeholder="Name">-->
+			<!--	  </div>-->
+			<!--	  <input type="text" class="sdfdsfd hidden" name="ssd" id="hidden">-->
+			<!--	  <div class="checkbox"> -->
+			<!--	    <label>-->
+			<!--	      <input type="checkbox" value="hai" id="check"> Check me out-->
+			<!--	    </label>-->
+			<!--	  </div>-->
+			<!--	</form>-->
+			<!--      </div>-->
+				
+				<!--<button id="callConfirm">Confirm!</button>-->
+
+		<!--		<div id="dialogboxxxxxxxx" title="Confirmation Required">
+				  Are you sure about this?
+				  <input type="text" name="sdfs" id="name">
+				  <input type="text" name="sdfs" id="name1">
+				  <input type="text" name="sdfs" id="name2">
+				</div>
+				-->
+
+				
+				
 			    	<!-- Modal -->
 				  	<div class="modal fade" id="myModal" role="dialog">
 				    	<div class="modal-dialog">
@@ -244,6 +303,7 @@ function seccsdsd(){
 }
 
 
-
 </script>
+
+
 
