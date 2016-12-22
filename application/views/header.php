@@ -300,13 +300,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							    </ul>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
-						    	<a href="javascript:;"><span>Finance Categories</span></a>
+						    	<a href="<?php echo base_url('finCategoryCtrl/finCategoryview')?>"><span>Finance Categories</span></a>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
-							    <a href="javascript:;"><span>Transactions</span></a>
+							    <a href="javascript:;">
+									<span class="caret pull-right"></span><span>Transactions</span></a>
+								<ul class="sub-menu">
+							       <li><a href="<?php echo base_url('finTransactionCtrl/expense')?>">Add Expense</a></li>
+							       <li><a href="<?php echo base_url('finTransactionCtrl/income')?>">Add Income</a></li>
+									<li><a href="<?php echo base_url('finTransactionCtrl/revertedTransaction')?>">Reverted Transactions</a></li>
+							    </ul>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
-							    <a href="javascript:;"><span>Donations</span></a>
+							    <a href="<?php echo base_url('finDonationCtrl/addNewDonation')?>"><span>Donations</span></a>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
 							    <a href="javascript:;">
@@ -338,6 +344,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										</ul>
 								    </li>
 							    </ul>
+							</li>
+						</ul>
+					</li>
+					<li class="has-sub">
+						<a href="javascript:;">
+							<span class="caret pull-right"></span>
+							<i class="fa fa-suitcase text-warning"></i> 
+							<span>Students</span>
+						</a>
+						<ul class="sub-menu">
+						    <li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+						    	<a href="<?php echo base_url('studentCntrl/student_detail')?>"><span>Students Details</span></a>
+							</li>
+							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+						    	<a href="<?php echo base_url('studentCntrl/finCategoryview')?>"><span> Roll No</span></a>
+							</li>
+							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+						    	<a href="<?php echo base_url('studentCntrl/admission')?>"><span>Admission</span></a>
+							</li>
+							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+							    <a href="javascript:;">
+									<span class="caret pull-right"></span><span>configurations</span></a>
+								<ul class="sub-menu">
+							       <li><a href="<?php echo base_url('studentCntrl/manage_student_cat')?>"> Manage student Category</a></li>
+							       <li><a href="<?php echo base_url('studentCntrl/manage_roll')?>">Manage Student Roll No</a></li>
+								</ul>
 							</li>
 						</ul>
 					</li>
