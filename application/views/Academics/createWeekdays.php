@@ -29,7 +29,7 @@
 			      	    <div class="form-group date ">
 				    <label class="col-md-1  control-label input-sm"> &nbsp;&nbsp;  Class  &nbsp;&nbsp;&nbsp;&nbsp;<b>:</b></label>
 				    <div class="col-md-3">
-					<select class="form-control selectpicker   input-sm bs-select-hidden" data-live-search="true" data-style="btn-white btn-sm" name="" id="day_month">
+					<select class="form-control selectpicker slectclass  input-sm bs-select-hidden" data-live-search="true" data-style="btn-white btn-sm" name="" id="day_month">
 					    <option value="">Select</option>
 					    <option value="">Class1</option>
 					    <option value="">Class2</option>
@@ -37,14 +37,14 @@
 					</select>
 				    </div>
 				    </div>
-				    <div class="form-group month_date ">
+				    <div class="form-group month_date hidden slectbatch">
 				    <label class="col-md-1 control-label input-sm">Batch &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>:</b></label>
 				    <div class="col-md-3">
-					<select class="form-control selectpicker  input-sm bs-select-hidden" data-live-search="true" data-style="btn-white btn-sm" name="" id="month" >
-					    <option value="">Select</option>
-					    <option value="">Batch 1</option>
-					    <option value="">Batch 2</option>
-					    <option value="">Batch 3</option>
+					<select class="form-control selectpicker batch  input-sm bs-select-hidden" data-live-search="true" data-style="btn-white btn-sm" name="" id="month" >
+					    <option value="select">Select</option>
+					    <option value="Batch1">Batch 1</option>
+					    <option value="Batch2">Batch 2</option>
+					    <option value="Batch3">Batch 3</option>
 					</select>
 				    </div>
 				    </div>
@@ -60,12 +60,12 @@
 				    </thead>
 				    <tbody>
 				       <tr>
-					<th><input type="checkbox" name="days" class="checkmon check">  &nbsp;&nbsp;Monday</th>
-					<th>Default</th>
-					<th>
+					<th><input type="checkbox" name="days"  class="checkmon check">  &nbsp;&nbsp;Monday</th>
+					<th class="checkval"><p class="text">Default</p></th>
+					<th class="checkval">
 					  <a class="Cancel hidden">Cancel</a>
 					  <a class="change">Change</a>
-					  <div class="form-group col-md-6">
+					  <div class="form-group col-md-6 " >
 					    <select class="form-control selectpicker hidden change Cancel input-sm bs-select-hidden" data-live-search="true" data-style="btn-white btn-sm">
 					      <option value="" selected="selected">Default</option>
 					      <option value="">Timing set</option>
@@ -76,12 +76,12 @@
 					</th>
 				      </tr>
 				       <tr>
-					<th><input type="checkbox" class="checktue check" name="days">  &nbsp;&nbsp;Tuesday</th>
-					<th>Default</th>
-					<th>
+					<th><input type="checkbox" class="checktue check"  name="days">  &nbsp;&nbsp;Tuesday</th>
+					<th class="checkval"><p class="text">Default</p></th>
+					<th class="checkval">
 					 <a class="Cancel hidden"  >Cancel</a>
 					  <a  class="change">Change</a>
-					  <div class="form-group col-md-6">
+					  <div class="form-group col-md-6 test">
 					    <select class="form-control selectpicker hidden change Cancel input-sm bs-select-hidden" data-live-search="true" data-style="btn-white btn-sm">
 					      <option value="" selected="selected">Default</option>
 					      <option value="">Timing set</option>
@@ -92,11 +92,11 @@
 					</th>
 				      </tr>
 				       <tr>
-					<th><input type="checkbox" class="checktwed check" name="days">  &nbsp;&nbsp;Wednesday</th>
-					<th class="checkval ">Default</th>
-					<th class="checkval ">
-					  <a class="Cancel hidden"  >Cancel</a>					  
-					  <a  class="change" >Change</a>
+					<th><input type="checkbox" class="checkwed check"  name="days">  &nbsp;&nbsp;Wednesday</th>
+					<th class="checkval"><p class="text wed">Default</p></th>
+					<th class="checkval">
+					  <a class="Cancel hidden  ">Cancel</a>					  
+					  <a  class="change wed" >Change</a>
 					  <div class="form-group col-md-6">
 					    <select class="form-control  selectpicker hidden change Cancel input-sm bs-select-hidden" data-live-search="true" data-style="btn-white btn-sm">
 					      <option value="" selected="selected">Default</option>
@@ -109,9 +109,9 @@
 
 				      </tr>
 				       <tr>
-					<th><input type="checkbox" class="checkthu check" value="Thursday" name="days">  &nbsp;&nbsp;Thursday</th>
-					<th>Default</th>
-					<th>
+					<th><input type="checkbox" class="checkthu check"  value="Thursday" name="days">  &nbsp;&nbsp;Thursday</th>
+					<th class="checkval"><p class="text">Default</p></th>
+					<th class="checkval">
 					  <a class="Cancel hidden"  >Cancel</a>					  
 					  <a  class="change">Change</a>
 					  <div class="form-group col-md-6">
@@ -125,9 +125,9 @@
 					</th>
 				      </tr>
 				       <tr>
-					<th><input type="checkbox" class="checkfri check" name="days" value="firday">  &nbsp;&nbsp;Friday</th>
-					<th>Default</th>
-					<th>
+					<th><input type="checkbox" class="checkfri check"  name="days" value="firday">  &nbsp;&nbsp;Friday</th>
+					<th class="checkval"><p class="text">Default</p></th>
+					<th class="checkval">
 					  <a class="Cancel hidden"  >Cancel</a>
 					  <a  class="change">Change</a>
 					  <div class="form-group col-md-6">
@@ -141,11 +141,11 @@
 					</th>
 				      </tr>
 				       <tr>
-					<th><input type="checkbox" name="days" class="checksat check">  &nbsp;&nbsp;Saturday</th>
-					<th>Default</th>
-					<th>
-					  <a class="Cancel hidden"  >Cancel</a>
-					  <a  class="change"  >Change</a>
+					<th><input type="checkbox" name="days" checked class="checksat check">  &nbsp;&nbsp;Saturday</th>
+					<th class="checkval"><p class="text sat">Default</p></th>
+					<th class="checkval">
+					  <a class="Cancel hidden">Cancel</a>
+					  <a  class="change sat">Change</a>
 					  <div class="form-group col-md-6">
 					    <select class="form-control selectpicker hidden change Cancel input-sm bs-select-hidden" data-live-search="true" data-style="btn-white btn-sm">
 					      <option value="" selected="selected">Default</option>
@@ -157,11 +157,11 @@
 					</th>
 				      </tr>
 				       <tr>
-					<th><input type="checkbox" name="days" class="checksun check">  &nbsp;&nbsp;Sunday</th>
-					<th>Default</th>
-					<th>
+					<th><input type="checkbox" name="days" checked class="checksun check">  &nbsp;&nbsp;Sunday</th>
+					<th class="checkval"><p class="text sun">Default</p></th>
+					<th class="checkval">
 					  <a class="Cancel hidden"  >Cancel</a>
-					  <a  class="change">Change</a>
+					  <a  class="change sun">Change</a>
 					  <div class="form-group col-md-6">
 					    <select class="form-control selectpicker hidden change Cancel input-sm bs-select-hidden" data-live-search="true" data-style="btn-white btn-sm">
 					      <option value="" selected="selected">Default</option>
@@ -172,9 +172,9 @@
 					  </div>
 					</th>
 				      </tr>				       
-				       
 				    </tbody>
-					    </table>
+				</table>
+				  <input type="button" id="save" class="btn btn-success btn-sm" value="Save">
 				</div>
 			  </form>
 			</div>
@@ -185,20 +185,55 @@
 	<!-- end col-12-->
 	  </div>
 <script>
-  $('.check').on('change',function(){
-    console.log($(this).attr('checked'));
-    console.log($(this).val());
-    $('.checkval').removeClass('hidden');
+$(document).ready(function(){
+  $('.check').trigger('click');
+  }); 
+    $('.slectclass').on('change',function(){
+  $('.slectbatch').removeClass('hidden');
+  });
+    
+  $('.check').click(function() { 
+    if ($(this).is(':checked')) {
+	 console.log(" checked");
+	$(this).parents('tr').find('th.checkval').find('p.text').removeClass('hidden');
+	$(this).parents('tr').find('th.checkval').find('a.change').removeClass('hidden');
+      } else {
+	  console.log("not checked");
+	  $(this).parents('tr').find('th.checkval').find('p.text').addClass('hidden');
+	  $(this).parents('tr').find('th.checkval').find('a.change').addClass('hidden');
+      }
+      });
+      $('.change').on('click',function(){
+	$(this).next('div').find('.change').removeClass('hidden')
+	$(this).addClass('hidden');
+	$(this).prev('a').removeClass('hidden');
+      })
+      $('.Cancel').on('click',function(){ 
+	console.log($(this));
+	$(this).parents('th').find('.change').addClass('hidden');
+	$(this).addClass('hidden');
+	$(this).next('a').removeClass('hidden');
+      })
+  $('.batch').on('change',function(){
+    var data=$('.batch').val();
+     console.log(data);
+     if (data=="Batch1") {
+      $('.checkwed').attr('checked', true);
+      $('.wed').removeClass('hidden');
+      $('.checksun').prop('checked', false);
+      $('.checksat').prop('checked', false);
+      $('.sun').addClass('hidden');
+      $('.sat').addClass('hidden');
+     }else{
+      $('.checksat').attr('checked', 'true');
+      $('.checksun').attr('checked', 'true');
+      $('.checkwed').prop('checked', false);
+      $('.wed').addClass('hidden');
+      $('.sun').removeClass('hidden');
+      $('.sat').removeClass('hidden');
+      }
+  });
+  $('#save').on('click',function(){
+   location.reload();
   })
-$('.change').on('click',function(){
-  $(this).next('div').find('.change').removeClass('hidden')
-  $(this).addClass('hidden');
-  $(this).prev('a').removeClass('hidden');
-})
-//$('.Cancel').on('click',function(){ 
-//  console.log($(this));
-//  $(this).next('div').find('.Cancel').addClass('hidden')
-//  $(this).removeClass('hidden');
-//  $(this).prev('a').addClass('hidden');
-//})
 </script>

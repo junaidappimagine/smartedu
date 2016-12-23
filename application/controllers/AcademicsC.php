@@ -67,4 +67,16 @@ class AcademicsC extends CI_Controller {
       $this->load->view('Academics/timeTableView');
       $this->load->view('footer');
    }
+   function addClassTiming(){
+      $this->load->view('header');
+      $data['Mode']="View";
+      $this->load->view('Academics/addclasstiming',$data);
+      $this->load->view('footer');
+   }
+   function editClassTiming(){
+      $this->load->view('header');
+      $data['Mode']="Edit";
+      $this->load->view('Academics/addclasstiming',$data);
+      $this->load->view('footer');
+   }
 }
