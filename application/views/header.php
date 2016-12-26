@@ -209,6 +209,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<ul class="sub-menu">
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
 							    <a href="javascript:;">
+								    <span class="caret pull-right"></span><span>Manage Courses & Batches</span>
+							    </a>
+							    <ul class="sub-menu">
+							       <li><a href="<?php echo base_url();?>AcademicsC/manage_courses">Courses</a></li>
+							       <li><a href="<?php echo base_url();?>AcademicsC/manage_batches">Batches</a></li>
+							       <li><a href="<?php echo base_url();?>AcademicsC/#">Assign Class Teacher</a></li>
+							    </ul>
+							</li>
+						</ul>
+						<ul class="sub-menu">
+							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+							    <a href="javascript:;">
 								    <span class="caret pull-right"></span><span>Timetable</span>
 							    </a>
 							    <ul class="sub-menu">
