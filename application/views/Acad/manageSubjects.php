@@ -462,7 +462,7 @@
 		    $('#updateBtn').addClass('hidden');
 		});
 	        $('#addSub').click(function() {
-		    alert();
+		   
 		    $('.modal-title').text('Add New Subject');
 		    $('#addData').removeClass('hidden');
 		    $('#updateBtn').addClass('hidden');
