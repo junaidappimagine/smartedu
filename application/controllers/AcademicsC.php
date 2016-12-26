@@ -73,9 +73,39 @@ class AcademicsC extends CI_Controller {
       $this->load->view('Academics/addclasstiming',$data);
       $this->load->view('footer');
    }
-   function editClassTiming(){
+   function editClassTiming($title){
+      $cars=array(
+	 
+	       array('classname'=>'Default','si.no'=>'1','periodname'=>'period 1','sttime'=>'09:00','endtime'=>'10:00'),
+	       array('classname'=>'Default','si.no'=>'2','periodname'=>'period 2','sttime'=>'10:00','endtime'=>'11:00'),
+	       array('classname'=>'Default','si.no'=>'3','periodname'=>'Break','sttime'=>'11:00','endtime'=>'11:10'),
+	       array('classname'=>'Default','si.no'=>'4','periodname'=>'period 3','sttime'=>'11:10','endtime'=>'12:10'),
+	       array('classname'=>'Default','si.no'=>'5','periodname'=>'period 4','sttime'=>'12:10','endtime'=>'01:10'),
+	       
+	       array('classname'=>'New','si.no'=>'1','periodname'=>'period 1','sttime'=>'09:00','endtime'=>'10:00'),
+	       array('classname'=>'New','si.no'=>'2','periodname'=>'Break','sttime'=>'10:00','endtime'=>'10:10'),
+	       array('classname'=>'New','si.no'=>'3','periodname'=>'period 2','sttime'=>'10:10','endtime'=>'11:10'),
+	       array('classname'=>'New','si.no'=>'4','periodname'=>'period 3','sttime'=>'11:10','endtime'=>'12:10'),
+	       
+	       array('classname'=>'Timingset','si.no'=>'1','periodname'=>'period 1','sttime'=>'10:00','endtime'=>'11:00'),
+	       array('classname'=>'Timingset','si.no'=>'2','periodname'=>'Break','sttime'=>'11:00','endtime'=>'11:10'),
+	       array('classname'=>'Timingset','si.no'=>'3','periodname'=>'period 2','sttime'=>'11:10','endtime'=>'12:10'),
+	       
+	       array('classname'=>'CLASSTIMINGS','si.no'=>'1','periodname'=>'period 1','sttime'=>'08:00','endtime'=>'09:00'),
+	       array('classname'=>'CLASSTIMINGS','si.no'=>'2','periodname'=>'period 2','sttime'=>'10:00','endtime'=>'11:00')
+	       
+	       );
+      $datatable='';
+      foreach( $cars as $data ){
+	 if($data['classname']==$title){
+	    $datatable.="<tr class='currentrow'><td class='sino'>".$data['si.no']."</td><td class='pername'>".$data['periodname']."</td><td class='st'>".$data['sttime']."</td><td class='et'>".$data['endtime']."</td><td><a class='editrow'>Edit</a>  |  <a class='deleterow'>Delete</a></td></tr>";
+	 }
+      }
       $this->load->view('header');
+      $data['Tablerow']=$datatable;
+      $data['Name']=$title;
       $data['Mode']="Edit";
+      
       $this->load->view('Academics/addclasstiming',$data);
       $this->load->view('footer');
    }

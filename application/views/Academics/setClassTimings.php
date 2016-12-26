@@ -43,7 +43,7 @@
 					    <td>1</td>
 					    <td>Default</td>
 					    <td> 	
-						<a href="<?php echo base_url('AcademicsC/editClassTiming');?>"> View class timings</a>&nbsp;&nbsp; | &nbsp;&nbsp; 
+						<a href="<?php echo base_url('AcademicsC/editClassTiming/Default');?>" class="clastime"> View class timings</a>&nbsp;&nbsp; | &nbsp;&nbsp; 
 						<a id="deleterow" class="deleterow"> Delete</a>	
 					    </td>
 					</tr>
@@ -51,7 +51,7 @@
 					    <td>2</td>
 					  <td>New</td>
 					    <td>
-						<a href="<?php echo base_url('AcademicsC/editClassTiming');?>"> View class timings</a>&nbsp;&nbsp; | &nbsp;&nbsp; 
+						<a href="<?php echo base_url('AcademicsC/editClassTiming/New');?>" class="clastime"> View class timings</a>&nbsp;&nbsp; | &nbsp;&nbsp; 
 						<a id="deleterow" class="deleterow"> Delete</a>	
 					    </td>
 					</tr>
@@ -59,7 +59,7 @@
 					    <td>3</td>
 					  <td>Timing set</td>
 					    <td>
-						<a href="<?php echo base_url('AcademicsC/editClassTiming');?>"> View class timings</a>&nbsp;&nbsp; | &nbsp;&nbsp; 
+						<a href="<?php echo base_url('AcademicsC/editClassTiming/Timingset');?>" class="clastime"> View class timings</a>&nbsp;&nbsp; | &nbsp;&nbsp; 
 						<a id="deleterow" class="deleterow"> Delete</a>	
 					    </td>
 					</tr>
@@ -67,12 +67,10 @@
 					    <td>4</td>
 					  <td>CLASS TIMINGS</td>
 					    <td>
-						<a href="<?php echo base_url('AcademicsC/editClassTiming');?>"> View class timings</a>&nbsp;&nbsp; | &nbsp;&nbsp; 
+						<a href="<?php echo base_url('AcademicsC/editClassTiming/CLASSTIMINGS');?>" class="clastime"> View class timings</a>&nbsp;&nbsp; | &nbsp;&nbsp; 
 						<a id="deleterow" class="deleterow"> Delete</a>	
 					    </td>
 					</tr>
-
-
 				    </tbody>
 				</table>
 			  </div>
@@ -84,4 +82,10 @@
 	    </div>
 	<!-- end col-12-->
 	  </div>
+	
+	<script>
+	   $('.deleterow').on('click',function(){
+	    var data=$(this).parents('tr').remove();
+	    })
+	</script>
   

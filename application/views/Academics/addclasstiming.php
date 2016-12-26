@@ -1,12 +1,3 @@
-	<style>
-/*
-.inputForm
-{
- border-radius: 15px;
-    border:solid 1px black; 
-    padding:5px;
-}*/
-</style>
 	<div id="content" class="content">
 		<!-- begin breadcrumb -->
 	    <ol class="breadcrumb pull-right">
@@ -45,25 +36,30 @@
 			    <div class="form-group">
 				<label class="control-label input-sm col-md-1"></label>
 				<div class=" col-md-3">
-				<input type="button" class="btn btn-primary btn-sm" name="" value="Save">
+				<input  type="button" class="btn btn-primary btn-sm savebtn" name="" value="Save">
 				</div>
 				</div>
+			    <br>
 			  </form>
-			  <?php }else{?>
+			  <?php }
+			  
+			  else{?>
 			  <div class="row">
 			  <form class="form-horizontal">
 			    <div class="form-group">
 				<label class="control-label input-sm col-md-2">Class timing set name &nbsp&nbsp&nbsp&nbsp<b>:</b></label>
-				<label class="control-label input-sm col-md-2 labelview">Default &nbsp;&nbsp;&nbsp;<a class="edit">Edit</a></label>
-				<div class=" col-md-3 hidden inputedit ">
-				<input type="text" name="" class="form-control  input-sm" >
+				<label class="control-label input-sm col-md-2 labelview labelvalue"><?php echo $Name;?> &nbsp;&nbsp;&nbsp;<a class="edit">Edit</a></label>
+				<div class=" col-md-3 hidden inputedit">
+				<input type="text" name="" class="form-control filedvalue input-sm" >
 				</div>
 				<input type="button" class="btn btn-success btn-sm inputedit inputedit1 save hidden" value="save">
 				<input type="button" class="btn btn-danger btn-sm cancel inputedit inputedit1 hidden" value="Cancel">
 			    </div>
+				<input style="margin-left: 13px !important" type="button" class="btn btn-info btn-sm hidden newtimeing" value="Add New">
+				    <p></p>
 			  </form>
 			  </div>
-			  	<table class="table table-bordered table table-striped">
+			  	<table class="table table-bordered table table-striped tablecount">
 				    <thead>
 					<tr>
 					    <th>SI.NO</th>
@@ -73,43 +69,9 @@
 					    <th>Options</th>
 					</tr>
 				    </thead>
-				    <tbody class="tablebody">
-					<tr>
-					    <td>1</td>
-					    <td>Period 1</td>
-					    <td>09:00 AM</td>
-					    <td>10:00 AM</td>
-					    <td> 	
-						<a class="editrow"> Edit</a>&nbsp;&nbsp; | &nbsp;&nbsp; 
-						<a id="deleterow" class="deleterow"> Delete</a>	
-					    </td>
-					</tr>
-					<tr>
-					    <td>2</td>
-					  <td>Period 2</td>
-					  <td>10:00 AM</td>
-					    <td>11:00 AM</td>
-					    <td>
-						<a class="editrow"> Edit</a>&nbsp;&nbsp; | &nbsp;&nbsp; 
-						<a id="deleterow" class="deleterow"> Delete</a>	
-					    </td>
-					</tr>
-					<tr>
-					    <td>3</td>
-					  <td>Break</td>
-					  <td>11:00 AM</td>
-					    <td>11:10 AM</td>
-					    <td>
-						<a class="editrow"> Edit</a>&nbsp;&nbsp; | &nbsp;&nbsp; 
-						<a id="deleterow" class="deleterow"> Delete</a>	
-					    </td>
-					</tr>
-				    </tbody>
+					<tbody><?php echo $Tablerow; ?></tbody>
 				</table
 				<div class="container">
-				    <!-- Trigger the modal with a button -->
-				    <!--<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Open Large Modal</button>-->
-				    <!-- Modal -->
 				    <div class="modal fade" id="myModal" role="dialog">
 				      <div class="modal-dialog modal-md">
 					<div class="modal-content">
@@ -123,14 +85,14 @@
 						      <div class="col-md-2"></div>
 						    <label class="col-md-2 input-sm">Name </label>
 						    <div class=" col-md-6 ">
-						    <input type="text" class="form-control" >
+						    <input type="text"  class="form-control periodName" >
 						    </div>
 						</div>
 						<div class="form-group">
 						    <div class="col-md-2"></div>
 						    <label class="col-md-2 input-sm">Start time  </label>
 						    <div class=" col-md-3 ">
-						    <select class="selectpicker form-control input-sm" data-style="btn-white" data-live-search="true">
+						    <select class="selectpicker form-control stHour input-sm" data-style="btn-white" data-live-search="true">
 							<option value="00">00</option>
 							<option value="01">01</option>
 							<option value="02">02</option>
@@ -158,7 +120,7 @@
 						    </select>
 						    </div>
 						    <div class=" col-md-3 ">
-						    <select class="selectpicker form-control input-sm" data-style="btn-white" data-live-search="true">
+						    <select class="selectpicker form-control input-sm stMin" data-style="btn-white" data-live-search="true">
 							<option selected="" value="00">00</option>
 							<option value="01">01</option>
 							<option value="02">02</option>
@@ -226,7 +188,7 @@
 						      <div class="col-md-2"></div>
 						    <label class="col-md-2 input-sm">End time  </label>
 						    <div class=" col-md-3 ">
-						    <select class="selectpicker form-control input-sm" data-style="btn-white" data-live-search="true">
+						    <select class="selectpicker form-control etHour input-sm" data-style="btn-white" data-live-search="true">
 							<option value="00">00</option>
 							<option value="01">01</option>
 							<option value="02">02</option>
@@ -254,7 +216,7 @@
 						    </select>
 						    </div>
 						    <div class=" col-md-3 ">
-						    <select class="selectpicker form-control input-sm" data-style="btn-white" data-live-search="true">
+						    <select class="selectpicker form-control etMin input-sm" data-style="btn-white" data-live-search="true">
 							<option selected="" value="00">00</option>
 							<option value="01">01</option>
 							<option value="02">02</option>
@@ -322,7 +284,7 @@
 						    <div class="col-md-2"></div>
 						    <label class="col-md-2 input-sm"> </label>
 						    <div class=" col-md-6 ">
-						    <input  type="checkbox">  &nbsp;&nbsp;&nbsp;&nbsp;<b>Break</b>
+						    <input  type="checkbox" >  &nbsp;&nbsp;&nbsp;&nbsp;<b>Break</b>
 						    </div>
 						</div>
 					    </form>
@@ -345,10 +307,37 @@
 	<!-- end col-12-->
 	  </div>
 	<script>
+	    $(document).ready(function(){
+		var tablelength=$('.tablecount tr').length
+		if (tablelength>3) {
+		    $('.newtimeing').addClass('hidden');
+		}else{
+		    $('.newtimeing').removeClass('hidden');
+		}
+	    })
+	    $('.newtimeing').on('click',function(){
+		$('#myModal').modal('show');
+		 cleardata()
+	    });
+	    function cleardata(){
+		$('.periodName').val('');
+		 $('.stHour').val('');
+		 $('.stHour').selectpicker('refresh');
+		 $('.stMin').val('');
+		 $('.stMin').selectpicker('refresh');
+		 $('.etHour').val('');
+		 $('.etHour').selectpicker('refresh');
+		 $('.etMin').val('');
+		 $('.etMin').selectpicker('refresh');
+	    }
 	    $('.edit').on('click',function(){
 	    $('.edit').addClass('hidden');
 	    $('.inputedit').removeClass('hidden');
 	    $('.labelview').addClass('hidden');
+	    var da=$('.labelvalue').text()
+	    var splitdata=da.split(' ');
+	    var labelname = splitdata[0];
+	    $('.filedvalue').val(labelname);
 	    })
 	    $('.inputedit1').on('click',function(){
 	    $('.edit').removeClass('hidden');
@@ -357,6 +346,38 @@
 	    })
 	    $('.editrow').on('click',function(){
 		$('#myModal').modal('show');
+	    })
+	    
+	    $('.editrow').on('click',function(){
+		var data=$(this).parents('tr');
+		 var si=data.find('td.sino').text();
+		 var pername=data.find('td.pername').text();
+		 var st=data.find('td.st').text();
+		 var et=data.find('td.et').text();
+		 var sthourmin=st.split(':');
+		 var sth=sthourmin[0];
+		 var stm=sthourmin[1];
+		 var ethourmin=et.split(':');
+		 var eth=ethourmin[0];
+		 var etm=ethourmin[1];
+		 
+		 $('.periodName').val(pername);
+		 $('.stHour').val(sth);
+		 $('.stHour').selectpicker('refresh');
+		 $('.stMin').val(stm);
+		 $('.stMin').selectpicker('refresh');
+		 $('.etHour').val(eth);
+		 $('.etHour').selectpicker('refresh');
+		 $('.etMin').val(etm);
+		 $('.etMin').selectpicker('refresh');
+	       })
+	    
+	    $('.deleterow').on('click',function(){
+	    var data=$(this).parents('tr.currentrow').remove();
+	    })
+	    
+	    $('.savebtn').on('click',function(){
+	     window.history.back();
 	    })
 	</script>
   
