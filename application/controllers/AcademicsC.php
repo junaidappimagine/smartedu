@@ -229,5 +229,32 @@ class AcademicsC extends CI_Controller {
 		$this->load->view('Academics/revert_transfer');
 		$this->load->view('footer');
 	}
+	   function createTimetable(){
+      $this->load->view('header');
+      $data['Mode']="View";
+      $this->load->view('Academics/createTimetable',$data);
+      $this->load->view('footer');
+   }
+   function editTimetable(){
+      $this->load->view('header');
+      $data['Mode']="Edit";
+      $this->load->view('Academics/createTimetable',$data);
+      $this->load->view('footer');
+   }
+   function manageAllocation(){
+      $this->load->view('header');
+      $this->load->view('Academics/manageAllocation');
+      $this->load->view('footer');
+   }
+   function timetableSummary(){
+      $this->load->view('header');
+      $this->load->view('Academics/timetableSummary');
+      $this->load->view('footer');
+   }
+   function manageBatches(){
+      $this->load->view('header');
+      $this->load->view('Academics/manageBatches');
+      $this->load->view('footer');
+   }
 	
 }

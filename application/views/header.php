@@ -199,25 +199,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</ul>
 					</li>
 
-					
-					<li class="has-sub">
+					    <li class="has-sub">
 						<a href="javascript:;">
 							<span class="caret pull-right"></span>
 							<i class="fa fa-suitcase text-warning"></i> 
 							<span>Academics</span>
 						</a>
-						<ul class="sub-menu">
-							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
-							    <a href="javascript:;">
-								    <span class="caret pull-right"></span><span>Manage Courses & Batches</span>
-							    </a>
-							    <ul class="sub-menu">
-							       <li><a href="<?php echo base_url();?>AcademicsC/manage_courses">Courses</a></li>
-							       <li><a href="<?php echo base_url();?>AcademicsC/manage_batches">Batches</a></li>
-							       <li><a href="<?php echo base_url();?>AcademicsC/#">Assign Class Teacher</a></li>
-							    </ul>
-							</li>
-						</ul>
+
 						<ul class="sub-menu">
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
 							    <a href="javascript:;">
@@ -236,6 +224,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							       <li><a href="<?php echo base_url();?>AcademicsC/timeTableView">View Timetable</a></li>
 							    </ul>
 							</li>
+														<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+							    <a href="javascript:;">
+								    <span class="caret pull-right"></span><span>Manage Courses & Batches</span>
+							    </a>
+							    <ul class="sub-menu">
+							       <li><a href="<?php echo base_url();?>AcademicsC/manage_courses">Courses</a></li>
+							       <li><a href="<?php echo base_url();?>AcademicsC/manage_batches">Batches</a></li>
+							       <li><a href="<?php echo base_url();?>AcademicsC/#">Assign Class Teacher</a></li>
+							    </ul>
+							</li>
+
 						</ul>
 					</li>
 
