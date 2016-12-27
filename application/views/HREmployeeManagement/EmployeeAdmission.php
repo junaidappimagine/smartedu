@@ -70,7 +70,7 @@
 											    <label class="control-label col-md-2">Joining date</label>
 											    <div class="col-md-4">
 											      <!-- <input type="text" class="form-control" id="" placeholder=""> -->
-												    <span class="input-group">
+													    <span class="input-group">
 														<input type="text" class="form-control dateSet input-sm" size="30" id="from_date">
 														<span class="input-group-addon" >
 														    <span class="glyphicon glyphicon-calendar"></span>
@@ -582,7 +582,7 @@
 	        $(this).css("color", "white");
 	    });
 	    $('.dateSet').datepicker({
-			format: 'd MM yyyy',
+	    format: 'd MM yyyy',
 	    });
 	    $(":file").filestyle({icon: false});
 	});

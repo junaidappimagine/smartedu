@@ -3,7 +3,7 @@
 	    <ol class="breadcrumb pull-right">
 		    <li><a href="javascript:;">Academics</a></li>
 		    <li><a href="javascript:;">Configurations</a></li>
-		    <li class="active">Classromm allocation</li>
+		    <li class="active">Manage Timetable</li>
 	    </ol>
 	    <!-- end breadcrumb -->
 	    <!-- begin page-header -->
@@ -21,11 +21,60 @@
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 			    </div>
-			    <h4 class="panel-title">Classromm allocation</h4>
+			    <h4 class="panel-title">Manage Timetable</h4>
 			</div>
 			<div class="panel-body">
-			  <legend>Classromm allocation</legend>
-		      
+			  <legend>Manage Timetable</legend>
+			    <div class="form-group row">
+			      <div class="col-md-3"><a href="<?php echo base_url('AcademicsC/createTimetable');?>" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span> Add</a></div>
+			      <div class="col-md-6"></div>
+			      <div class="col-md-3">
+			      <select class="selectpicker form-control choose input-sm" data-style="btn-white">
+				<option value="active">Active</option>
+				<option value="inactive">Inactive</option>
+			      </select>
+			    </div>
+			  </div>
+			    <p><br></p>
+			  <div class="table-responsive">
+			      <table class="table table-bordered table table-striped">
+				<thead>
+				  <tr>
+				    <th>Active timetables</th>
+				    <th>Allocation status</th>
+				    <th>Action</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr class="activeT">
+				    <td>December 01, 2017 - December 01, 2017 </td>
+				    <td>Not eligible</td>
+				    <td><a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Timetable allocations</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/editTimetable');?>">Edit</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Delete</a></td>
+				  </tr>
+				  <tr class="activeT">
+				    <td>December 01, 2016 - November 30, 2017  </td>
+				    <td>Not allocated</td>
+				    <td><a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Timetable allocations</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/editTimetable');?>">Edit</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Delete</a></td>
+				  </tr>
+				  <tr class="inactiveT hidden">
+				    <td>February 29, 2016 - March 07, 2016 </td>
+				    <td> Partially allocated </td>
+				    <td><a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Timetable allocations</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/editTimetable');?>">Edit</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Delete</a></td>
+				  </tr>
+				  <tr class="inactiveT hidden">
+				    <td>November 25, 2016 - November 30, 2016  </td>
+				    <td> Partially allocated </td>
+				    <td><a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Timetable allocations</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/editTimetable');?>">Edit</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Delete</a></td>
+				  </tr>
+				  <tr class="inactiveT hidden">
+				    <td>March 16, 2016 - March 23, 2016 </td>
+				    <td>Not eligible</td>
+				    <td><a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Timetable allocations</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/editTimetable');?>">Edit</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Delete</a></td>
+				  </tr>
+				</tbody>
+			      </table>
+			    </div>
+
 			</div>
 		    </div>
 		  </div>
@@ -33,3 +82,15 @@
 	    </div>
 	<!-- end col-12-->
 	  </div>
+<script>
+  $('.choose').on('change',function(){
+     var data=$('.choose').val();
+     if (data=='inactive') {
+      $('.inactiveT').removeClass('hidden')
+      $('.activeT').addClass('hidden')
+     }else{
+      $('.inactiveT').addClass('hidden')
+      $('.activeT').removeClass('hidden')
+     }
+   })
+</script>
