@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class feesCntrl extends CI_Controller {
+class FeesCntrl extends CI_Controller {
    function __construct(){
       parent::__construct();
       $this->load->helper('dompdf_helper');
