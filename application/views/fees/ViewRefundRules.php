@@ -26,7 +26,7 @@
 	    </div>
 	    <div class="panel-body">
 		<div class="well">
-		    <div style="float: right;"><div class="col-md-2 col-md-offset-4"><a href="<?php echo base_url('feesCntrl/createRefundRule'); ?>" class="btn btn-primary btn-sm" role="button">Create Refund</a></div></div>
+		    <div style="float: right;"><div class="col-md-2 col-md-offset-4"><a href="<?php echo base_url('FeesCntrl/createRefundRule'); ?>" class="btn btn-primary btn-sm" role="button">Create Refund</a></div></div>
 		    <div class="row">
 			    <div class="col-md-12">
 				    <div class="form-group">
@@ -66,7 +66,7 @@
 							    <td>Refund </td>
 							    <td>2000.00</td>
 							    <td>24/02/2016</td>
-							    <td><a  href="<?php echo base_url('feesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+							    <td><a  href="<?php echo base_url('FeesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 							    <a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 						    </tr>
 						    <tr class="hidden" id="termData2">
@@ -74,7 +74,7 @@
 							    <td>Refund </td>
 							    <td>2000.00</td>
 							    <td>25/02/2016</td>
-							    <td><a  href="<?php echo base_url('feesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+							    <td><a  href="<?php echo base_url('FeesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 							    <a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 						    </tr>
 						     <tr class="hidden" id="feeStd">
@@ -82,7 +82,7 @@
 							    <td>Refund </td>
 							    <td>2000.00</td>
 							    <td>23/03/2016</td>
-							    <td><a  href="<?php echo base_url('feesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+							    <td><a  href="<?php echo base_url('FeesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 							    <a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 						    </tr>
 						     <tr class="hidden" id="term2">
@@ -90,7 +90,7 @@
 							    <td>Refund </td>
 							    <td>50.00%</td>
 							    <td>25/03/2016 </td>
-							    <td><a  href="<?php echo base_url('feesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+							    <td><a  href="<?php echo base_url('FeesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 							    <a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 						    </tr>
 						     <tr class="hidden" id="str">
@@ -98,7 +98,7 @@
 							    <td>Refund </td>
 							    <td>3000.00</td>
 							    <td>06/04/2016 </td>
-							    <td><a  href="<?php echo base_url('feesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+							    <td><a  href="<?php echo base_url('FeesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 							    <a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 						    </tr>
 				       </tbody>
@@ -123,7 +123,7 @@
 							    <td>Refund </td>
 							    <td>2000.00</td>
 							    <td>24/02/2016</td>
-							    <td><a  href="<?php echo base_url('feesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+							    <td><a  href="<?php echo base_url('FeesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 							    <a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 						    </tr>
 						    <tr class="hidden" id="termData2">
@@ -131,7 +131,7 @@
 							    <td>Refund </td>
 							    <td>2000.00</td>
 							    <td>25/02/2016</td>
-							    <td><a  href="<?php echo base_url('feesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+							    <td><a  href="<?php echo base_url('FeesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 							    <a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 						    </tr>
 						     <tr class="hidden" id="feeStd">
@@ -139,7 +139,7 @@
 							    <td>Refund </td>
 							    <td>2000.00</td>
 							    <td>23/03/2016</td>
-							    <td><a  href="<?php echo base_url('feesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+							    <td><a  href="<?php echo base_url('FeesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 							    <a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 						    </tr>
 						     <tr class="hidden" id="term2">
@@ -147,7 +147,7 @@
 							    <td>Refund </td>
 							    <td>50.00%</td>
 							    <td>25/03/2016 </td>
-							    <td><a  href="<?php echo base_url('feesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+							    <td><a  href="<?php echo base_url('FeesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 							    <a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 						    </tr>
 						     <tr class="hidden" id="str">
@@ -155,7 +155,7 @@
 							    <td>Refund </td>
 							    <td>3000.00</td>
 							    <td>06/04/2016 </td>
-							    <td><a  href="<?php echo base_url('feesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+							    <td><a  href="<?php echo base_url('FeesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 							    <a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 						    </tr>
 				       </tbody>

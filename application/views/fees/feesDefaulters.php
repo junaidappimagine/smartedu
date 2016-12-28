@@ -85,42 +85,42 @@
 						       <td>STD001 </td>
 						       <td>G11501</td>
 						       <td>Karthik </td>
-						       <td><a  href="<?php echo base_url('feesCntrl/payFees');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
+						       <td><a  href="<?php echo base_url('FeesCntrl/payFees');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
 					     </tr>
 					     <!--<tr class="hidden" id="termData2">
 						  <td>2</td>
 						  <td>STD002</td>
 						  <td>G11502</td>
 						  <td>Arun</td>
-						  <td><a  href="<?php echo base_url('feesCntrl/payFees');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
+						  <td><a  href="<?php echo base_url('FeesCntrl/payFees');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
 					     </tr>-->
 					     <tr class="hidden" id="feeStd">
 						  <td>1</td>
 						  <td>STD002 </td>
 						  <td>G11502</td>
 						  <td>Arun</td>
-						  <td><a  href="<?php echo base_url('feesCntrl/payFees');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
+						  <td><a  href="<?php echo base_url('FeesCntrl/payFees');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
 					     </tr>
 					     <tr class="hidden" id="term2">
 						  <td>1</td>
 						  <td>STD001 </td>
 						  <td>G11501</td>
 						  <td>Karthik</td>
-						  <td><a  href="<?php echo base_url('feesCntrl/payFees');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
+						  <td><a  href="<?php echo base_url('FeesCntrl/payFees');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
 					     </tr>
 					     <tr class="hidden" id="str">
 						  <td>1</td>
 						  <td>STD005</td>
 						  <td>G11507</td>
 						  <td>Mani</td>
-						  <td><a  href="<?php echo base_url('feesCntrl/payFees');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
+						  <td><a  href="<?php echo base_url('FeesCntrl/payFees');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
 					     </tr>
 					</tbody>
 				   </table>
 			    </div>
 		    
 		    <div class="col-sm-2 col-sm-offset-5">
-			 <a class="form-control btn btn-primary btn-sm" href="<?php echo base_url('feesCntrl/defaulter_pdf_generate');?>">PDF report</a>
+			 <a class="form-control btn btn-primary btn-sm" href="<?php echo base_url('FeesCntrl/defaulter_pdf_generate');?>">PDF report</a>
 		    </div>  
 	       </div>
 	       </div>

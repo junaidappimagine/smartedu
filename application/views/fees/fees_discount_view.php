@@ -40,7 +40,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-md-2 col-md-offset-4"><a href="<?php echo base_url('feesCntrl/create_discount'); ?>" class="btn btn-primary btn-sm" role="button">Create discount</a></div>
+									<div class="col-md-2 col-md-offset-4"><a href="<?php echo base_url('FeesCntrl/create_discount'); ?>" class="btn btn-primary btn-sm" role="button">Create discount</a></div>
 								</div>
 								<br>
 								<div class="hidden" id="view">
@@ -78,7 +78,7 @@
 													<td>-</td>
 													<td>-</td>
 													<td>15.00(%)</td>
-													<td><a  href="<?php echo base_url('feesCntrl/edit_discount?var1=Discount 1&var2=15.00');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+													<td><a  href="<?php echo base_url('FeesCntrl/edit_discount?var1=Discount 1&var2=15.00');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 													<a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 												</tr>
 											</tbody>

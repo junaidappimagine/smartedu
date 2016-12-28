@@ -67,7 +67,7 @@
 						<td>G01 - B</td>
                                                 <td>STD003</td>
                                                 <td></td>
-                                                <td><a  href="<?php echo base_url('feesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
+                                                <td><a  href="<?php echo base_url('FeesCntrl/refundRule_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
 					    </tr>
                                             <tr  class="hidden" id="noData">
                                                 <td colspan=4><b style="margin-left:420px;">No students found</b></td>

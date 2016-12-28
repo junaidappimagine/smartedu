@@ -106,7 +106,7 @@
 		     </div>
 	  
 		    <div class="col-sm-2 col-sm-offset-5">
-			 <a class="form-control btn btn-primary btn-sm" href="<?php echo base_url('feesCntrl/refund_pdf_generate');?>">View PDF report</a>
+			 <a class="form-control btn btn-primary btn-sm" href="<?php echo base_url('FeesCntrl/refund_pdf_generate');?>">View PDF report</a>
 		    </div>
 		   
 	       </div>

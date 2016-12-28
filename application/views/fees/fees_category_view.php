@@ -41,7 +41,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-md-2 col-md-offset-4"><a href="<?php echo base_url('feesCntrl/create_category'); ?>" class="btn btn-primary btn-sm" role="button">Create Category</a></div>
+									<div class="col-md-2 col-md-offset-4"><a href="<?php echo base_url('FeesCntrl/create_category'); ?>" class="btn btn-primary btn-sm" role="button">Create Category</a></div>
 								</div>
 								<br>
 								<div class="hidden" id="view">
@@ -58,8 +58,8 @@
 											<tbody>
 												<tr>
 													<td>1.</td>
-													<td><a href="<?php echo base_url('feesCntrl/particular_list'); ?>">Term 1 fee</a></td>
-													<td><a  href="<?php echo base_url('feesCntrl/edit_category?var1=Term 1 fee');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+													<td><a href="<?php echo base_url('FeesCntrl/particular_list'); ?>">Term 1 fee</a></td>
+													<td><a  href="<?php echo base_url('FeesCntrl/edit_category?var1=Term 1 fee');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 													<a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 												</tr>
 										   </tbody>

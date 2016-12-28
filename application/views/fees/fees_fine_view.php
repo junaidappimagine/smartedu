@@ -29,7 +29,7 @@
                         <div class="panel-body">
                             <div class="well">
 								<div class="row">
-									<div class="col-md-2 col-md-offset-10" style="text-align: right;"><a href="<?php echo base_url('feesCntrl/create_fine'); ?>" class="btn btn-primary btn-sm" role="button">Create Fine</a></div>
+									<div class="col-md-2 col-md-offset-10" style="text-align: right;"><a href="<?php echo base_url('FeesCntrl/create_fine'); ?>" class="btn btn-primary btn-sm" role="button">Create Fine</a></div>
 								</div>
 							    <h4>List of Fine</h4>
 									<div class="table-responsive">
@@ -47,7 +47,7 @@
 													<td>fine 1</td>
 													<td>1</td>
 													<td>150(%)</td>
-													<td><a  href="<?php echo base_url('feesCntrl/edit_fine?var1=fine 1&var2=1&var3=150');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+													<td><a  href="<?php echo base_url('FeesCntrl/edit_fine?var1=fine 1&var2=1&var3=150');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 													<a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 												</tr>
 											</tbody>

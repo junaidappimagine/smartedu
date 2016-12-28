@@ -41,7 +41,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-md-2 col-md-offset-4"><a href="<?php echo base_url('feesCntrl/create_particular'); ?>" class="btn btn-primary btn-sm" role="button">Create Particular</a></div>
+									<div class="col-md-2 col-md-offset-4"><a href="<?php echo base_url('FeesCntrl/create_particular'); ?>" class="btn btn-primary btn-sm" role="button">Create Particular</a></div>
 								</div>
 								<br>
 								<div class="hidden" id="view">
@@ -65,7 +65,7 @@
 													<td>-</td>
 													<td>-</td>
 													<td>40,000</td>
-													<td><a  href="<?php echo base_url('feesCntrl/edit_particular?var1=Tution fees&var2=40,000');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+													<td><a  href="<?php echo base_url('FeesCntrl/edit_particular?var1=Tution fees&var2=40,000');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 													<a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 												</tr>
 												<tr>
@@ -74,7 +74,7 @@
 													<td>-</td>
 													<td>-</td>
 													<td>12,0000</td>
-													<td><a  href="<?php echo base_url('feesCntrl/edit_particular?var1=Admission fees');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+													<td><a  href="<?php echo base_url('FeesCntrl/edit_particular?var1=Admission fees');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 													<a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 												</tr>
 										   </tbody>

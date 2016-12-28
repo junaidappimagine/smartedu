@@ -40,7 +40,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-md-2 col-md-offset-4"><a href="<?php echo base_url('feesCntrl/create_fee_collection'); ?>" class="btn btn-primary btn-sm" role="button">Create</a></div>
+									<div class="col-md-2 col-md-offset-4"><a href="<?php echo base_url('FeesCntrl/create_fee_collection'); ?>" class="btn btn-primary btn-sm" role="button">Create</a></div>
 								</div>
 								<br>
 								<div class="hidden" id="view">
@@ -57,24 +57,24 @@
 											</thead>
 											<tbody>
 												<tr>
-													<td><a href="<?php echo base_url('feesCntrl/fee_collection_list?var1=Term 1 fee for class1&var2=14 December 2016');?>">Term 1 fee for class1</a></td>
+													<td><a href="<?php echo base_url('FeesCntrl/fee_collection_list?var1=Term 1 fee for class1&var2=14 December 2016');?>">Term 1 fee for class1</a></td>
 													<td>14 December 2016</td>
 													<td>14 December 2016</td>
-													<td><a href="<?php echo base_url('feesCntrl/edit_fee_collection?var1=Term 1 fee for class1&var2=14 December 2016');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+													<td><a href="<?php echo base_url('FeesCntrl/edit_fee_collection?var1=Term 1 fee for class1&var2=14 December 2016');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 													<a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 												</tr>
 												<tr>
-													<td><a href="<?php echo base_url('feesCntrl/fee_collection_list?var1=Term 2 fee collection&var2=15 September 20166');?>">Term 2 fee collection</a></td>
+													<td><a href="<?php echo base_url('FeesCntrl/fee_collection_list?var1=Term 2 fee collection&var2=15 September 20166');?>">Term 2 fee collection</a></td>
 													<td>15 September 2016</td>
 													<td>15 September 2016</td>
-													<td><a  href="<?php echo base_url('feesCntrl/edit_fee_collection?var1=Term 2 fee collection&var2=15 September 2016');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+													<td><a  href="<?php echo base_url('FeesCntrl/edit_fee_collection?var1=Term 2 fee collection&var2=15 September 2016');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 													<a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 												</tr>
 												<tr>
-													<td><a href="<?php echo base_url('feesCntrl/fee_collection_list?var1=Fee str&var2=26 August 2016');?>">Fee str</a></td>
+													<td><a href="<?php echo base_url('FeesCntrl/fee_collection_list?var1=Fee str&var2=26 August 2016');?>">Fee str</a></td>
 													<td>26 August 2016</td>
 													<td>26 August 2016</td>
-													<td><a  href="<?php echo base_url('feesCntrl/edit_fee_collection?var1=Fee str&var2=26 August 2016');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+													<td><a  href="<?php echo base_url('FeesCntrl/edit_fee_collection?var1=Fee str&var2=26 August 2016');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 													<a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 												</tr>
 											</tbody>
