@@ -31,7 +31,7 @@
                                 <!--<fieldset>-->
                                    <!-- <legend>Payroll Categories</legend>-->
 									<div class="row">
-										<div class="col-md-4"><a href="<?php echo base_url('payrollcategory/Create_Payroll_Category'); ?>" class="btn btn-primary btn-sm" role="button">Create Payroll Category</a></div>
+										<div class="col-md-4"><a href="<?php echo base_url('Payrollcategory/Create_Payroll_Category'); ?>" class="btn btn-primary btn-sm" role="button">Create Payroll Category</a></div>
                                     </div><br>
 									<div class="panel-body">
 									<h6>List of payroll categories that define employee earnings.</h6>
@@ -53,7 +53,7 @@
 														<td>Basic</td>
 														<td>BA</td>
 														<td>50%GROSS</td>
-														<td><a href="<?php echo base_url('payrollcategory/Payroll_Categorydetails?var1=Basic&var2=BA&var3=50%GROSS'); ?>"> View </a></td>
+														<td><a href="<?php echo base_url('Payrollcategory/Payroll_Categorydetails?var1=Basic&var2=BA&var3=50%GROSS'); ?>"> View </a></td>
 													</tr>
 											   </tbody>
 											</table>
@@ -77,13 +77,13 @@
 														<td>Provident fund</td>
 														<td>PF</td>
 														<td>10%GROSS</td>
-														<td><a href="<?php echo base_url('payrollcategory/Payroll_Categorydetails?var1=Provident fund&var2=PF&var3=10%GROSS'); ?>"> View </a></td>
+														<td><a href="<?php echo base_url('Payrollcategory/Payroll_Categorydetails?var1=Provident fund&var2=PF&var3=10%GROSS'); ?>"> View </a></td>
 													 </tr>
 													 <tr>
 														<td>Provident fund</td>
 														<td>LOP</td>
 														<td>1.5%GROSS</td>
-														<td><a href="<?php echo base_url('payrollcategory/Payroll_Categorydetails/Provident fund?var1=Provident Fund&var2=LOP&var3=1.5%GROSS'); ?>"> View </a></td>
+														<td><a href="<?php echo base_url('Payrollcategory/Payroll_Categorydetails/Provident fund?var1=Provident Fund&var2=LOP&var3=1.5%GROSS'); ?>"> View </a></td>
 													 </tr>
 												</tbody>
 											</table>

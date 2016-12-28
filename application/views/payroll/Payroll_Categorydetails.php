@@ -35,7 +35,7 @@
 								<h1 class="page-header" style="font-size:21px;">Payroll Category Details</h1>
 							</div>
 								<div class="col-sm-2">
-									<!--<a href="<?php echo base_url('payrollcategory/Edit_Payroll_Category/?var1=Basic&var2=BA&var3=50%GROSS'); ?>" role="button" class="btn btn-primary" ><i class="fa fa-edit">Edit </i></a>-->
+									<!--<a href="<?php echo base_url('Payrollcategory/Edit_Payroll_Category/?var1=Basic&var2=BA&var3=50%GROSS'); ?>" role="button" class="btn btn-primary" ><i class="fa fa-edit">Edit </i></a>-->
 									<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit">Edit </i></button>
 								</div>
 							</legend>
@@ -178,7 +178,7 @@
 				<p style="color: red;font-style:oblique">This payroll category cannot be edited since it is used to set up some payroll groups. However, you can create a copy of this category and edit only the required attributes, or create a new category.</p>
 			</div>
 			<div class="modal-footer">
-				<a onclick="edit();" role="button" class="btn btn-success btn-sm">Copy this category</a><a href="<?php echo base_url('payrollcategory/Create_Payroll_Category'); ?>" role="button" class="btn btn-danger btn-sm">Create new category</a>
+				<a onclick="edit();" role="button" class="btn btn-success btn-sm">Copy this category</a><a href="<?php echo base_url('Payrollcategory/Create_Payroll_Category'); ?>" role="button" class="btn btn-danger btn-sm">Create new category</a>
 			</div>
 		</div>
     </div>

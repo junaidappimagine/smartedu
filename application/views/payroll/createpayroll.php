@@ -174,14 +174,14 @@
 													</div>
 													<div class="form-group">
 														 <label class="col-md-2 control-label"></label>
-															<div class="col-md-8">
-																<select name="value"  class="form-control input-sm">
-																	<option>select value type</option>
-																	<option>Numeric</option>
-																	<option>Formula</option>
-																	<option>Conditional Formula</option>
-																</select>
-															</div>
+														<div class="col-md-8">
+															<select name="value"  class="form-control input-sm">
+																<option>select value type</option>
+																<option>Numeric</option>
+																<option>Formula</option>
+																<option>Conditional Formula</option>
+															</select>
+														</div>
 													</div>
 													<div class="form-group" id="">
 														<label class="col-md-2 control-label"></label>
@@ -248,7 +248,6 @@
 														</div>
 														<div class="col-md-offset-9 col-md-1">
 															<a  class="cancel">[X]</a>
-															
 														</div>
 													</div>
 													<br>

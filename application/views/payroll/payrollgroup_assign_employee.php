@@ -57,7 +57,7 @@
                                     <td>Administration</td>
                                     <td>System admin</td>
                                     <td>
-                                        <a href="<?php echo base_url('payrollgroup/assign_Payrollgroup_Edit');?>"><button type="button" class="btn btn-primary btn btn-xs"">Assign Group</button></a>
+                                        <a href="<?php echo base_url('Payrollgroup/assign_Payrollgroup_Edit');?>"><button type="button" class="btn btn-primary btn btn-xs"">Assign Group</button></a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -65,7 +65,7 @@
                                     <td>Teaching</td>
                                     <td>Junior Teacher</td>
                                     <td>
-                                        <a href="<?php echo base_url('payrollgroup/change_Payrollgroup_View');?>"><button type="button" class="btn btn-info btn btn-xs"">Change Group</button></a>
+                                        <a href="<?php echo base_url('Payrollgroup/change_Payrollgroup_View');?>"><button type="button" class="btn btn-info btn btn-xs"">Change Group</button></a>
                                     </td>
                                 </tr>
     

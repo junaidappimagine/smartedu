@@ -83,28 +83,28 @@
                                                         <td>EMP003</td>
                                                         <td>Maths</td>
                                                         <th>0</th>
-                                                        <td><a href="<?php echo base_url('payslip/genaratePayslip'); ?>"> <button type="button" class="btn btn-warning btn btn-xs">Genarate Payslip</button></a></td>
+                                                        <td><a href="<?php echo base_url('Payslip/genaratePayslip'); ?>"> <button type="button" class="btn btn-warning btn btn-xs">Genarate Payslip</button></a></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Sarah  </td>
                                                         <td>EMP004</td>
                                                         <td>Maths</td>
                                                         <th>0</th>
-                                                        <td><a href="<?php echo base_url('payslip/genaratePayslip'); ?>"> <button type="button" class="btn btn-warning btn btn-xs">Genarate Payslip</button></a></td>
+                                                        <td><a href="<?php echo base_url('Payslip/genaratePayslip'); ?>"> <button type="button" class="btn btn-warning btn btn-xs">Genarate Payslip</button></a></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Lara </td>
                                                         <td>EMP005</td>
                                                         <td>Maths</td>
                                                         <th>0</th>
-                                                        <td><a href="<?php echo base_url('payslip/genaratePayslip'); ?>"> <button type="button" class="btn btn-warning btn btn-xs">Genarate Payslip</button></a></td>
+                                                        <td><a href="<?php echo base_url('Payslip/genaratePayslip'); ?>"> <button type="button" class="btn btn-warning btn btn-xs">Genarate Payslip</button></a></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Karan </td>
                                                         <td>EMP008</td>
                                                         <td>Maths</td>
                                                         <th>0</th>
-                                                        <td><a href="<?php echo base_url('payslip/genaratePayslip'); ?>"> <button type="button" class="btn btn-warning btn btn-xs">Genarate Payslip</button></a></td>
+                                                        <td><a href="<?php echo base_url('Payslip/genaratePayslip'); ?>"> <button type="button" class="btn btn-warning btn btn-xs">Genarate Payslip</button></a></td>
                                                     </tr>
                                                 </tbody>
                                             </table>

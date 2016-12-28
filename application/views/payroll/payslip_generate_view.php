@@ -43,7 +43,7 @@
                                     <td>January 2017</td>
                                     <td>Generated : 2 of 8 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Approved : 0  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Pending : 2</td>
                                     <td>56800.00</td>
-                                    <td><a href="<?php echo base_url('payslip/view_Payroll_Payslip_New'); ?>"> View payslips </a></td>
+                                    <td><a href="<?php echo base_url('Payslip/view_Payroll_Payslip_New'); ?>"> View payslips </a></td>
                                 </tr>
                                 <tr style="background: #f0f3f5 none repeat scroll 0 0;">
                                     <th colspan="2">2016 - 2017</th>
@@ -53,25 +53,25 @@
                                     <td>December 2016</td>
                                     <td>Generated : 2 of 8 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Approved : 0  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Pending : 2</td>
                                     <td>34550.00</td>
-                                    <td><a href="<?php echo base_url('payslip/view_Payroll_Payslip_New'); ?>"> View payslips </a></td>
+                                    <td><a href="<?php echo base_url('Payslip/view_Payroll_Payslip_New'); ?>"> View payslips </a></td>
                                 </tr>
                                 <tr>
                                     <td>November 2016</td>
                                     <td>Generated : 1 of 8 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Approved : 0  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Pending : 1</td>
                                     <td>53250.00</td>
-                                    <td><a href="<?php echo base_url('payslip/view_Payroll_Payslip_New'); ?>"> View payslips </a></td>
+                                    <td><a href="<?php echo base_url('Payslip/view_Payroll_Payslip_New'); ?>"> View payslips </a></td>
                                 </tr>
                                 <tr>
                                     <td>March 2016</td>
                                     <td>Generated : 4 of 8 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Approved : 2  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Pending : 2</td>
                                     <td>116250.00</td>
-                                    <td><a href="<?php echo base_url('payslip/view_Payroll_Payslip_New'); ?>"> View payslips </a></td>
+                                    <td><a href="<?php echo base_url('Payslip/view_Payroll_Payslip_New'); ?>"> View payslips </a></td>
                                 </tr>
                                 <tr>
                                     <td>February 2016</td>
                                     <td>Generated : 5 of 8 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Approved : 2  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Pending : 3</td>
                                     <td>56800.00</td>
-                                    <td><a href="<?php echo base_url('payslip/view_Payroll_Payslip_New'); ?>"> View payslips </a></td>
+                                    <td><a href="<?php echo base_url('Payslip/view_Payroll_Payslip_New'); ?>"> View payslips </a></td>
                                 </tr>
                             </tbody>
                         </table>

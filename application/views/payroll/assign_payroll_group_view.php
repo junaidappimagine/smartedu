@@ -58,9 +58,9 @@
             <div class="panel-body">
                 <div class="container" style="width: 100% !important">
                 <?php if($mode=="View"){?>
-                    <a href="<?php echo base_url('payrollgroup/assign_Payrollgroup_Edit');?>" name="edit" class="btn btn-xs btn-primary col-md-offset-11"><i class="fa fa-edit"></i>Assign</a>
+                    <a href="<?php echo base_url('Payrollgroup/assign_Payrollgroup_Edit');?>" name="edit" class="btn btn-xs btn-primary col-md-offset-11"><i class="fa fa-edit"></i>Assign</a>
                 <?php }else{?>
-                    <a class="hidden" href="<?php echo base_url('payrollgroup/assign_Payrollgroup_Edit');?>" name="edit" class="btn btn-xs btn-primary col-md-offset-11"><i class="fa fa-edit"></i>Edit</a>
+                    <a class="hidden" href="<?php echo base_url('Payrollgroup/assign_Payrollgroup_Edit');?>" name="edit" class="btn btn-xs btn-primary col-md-offset-11"><i class="fa fa-edit"></i>Edit</a>
                 <?php }?>
                 <p></p>
                     <form action="#">

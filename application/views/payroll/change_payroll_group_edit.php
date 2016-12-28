@@ -23,7 +23,7 @@
             </div>
             <div class="panel-body">
                 <div class="container" style="width: 100% !important">
-                <!--<a href="<?php echo base_url('payrollgroup/assign_Payrollgroup_Edit');?>"><button type="button" class="btn btn-info btn btn-sm col-sm-offset-10" name="Create_Payroll_group">Change Group</button></a>-->
+                <!--<a href="<?php echo base_url('Payrollgroup/assign_Payrollgroup_Edit');?>"><button type="button" class="btn btn-info btn btn-sm col-sm-offset-10" name="Create_Payroll_group">Change Group</button></a>-->
                 <!--<p><br></p>-->
                     <form>
                         <div class="col-md-12" style="border-bottom: 1px solid gray" >

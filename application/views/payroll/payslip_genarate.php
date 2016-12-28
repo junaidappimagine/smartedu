@@ -88,8 +88,8 @@
 							<td>Payslip generated</td>
 							<td>1</td>
 							<td>
-							    <a href="<?php echo base_url('payslip/view_Payroll_Payslip_New'); ?>"> <button type="button" class="btn btn-warning btn btn-xs">View Payslips</button></a>
-							    <!--<a href="<?php echo base_url('payslip/generate_payslips'); ?>"> <button type="button" class="btn btn-primary btn btn-xs">Generate All</button> </a>-->
+							    <a href="<?php echo base_url('Payslip/view_Payroll_Payslip_New'); ?>"> <button type="button" class="btn btn-warning btn btn-xs">View Payslips</button></a>
+							    <!--<a href="<?php echo base_url('Payslip/generate_payslips'); ?>"> <button type="button" class="btn btn-primary btn btn-xs">Generate All</button> </a>-->
 							</td>
 						    </tr>
 						    <tr>
@@ -101,16 +101,16 @@
 							<td>&nbsp&nbsp Employees with outdated payroll</td>
 							<td>5</td>
 							<td>
-							    <a href="<?php echo base_url('payslip/view_Employee'); ?>"> <button type="button" class="btn btn-warning btn btn-xs">View Employees</button></a>
-							    <!--<a href="<?php echo base_url('payslip/generate_payslips'); ?>"> <button type="button" class="btn btn-primary btn btn-xs">Generate All</button> </a>-->
+							    <a href="<?php echo base_url('Payslip/view_Employee'); ?>"> <button type="button" class="btn btn-warning btn btn-xs">View Employees</button></a>
+							    <!--<a href="<?php echo base_url('Payslip/generate_payslips'); ?>"> <button type="button" class="btn btn-primary btn btn-xs">Generate All</button> </a>-->
 							</td>
 						    </tr>
 						    <tr>
 							<td>&nbsp&nbsp Employees with updated payroll</td>
 							<td>1</td>
 							<td>
-							    <a href="<?php echo base_url('payslip/view_Employee'); ?>"> <button type="button" class="btn btn-warning btn btn-xs">View Employees</button></a>
-							    <a href="<?php echo base_url('payslip/generate_payslip_all'); ?>"> <button type="button" class="btn btn-primary btn btn-xs">Generate Payslip for All</button> </a>
+							    <a href="<?php echo base_url('Payslip/view_Employee'); ?>"> <button type="button" class="btn btn-warning btn btn-xs">View Employees</button></a>
+							    <a href="<?php echo base_url('Payslip/generate_payslip_all'); ?>"> <button type="button" class="btn btn-primary btn btn-xs">Generate Payslip for All</button> </a>
 							</td>
 						    </tr>
 						</tbody>

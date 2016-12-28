@@ -184,7 +184,7 @@
                                                         </td>
                                                         <td>2.25</td>
                                                         <td>17.75</td>
-                                                        <td><a>View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
+                                                        <td><a>View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('Payslip/pdf_generate');?>">PDF report</a></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="check_box headcol">
@@ -218,7 +218,7 @@
                                                         </td>
                                                         <td>6750.00</td>
                                                         <td>53250.00</td>
-                                                        <td><a>View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a></td>
+                                                        <td><a>View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('Payslip/pdf_generate');?>">PDF report</a></td>
                                                     </tr>
                                                 </tbody>
                                             </table>

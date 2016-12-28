@@ -37,14 +37,14 @@ tr.group:hover {
 				    	<div class="col-md-3">
                             <div class="form-group">
                                 <label>Departments</label>
-                                    <select id="dropdown1" class="form-control selectpicker" data-style="btn-white btn-sm">
+									<select id="dropdown1" class="form-control selectpicker" data-style="btn-white btn-sm">
 										<option value="">All</option>
 										<option value="English">English</option>
 										<option value="Maths">Maths</option>
 										<option value="Science">Science</option>
 									</select>
-                            </div>
-				    	</div>
+								</div>
+							</div>
 				    	<div class="col-md-2">
                             <label>From &nbsp;</label>
 									<input type="text" class="form-control" placeholder="From Date">
@@ -82,7 +82,7 @@ tr.group:hover {
 								<td>Dec-2016</td>
 								<td>5000</td>
 								<td>Pending</td>
-								<td><a href="<?php echo base_url('payslip/ViewEmployee?var1=Priya&var2=English');?>" >view</a></td>
+								<td><a href="<?php echo base_url('Payslip/ViewEmployee?var1=Priya&var2=English');?>" >view</a></td>
 							</tr>
 					
 							 <tr>
@@ -93,7 +93,7 @@ tr.group:hover {
 								<td>Jan-2016</td>
 								<td>5000</td>
 								<td>Pending</td>
-								<td><a href="<?php echo base_url('payslip/ViewEmployee?var1=shreeja&var2=English');?>">view</a></td>
+								<td><a href="<?php echo base_url('Payslip/ViewEmployee?var1=shreeja&var2=English');?>">view</a></td>
 							</tr>
 							
 							 <tr>
@@ -104,7 +104,7 @@ tr.group:hover {
 								<td>Feb-2016</td>
 								<td>5000</td>
 								<td>Pending</td>
-								<td><a href="<?php echo base_url('payslip/ViewEmployee?var1=hari&&var2=Maths');?>">view</a></td>
+								<td><a href="<?php echo base_url('Payslip/ViewEmployee?var1=hari&&var2=Maths');?>">view</a></td>
 							</tr>
 							  <tr>
 								<td>dhivya</td>
@@ -114,7 +114,7 @@ tr.group:hover {
 								<td>Aug-2016</td>
 								<td>5000</td>
 								<td>Pending</td>
-								<td><a href="<?php echo base_url('payslip/ViewEmployee?var1=dhivya&var2=Science');?>">view</a></td>
+								<td><a href="<?php echo base_url('Payslip/ViewEmployee?var1=dhivya&var2=Science');?>">view</a></td>
 							</tr>
 							  <tr>
 								<td>shiva</td>
@@ -124,7 +124,7 @@ tr.group:hover {
 								<td>Sep-2016</td>
 								<td>5000</td>
 								<td>Pending</td>
-								<td><a href="<?php echo base_url('payslip/ViewEmployee?var1=shiva&var2=Maths');?>">view</a></td>
+								<td><a href="<?php echo base_url('Payslip/ViewEmployee?var1=shiva&var2=Maths');?>">view</a></td>
 							</tr>
 							  <tr>
 								<td>krishna</td>
@@ -134,7 +134,7 @@ tr.group:hover {
 								<td>Jan-2016</td>
 								<td>5000</td>
 								<td>Pending</td>
-								<td><a href="<?php echo base_url('payslip/ViewEmployee?var1=krishna&var2=Science');?>">view</a></td>
+								<td><a href="<?php echo base_url('Payslip/ViewEmployee?var1=krishna&var2=Science');?>">view</a></td>
 							</tr>
 						   </tbody>
 					</table>

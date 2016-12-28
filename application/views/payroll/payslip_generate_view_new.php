@@ -75,7 +75,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <a href="<?php echo base_url('payslip/payslip_view_all');?>"><button type="button" class="btn btn-inverse btn btn-sm" style="float: right">View All Payslips</button></a>
+                                        <a href="<?php echo base_url('Payslip/payslip_view_all');?>"><button type="button" class="btn btn-inverse btn btn-sm" style="float: right">View All Payslips</button></a>
                                     </div> 
                                 </div>
                                 <div class="col-md-12">
@@ -100,7 +100,7 @@
                                                         <th>3550.00</th>
                                                         <th>Pending</th>
                                                         <td>
-                                                            <a href="<?php echo base_url('payslip/viewPayslip?var1=ereererere rere&var2=January 2017&var3=Hindi&var4=Pending');?>">View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a>
+                                                            <a href="<?php echo base_url('Payslip/viewPayslip?var1=ereererere rere&var2=January 2017&var3=Hindi&var4=Pending');?>">View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('Payslip/pdf_generate');?>">PDF report</a>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -110,7 +110,7 @@
                                                         <th>53250.00</th>
                                                         <th>Pending</th>
                                                         <td>
-                                                            <a href="<?php echo base_url('payslip/viewPayslip?var1=Kunal&var2=January 2017&var3=Science&var4=Pending');?>">View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('payslip/pdf_generate');?>">PDF report</a>
+                                                            <a href="<?php echo base_url('Payslip/viewPayslip?var1=Kunal&var2=January 2017&var3=Science&var4=Pending');?>">View Payslip</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  id="Add" class="btnDelete"><i class="fa fa-trash"></i><span>&nbsp; Delete payslip</span></a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('Payslip/pdf_generate');?>">PDF report</a>
                                                         </td>
                                                     </tr>
                                                 </tbody>

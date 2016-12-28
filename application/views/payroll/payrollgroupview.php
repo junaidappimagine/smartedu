@@ -21,7 +21,7 @@
             </div>
             <div class="panel-body">
                 <p>
-                <a class="btn btn-primary btn-sm"  href="<?php echo site_url('payrollgroup/Add_Payroll_Groupview');?>"><i class="fa fa-plus fa-1x"></i> <span class="f-s-14 f-w-500"> Add</span></a>
+                <a class="btn btn-primary btn-sm"  href="<?php echo site_url('Payrollgroup/Add_Payroll_Groupview');?>"><i class="fa fa-plus fa-1x"></i> <span class="f-s-14 f-w-500"> Add</span></a>
                 <!--<input type="button" class="btn btn-success btn btn-sm col-sm-offset-10" name="Create_Payroll_group" value="+ Create Payroll group">-->
                 </p>
             <div class="table-responsive">
@@ -42,8 +42,8 @@
                             <td>BA,ALL,CAT1</td>
                             <td>Monthly</td>
                             <td>
-                                <a href="<?php echo base_url('payrollgroup/Payroll_view');?>"><button type="button" class="btn btn-warning btn btn-xs"">View</button></a>
-                                <a href="<?php echo base_url('payrollgroup/payrollgroup_Employees_view');?>"><button type="button" class="btn btn-info btn btn-xs">Employee</button></a>
+                                <a href="<?php echo base_url('Payrollgroup/Payroll_view');?>"><button type="button" class="btn btn-warning btn btn-xs"">View</button></a>
+                                <a href="<?php echo base_url('Payrollgroup/payrollgroup_Employees_view');?>"><button type="button" class="btn btn-info btn btn-xs">Employee</button></a>
                             </td>
                         </tr>
                     </tbody>

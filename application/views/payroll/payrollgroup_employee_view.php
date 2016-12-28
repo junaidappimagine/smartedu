@@ -48,7 +48,7 @@
               <!--  <div class="panel-body">-->
                 <div class="container" style="width: 100% !important">
                   <p></p>
-                  <a href="<?php echo base_url('payrollgroup/payrollgroup_Assign_Employees');?>"><button type="button" class="btn btn-info btn btn-sm " name="Create_Payroll_group"> <i class="fa fa-plus fa-1x"></i><span class="f-s-14 f-w-500"> Assign</span></button></a>
+                  <a href="<?php echo base_url('Payrollgroup/payrollgroup_Assign_Employees');?>"><button type="button" class="btn btn-info btn btn-sm " name="Create_Payroll_group"> <i class="fa fa-plus fa-1x"></i><span class="f-s-14 f-w-500"> Assign</span></button></a>
                   <p></p>
                   <br>
                   <form class="form-horizontal">
@@ -99,7 +99,7 @@
                                   <td>System admin</td>
                                   <td>03-10-2016</td>
                                   <td>
-                                      <a href="<?php echo base_url('payrollgroup/view_Payroll');?>"><button type="button" class="btn btn-warning btn btn-xs"">View Payroll</button></a>
+                                      <a href="<?php echo base_url('Payrollgroup/view_Payroll');?>"><button type="button" class="btn btn-warning btn btn-xs"">View Payroll</button></a>
                                       <a href="<?php echo base_url('');?>"><button type="button" class="btn btn-danger btn btn-xs">Remove</button></a>
                                   </td>
                               </tr>

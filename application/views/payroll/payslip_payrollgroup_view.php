@@ -38,8 +38,8 @@
                                             <td>Current Payslip</td>
                                             <td>December 2016</td>
                                             <td>7</td>
-                                            <td><a href="<?php echo base_url('payslip/generate_payslips'); ?>"> <button type="button" class="btn btn-warning btn btn-xs">Generate payslip</button> </a>
-                                                <a href="<?php echo base_url('payslip/view_Generate_Payslip'); ?>"> <button type="button" class="btn btn-primary btn btn-xs">View Payslips</button></a>
+                                            <td><a href="<?php echo base_url('Payslip/generate_payslips'); ?>"> <button type="button" class="btn btn-warning btn btn-xs">Generate payslip</button> </a>
+                                                <a href="<?php echo base_url('Payslip/view_Generate_Payslip'); ?>"> <button type="button" class="btn btn-primary btn btn-xs">View Payslips</button></a>
                                             </td>
                                         </tr>
                                         
