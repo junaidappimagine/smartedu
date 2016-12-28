@@ -251,25 +251,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								    <span class="caret pull-right"></span><span>Configurations</span>
 							    </a>
 							    <ul class="sub-menu">
-							       <li><a href="<?php echo base_url();?>hrSettingsC/employee_category">Employee category</a></li>
-							       <li><a href="<?php echo base_url();?>hrSettingsC/employee_department">Employee Department</a></li>
-							       <li><a href="<?php echo base_url();?>hrSettingsC/employee_position">Employee Position</a></li>
-							       <li><a href="<?php echo base_url();?>hrSettingsC/employee_grade">Employee Grade</a></li>
-							       <li><a href="<?php echo base_url();?>hrSettingsC/working_Days">Working Day </a></li>
-							       <li><a href="<?php echo base_url();?>hrSettingsC/leave_Types">Leave Types </a></li>
-							       <li><a href="<?php echo base_url();?>hrSettingsC/Bank_Details">Bank Details</a></li>
-							       <li><a href="<?php echo base_url();?>hrSettingsC/additional_Details">Additional Details</a></li>
+							       <li><a href="<?php echo base_url();?>HrSettingsC/employee_category">Employee category</a></li>
+							       <li><a href="<?php echo base_url();?>HrSettingsC/employee_department">Employee Department</a></li>
+							       <li><a href="<?php echo base_url();?>HrSettingsC/employee_position">Employee Position</a></li>
+							       <li><a href="<?php echo base_url();?>HrSettingsC/employee_grade">Employee Grade</a></li>
+							       <li><a href="<?php echo base_url();?>HrSettingsC/working_Days">Working Day </a></li>
+							       <li><a href="<?php echo base_url();?>HrSettingsC/leave_Types">Leave Types </a></li>
+							       <li><a href="<?php echo base_url();?>HrSettingsC/Bank_Details">Bank Details</a></li>
+							       <li><a href="<?php echo base_url();?>HrSettingsC/additional_Details">Additional Details</a></li>
 							    </ul>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
 						    	<a href="javascript:;"><span class="caret pull-right"></span><span>Payroll and Payslip</span></a>
 							    <ul class="sub-menu">
-								    <li><a href="<?php echo base_url();?>payrollcategory/Payroll_Categoryview">Payroll Category</a></li>
-								    <li><a href="<?php echo base_url();?>payrollgroup/Create_Payroll_Groupview">Payroll Groups</a></li>
-								    <li><a href="<?php echo base_url();?>payslip/payslip_payrollgroup_view">Payslips for Payroll Groups</a></li>
-								    <li><a href="<?php echo base_url();?>payslip/payslipFor_employees">Payslips for Employees</a></li>
-								    <li><a href="<?php echo base_url();?>payslip/rejected_payslip">Rejected Payslips</a></li>
-								    <li><a href="<?php echo base_url();?>payslip/EmpPayslip">Payslip Report</a></li>
+								    <li><a href="<?php echo base_url();?>Payrollcategory/Payroll_Categoryview">Payroll Category</a></li>
+								    <li><a href="<?php echo base_url();?>Payrollgroup/Create_Payroll_Groupview">Payroll Groups</a></li>
+								    <li><a href="<?php echo base_url();?>Payslip/payslip_payrollgroup_view">Payslips for Payroll Groups</a></li>
+								    <li><a href="<?php echo base_url();?>Payslip/payslipFor_employees">Payslips for Employees</a></li>
+								    <li><a href="<?php echo base_url();?>Payslip/rejected_payslip">Rejected Payslips</a></li>
+								    <li><a href="<?php echo base_url();?>Payslip/EmpPayslip">Payslip Report</a></li>
 								</ul>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
@@ -290,7 +290,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</ul>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
-							    <a href="<?php echo base_url();?>hrSettingsC/employeeSearch"><span>Employee Search</span></a>
+							    <a href="<?php echo base_url();?>HrSettingsC/employeeSearch"><span>Employee Search</span></a>
 							</li>
 						</ul>
 					</li>
@@ -311,19 +311,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							    </ul>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
-						    	<a href="<?php echo base_url('finCategoryCtrl/finCategoryview')?>"><span>Finance Categories</span></a>
+						    	<a href="<?php echo base_url('FinCategoryCtrl/finCategoryview')?>"><span>Finance Categories</span></a>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
 							    <a href="javascript:;">
 									<span class="caret pull-right"></span><span>Transactions</span></a>
 								<ul class="sub-menu">
-							       <li><a href="<?php echo base_url('finTransactionCtrl/expense')?>">Add Expense</a></li>
-							       <li><a href="<?php echo base_url('finTransactionCtrl/income')?>">Add Income</a></li>
-									<li><a href="<?php echo base_url('finTransactionCtrl/revertedTransaction')?>">Reverted Transactions</a></li>
+							       <li><a href="<?php echo base_url('FinTransactionCtrl/expense')?>">Add Expense</a></li>
+							       <li><a href="<?php echo base_url('FinTransactionCtrl/income')?>">Add Income</a></li>
+									<li><a href="<?php echo base_url('FinTransactionCtrl/revertedTransaction')?>">Reverted Transactions</a></li>
 							    </ul>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
-							    <a href="<?php echo base_url('finDonationCtrl/addNewDonation')?>"><span>Donations</span></a>
+							    <a href="<?php echo base_url('FinDonationCtrl/addNewDonation')?>"><span>Donations</span></a>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
 							    <a href="javascript:;">
@@ -335,23 +335,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											<span class="caret pull-right"></span><span>Configurations</span>
 										</a>
 										<ul class="sub-menu">
-										   <li><a href="<?php echo base_url('feesCntrl/fees_category')?>">Category</a></li>
-										   <li><a href="<?php echo base_url('feesCntrl/fees_particular')?>">Particulars</a></li>
-										   <li><a href="<?php echo base_url('feesCntrl/fees_discount')?>">Fee Discount</a></li>
-										   <li><a href="<?php echo base_url('feesCntrl/fees_fine')?>">Fine</a></li>
+										   <li><a href="<?php echo base_url('FeesCntrl/fees_category')?>">Category</a></li>
+										   <li><a href="<?php echo base_url('FeesCntrl/fees_particular')?>">Particulars</a></li>
+										   <li><a href="<?php echo base_url('FeesCntrl/fees_discount')?>">Fee Discount</a></li>
+										   <li><a href="<?php echo base_url('FeesCntrl/fees_fine')?>">Fine</a></li>
 										</ul>
 								    </li>
-								    <li><a href="<?php echo base_url('feesCntrl/schedule_fee_collection')?>" >Schedule Fee Collection</a></li>
-								    <li><a href="<?php echo base_url('feesCntrl/fee_collection')?>">Fee Collection</a></li>
-								    <li><a href="<?php echo base_url('feesCntrl/feesDefaulters')?>">Fee Defaulters</a></li>
+								    <li><a href="<?php echo base_url('FeesCntrl/schedule_fee_collection')?>" >Schedule Fee Collection</a></li>
+								    <li><a href="<?php echo base_url('FeesCntrl/fee_collection')?>">Fee Collection</a></li>
+								    <li><a href="<?php echo base_url('FeesCntrl/feesDefaulters')?>">Fee Defaulters</a></li>
 									<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
 										<a href="javascript:;">
 											<span class="caret pull-right"></span><span>Fee Refund</span>
 										</a>
 										<ul class="sub-menu">
-										    <li><a href="<?php echo base_url('feesCntrl/ViewRefundRules ')?>">Create Refund Rule</a></li>
-										    <li><a href="<?php echo base_url('feesCntrl/view_refund')?>">View Refund</a></li>
-										    <li><a href="<?php echo base_url('feesCntrl/apply_refund')?>">Apply Refund</a></li>
+										    <li><a href="<?php echo base_url('FeesCntrl/ViewRefundRules ')?>">Create Refund Rule</a></li>
+										    <li><a href="<?php echo base_url('FeesCntrl/view_refund')?>">View Refund</a></li>
+										    <li><a href="<?php echo base_url('FeesCntrl/apply_refund')?>">Apply Refund</a></li>
 										</ul>
 								    </li>
 							    </ul>
@@ -366,20 +366,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</a>
 						<ul class="sub-menu">
 						    <li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
-						    	<a href="<?php echo base_url('studentCntrl/student_detail')?>"><span>Students Details</span></a>
+						    	<a href="<?php echo base_url('StudentCntrl/student_detail')?>"><span>Students Details</span></a>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
-						    	<a href="<?php echo base_url('studentCntrl/finCategoryview')?>"><span> Roll No</span></a>
+						    	<a href="<?php echo base_url('StudentCntrl/finCategoryview')?>"><span> Roll No</span></a>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
-						    	<a href="<?php echo base_url('studentCntrl/admission')?>"><span>Admission</span></a>
+						    	<a href="<?php echo base_url('StudentCntrl/admission')?>"><span>Admission</span></a>
 							</li>
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
 							    <a href="javascript:;">
 									<span class="caret pull-right"></span><span>configurations</span></a>
 								<ul class="sub-menu">
-							       <li><a href="<?php echo base_url('studentCntrl/manage_student_cat')?>"> Manage student Category</a></li>
-							       <li><a href="<?php echo base_url('studentCntrl/manage_roll')?>">Manage Student Roll No</a></li>
+							       <li><a href="<?php echo base_url('StudentCntrl/manage_student_cat')?>"> Manage student Category</a></li>
+							       <li><a href="<?php echo base_url('StudentCntrl/manage_roll')?>">Manage Student Roll No</a></li>
 								</ul>
 							</li>
 						</ul>
