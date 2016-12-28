@@ -29,7 +29,7 @@
 			    <legend>Leave Types</legend>
 			    <div class="row">
 				<div class="col-md-2">
-				    <a type="button" class="btn btn-primary btn-sm col-md-offset-0" href="<?php echo base_url('hrSettingsC/leaveTypesAdd'); ?>"><i class="fa fa-plus fa-1x"></i><span class="f-s-14 f-w-500"> Add</span></a>
+				    <a type="button" class="btn btn-primary btn-sm col-md-offset-0" href="<?php echo base_url('HrSettingsC/leaveTypesAdd'); ?>"><i class="fa fa-plus fa-1x"></i><span class="f-s-14 f-w-500"> Add</span></a>
 				</div>
 				<div class="col-md-10">
 				    <h5 class="col-md-offset-0">Setup leave types that employees are allowed such as causal leaves,sick leaves.</h5>
@@ -56,19 +56,19 @@
 							    <td>Sick leave</td>
 							    <td>SL</td>
 							    <td>01-sep-2016</td>
-							    <td><a href="<?php echo base_url('hrSettingsC/leaveTypeEdit/Sickleave/SL/01-sep-2016');?>" name="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i>Edit</a></td>
+							    <td><a href="<?php echo base_url('HrSettingsC/leaveTypeEdit/Sickleave/SL/01-sep-2016');?>" name="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i>Edit</a></td>
 							</tr>
 							<tr>
 							    <td>Causal leave</td>
 							    <td>CL</td>
 							    <td>01-sep-2016</td>
-							    <td><a href="<?php echo base_url('hrSettingsC/leaveTypeEdit/Causalleave/CL/01-sep-2016');?>" name="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i>Edit</a></td>
+							    <td><a href="<?php echo base_url('HrSettingsC/leaveTypeEdit/Causalleave/CL/01-sep-2016');?>" name="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i>Edit</a></td>
 							</tr>
 							<tr>
 							    <td>Maternity leave</td>
 							    <td>ML</td>
 							    <td>01-sep-2016</td>
-							    <td><a href="<?php echo base_url('hrSettingsC/leaveTypeEdit/Maternityleave/MsL/01-sep-2016');?>" name="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i>Edit</a></td>
+							    <td><a href="<?php echo base_url('HrSettingsC/leaveTypeEdit/Maternityleave/MsL/01-sep-2016');?>" name="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i>Edit</a></td>
 							</tr>
 						    </tbody>
 					     </table>
