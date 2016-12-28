@@ -36,39 +36,44 @@
 			  <p><b>Timetable  :  December 01, 2016 - November 30, 2017</b></p>
 			<p><br></p>
 			<div class="row">
+			  
 			    <div class="col-md-6">
-				<table class="table table-bordered">
-				    <thead>
-					<tr class="odd1">
-					    <th><input type="checkbox" class=""> &nbsp;&nbsp;&nbsp;fdgdg</th>
+				<legend><h4>Assigned Batches</h4></legend>
+				<table class="table table-bordered table table-striped" id="table-draggable1">
+				    <tbody class="connectedSortable">
+					<tr class="">
+					    <th>Batches without timetable entries</th>
 					</tr>
-					<tr class="even1">
-					    <th><input type="checkbox" class=""> &nbsp;&nbsp;&nbsp;fdgdg</th>
+					<tr class="">
+					    <th>C2 - A</th>
+					</tr>
+					<tr class="">
+					    <th>C3 - A</th>
+					</tr>
+					<tr class="">
+					    <th>C4 - B</th>
+					</tr>
+					<tr class="">
+					    <th>C5 - A</th>
+					</tr>
+					<tr class="">
+					    <th>C6 - A</th>
+					</tr>
+					<tr class="">
+					    <th>C7 - A</th>
 					</tr>
 
-					<tr class="odd1">
-					    <th><input type="checkbox" class=""> &nbsp;&nbsp;&nbsp;fdgdg</th>
-					</tr>
-
-				    </thead>
+				    </tbody>
 				</table>
 			    </div>
-			    <div class="col-md-2"></div>
 			    <div class="col-md-6">
-				<table class="table table-bordered">
-				    <thead>
-					<tr class="odd1">
-					    <th><input type="checkbox" class=""> &nbsp;&nbsp;&nbsp;fdgdg</th>
+				<legend><h4>Available Batches</h4></legend>
+				<table class="table table-bordered table table-striped" id="table-draggable2">
+				    <tbody class="connectedSortable">
+					<tr class="">
+					    <th>Batches without timetable entries</th>
 					</tr>
-					<tr class="even1">
-					    <th><input type="checkbox" class=""> &nbsp;&nbsp;&nbsp;fdgdg</th>
-					</tr>
-
-					<tr class="odd1">
-					    <th><input type="checkbox" class=""> &nbsp;&nbsp;&nbsp;fdgdg</th>
-					</tr>
-
-				    </thead>
+				    </tbody>
 				</table>
 
 			    </div>
@@ -81,3 +86,25 @@
 	    </div>
 	<!-- end col-12-->
 	  </div>
+	
+<script>
+    $(document).ready(function() {
+	var $tabs=$('#table-draggable2')
+	$( "tbody.connectedSortable" )
+	    .sortable({
+		connectWith: ".connectedSortable",
+		items: "> tr:not(:first)",
+		appendTo: $tabs,
+		helper:"clone",
+		zIndex: 999990
+	    })
+	.disableSelection();
+	var $tab_items = $( ".nav-tabs > li", $tabs ).droppable({
+	  accept: ".connectedSortable tr",
+	  hoverClass: "ui-state-hover",      
+	  drop: function( event, ui ) {
+	    return false;
+	  }
+	});
+    });
+	</script>

@@ -46,30 +46,30 @@
 				  </tr>
 				</thead>
 				<tbody>
-				  <tr class="activeT">
+				  <tr class="activeT tablerow">
 				    <td>December 01, 2017 - December 01, 2017 </td>
 				    <td>Not eligible</td>
-				    <td><a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Timetable allocations</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/editTimetable');?>">Edit</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Delete</a></td>
+				    <td><a style="cursor: pointer" href="<?php echo base_url('AcademicsC/timetableAllocation');?>">Timetable allocations</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/editTimetable');?>">Edit</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageBatches')?>">Manage Batches</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation')?>">Manage Allocation</a>  |  <a style="cursor: pointer" class="deleterow" >Delete</a>   </td> 
 				  </tr>
-				  <tr class="activeT">
+				  <tr class="activeT tablerow">
 				    <td>December 01, 2016 - November 30, 2017  </td>
 				    <td>Not allocated</td>
-				    <td><a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Timetable allocations</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/editTimetable');?>">Edit</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Delete</a></td>
+				    <td><a style="cursor: pointer" href="<?php echo base_url('AcademicsC/timetableAllocation');?>">Timetable allocations</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/editTimetable');?>">Edit</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageBatches')?>">Manage Batches</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation')?>">Manage Allocation</a>  |  <a style="cursor: pointer" class="deleterow" >Delete</a>   </td> 
 				  </tr>
-				  <tr class="inactiveT hidden">
+				  <tr class="inactiveT hidden tablerow">
 				    <td>February 29, 2016 - March 07, 2016 </td>
 				    <td> Partially allocated </td>
-				    <td><a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Timetable allocations</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/editTimetable');?>">Edit</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Delete</a></td>
+				    <td><a style="cursor: pointer" href="<?php echo base_url('AcademicsC/timetableAllocation');?>">Timetable allocations</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/editTimetable');?>">Edit</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageBatches')?>">Manage Batches</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation')?>">Manage Allocation</a>  |  <a style="cursor: pointer" class="deleterow" >Delete</a>   </td> 
 				  </tr>
-				  <tr class="inactiveT hidden">
+				  <tr class="inactiveT hidden tablerow">
 				    <td>November 25, 2016 - November 30, 2016  </td>
 				    <td> Partially allocated </td>
-				    <td><a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Timetable allocations</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/editTimetable');?>">Edit</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Delete</a></td>
+				    <td><a style="cursor: pointer" href="<?php echo base_url('AcademicsC/timetableAllocation');?>">Timetable allocations</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/editTimetable');?>">Edit</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageBatches')?>">Manage Batches</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation')?>">Manage Allocation</a>  |  <a style="cursor: pointer" class="deleterow" >Delete</a>   </td> 
 				  </tr>
-				  <tr class="inactiveT hidden">
+				  <tr class="inactiveT hidden tablerow">
 				    <td>March 16, 2016 - March 23, 2016 </td>
 				    <td>Not eligible</td>
-				    <td><a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Timetable allocations</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/editTimetable');?>">Edit</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation');?>">Delete</a></td>
+				    <td><a style="cursor: pointer" href="<?php echo base_url('AcademicsC/timetableAllocation');?>">Timetable allocations</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/editTimetable');?>">Edit</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageBatches')?>">Manage Batches</a>   |  <a style="cursor: pointer" href="<?php echo base_url('AcademicsC/manageAllocation')?>">Manage Allocation</a>  |  <a class="deleterow" style="cursor: pointer">Delete</a>   </td> 
 				  </tr>
 				</tbody>
 			      </table>
@@ -93,4 +93,10 @@
       $('.activeT').removeClass('hidden')
      }
    })
+  $('.deleterow').on('click',function(){
+      var result = confirm("Are You Sure Want to delete?");
+      if (result==true) {
+      $(this).parents('tr.tablerow').remove();
+    }
+  })
 </script>

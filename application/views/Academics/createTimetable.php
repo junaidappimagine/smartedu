@@ -26,7 +26,7 @@
 			<div class="panel-body">
 			  <legend>Create Timetable</legend>
 			    <div class="row">
-				<div class="row">
+<!--				<div class="row">
 				    <div class="col-md-6"></div>
 				    <div class="col-md-6">
 					<div class="row">
@@ -39,7 +39,7 @@
 					</div>
 				 </div>
 				</div>				 
-				<form class="form-horizontal">
+-->				<form class="form-horizontal">
 				    <div class="col-md-8"></div>
 				    <div class="col-md-2">
 				    

@@ -25,7 +25,7 @@
 			</div>
 			<div class="panel-body">
 			  <legend>Timetable Summary</legend>
-			    <p>The timetable summary provides information on the allocation status of each batch and the work hour utilization of employees assigned to the timetable. </p>
+			    <p>&nbsp;&nbsp;&nbsp;&nbsp; The timetable summary provides information on the allocation status of each batch and the work hour utilization of employees assigned to the timetable. </p>
 			
 			    <div class="form-group row">
 				    <p></p>
@@ -57,17 +57,17 @@
 					<td>0.0% </td>
 				    </tr>
 				    <tr>
-					<td><a class="modalwin">Partially allocated</a>  </td>
+					<td><a class="modalwin" style="cursor: pointer">Partially allocated</a>  </td>
 					<td>0 </td>
 					<td>0.0% </td>
 				    </tr>
 				    <tr>
-					<td><a class="modalwin" >Not allocated </a></td>
+					<td><a class="modalwin" style="cursor: pointer" >Not allocated </a></td>
 					<td>1 </td>
 					<td>33.33% </td>
 				    </tr>
 				    <tr>
-					<td><a class="modalwin">Not eligible</a></td>
+					<td><a class="modalwin" style="cursor: pointer">Not eligible</a></td>
 					<td>1 </td>
 					<td>66.67% </td>
 				    </tr>
@@ -166,7 +166,7 @@
 					<td>0%</td>
 				    </tr>
 				    <tr>
-					<td><a class="batchnot">Not allocated </a></td>
+					<td><a class="batchnot" style="cursor: pointer">Not allocated </a></td>
 					<td>3 </td>
 					<td>100%</td>
 				    </tr>

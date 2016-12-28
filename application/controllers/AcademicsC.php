@@ -241,9 +241,9 @@ class AcademicsC extends CI_Controller {
       $this->load->view('Academics/createTimetable',$data);
       $this->load->view('footer');
    }
-   function manageAllocation(){
+   function timetableAllocation(){
       $this->load->view('header');
-      $this->load->view('Academics/manageAllocation');
+      $this->load->view('Academics/timetableAllocation');
       $this->load->view('footer');
    }
    function timetableSummary(){
@@ -256,5 +256,11 @@ class AcademicsC extends CI_Controller {
       $this->load->view('Academics/manageBatches');
       $this->load->view('footer');
    }
+   function manageAllocation(){
+      $this->load->view('header');
+      $this->load->view('Academics/manageAllocation');
+      $this->load->view('footer');
+   }
+   
 	
 }

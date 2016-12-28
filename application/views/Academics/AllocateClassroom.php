@@ -321,7 +321,7 @@
 				</table>
 			  </div>
 			  <br>
-			 <div class="panel hidden panel-default panel-with-tabs" data-sortable-id="ui-unlimited-tabs-2">
+			 <div class="panel hidden dayday panel-default panel-with-tabs" data-sortable-id="ui-unlimited-tabs-2">
                         <div class="panel-heading p-0">
                             <div class="panel-heading-btn m-r-10 m-t-10">
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-inverse" data-click="panel-expand"><i class="fa fa-expand"></i></a>
@@ -793,12 +793,11 @@
 	    $('.date').removeClass('hidden');
 	    $('.btn').removeClass('hidden');
 	    $('.month_date').addClass('hidden');
-
-	    
 	}else{
 	    $('.month_date').removeClass('hidden');
 	    $('.date').addClass('hidden');
 	    $('.btn').removeClass('hidden');
+	    $('.dayday').removeClass('hidden')
 	}
     });
     $('#view').on('click',function(){

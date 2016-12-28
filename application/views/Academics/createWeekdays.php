@@ -185,11 +185,11 @@
 	<!-- end col-12-->
 	  </div>
 <script>
-$(document).ready(function(){
-  $('.check').trigger('click');
+  $(document).ready(function(){
+	$('.check').trigger('click');
   }); 
-    $('.slectclass').on('change',function(){
-  $('.slectbatch').removeClass('hidden');
+	$('.slectclass').on('change',function(){
+	$('.slectbatch').removeClass('hidden');
   });
     
   $('.check').click(function() { 
