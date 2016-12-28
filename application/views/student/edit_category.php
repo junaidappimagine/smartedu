@@ -30,20 +30,6 @@
                             <div class="well">
 								<form class="form-horizontal">
 									<fieldset>
-										<?php if($mode=='add'){?>
-										<legend>
-										<div class="col-sm-10">
-											<h1 class="page-header" style="font-size:21px;">Create Category</h1>
-										</div>
-										</legend>
-										<?php }?>
-										<?php if($mode=='edit'){?>
-										<legend>
-										<div class="col-sm-10">
-											<h1 class="page-header" style="font-size:21px;">Update Category</h1>
-										</div>
-										</legend>
-										<?php }?>
 										<div class="form-group">
 											<label class="col-md-2 control-label">Name :</label>
 											<div class="col-md-4">

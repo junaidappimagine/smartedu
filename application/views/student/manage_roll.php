@@ -97,7 +97,7 @@
 							<tr>
 								<td>C1-A</td>
 								<td>set</td>
-								<td><a  href="<?php echo base_url('studentCntrl/edit_roll_number?var1=Cls1A');?>"  >Edit Roll numbers</a> </td>
+								<td><a  href="<?php echo base_url('StudentCntrl/edit_roll_number?var1=Cls1A');?>"  >Edit Roll numbers</a> </td>
 							</tr>
 						</tbody>
 					</table>
@@ -118,7 +118,7 @@
 							<tr>
 								<td>C2-A</td>
 								<td>set</td>
-								<td><a  href="<?php echo base_url('studentCntrl/edit_roll_number?var1=Cls2A');?>" >Edit Roll numbers</a> </td>
+								<td><a  href="<?php echo base_url('StudentCntrl/edit_roll_number?var1=Cls2A');?>" >Edit Roll numbers</a> </td>
 							</tr>
 						</tbody>
 					</table>
@@ -139,12 +139,12 @@
 							<tr>
 								<td>C3-A</td>
 								<td>Not set</td>
-								<td><a  href="<?php echo base_url('studentCntrl/edit_roll_number?var1=Not set');?>" >Set Roll numbers</a> </td>
+								<td><a  href="<?php echo base_url('StudentCntrl/edit_roll_number?var1=Not set');?>" >Set Roll numbers</a> </td>
 							</tr>
 							<tr>
 								<td>C3-B</td>
 								<td>Not set</td>
-								<td><a  href="<?php echo base_url('studentCntrl/edit_roll_number?var1=Not set');?>" >Set Roll numbers</a> </td>
+								<td><a  href="<?php echo base_url('StudentCntrl/edit_roll_number?var1=Not set');?>" >Set Roll numbers</a> </td>
 							</tr>
 						</tbody>
 					</table>

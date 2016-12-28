@@ -60,12 +60,12 @@
 						<tbody>
 							<tr class="" id="termData1">
 								<td>siblings</td>
-								<td><a  href="<?php echo base_url('studentCntrl/edit_category?var1=siblings');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+								<td><a  href="<?php echo base_url('StudentCntrl/edit_category?var1=siblings');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 								<a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 							</tr>
 							<tr class="" id="termData2">
 								<td>Staff student</td>
-								<td><a  href="<?php echo base_url('studentCntrl/edit_category?var1=Staff student');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+								<td><a  href="<?php echo base_url('StudentCntrl/edit_category?var1=Staff student');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 								<a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
 							</tr>
 						</tbody>
@@ -84,7 +84,7 @@
         $('#save').click(function(){
 	    var resdata=$('#category').val();
 	    console.log(resdata);
-          $('#myTable tbody').append('<tr class="child"><td>'+resdata+'</td><td><a  href="<?php echo base_url('studentCntrl/edit_category?var1=Staff student');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>&nbsp;<a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td></tr>');
+          $('#myTable tbody').append('<tr class="child"><td>'+resdata+'</td><td><a  href="<?php echo base_url('StudentCntrl/edit_category?var1=Staff student');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>&nbsp;<a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td></tr>');
           });
     });
     

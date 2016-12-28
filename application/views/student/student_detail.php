@@ -30,8 +30,8 @@
                             <div class="well">
 								<div class="row">
 									<div class="col-md-offset-9 col-md-3">
-										<a href="<?php echo base_url('studentCntrl/student_view_all');?>" type="button" class="btn btn-warning btn-sm">View all</a>
-										<a href="<?php echo base_url('studentCntrl/advanced_search');?>" type="button" class="btn btn-warning btn-sm">Advanced</a>
+										<a href="<?php echo base_url('StudentCntrl/student_view_all');?>" type="button" class="btn btn-warning btn-sm">View all</a>
+										<a href="<?php echo base_url('StudentCntrl/advanced_search');?>" type="button" class="btn btn-warning btn-sm">Advanced</a>
 									</div>
 								</div>
 								<div class="row">
