@@ -111,125 +111,125 @@ class AcademicsC extends CI_Controller {
    }
 	
 	
-	//modified by jaya(26-12-2016) -start course
-	function manage_courses()
-	{
-		
-		$this->load->view('header');
-		$this->load->view('Academics/manage_courses');
-		$this->load->view('footer');
-	}
-	function create_course()
-	{
-		$data['mode']='add';
-		$this->load->view('header');
-		$this->load->view('Academics/create_course',$data);
-		$this->load->view('footer');
-	}
-	function edit_course()
-	{
-		$data['result1']=$this->input->get('var1');
-		$data['result2']=$this->input->get('var2');
-		$data['result3']=$this->input->get('var3');
-		$data['mode']='edit';
-		$this->load->view('header');
-		$this->load->view('Academics/create_course',$data);
-		$this->load->view('footer');
-	}
-	function manage_course_bacthview()
-	{
-		$data['result1']=$this->input->get('var1');
-		$this->load->view('header');
-		$this->load->view('Academics/manage_course_bacthview',$data);
-		$this->load->view('footer');
-	}
-	
-	function batchwise_student()
-	{
-		$this->load->view('header');
-		$this->load->view('Academics/batchwise_student');
-		$this->load->view('footer');
-	}
-	function student_view()
-	{
-		$data['result']=$this->input->get('var1');
-		$data['result1']=$this->input->get('var2');
-		$data['result2']=$this->input->get('var3');
-		$data['result3']=$this->input->get('var4');
-		$this->load->view('header');
-		$this->load->view('Academics/student_view',$data);
-		$this->load->view('footer');
-	}
-	function new_batch()
-	{
-      $data['mode']='add';
-		$this->load->view('header');
-		$this->load->view('Academics/new_batch',$data);
-		$this->load->view('footer');
-	}
-	function edit_batch()
-	{
-		$data['mode']='edit';
-		$data['result1']=$this->input->get('var1');
-		$this->load->view('header');
-		$this->load->view('Academics/new_batch',$data);
-		$this->load->view('footer');
-	}
-	function group_batch()
-	{
-		
-		$data['result1']=$this->input->get('var1');
-		$this->load->view('header');
-		$this->load->view('Academics/group_batch',$data);
-		$this->load->view('footer');
-	}
-	
-	function assign_sub_amount(){
-		$this->load->view('header');
-		$this->load->view('Academics/assign_sub_amount');
-		$this->load->view('footer');
-	}
-	//end course
-	//start batch
-	function manage_batches()
-	{
-		$this->load->view('header');
-		$this->load->view('Academics/manage_batches');
-		$this->load->view('footer');
-	}
-	
-	function grading_system()
-	{
-		$this->load->view('header');
-		$this->load->view('Academics/grading_system');
-		$this->load->view('footer');
-	}
-	function batch_transfer()
-	{
-		$this->load->view('header');
-		$this->load->view('Academics/batch_transfer');
-		$this->load->view('footer');
-	}
-	function change_batch()
-	{
-		$this->load->view('header');
-		$this->load->view('Academics/change_batch');
-		$this->load->view('footer');
-	}
-	function graduation()
-	{
-		$this->load->view('header');
-		$this->load->view('Academics/graduation');
-		$this->load->view('footer');
-	}
-	
-	function revert_transfer()
-	{
-		$this->load->view('header');
-		$this->load->view('Academics/revert_transfer');
-		$this->load->view('footer');
-	}
-	   function createTimetable(){
+      //modified by jaya(26-12-2016) -start course
+      function manage_courses()
+      {
+	      
+	      $this->load->view('header');
+	      $this->load->view('Academics/manage_courses');
+	      $this->load->view('footer');
+      }
+      function create_course()
+      {
+	      $data['mode']='add';
+	      $this->load->view('header');
+	      $this->load->view('Academics/create_course',$data);
+	      $this->load->view('footer');
+      }
+      function edit_course()
+      {
+	      $data['result1']=$this->input->get('var1');
+	      $data['result2']=$this->input->get('var2');
+	      $data['result3']=$this->input->get('var3');
+	      $data['mode']='edit';
+	      $this->load->view('header');
+	      $this->load->view('Academics/create_course',$data);
+	      $this->load->view('footer');
+      }
+      function manage_course_bacthview()
+      {
+	      $data['result1']=$this->input->get('var1');
+	      $this->load->view('header');
+	      $this->load->view('Academics/manage_course_bacthview',$data);
+	      $this->load->view('footer');
+      }
+      
+      function batchwise_student()
+      {
+	      $this->load->view('header');
+	      $this->load->view('Academics/batchwise_student');
+	      $this->load->view('footer');
+      }
+      function student_view()
+      {
+	      $data['result']=$this->input->get('var1');
+	      $data['result1']=$this->input->get('var2');
+	      $data['result2']=$this->input->get('var3');
+	      $data['result3']=$this->input->get('var4');
+	      $this->load->view('header');
+	      $this->load->view('Academics/student_view',$data);
+	      $this->load->view('footer');
+      }
+      function new_batch()
+      {
+    $data['mode']='add';
+	      $this->load->view('header');
+	      $this->load->view('Academics/new_batch',$data);
+	      $this->load->view('footer');
+      }
+      function edit_batch()
+      {
+	      $data['mode']='edit';
+	      $data['result1']=$this->input->get('var1');
+	      $this->load->view('header');
+	      $this->load->view('Academics/new_batch',$data);
+	      $this->load->view('footer');
+      }
+      function group_batch()
+      {
+	      
+	      $data['result1']=$this->input->get('var1');
+	      $this->load->view('header');
+	      $this->load->view('Academics/group_batch',$data);
+	      $this->load->view('footer');
+      }
+      
+      function assign_sub_amount(){
+	      $this->load->view('header');
+	      $this->load->view('Academics/assign_sub_amount');
+	      $this->load->view('footer');
+      }
+      //end course
+      //start batch
+      function manage_batches()
+      {
+	      $this->load->view('header');
+	      $this->load->view('Academics/manage_batches');
+	      $this->load->view('footer');
+      }
+      
+      function grading_system()
+      {
+	      $this->load->view('header');
+	      $this->load->view('Academics/grading_system');
+	      $this->load->view('footer');
+      }
+      function batch_transfer()
+      {
+	      $this->load->view('header');
+	      $this->load->view('Academics/batch_transfer');
+	      $this->load->view('footer');
+      }
+      function change_batch()
+      {
+	      $this->load->view('header');
+	      $this->load->view('Academics/change_batch');
+	      $this->load->view('footer');
+      }
+      function graduation()
+      {
+	      $this->load->view('header');
+	      $this->load->view('Academics/graduation');
+	      $this->load->view('footer');
+      }
+      
+      function revert_transfer()
+      {
+	      $this->load->view('header');
+	      $this->load->view('Academics/revert_transfer');
+	      $this->load->view('footer');
+      }
+   function createTimetable(){
       $this->load->view('header');
       $data['Mode']="View";
       $this->load->view('Academics/createTimetable',$data);
@@ -261,53 +261,9 @@ class AcademicsC extends CI_Controller {
       $this->load->view('Academics/manageAllocation');
       $this->load->view('footer');
    }
-   function attendanceRegister()
-   {
+   function revertBatchesTransfer(){
       $this->load->view('header');
-      $this->load->view('Academics/attendanceRegister');
+      $this->load->view('Academics/revertBatchesTransfer');
       $this->load->view('footer');
    }
-   function attendanceReport()
-   {
-      $this->load->view('header');
-      $this->load->view('Academics/attendanceReport');
-      $this->load->view('footer');
-   }
-   function addReport_pdf_generate()
-   {
-     $html=$this->load->view('pdf/addReport',$data=array(),true);
-     pdf_create($html,"test",$stream=TRUE,'portrait');   
-   }
-   function manageSubjects()
-   {
-      $this->load->view('header');
-      $this->load->view('Academics/manageSubjects');
-      $this->load->view('footer');
-   }
-   function assingnedElective()
-   {
-      $this->load->view('header');
-      $this->load->view('Academics/assingnedElective');
-      $this->load->view('footer');
-   }
-   function importsubject1()
-   {
-      $this->load->view('header');
-      $this->load->view('Academics/importsubject1');
-      $this->load->view('footer');
-   }
-   function newElective()
-   {
-      $this->load->view('header');
-      $this->load->view('Academics/newElective');
-      $this->load->view('footer');
-   }
-   function importSubject()
-   {
-      $this->load->view('header');
-      $this->load->view('Academics/importSubject');
-      $this->load->view('footer');
-   }
-   
-	
 }
