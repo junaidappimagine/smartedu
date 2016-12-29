@@ -65,18 +65,18 @@
 				    <label class="col-md-1 control-label input-sm">Month &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>:</b></label>
 				    <div class="col-md-2">
 					<select class="form-control selectpicker input-sm bs-select-hidden" data-live-search="true" data-style="btn-white btn-sm" name="" id="month" >
-					    <option value="">Jan</option>
-					    <option value="">Feb</option>
-					    <option value="">Mar</option>
-					    <option value="">Apr</option>
-					    <option value="">May</option>
-					    <option value="">Jun</option>
-					    <option value="">Jul</option>
-					    <option value="">Aug</option>
-					    <option value="">Sep</option>
-					    <option value="">Oct</option>
-					    <option value="">Nov</option>
-					    <option value="">Dec</option>
+					    <option value="Jan">Jan</option>
+					    <option value="Feb">Feb</option>
+					    <option value="Mar">Mar</option>
+					    <option value="Apr">Apr</option>
+					    <option value="May">May</option>
+					    <option value="Jun">Jun</option>
+					    <option value="Jul">Jul</option>
+					    <option value="Aug">Aug</option>
+					    <option value="Sep">Sep</option>
+					    <option value="Oct">Oct</option>
+					    <option value="Nov">Nov</option>
+					    <option value="Dec">Dec</option>
 					</select>
 				    </div>
 				    </div>
@@ -84,14 +84,15 @@
 				    <label class="col-md-1 control-label input-sm">Year &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>:</b></label>
 				    <div class="col-md-2">
 					<select class="form-control selectpicker input-sm bs-select-hidden" data-live-search="true" data-style="btn-white btn-sm" name="" id="year" >
-					    <option value="">2016</option>
-					    <option value="">2015</option>
-					    <option value="">2014</option>
-					    <option value="">2013</option>
+					    <option value="2016">2016</option>
+					    <option value="2015">2015</option>
+					    <option value="2014">2014</option>
+					    <option value="2013">2013</option>
 					</select>
 				    </div>
 				    </div>
 				    <input type="button" id="view" class="btn btn-info btn-sm hidden" value="View">
+				    <input type="button" id="view1" class="btn btn-info btn-sm hidden" value="View">
 			  </form>
 			  
 			  <div class="col-md-12 row hidden tabledata">
@@ -322,459 +323,299 @@
 			  </div>
 			  <br>
 			 <div class="panel hidden dayday panel-default panel-with-tabs" data-sortable-id="ui-unlimited-tabs-2">
-                        <div class="panel-heading p-0">
-                            <div class="panel-heading-btn m-r-10 m-t-10">
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-inverse" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                            </div>
-                            <!-- begin nav-tabs -->
-                            <div class="tab-overflow overflow-right overflow-left">
-                                <ul class="nav nav-tabs" style="margin-left: -371px;">
+				<div class="panel-heading" style="height: 40px">
+  				    <h4 class="panel-title pull-left">Search</h4>
+				    <div class="form-group pull-left form-group" style="margin-left: 26px">
+					 <input class="form-control input-sm" style="margin-top: -5px;" type="text">
+				     </div>
+				    <div class="tab-overflow overflow-right" style="height: 40px;margin-top: -10px">
+                                <ul class="nav nav-tabs" style="margin-left: 0px;">
                                     <li class="prev-button" style=""><a href="javascript:;" data-click="prev-tab" class="text-inverse"><i class="fa fa-arrow-left"></i></a></li>
-                                    <li class=""><a href="#nav-tab2-1" data-toggle="tab">Nav Tab 1</a></li>
-                                    <li class=""><a href="#nav-tab2-2" data-toggle="tab">Nav Tab 2</a></li>
-                                    <li class=""><a href="#nav-tab2-3" data-toggle="tab">Nav Tab 3</a></li>
-                                    <li class=""><a href="#nav-tab2-4" data-toggle="tab">Nav Tab 4</a></li>
-                                    <li class=""><a href="#nav-tab2-5" data-toggle="tab">Nav Tab 5</a></li>
-                                    <li class=""><a href="#nav-tab2-6" data-toggle="tab">Nav Tab 6</a></li>
-                                    <li class=""><a href="#nav-tab2-7" data-toggle="tab">Nav Tab 7</a></li>
-                                    <li class=""><a href="#nav-tab2-8" data-toggle="tab">Nav Tab 8</a></li>
-                                    <li class=""><a href="#nav-tab2-9" data-toggle="tab">Nav Tab 8</a></li>
-                                    <li class=""><a href="#nav-tab2-10" data-toggle="tab">Nav Tab 10</a></li>
-                                    <li class=""><a href="#nav-tab2-11" data-toggle="tab">Nav Tab 11</a></li>
-                                    <li class="active"><a href="#nav-tab2-12" data-toggle="tab">Nav Tab 12</a></li>
-                                    <li class=""><a href="#nav-tab2-13" data-toggle="tab">Nav Tab 13</a></li>
-                                    <li class=""><a href="#nav-tab2-14" data-toggle="tab">Nav Tab 14</a></li>
-                                    <li class=""><a href="#nav-tab2-15" data-toggle="tab">Nav Tab 15</a></li>
-                                    <li class=""><a href="#nav-tab2-11" data-toggle="tab">Nav Tab 16</a></li>
-                                    <li class=""><a href="#nav-tab2-17" data-toggle="tab">Nav Tab 17</a></li>
-                                    <li class=""><a href="#nav-tab2-18" data-toggle="tab">Nav Tab 18</a></li>
-                                    <li class=""><a href="#nav-tab2-19" data-toggle="tab">Nav Tab 19</a></li>
-                                    <li class=""><a href="#nav-tab2-20" data-toggle="tab">Nav Tab 20</a></li>
-                                    <li class="next-button" style=""><a href="javascript:;" data-click="next-tab" class="text-inverse"><i class="fa fa-arrow-right"></i></a></li>
+                                    <li class="active"><a href="#nav-tab2-1" data-toggle="tab" aria-expanded="true">01 - Mon</a></li>
+                                    <li class=""><a href="#nav-tab2-2" data-toggle="tab" aria-expanded="false">02 - Tue</a></li>
+                                    <li class=""><a href="#nav-tab2-3" data-toggle="tab" aria-expanded="false">03 - Wed</a></li>
+                                    <li class=""><a href="#nav-tab2-4" data-toggle="tab" aria-expanded="false">04 - Thu</a></li>
+                                    <li class=""><a href="#nav-tab2-5" data-toggle="tab" aria-expanded="false">05 - Fri</a></li>
+                                    <li class=""><a href="#nav-tab2-6" data-toggle="tab">06 - Sat</a></li>
+                                    <li class=""><a href="#nav-tab2-7" data-toggle="tab" >07 - Sun</a></li>
+                                    <li class=""><a href="#nav-tab2-8" data-toggle="tab">08 - Mon</a></li>
+                                    <li class=""><a href="#nav-tab2-9" data-toggle="tab">09 - Tue</a></li>
+                                    <li class=""><a href="#nav-tab2-10" data-toggle="tab" aria-expanded="false">10 - Wed</a></li>
+                                    <li class=""><a href="#nav-tab2-11" data-toggle="tab">11 - Thu</a></li>
+                                    <li class=""><a href="#nav-tab2-12" data-toggle="tab">12 - Fri</a></li>
+                                    <li class=""><a href="#nav-tab2-13" data-toggle="tab">13 - Sat</a></li>
+                                    <li class=""><a href="#nav-tab2-14" data-toggle="tab" >14 - Sun</a></li>
+                                    <li class=""><a href="#nav-tab2-15" data-toggle="tab">15 - Mon</a></li>
+                                    <li class=""><a href="#nav-tab2-11" data-toggle="tab">16 - Tue</a></li>
+                                    <li class=""><a href="#nav-tab2-17" data-toggle="tab">17 - Wed</a></li>
+                                    <li class=""><a href="#nav-tab2-18" data-toggle="tab">18 - Thu</a></li>
+                                    <li class=""><a href="#nav-tab2-19" data-toggle="tab">19 - Fri</a></li>
+                                    <li class=""><a href="#nav-tab2-20" data-toggle="tab" aria-expanded="false">20 - Sat</a></li>
+				    <li class=""><a href="#nav-tab2-21" data-toggle="tab" >21 - Sun</a></li>
+				    <li class=""><a href="#nav-tab2-22" data-toggle="tab">22 - Mon</a></li>
+                                    <li class=""><a href="#nav-tab2-23" data-toggle="tab">23 - Tue</a></li>
+                                    <li class=""><a href="#nav-tab2-24" data-toggle="tab">24 - Wed</a></li>
+                                    <li class=""><a href="#nav-tab2-25" data-toggle="tab">25 - Thu</a></li>
+                                    <li class=""><a href="#nav-tab2-26" data-toggle="tab">26 - Fri</a></li>
+                                    <li class=""><a href="#nav-tab2-27" data-toggle="tab">27 - Sat</a></li>
+				    <li class=""><a href="#nav-tab2-28" data-toggle="tab" >28 - Sun</a></li>
+				    <li class=""><a href="#nav-tab2-29" data-toggle="tab">29 - Mon</a></li>
+                                    <li class=""><a href="#nav-tab2-30" data-toggle="tab" aria-expanded="false">30 - Tue</a></li>
+				    <li class="next-button" style=""><a href="javascript:;" data-click="next-tab" class="text-inverse"><i class="fa fa-arrow-right"></i></a></li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="tab-content">
+				</div>
+			    <div class="tab-content">
                             <div class="tab-pane fade" id="nav-tab2-1">
-                                <h3 class="m-t-10">Nav Tab 1</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+                                					<table class="table table-bordered row" style="width: 1006px">
+					    <tr>
+						<th colspan="8">C1 - A</th>
+					    </tr>
+					    <tr>
+						<td style="width: 140px">
+						    <div class="one">
+							<p>Maths</p>
+							<p>Keerthi + 2</p>
+						    </div>
+						</td>
+						<td style="width: 140px">
+						    <div class="one">
+							<p>Science</p>
+							<p>Kunal</p>
+						    </div>
+						</td>
+						<td style="width: 140px">
+						    <div class="one">
+							<p>English</p>
+							<p>Sheena</p>
+						    </div>
+						</td>
+						<td style="width: 140px">
+						    <div class="one">
+							<p>Maths</p>
+							<p>Keerthi</p>
+						    </div>
+						</td>
+						<td style="width: 140px">
+						    <div class="one">
+							<p>Maths</p>
+							<p>Keerthi + 2</p>
+						    </div>
+						</td>
+						<td style="width: 140px">
+						    <div class="one">
+							<p>Science</p>
+							<p>Kunal</p>
+						    </div>
+						</td>
+					    </tr>
+					</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-2">
-                                <h3 class="m-t-10">Nav Tab 2</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-3">
-                                <h3 class="m-t-10">Nav Tab 3</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-4">
-                                <h3 class="m-t-10">Nav Tab 4</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-5">
-                                <h3 class="m-t-10">Nav Tab 5</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-6">
-                                <h3 class="m-t-10">Nav Tab 6</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-7">
-                                <h3 class="m-t-10">Nav Tab 7</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-8">
-                                <h3 class="m-t-10">Nav Tab 8</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-9">
-                                <h3 class="m-t-10">Nav Tab 9</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-10">
-                                <h3 class="m-t-10">Nav Tab 10</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-11">
-                                <h3 class="m-t-10">Nav Tab 11</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade active in" id="nav-tab2-12">
-                                <h3 class="m-t-10">Nav Tab 12</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-13">
-                                <h3 class="m-t-10">Nav Tab 13</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-14">
-                                <h3 class="m-t-10">Nav Tab 14</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-15">
-                                <h3 class="m-t-10">Nav Tab 15</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-16">
-                                <h3 class="m-t-10">Nav Tab 16</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-17">
-                                <h3 class="m-t-10">Nav Tab 17</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-18">
-                                <h3 class="m-t-10">Nav Tab 18</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-19">
-                                <h3 class="m-t-10">Nav Tab 19</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
                             <div class="tab-pane fade" id="nav-tab2-20">
-                                <h3 class="m-t-10">Nav Tab 20</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-                                    est diam sagittis orci, a ornare nisi quam elementum tortor. 
-                                    Proin interdum ante porta est convallis dapibus dictum in nibh. 
-                                    Aenean quis massa congue metus mollis fermentum eget et tellus. 
-                                    Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, 
-                                    nec eleifend orci eros id lectus.
-                                </p>
-                                <p>
-                                    Aenean eget odio eu justo mollis consectetur non quis enim. 
-                                    Vivamus interdum quam tortor, et sollicitudin quam pulvinar sit amet. 
-                                    Donec facilisis auctor lorem, quis mollis metus dapibus nec. Donec interdum tellus vel mauris vehicula, 
-                                    at ultrices ex gravida. Maecenas at elit tincidunt, vulputate augue vitae, vulputate neque.
-                                    Aenean vel quam ligula. Etiam faucibus aliquam odio eget condimentum. 
-                                    Cras lobortis, orci nec eleifend ultrices, orci elit pellentesque ex, eu sodales felis urna nec erat. 
-                                    Fusce lacus est, congue quis nisi quis, sodales volutpat lorem.
-                                </p>
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
                             </div>
+			    <div class="tab-pane fade" id="nav-tab2-21">
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
+                            </div>
+			    <div class="tab-pane fade" id="nav-tab2-22">
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
+                            </div>
+			    <div class="tab-pane fade" id="nav-tab2-23">
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
+                            </div>
+			    <div class="tab-pane fade" id="nav-tab2-24">
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
+                            </div>
+			    <div class="tab-pane fade" id="nav-tab2-25">
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
+                            </div>
+			    <div class="tab-pane fade" id="nav-tab2-26">
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
+                            </div>
+			    <div class="tab-pane fade" id="nav-tab2-27">
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
+                            </div>
+			    <div class="tab-pane fade" id="nav-tab2-28">
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
+                            </div>
+			    <div class="tab-pane fade" id="nav-tab2-29">
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
+                            </div>
+			    <div class="tab-pane fade" id="nav-tab2-30">
+		    		<table class="table table-bordered row" style="width: 1006px">
+				    <tr>
+					<th colspan="8"><center>No Data</center></th>
+				    </tr>
+				</table>
+                            </div>
+
+			    
                         </div>
                     </div>
 
@@ -785,7 +626,7 @@
 	    </div>
 	<!-- end col-12-->
 	  </div>
-	
+<script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery-1.9.1.min.js"></script> 
 <script>
     $('.week_date').on('change',function(){
 	var data=$('input[name=optionsRadios]:checked').val();
@@ -793,11 +634,16 @@
 	    $('.date').removeClass('hidden');
 	    $('.btn').removeClass('hidden');
 	    $('.month_date').addClass('hidden');
-	}else{
+	    $('#view').removeClass('hidden');
+	    $('#view1').addClass('hidden');
+	    $('.nodata').addClass('hidden');
+	}else if(data=="Date"){
 	    $('.month_date').removeClass('hidden');
 	    $('.date').addClass('hidden');
 	    $('.btn').removeClass('hidden');
-	    $('.dayday').removeClass('hidden')
+	    $('.tabledata').addClass('hidden');
+	    $('#view1').removeClass('hidden');
+	    $('#view').addClass('hidden');
 	}
     });
     $('#view').on('click',function(){
@@ -805,9 +651,24 @@
     if (data=="feb29_mar07") {
 	$('.tabledata').removeClass('hidden');
 	$('.nodata').addClass('hidden');
+	$('.dayday').addClass('hidden')
     }else{
 	$('.tabledata').addClass('hidden');
+    }
+    });
+    $('#view1').on('click',function(){
+    var Month=$('#month').val();
+    var Year=$('#year').val();
+    console.log(Month);
+    console.log(Year);
+    if (Month=="Feb" & Year=="2015" ) {
+	//$('.tabledata').removeClass('hidden');
+	$('.nodata').addClass('hidden');
+	$('.dayday').removeClass('hidden')
+
+    }else{
 	$('.nodata').removeClass('hidden');
+	$('.dayday').addClass('hidden')
     }
     });
 </script>

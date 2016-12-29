@@ -32,7 +32,7 @@
                                         <div class="form-group">
 					    <label class="col-sm-2 control-label">Class &nbsp; :</label>
 					    <div class="col-sm-3">
-					    <select name="" class="form-control input-sm" id="Class">
+					    <select name="" class="form-control selectpicker input-sm" id="Class" data-style="btn-white">
                                                 <option selected value="Select_Class">Select Class</option>
                                                 <option value="Grade1">Grade 1</option>
                                                 <option value="Grade2">Grade 2</option>
@@ -43,7 +43,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label"> Batch &nbsp; :</label>
 					    <div class="col-sm-3">
-                                            <select name="" class="form-control input-sm" id="Batch">
+                                            <select name="" class="form-control selectpicker input-sm" data-style="btn-white" id="Batch">
                                                 <option selected value="Select_Batch">Select  Batch</option>
                                                 <option value="A">A</option>
                                                 <option value="B">B</option>
@@ -54,7 +54,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label">Subject &nbsp; :</label>
 					    <div class="col-sm-3">
-					    <select name="" class="form-control input-sm" id="Subject">
+					    <select name="" class="form-control selectpicker input-sm" data-style="btn-white" id="Subject">
                                                 <option disabled selected>Select  Subject</option>
                                             </select>
 					    </div>
