@@ -30,9 +30,9 @@
                             <div class="well">
                                <!-- <fieldset>
                                     <legend>Employee Category</legend>-->
-								<div class="row">
-									<div class="col-md-4"><button type="button" class="btn btn-primary btn-sm" id="Add" value="Add" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i><span class="f-s-14 f-w-500"> Add </span></a></div>
-								 </div><br>
+					<div class="row">
+						<div class="col-md-4"><button type="button" class="btn btn-primary btn-sm" id="Add" value="Add" onclick="addE_Category()"><i class="fa fa-plus"></i><span class="f-s-14 f-w-500"> Add </span></a></div>
+					 </div><br>
                                    
                                 <!--</fieldset>-->
 				        <div class="panel-body">
@@ -48,13 +48,13 @@
 							 <tbody>
 							    <tr>
 								<td> <span class="badge badge-success">-</span> &nbsp;&nbsp;Category 1(C1)</td>
-														<td>Y</td>
+								<td>Y</td>
 								<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button>
 								<button type="button"  name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
 							   </tr>
 							   <tr>
 								<td><span class="badge badge-danger">-</span>&nbsp;&nbsp;Category 2(C2)</td>
-														<td>N</td>
+								<td>N</td>
 								<td><button type="button" name="edit"  id="edit2" value="edit2" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button>
 								<button onclick="" name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
 							   </tr>
@@ -69,55 +69,9 @@
                     </div>
                     <!-- end panel -->
                 </div>
-                <!-- end col-12-->
-				
-                <!-- begin col-6 -->
-               
-			   <!-- <div class="col-md-6">-->
-			        <!-- begin panel -->
-                   <!-- <div class="panel panel-inverse" data-sortable-id="form-stuff-3">
-                        <div class="panel-heading">
-                            <div class="panel-heading-btn">
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
-                            </div>
-                            <h4 class="panel-title">Default Style</h4>
-                        </div>
-                        <div class="panel-body">
-                            <form action="http://seantheme.com/" method="POST">
-                                <fieldset>
-                                    <legend>Legend</legend>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" /> Check me out
-                                        </label>
-                                    </div>
-                                    <button type="submit" class="btn btn-sm btn-primary m-r-5">Login</button>
-                                    <button type="submit" class="btn btn-sm btn-default">Cancel</button>
-                                </fieldset>
-                            </form>
-                        </div>
-                    </div>-->
-                    <!-- end panel -->
-               <!-- </div>-->
-                <!-- end col-6 -->
-			  <div>
+		<div>
             <!-- end row -->
             </div>
-		<!-- end #content -->
-        
-        
-<!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
 	<div class="modal-dialog modal-md">
 		<!-- Modal content-->
@@ -131,34 +85,34 @@
 			<div class="modal-body">
 				<div class="panel-body">
 					<div class="col-md-offset-3">
-						<form method="" action="" class="form-horizontal">
+						<form  id="FormValidation" method="post" action="" class="form-horizontal">
 							<div class="form-group">
 								<label class="col-md-2 control-label">Name</label>
 								<div class="col-md-4">
-									<input type="text" class="form-control input-sm" id="name" placeholder="" />
+									<input type="text" class="form-control input-sm" name="EMP_C_NAME" id="name" placeholder="" />
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-2 control-label">Prefix</label>
 								<div class="col-md-4">
-									<input type="text" class="form-control input-sm" id="prefix" placeholder="" d/>
+									<input type="text" class="form-control input-sm" name="EMP_C_PREFIX" id="prefix" placeholder="" d/>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-2 control-label">Status</label>
 								<div class="col-md-6">
 								  <label class="radio-inline">
-									 <input type="radio" name="optradio" id="radio_1">Active
+									 <input type="radio" name="EMP_C_ACTIVE_YN" id="active" value="Y">Active
 								   </label>
 								   <label class="radio-inline">
-									 <input type="radio" name="optradio" id="radio_2">Inactive
+									 <input type="radio" name="EMP_C_ACTIVE_YN" id="inactive" value="N">Inactive
 								 </label>
 								</div>
 							</div><br>
 							<div class="form-group">
 								<label class="col-md-2 control-label"></label>
 								<div class="col-md-2">
-									<button type="button" class="btn btn-primary btn-sm" id="action" >Create</button>
+									<button type="submit" class="btn btn-primary btn-sm" id="save" name="insert">Create</button>
 								</div>
 								<div class="col-md-2">
 									 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancel</button>
@@ -171,7 +125,14 @@
 		</div>
 	</div>
 </div>
+ <?php //if($_POST['insert']=='Save'){
+     if (isset($_POST["insert"])) {     
+     echo "<pre>";
+     print_r($_POST);exit;
+     
+     }?>
 <script>
+   
 $(document).ready(function() {
 	$('button').click(function(){
 		console.log($(this).val());
@@ -206,7 +167,80 @@ $(document).ready(function() {
 			$('#prefix').val('C2');
 		}
 	});
+	$('#FormValidation').bootstrapValidator({
+	    message: 'This value is not valid',
+	    excluded: ':disabled',
+	    container: 'tooltip',
+	    feedbackIcons:
+	    {
+		valid: 'fa fa-check',
+		invalid: 'fa fa-times',
+		validating: 'fa fa-refresh'
+	    },
+	    fields: {
+		EMP_C_NAME: {
+		    validators: {
+			notEmpty: {
+			    message: 'The Department name is required'
+			}
+		    }
+		},
+		EMP_C_PREFIX: {
+		    validators: {
+			notEmpty: {
+			    message: 'The Department code is required'
+			}
+		    }
+		},
+		
+	    }
+	});
 });
+	$('input:radio[name="EMP_C_ACTIVE_YN"]').change(function() {
+		if ($(this).val() == 'Y') {
+			$('#active').val('Y');
+		}else if ($(this).val() == 'N') {
+			$('#inactive').val('N');
+		}
+		else {
+		  
+		}
+	});
+	function addE_Category() {
+	    $('#myModal').modal('show');
+	    $('#FormValidation').bootstrapValidator('updateStatus', 'EMP_C_NAME','VALIDATED');
+	    $('#FormValidation').bootstrapValidator('updateStatus', 'EMP_C_PREFIX','VALIDATED');
+	}
+	$("#save").click(function(){
+	    var EMP_C_NAME=$("#EMP_C_NAME").val();
+	    var EMP_D_CODE=$("#EMP_C_PREFIX").val();
+	    var EMP_C_ACTIVE_YN=$("#EMP_C_ACTIVE_YN").val();
+	    $.ajax({
+	       type: "POST",
+	       url: "<?php echo site_url('/');?>",
+	    
+	       data: {EMP_C_NAME:EMP_C_NAME,EMP_C_PREFIX:EMP_C_PREFIX,EMP_C_ACTIVE_YN:EMP_C_ACTIVE_YN},
+	       success : function(html){
+		     
+		},
+	    });
+	});
+	function editData($id){
+	       $('#id').val($id);
+	       var URL ="<?php echo site_url('/');?>";
+	       $.ajax({
+		   type: "POST",
+		   url: URL,
+		   data: {id:id},
+		   dataType:'json',
+		   success: function(json)
+		   {
+		       $('#EMP_C_NAME').val(json[0].EMP_C_NAME);
+		       $('#EMP_C_PREFIX').val(json[0].EMP_C_PREFIX);
+		       $('#EMP_C_ACTIVE_YN').val(json[0].EMP_C_ACTIVE_YN);
+		   }
+	       })
+	}
 </script>	
 	
 	

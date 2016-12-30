@@ -31,7 +31,7 @@
                                <!-- <fieldset>
                                     <legend>Employee Department</legend>-->
 				 <div class="row">
-					<div class="col-md-4"><button type="button" class="btn btn-primary btn-sm" id="Add" value="Add" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i><span class="f-s-14 f-w-500"> Add</span></a></div>
+					<div class="col-md-4"><button type="button" class="btn btn-primary btn-sm" id="Add" value="Add" onclick="addE_Department()"><i class="fa fa-plus"></i><span class="f-s-14 f-w-500"> Add</span></a></div>
 				 </div><br>
 			        	<div class="panel-body">
 						<div class="table-responsive">
@@ -66,55 +66,9 @@
                     </div>
                     <!-- end panel -->
                 </div>
-                <!-- end col-12-->
-				
-                <!-- begin col-6 -->
-               
-			   <!-- <div class="col-md-6">-->
-			        <!-- begin panel -->
-                   <!-- <div class="panel panel-inverse" data-sortable-id="form-stuff-3">
-                        <div class="panel-heading">
-                            <div class="panel-heading-btn">
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
-                            </div>
-                            <h4 class="panel-title">Default Style</h4>
-                        </div>
-                        <div class="panel-body">
-                            <form action="http://seantheme.com/" method="POST">
-                                <fieldset>
-                                    <legend>Legend</legend>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" /> Check me out
-                                        </label>
-                                    </div>
-                                    <button type="submit" class="btn btn-sm btn-primary m-r-5">Login</button>
-                                    <button type="submit" class="btn btn-sm btn-default">Cancel</button>
-                                </fieldset>
-                            </form>
-                        </div>
-                    </div>-->
-                    <!-- end panel -->
-               <!-- </div>-->
-                <!-- end col-6 -->
-			  <div>
-            <!-- end row -->
-            </div>
-		<!-- end #content -->
-        
-        
-<!-- Modal -->
+	<div>
+        </div>
+		
 <div class="modal fade" id="myModal" role="dialog">
 	<div class="modal-dialog modal-md">
 		<!-- Modal content-->
@@ -128,34 +82,34 @@
 			<div class="modal-body">
 				<div class="panel-body">
 					<div class="col-md-offset-2">
-						<form method="" action="" class="form-horizontal">
+						<form id="FormValidation" method="post" action="" class="form-horizontal">
 							<div class="form-group">
 								<label class="col-md-4 control-label">Department Name</label>
 								<div class="col-md-4">
-									<input type="text" class="form-control input-sm" id="name" placeholder="" />
+									<input type="text" class="form-control input-sm" id="name" name="EMP_D_NAME" placeholder="" />
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-4 control-label">Department Code</label>
 								<div class="col-md-4">
-									<input type="text" class="form-control input-sm" id="prefix" placeholder="" d/>
+									<input type="text" class="form-control input-sm" id="prefix" name="EMP_D_CODE" placeholder="" d/>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-4 control-label">Status</label>
 								<div class="col-md-6">
 								  <label class="radio-inline">
-										<input type="radio" name="optradio" id="radio_1">Active
+										<input type="radio" name="EMP_D_STATUS" id="radio_1" value="Y">Active
 								   </label>
 								  <label class="radio-inline">
-										<input type="radio" name="optradio" id="radio_2">Inactive
+										<input type="radio" name="EMP_D_STATUS" id="radio_2" value="N">Inactive
 								  </label>
 								</div>
 							</div><br>
 							<div class="form-group">
 								<label class="col-md-4 control-label"></label>
 								<div class="col-md-2">
-									<button type="button" class="btn btn-primary btn-sm" id="action" >Create</button>
+									<button type="submit" class="btn btn-primary btn-sm" id="action" >Create</button>
 								</div>
 								<div class="col-md-2">
 									 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancel</button>
@@ -174,36 +128,101 @@ $(document).ready(function() {
 		console.log($(this).val());
 		if($(this).val()=='Add')
 		{
-			//alert();
-			$('.modal-title').text('Create Employee Department');
-			$('#action').text('Create');
-			$("#radio_1").prop("checked", true);
-			 $("#radio_2").prop("checked", false);
-		
-			$('#name').val('');
-			$('#prefix').val('');
+		    //alert();
+		    $('.modal-title').text('Create Employee Department');
+		    $('#action').text('Create');
+		    $("#radio_1").prop("checked", true);
+		     $("#radio_2").prop("checked", false);
+	    
+		    $('#name').val('');
+		    $('#prefix').val('');
 		}
 		else if($(this).val()=='edit')
 		{
-			//alert();
-			$('.modal-title').text('Edit Employee Department');
-			$('#action').text('Update');
-			$("#radio_1").prop("checked", true);
-			$('#name').val('Department 1');
-			$('#prefix').val('D1');
+		    //alert();
+		    $('.modal-title').text('Edit Employee Department');
+		    $('#action').text('Update');
+		    $("#radio_1").prop("checked", true);
+		    $('#name').val('Department 1');
+		    $('#prefix').val('D1');
+		    $('#FormValidation').bootstrapValidator('updateStatus', 'EMP_D_NAME','VALIDATED');
+	            $('#FormValidation').bootstrapValidator('updateStatus', 'EMP_D_CODE','VALIDATED');
 		}
 		else if($(this).val()=='edit2')
 		{
-			//alert();
-			$('.modal-title').text('Edit Employee Department');
-			$('#action').text('Update');
-			$("#radio_2").prop("checked", true);
-			$("#radio_1").prop("checked", false);
-			$('#name').val('Department 2');
-			$('#prefix').val('D2');
+		    //alert();
+		    $('.modal-title').text('Edit Employee Department');
+		    $('#action').text('Update');
+		    $("#radio_2").prop("checked", true);
+		    $("#radio_1").prop("checked", false);
+		    $('#name').val('Department 2');
+		    $('#prefix').val('D2');
 		}
 	});
+	$('#FormValidation').bootstrapValidator({
+	    message: 'This value is not valid',
+	    excluded: ':disabled',
+	    container: 'tooltip',
+	    feedbackIcons:
+	    {
+		valid: 'fa fa-check',
+		invalid: 'fa fa-times',
+		validating: 'fa fa-refresh'
+	    },
+	    fields: {
+		EMP_D_NAME: {
+		    validators: {
+			notEmpty: {
+			    message: 'The Department name is required'
+			}
+		    }
+		},
+		EMP_D_CODE: {
+		    validators: {
+			notEmpty: {
+			    message: 'The Department code is required'
+			}
+		    }
+		},
+		
+	    }
+	});
 });
+    function addE_Department() {
+	$('#myModal').modal('show');
+	$('#FormValidation').bootstrapValidator('updateStatus', 'EMP_D_NAME','VALIDATED');
+	$('#FormValidation').bootstrapValidator('updateStatus', 'EMP_D_CODE','VALIDATED');
+    }
+    $("#save").click(function(){
+	var EMP_D_NAME=$("#EMP_D_NAME").val();
+	var EMP_D_CODE=$("#EMP_D_CODE").val();
+	var EMP_D_STATUS=$("#EMP_D_STATUS").val();
+	$.ajax({
+	   type: "POST",
+	   url: "<?php echo site_url('/');?>",
+	
+	   data: {EMP_D_NAME:EMP_D_NAME,EMP_D_CODE:EMP_D_CODE,EMP_D_STATUS:EMP_D_STATUS},
+	   success : function(html){
+		 
+	    },
+	});
+    });
+    function editData($id){
+	   $('#id').val($id);
+	   var URL ="<?php echo site_url('/');?>";
+	   $.ajax({
+	       type: "POST",
+	       url: URL,
+	       data: {id:id},
+	       dataType:'json',
+	       success: function(json)
+	       {
+		   $('#EMP_D_NAME').val(json[0].EMP_D_NAME);
+		   $('#EMP_D_CODE').val(json[0].EMP_D_CODE);
+		   $('#EMP_D_STATUS').val(json[0].EMP_D_STATUS);
+	       }
+	   })
+       }
 </script>	
 	
 	
