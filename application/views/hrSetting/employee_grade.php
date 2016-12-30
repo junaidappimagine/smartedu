@@ -45,7 +45,7 @@
 			    <tr>
 				<td> <span class="badge badge-success">-</span> &nbsp;&nbsp;Grade 1(3)</td>
 				<td>Y</td>
-				<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button>
+				<td><button type="button"  name="edit" id="edit" onclick="editdata()" value="edit" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button>
 				<button type="button"  name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
 			    </tr>
 			    <tr>
@@ -58,8 +58,8 @@
 	       </table>
        </div>
 </div>
-					    </div>
-				    </div>
+</div>
+</div>
 	<!-- end panel -->
     </div>
     <!-- end col-12-->
@@ -122,7 +122,7 @@
 <div class="modal-body">
    <div class="panel-body">
 	<div class="col-md-offset-2">
-	   <form method="post" action="<?php echo ($_SERVER["PHP_SELF"]);?>" class="form-horizontal">
+	   <form method="post" action="" class="form-horizontal">
 	       <div class="form-group">
 		   <label class="col-md-4 control-label">Grade Name</label>
 		   <div class="col-md-5">
@@ -151,71 +151,73 @@
 		    <label class="col-md-4 control-label">Status</label>
 		    <div class="col-md-6">
 			<label class="radio-inline">
-			    <input type="radio" name="EMP_G_ACTIVE_YN" id="radio_1">Active
+			    <input type="radio" name="EMP_G_ACTIVE_YN" value="Yes" class="staus_yes staus" id="radio_1">Active
 			</label>
 			<label class="radio-inline">
-			    <input type="radio" name="EMP_G_ACTIVE_YN" id="radio_2">Inactive
+			    <input type="radio" name="EMP_G_ACTIVE_YN" value="No" class="staus_no staus" id="radio_2">Inactive
 			</label>
 		    </div>
 		</div><br>
 		<div class="form-group">
 		<label class="col-md-4 control-label"></label>
 		<div class="col-md-2">
-			<button type="submit" class="btn btn-primary btn-sm" id="action" >Create</button>
+			<button type="button" name="insert" class="btn btn-primary btn-sm submit" id="action" >Create</button>
 		</div>
 		<div class="col-md-2">
 			 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancel</button>
 		</div>
 	</div>
 	   </form>
+	   
 	</div>
     </div>
 </div>
 </div>
 </div>
 </div>
-
 <script>
-$(document).ready(function(){
-$('button').click(function(){
-    console.log($(this).val());
-    if($(this).val()=='Add')
-    {
-//alert();
-$('.modal-title').text('Create Employee Grade');
-$('#action').text('Create');
-$("#radio_1").prop("checked", true);
-$("#radio_2").prop("checked", false);
-$('#name').val('');
-$('#day').val('');
-$('#week').val('');
-$('#priority').val('');
+    //insert//
+    $('.submit').on('click',function(){ 
+	var name=$('#name').val();
+	var prior=$('#priority').val();
+	var day=$('#day').val();
+	var week=$('#week').val();
+	//var radio_1=$('input[type=radio]:checked').val();
+	var radio_1=$('input[name=EMP_G_ACTIVE_YN]:checked').val();
+	console.log(radio_1);
+	$.ajax({
+	    type:"POST",
+	    url:"<?php echo base_url('HrSettingsC/savadataformdbcheck')?>",
+	    data:{name:name,prior:prior,day:day,week:week,radio_1:radio_1},
+	    success:function(result){
+	    console.log(result)
+	    }
+	});	
+    });
+
+    function editdata(){
+	var id='';
+	$.ajax({
+	type:'post',
+	url:'<?php echo base_url('HrSettingsC/editdataformdbcheck');?>',
+	data:{id:id},
+	dataType:'json',
+	success:function(json){
+	    $('#name').val(json[0].EMP_G_NAME);
+	    $('#priority').val(json[0].EMP_G_PRIORITY);
+	    $('#day').val(json[0].EMP_G_MAX_DAY);
+	    $('#week').val(json[0].EMP_G_MAX_WEEK);
+	    var daaa=json[0].EMP_G_ACTIVE_YN;
+	    console.log(daaa);
+	    if(daaa=="Yes"){
+		$('.staus_yes').attr('checked',true);
+	    }else if(daaa=="No"){
+		$('.staus_no').attr('checked',true);
+	    }
+	}
+	})
     }
-    else if($(this).val()=='edit')
-    {
-//alert();
-$('.modal-title').text('Edit Employee Garde');
-$('#action').text('Update');
-$("#radio_1").prop("checked", true);
-$('#name').val('Grade 1');
-$('#day').val('4');
-$('#week').val('24');
-$('#priority').val('3');
-    }
-    else if($(this).val()=='edit2')
-    {
-//alert();
-$('.modal-title').text('Edit Employee Category');
-$('#action').text('Update');
-$("#radio_2").prop("checked", true);
-$("#radio_1").prop("checked", false);
-$('#name').val('Grade 2');
-$('#day').val('6');
-$('#week').val('20');
-$('#priority').val('1');
-    }
-});
-});
+
 </script>	
 
 

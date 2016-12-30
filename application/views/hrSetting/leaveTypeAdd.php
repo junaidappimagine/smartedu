@@ -161,12 +161,6 @@
 		</div>
 	    </div>
 	</div>
-	<?php if (isset($_POST["insert"])) {	    
-	    echo "<pre>";
-	    print_r($_POST);exit;
-	    
-	    }?>
-
 <script>
     $(document).ready(function(){
     $('.dateSet').datepicker({
