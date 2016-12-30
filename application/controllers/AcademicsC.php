@@ -294,4 +294,51 @@ class AcademicsC extends CI_Controller {
       $this->load->view('Academics/configure_sibling');
       $this->load->view('footer');
 	}
+	 function attendanceRegister()
+   {
+      $this->load->view('header');
+      $this->load->view('Academics/attendanceRegister');
+      $this->load->view('footer');
+   }
+   function attendanceReport()
+   {
+      $this->load->view('header');
+      $this->load->view('Academics/attendanceReport');
+      $this->load->view('footer');
+   }
+   function addReport_pdf_generate()
+   {
+     $html=$this->load->view('pdf/addReport',$data=array(),true);
+     pdf_create($html,"test",$stream=TRUE,'portrait');   
+   }
+   function manageSubjects()
+   {
+      $this->load->view('header');
+      $this->load->view('Academics/manageSubjects');
+      $this->load->view('footer');
+   }
+   function assingnedElective()
+   {
+      $this->load->view('header');
+      $this->load->view('Academics/assingnedElective');
+      $this->load->view('footer');
+   }
+   function importsubject1()
+   {
+      $this->load->view('header');
+      $this->load->view('Academics/importsubject1');
+      $this->load->view('footer');
+   }
+   function newElective()
+   {
+      $this->load->view('header');
+      $this->load->view('Academics/newElective');
+      $this->load->view('footer');
+   }
+   function importSubject()
+   {
+      $this->load->view('header');
+      $this->load->view('Academics/importSubject');
+      $this->load->view('footer');
+   }
 }
