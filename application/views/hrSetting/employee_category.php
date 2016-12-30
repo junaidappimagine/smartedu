@@ -47,7 +47,7 @@
 							 </thead>
 							 <tbody id="result">
 							 <?php 
-							 $category=$this->SampleMod->fetchCategoryDetails();
+							 $category=$this->HrConfigModel->fetchCategoryDetails();
 							 foreach ($category as $cat) { ?>
 							 	<tr>
 								<td><?php echo $cat['EMP_C_NAME'];?></td>
@@ -107,10 +107,10 @@
 								<label class="col-md-2 control-label">Status</label>
 								<div class="col-md-6">
 								  	<label class="radio-inline">
-									 	<input type="radio"  name="checking" value="Y" checked="" />Active
+									 	<input type="radio"  name="checking" id="first" value="Y" checked="" />Active
 								   	</label>
 								   	<label class="radio-inline">
-									 	<input type="radio" name="checking" value="N"/>Inactive
+									 	<input type="radio" name="checking" id="second" value="N"/>Inactive
 								 	</label>
 								 	<input type="hidden" name="EMP_C_ACTIVE_YN" value="Y">
 								</div>
@@ -200,6 +200,14 @@ function editCategory($this){
 	      	$('#emp_id').val(res[0].EMP_C_ID);
 	      	$('#name').val(res[0].EMP_C_NAME);
 	      	$('#prefix').val(res[0].EMP_C_PREFIX);
+	      	$('[name="EMP_C_ACTIVE_YN"]').val(res[0].EMP_C_ACTIVE_YN);
+	      	if(res[0].EMP_C_ACTIVE_YN=='N'){
+	      		$('#second').attr('checked',true);
+	      		$('#first').attr('checked',false);
+	      	}else {
+	      		$('#second').attr('checked',false);
+	      		$('#first').attr('checked',true);
+	      	}
 	    }
 	});
 }
