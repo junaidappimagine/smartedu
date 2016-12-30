@@ -146,6 +146,7 @@ class AcademicsC extends CI_Controller {
       
       function batchwise_student()
       {
+			$data['result']=$this->input->get('var1');
 	      $this->load->view('header');
 	      $this->load->view('Academics/batchwise_student');
 	      $this->load->view('footer');
@@ -218,8 +219,10 @@ class AcademicsC extends CI_Controller {
       }
       function graduation()
       {
+			$data['result']=$this->input->get('var1');
+		   $data['result1']=$this->input->get('var2');
 	      $this->load->view('header');
-	      $this->load->view('Academics/graduation');
+	      $this->load->view('Academics/graduation',$data);
 	      $this->load->view('footer');
       }
       
@@ -266,4 +269,29 @@ class AcademicsC extends CI_Controller {
       $this->load->view('Academics/revertBatchesTransfer');
       $this->load->view('footer');
    }
+	
+	function reports()
+	{
+		$this->load->view('header');
+      $this->load->view('Academics/reports');
+      $this->load->view('footer');
+	}
+	function gaurdians()
+	{
+		$this->load->view('header');
+      $this->load->view('Academics/gaurdians');
+      $this->load->view('footer');
+	}
+	function add_guardians()
+	{
+		$this->load->view('header');
+      $this->load->view('Academics/add_guardians');
+      $this->load->view('footer');
+	}
+	function configure_sibling()
+	{
+		$this->load->view('header');
+      $this->load->view('Academics/configure_sibling');
+      $this->load->view('footer');
+	}
 }
