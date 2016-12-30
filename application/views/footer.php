@@ -8,6 +8,8 @@
 <script src="<?php echo base_url(); ?>assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <!-- <script src="<?php echo base_url(); ?>assets/js/jquery.dataTables.min.js"></script> -->
+
+<script src="<?php echo base_url(); ?>assets/plugins/bootstrap-validation/js/bootstrapValidator.js"></script>
 <!--[if lt IE 9]>
 	<script src="<?php echo base_url(); ?>assets/crossbrowserjs/html5shiv.js"></script>
 	<script src="<?php echo base_url(); ?>assets/crossbrowserjs/respond.min.js"></script>

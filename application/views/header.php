@@ -15,6 +15,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link href="<?php echo base_url(); ?>assets/css/style-smartedu.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/css/theme/default-smartedu.css" rel="stylesheet" id="theme" />
+	
+	<link href="<?php echo base_url(); ?>assets/plugins/bootstrap-validation/css/bootstrapValidator.css" rel="stylesheet" />
 
 	<link href="<?php echo base_url(); ?>assets/plugins/DataTables/css/data-table.css" rel="stylesheet" />
 	
@@ -196,6 +198,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							       <li><a href="<?php echo base_url();?>GrSettingsC/smslogs">SMS logs</a></li>
 							    </ul>
 							</li>
+							<li><a href="<?php echo base_url();?>GrSettingsC/users">Users</a></li>
 						</ul>
 					</li>
 
