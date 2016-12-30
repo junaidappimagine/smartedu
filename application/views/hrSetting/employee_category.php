@@ -1,3 +1,4 @@
+<?php //print_r($category);exit;?>
 <!-- begin #content -->
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
@@ -30,9 +31,9 @@
                             <div class="well">
                                <!-- <fieldset>
                                     <legend>Employee Category</legend>-->
-					<div class="row">
-						<div class="col-md-4"><button type="button" class="btn btn-primary btn-sm" id="Add" value="Add" onclick="addE_Category()"><i class="fa fa-plus"></i><span class="f-s-14 f-w-500"> Add </span></a></div>
-					 </div><br>
+								<div class="row">
+									<div class="col-md-4"><button type="button" class="btn btn-primary btn-sm" id="Add" value="Add" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i><span class="f-s-14 f-w-500"> Add </span></a></div>
+								 </div><br>
                                    
                                 <!--</fieldset>-->
 				        <div class="panel-body">
@@ -45,19 +46,18 @@
 								<th>Action</th>
 							    </tr>
 							 </thead>
-							 <tbody>
-							    <tr>
-								<td> <span class="badge badge-success">-</span> &nbsp;&nbsp;Category 1(C1)</td>
-								<td>Y</td>
-								<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button>
-								<button type="button"  name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
+							 <tbody id="result">
+							 <?php 
+							 $category=$this->SampleMod->fetchCategoryDetails();
+							 foreach ($category as $cat) { ?>
+							 	<tr>
+								<td><?php echo $cat['EMP_C_NAME'];?></td>
+								<td><?php echo $cat['EMP_C_ACTIVE_YN'];?></td>
+								<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="editCategory('<?php echo $cat['EMP_C_ID'];?>')" category-id="<?php echo $cat['EMP_C_ID'];?>"><i class="fa fa-edit"></i></button>
+								<button type="button" category-id="<?php echo $cat['EMP_C_ID'];?>" onclick="deleteCategory('<?php echo $cat['EMP_C_ID'];?>')" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
 							   </tr>
-							   <tr>
-								<td><span class="badge badge-danger">-</span>&nbsp;&nbsp;Category 2(C2)</td>
-								<td>N</td>
-								<td><button type="button" name="edit"  id="edit2" value="edit2" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button>
-								<button onclick="" name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
-							   </tr>
+							 <?php } ?>
+							    
 							 </tbody>
 						     </table>
 						 </div>
@@ -69,9 +69,14 @@
                     </div>
                     <!-- end panel -->
                 </div>
-		<div>
+			  
+			  <div>
             <!-- end row -->
             </div>
+		<!-- end #content -->
+        
+        
+<!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
 	<div class="modal-dialog modal-md">
 		<!-- Modal content-->
@@ -85,34 +90,38 @@
 			<div class="modal-body">
 				<div class="panel-body">
 					<div class="col-md-offset-3">
-						<form  id="FormValidation" method="post" action="" class="form-horizontal">
+						<form method="" action="" class="form-horizontal">
 							<div class="form-group">
 								<label class="col-md-2 control-label">Name</label>
 								<div class="col-md-4">
-									<input type="text" class="form-control input-sm" name="EMP_C_NAME" id="name" placeholder="" />
+									<input type="hidden" class="form-control input-sm" id="emp_id"  name="EMP_ID">
+									<input type="text" class="form-control input-sm" id="name"  name="EMP_C_NAME">
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-2 control-label">Prefix</label>
 								<div class="col-md-4">
-									<input type="text" class="form-control input-sm" name="EMP_C_PREFIX" id="prefix" placeholder="" d/>
+									<input type="text" class="form-control input-sm" id="prefix" name="EMP_C_PREFIX">
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-2 control-label">Status</label>
 								<div class="col-md-6">
-								  <label class="radio-inline">
-									 <input type="radio" name="EMP_C_ACTIVE_YN" id="active" value="Y">Active
-								   </label>
-								   <label class="radio-inline">
-									 <input type="radio" name="EMP_C_ACTIVE_YN" id="inactive" value="N">Inactive
-								 </label>
+								  	<label class="radio-inline">
+									 	<input type="radio"  name="checking" value="Y" checked="" />Active
+								   	</label>
+								   	<label class="radio-inline">
+									 	<input type="radio" name="checking" value="N"/>Inactive
+								 	</label>
+								 	<input type="hidden" name="EMP_C_ACTIVE_YN" value="Y">
 								</div>
 							</div><br>
 							<div class="form-group">
 								<label class="col-md-2 control-label"></label>
 								<div class="col-md-2">
-									<button type="submit" class="btn btn-primary btn-sm" id="save" name="insert">Create</button>
+									<button type="button" class="btn btn-primary btn-sm add" id="action" onclick="addCategory()">Create</button>
+
+									<button type="button" class="btn btn-primary btn-sm" id="update" onclick="updateCategory()">Update</button>
 								</div>
 								<div class="col-md-2">
 									 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancel</button>
@@ -125,24 +134,19 @@
 		</div>
 	</div>
 </div>
- <?php //if($_POST['insert']=='Save'){
-     if (isset($_POST["insert"])) {     
-     echo "<pre>";
-     print_r($_POST);exit;
-     
-     }?>
 <script>
-   
 $(document).ready(function() {
+	$('#action').hide();
+	$('#update').hide();
 	$('button').click(function(){
-		console.log($(this).val());
+		// console.log($(this).val());
 		if($(this).val()=='Add')
 		{
 			//alert();
 			$('.modal-title').text('Create Employee Category');
-			$('#action').text('Create');
-			$("#radio_1").prop("checked", true);
-			 $("#radio_2").prop("checked", false);
+			// $('#action').text('Create');
+			// $("#radio_1").prop("checked", true);
+			//  $("#radio_2").prop("checked", false);
 		
 			$('#name').val('');
 			$('#prefix').val('');
@@ -151,98 +155,150 @@ $(document).ready(function() {
 		{
 			//alert();
 			$('.modal-title').text('Edit Employee Category');
-			$('#action').text('Update');
-			$("#radio_1").prop("checked", true);
-			$('#name').val('Category 1');
-			$('#prefix').val('C1');
+			// $('#action').text('Update');
+			// $("#radio_1").prop("checked", true);
+			// $('#name').val('Category 1');
+			// $('#prefix').val('C1');
 		}
 		else if($(this).val()=='edit2')
 		{
 			//alert();
 			$('.modal-title').text('Edit Employee Category');
-			$('#action').text('Update');
+			// $('#action').text('Update');
 			$("#radio_2").prop("checked", true);
 			$("#radio_1").prop("checked", false);
 			$('#name').val('Category 2');
 			$('#prefix').val('C2');
 		}
 	});
-	$('#FormValidation').bootstrapValidator({
-	    message: 'This value is not valid',
-	    excluded: ':disabled',
-	    container: 'tooltip',
-	    feedbackIcons:
-	    {
-		valid: 'fa fa-check',
-		invalid: 'fa fa-times',
-		validating: 'fa fa-refresh'
-	    },
-	    fields: {
-		EMP_C_NAME: {
-		    validators: {
-			notEmpty: {
-			    message: 'The Department name is required'
-			}
-		    }
-		},
-		EMP_C_PREFIX: {
-		    validators: {
-			notEmpty: {
-			    message: 'The Department code is required'
-			}
-		    }
-		},
-		
+});
+
+function addCategory(){
+	$('#myModal').modal('hide');
+	$name=$('[name="EMP_C_NAME"]').val();
+	$prefix=$('[name="EMP_C_PREFIX"]').val();
+	$status=$('[name="EMP_C_ACTIVE_YN"]').val();
+	$.ajax({
+		type: "POST",
+	    url: "<?php echo base_url('SampleCtr/employeeCategory')?>",
+	    data: {name:$name,prefix:$prefix,status:$status},
+	    success: function(res) {
+	      	fetchCategoryDetails();	      	
 	    }
 	});
+}
+
+function fetchCategoryDetails(){
+	$.ajax({
+		type: "get",
+	    url: "<?php echo base_url('SampleCtr/employeeCategory')?>",
+	    success: function(res) {
+	      	$('#result').html(res);
+	      	// $('#data-table').dataTable().fnDraw();
+	    }
+	});
+}
+
+// function deleteCategory($this) {
+// 	$id=$this;
+// 	$.ajax({
+// 		type: "delete",
+// 	    url: "<?php echo base_url('SampleCtr/employeeCategory')?>",
+// 	    // data:{id:$id},
+// 	     dataType: 'json',
+// 	    success: function(res) {
+// 	      	console.log(res);
+// 	      	// $('#result').html(res);
+// 	    }
+// 	});
+// }
+
+// function editCategory($this){
+// 	$('#action').hide();
+// 	$('#update').show();
+// 	$id=$this;
+// 	$.ajax({
+// 		type: "put",
+// 	    url: "<?php echo base_url('SampleCtr/employeeCategory')?>",
+// 	    data:{id:$id,mode:'add'},
+// 	    dataType: "json",
+// 	    success: function(res) {
+// 	      	console.log(res);
+// 	      	$('#myModal').modal('show');
+// 	      	$('#emp_id').val(res[0].EMP_C_ID);
+// 	      	$('#name').val(res[0].EMP_C_NAME);
+// 	      	$('#prefix').val(res[0].EMP_C_PREFIX);
+// 	    }
+// 	});
+// }
+
+function editCategory($this){
+	$('#action').hide();
+	$('#update').show();
+	$id=$this;
+	$.ajax({
+		type: "get",
+	    url: "<?php echo base_url('SampleCtr/employeeCategory')?>",
+	    data:{id:$id},
+	    dataType: "json",
+	    success: function(res) {
+	      	console.log(res);
+	      	$('#myModal').modal('show');
+	      	$('#emp_id').val(res[0].EMP_C_ID);
+	      	$('#name').val(res[0].EMP_C_NAME);
+	      	$('#prefix').val(res[0].EMP_C_PREFIX);
+	    }
+	});
+}
+
+
+
+function updateCategory(){
+	$('#myModal').modal('hide');
+	var id=$('#emp_id').val();
+  	var name=$('#name').val();
+  	var prefix=$('#prefix').val();
+  	var status=$('[name="EMP_C_ACTIVE_YN"]').val();
+	$.ajax({
+		type: "put",
+	    url: "<?php echo base_url('SampleCtr/employeeCategory')?>",
+	    data:{id:id,name:name,prefix:prefix,status:status,mode:'edit'},
+	    // data:{id:id,name:name,prefix:prefix,status:status},
+	    success: function(res) {
+	      	// console.log(res);
+	      	fetchCategoryDetails();
+	    }
+	});
+}
+$('#Add').click(function(){
+	$('#action').show();
+	$('#update').hide();
+})
+
+function deleteCategory($this) {
+	$id=$this;
+	$.ajax({
+		// type: "delete",
+		type: "put",
+	    url: "<?php echo base_url('SampleCtr/employeeCategory')?>",
+	    data:{id:$id,mode:'delete'},
+	    // data:{id:$id},
+	    success: function(res) {
+	      	fetchCategoryDetails();
+	    }
+	});
+}
+
+// $('.checking').on('change', function() {
+//    $('input[name="myRadio"]:checked', '#myForm').val();
+// });
+// $('.form-horizontal input').on('change', function() {
+//    alert($('.checking:checked', '.form-horizontal').val()); 
+// });
+
+$('.form-horizontal input').on('change', function() {
+   var valu=$('input[name="checking"]:checked', '.form-horizontal').val();
+   $('input[name="EMP_C_ACTIVE_YN"]').val(valu);
+   
 });
-	$('input:radio[name="EMP_C_ACTIVE_YN"]').change(function() {
-		if ($(this).val() == 'Y') {
-			$('#active').val('Y');
-		}else if ($(this).val() == 'N') {
-			$('#inactive').val('N');
-		}
-		else {
-		  
-		}
-	});
-	function addE_Category() {
-	    $('#myModal').modal('show');
-	    $('#FormValidation').bootstrapValidator('updateStatus', 'EMP_C_NAME','VALIDATED');
-	    $('#FormValidation').bootstrapValidator('updateStatus', 'EMP_C_PREFIX','VALIDATED');
-	}
-	$("#save").click(function(){
-	    var EMP_C_NAME=$("#EMP_C_NAME").val();
-	    var EMP_D_CODE=$("#EMP_C_PREFIX").val();
-	    var EMP_C_ACTIVE_YN=$("#EMP_C_ACTIVE_YN").val();
-	    $.ajax({
-	       type: "POST",
-	       url: "<?php echo site_url('/');?>",
-	    
-	       data: {EMP_C_NAME:EMP_C_NAME,EMP_C_PREFIX:EMP_C_PREFIX,EMP_C_ACTIVE_YN:EMP_C_ACTIVE_YN},
-	       success : function(html){
-		     
-		},
-	    });
-	});
-	function editData($id){
-	       $('#id').val($id);
-	       var URL ="<?php echo site_url('/');?>";
-	       $.ajax({
-		   type: "POST",
-		   url: URL,
-		   data: {id:id},
-		   dataType:'json',
-		   success: function(json)
-		   {
-		       $('#EMP_C_NAME').val(json[0].EMP_C_NAME);
-		       $('#EMP_C_PREFIX').val(json[0].EMP_C_PREFIX);
-		       $('#EMP_C_ACTIVE_YN').val(json[0].EMP_C_ACTIVE_YN);
-		   }
-	       })
-	}
-</script>	
-	
-	
-  
-		
+</script>

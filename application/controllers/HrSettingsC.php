@@ -2,6 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class hrSettingsC extends CI_Controller {
+    function hrSettingsC()
+    {
+        parent::__construct();
+        $this->load->model('SampleMod');
+    }
 
    function index()
    {
