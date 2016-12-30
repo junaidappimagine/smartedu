@@ -37,7 +37,7 @@
 				    <br>
 				</div>
 			    </div>
-			    	<div class="panel-body">
+			    	<!--<div class="panel-body">-->
 					<div class="table-responsive">
 					     <table id="data-table" class="table table-striped table-bordered">
 						<thead>
@@ -73,9 +73,7 @@
 						    </tbody>
 					     </table>
 					 </div>
-				</div>
-
-			   
+				<!--</div>-->			   
 			</div>
 		    <!-- end panel -->
 		    </div>

@@ -37,7 +37,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label">Monthly &nbsp; :</label>
 					    <div class="col-sm-3">
-					      <input class="form-control input-sm" id=""  type="text">
+					      <input class="form-control input-sm" id="" value="25"  type="text">
 					    </div>
 					    <label class="col-sm-1 control-label">Days</label>
 					    
@@ -45,7 +45,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label">Weekly &nbsp; :</label>
 					    <div class="col-sm-3">
-					      <input class="form-control input-sm" type="text">
+					      <input class="form-control input-sm" value="7" type="text">
 					    </div>
 					    <label class="col-sm-1 control-label">Days</label>
 					</div>
