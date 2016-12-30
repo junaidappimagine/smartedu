@@ -1,4 +1,3 @@
-<?php //print_r($category);exit;?>
 <!-- begin #content -->
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
@@ -139,36 +138,23 @@ $(document).ready(function() {
 	$('#action').hide();
 	$('#update').hide();
 	$('button').click(function(){
-		// console.log($(this).val());
 		if($(this).val()=='Add')
 		{
-			//alert();
 			$('.modal-title').text('Create Employee Category');
-			// $('#action').text('Create');
-			// $("#radio_1").prop("checked", true);
-			//  $("#radio_2").prop("checked", false);
-		
 			$('#name').val('');
 			$('#prefix').val('');
 		}
 		else if($(this).val()=='edit')
 		{
-			//alert();
 			$('.modal-title').text('Edit Employee Category');
-			// $('#action').text('Update');
-			// $("#radio_1").prop("checked", true);
-			// $('#name').val('Category 1');
-			// $('#prefix').val('C1');
 		}
 		else if($(this).val()=='edit2')
 		{
-			//alert();
 			$('.modal-title').text('Edit Employee Category');
-			// $('#action').text('Update');
-			$("#radio_2").prop("checked", true);
-			$("#radio_1").prop("checked", false);
-			$('#name').val('Category 2');
-			$('#prefix').val('C2');
+			// $("#radio_2").prop("checked", true);
+			// $("#radio_1").prop("checked", false);
+			// $('#name').val('Category 2');
+			// $('#prefix').val('C2');
 		}
 	});
 });
@@ -180,7 +166,7 @@ function addCategory(){
 	$status=$('[name="EMP_C_ACTIVE_YN"]').val();
 	$.ajax({
 		type: "POST",
-	    url: "<?php echo base_url('SampleCtr/employeeCategory')?>",
+	    url: "<?php echo base_url('HrConfigCtrl/employeeCategory')?>",
 	    data: {name:$name,prefix:$prefix,status:$status},
 	    success: function(res) {
 	      	fetchCategoryDetails();	      	
@@ -191,7 +177,7 @@ function addCategory(){
 function fetchCategoryDetails(){
 	$.ajax({
 		type: "get",
-	    url: "<?php echo base_url('SampleCtr/employeeCategory')?>",
+	    url: "<?php echo base_url('HrConfigCtrl/employeeCategory')?>",
 	    success: function(res) {
 	      	$('#result').html(res);
 	      	// $('#data-table').dataTable().fnDraw();
@@ -199,46 +185,13 @@ function fetchCategoryDetails(){
 	});
 }
 
-// function deleteCategory($this) {
-// 	$id=$this;
-// 	$.ajax({
-// 		type: "delete",
-// 	    url: "<?php echo base_url('SampleCtr/employeeCategory')?>",
-// 	    // data:{id:$id},
-// 	     dataType: 'json',
-// 	    success: function(res) {
-// 	      	console.log(res);
-// 	      	// $('#result').html(res);
-// 	    }
-// 	});
-// }
-
-// function editCategory($this){
-// 	$('#action').hide();
-// 	$('#update').show();
-// 	$id=$this;
-// 	$.ajax({
-// 		type: "put",
-// 	    url: "<?php echo base_url('SampleCtr/employeeCategory')?>",
-// 	    data:{id:$id,mode:'add'},
-// 	    dataType: "json",
-// 	    success: function(res) {
-// 	      	console.log(res);
-// 	      	$('#myModal').modal('show');
-// 	      	$('#emp_id').val(res[0].EMP_C_ID);
-// 	      	$('#name').val(res[0].EMP_C_NAME);
-// 	      	$('#prefix').val(res[0].EMP_C_PREFIX);
-// 	    }
-// 	});
-// }
-
 function editCategory($this){
 	$('#action').hide();
 	$('#update').show();
 	$id=$this;
 	$.ajax({
 		type: "get",
-	    url: "<?php echo base_url('SampleCtr/employeeCategory')?>",
+	    url: "<?php echo base_url('HrConfigCtrl/employeeCategory')?>",
 	    data:{id:$id},
 	    dataType: "json",
 	    success: function(res) {
@@ -261,11 +214,9 @@ function updateCategory(){
   	var status=$('[name="EMP_C_ACTIVE_YN"]').val();
 	$.ajax({
 		type: "put",
-	    url: "<?php echo base_url('SampleCtr/employeeCategory')?>",
-	    data:{id:id,name:name,prefix:prefix,status:status,mode:'edit'},
-	    // data:{id:id,name:name,prefix:prefix,status:status},
+	    url: "<?php echo base_url('HrConfigCtrl/employeeCategory')?>",
+	    data:{id:id,name:name,prefix:prefix,status:status},
 	    success: function(res) {
-	      	// console.log(res);
 	      	fetchCategoryDetails();
 	    }
 	});
@@ -278,24 +229,14 @@ $('#Add').click(function(){
 function deleteCategory($this) {
 	$id=$this;
 	$.ajax({
-		// type: "delete",
-		type: "put",
-	    url: "<?php echo base_url('SampleCtr/employeeCategory')?>",
-	    data:{id:$id,mode:'delete'},
-	    // data:{id:$id},
+		type: "delete",
+	    url: "<?php echo base_url('HrConfigCtrl/employeeCategory')?>",
+	    data:{id:$id},
 	    success: function(res) {
 	      	fetchCategoryDetails();
 	    }
 	});
 }
-
-// $('.checking').on('change', function() {
-//    $('input[name="myRadio"]:checked', '#myForm').val();
-// });
-// $('.form-horizontal input').on('change', function() {
-//    alert($('.checking:checked', '.form-horizontal').val()); 
-// });
-
 $('.form-horizontal input').on('change', function() {
    var valu=$('input[name="checking"]:checked', '.form-horizontal').val();
    $('input[name="EMP_C_ACTIVE_YN"]').val(valu);
