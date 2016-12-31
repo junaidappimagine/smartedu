@@ -213,7 +213,7 @@ function addCategory(){
 	$.ajax({
 		type: "POST",
 	    url: "<?php echo base_url('HrConfigCtrl/employeeCategory')?>",
-	    data: {id:'',name:$name,prefix:$prefix,status:$status},
+	    data: {name:$name,prefix:$prefix,status:$status},
 	    success: function(res) {
 	    	console.log(res);
 	    	console.log(res.message);

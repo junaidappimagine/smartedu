@@ -4,10 +4,11 @@
 
 		// Employee category 
 		public function addEmployeeCategory(){
-	    	$id=$_POST['id'];
-	    	$name=$_POST['name'];
-	    	$prefix=$_POST['prefix'];
-	    	$active_yn=$_POST['status'];
+	    	// $id=$_POST['id'];
+	    	$id=$this->input->post('id');
+	    	$name=$this->input->post('name');
+	    	$prefix=$this->input->post('prefix');
+	    	$active_yn=$this->input->post('status');
 	    	$sql="SELECT count(EMP_C_NAME) FROM employee_category WHERE EMP_C_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(EMP_C_NAME)']!=0){
