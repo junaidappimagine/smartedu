@@ -27,6 +27,7 @@
                             <h4 class="panel-title">Employee Category</h4>
                         </div>
                         <div class="panel-body">
+                        <div id="alert"></div>
                             <div class="well">
                                <!-- <fieldset>
                                     <legend>Employee Category</legend>-->
@@ -37,25 +38,16 @@
                                 <!--</fieldset>-->
 				        <div class="panel-body">
 						<div class="table-responsive">
-						     <table id="data-table" class="table table-striped table-bordered">
+						     <table id="dataRespTable" class="table table-striped table-bordered">
 							 <thead>
 							    <tr>
-								<th>Employee Categories</th>
-								<th>Active</th>
-								<th>Action</th>
+									<th>Employee Categories</th>
+									<th>Active</th>
+									<th>Action</th>
 							    </tr>
 							 </thead>
 							 <tbody id="result">
-							 <?php 
-							 $category=$this->HrConfigModel->fetchCategoryDetails();
-							 foreach ($category as $cat) { ?>
-							 	<tr>
-								<td><?php echo $cat['EMP_C_NAME'];?></td>
-								<td><?php echo $cat['EMP_C_ACTIVE_YN'];?></td>
-								<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="editCategory('<?php echo $cat['EMP_C_ID'];?>')" category-id="<?php echo $cat['EMP_C_ID'];?>"><i class="fa fa-edit"></i></button>
-								<button type="button" category-id="<?php echo $cat['EMP_C_ID'];?>" onclick="deleteCategory('<?php echo $cat['EMP_C_ID'];?>')" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
-							   </tr>
-							 <?php } ?>
+							 
 							    
 							 </tbody>
 						     </table>
@@ -133,7 +125,65 @@
 		</div>
 	</div>
 </div>
+
+
 <script>
+$(document).ready(function() {
+
+    var table = $("#dataRespTable").DataTable({
+	"sDom": "<'row'<'col-md-4 no 'f><'col-md-6 trcalign' TRC><'col-md-2 yes'l>r><t><'row'<'col-md-6'i><'col-md-6'p>>",
+	"bServerSide": true,
+	"bProcessing": false,
+	"sAjaxSource": '<?php echo base_url('hrSettingsC/employeeCategoryView')?>',
+	'responsive': true,
+	//'scrollX':true,
+	"bStateSave": true,	
+	"lengthMenu": [
+	    [10, 20, 50, -1],
+	    [10, 20, 50, "All"] // change per page values here
+	],
+	// "order": [[ 0, "desc" ]],
+	"language": {
+	"sLengthMenu": "_MENU_",
+	"lengthMenu": " _MENU_ records",
+	"processing": true
+	},
+	columns: [
+	{ data: 'EMP_C_NAME'},
+	{ data: 'EMP_C_ACTIVE_YN'},
+	{
+		data: null, className: "all", 
+		    render: function( data, type, row) {
+			return '<button type="button" name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="javascript:editCategory('+data['EMP_C_ID']+');"><i class="fa fa-edit"></i></button> <button type="button" id="delete" class="btn btn-xs btn-danger" onclick="javascript:deleteCategory('+data['EMP_C_ID']+');"><i class="fa fa-trash-o"></i></button>';
+		    }
+		},
+	],
+	'fnServerData': function(sSource, aoData, fnCallback){
+	    $.ajax({
+		'dataType': 'json',
+		'type'    : 'POST',
+		'url'     : sSource,
+		'data'    : aoData,
+		'success' : fnCallback
+	    });
+	},
+	"tableTools": {
+	    "sSwfPath": "<?php echo site_url()?>assets/plugins/DataTables/swf/copy_csv_xls_pdf.swf",
+	}
+    });
+ 
+		
+//------------- Start for Processing Icon image------------------------------------//		
+$('#dataRespTable')
+    .on( 'processing.dt', function ( e, settings, processing ) {
+    // $('#processingIndicator').css( 'display', processing ? loadLoader() : unLoader());
+}).dataTable();	
+});
+
+
+
+
+
 $(document).ready(function() {
 	$('#action').hide();
 	$('#update').hide();
@@ -151,10 +201,6 @@ $(document).ready(function() {
 		else if($(this).val()=='edit2')
 		{
 			$('.modal-title').text('Edit Employee Category');
-			// $("#radio_2").prop("checked", true);
-			// $("#radio_1").prop("checked", false);
-			// $('#name').val('Category 2');
-			// $('#prefix').val('C2');
 		}
 	});
 });
@@ -167,28 +213,25 @@ function addCategory(){
 	$.ajax({
 		type: "POST",
 	    url: "<?php echo base_url('HrConfigCtrl/employeeCategory')?>",
-	    data: {name:$name,prefix:$prefix,status:$status},
+	    data: {id:'',name:$name,prefix:$prefix,status:$status},
 	    success: function(res) {
-	      	fetchCategoryDetails();	      	
+	    	console.log(res);
+	    	console.log(res.message);
+	    	if(res.status==true){
+		    	$('#alert').append('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> '+res.message+'</div>');
+		    	$('#dataRespTable').dataTable().fnDraw();
+		    }else{
+		    	$('#alert').append('<div class="alert alert-danger "><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">&times;</a><strong>Failure!</strong>'+res.message+'</div>');
+		    }
+		    setTimeout(function(){ $('#alert').empty(); }, 5000);
+	      	    	
 	    }
 	});
 }
 
-function fetchCategoryDetails(){
-	$.ajax({
-		type: "get",
-	    url: "<?php echo base_url('HrConfigCtrl/employeeCategory')?>",
-	    success: function(res) {
-	      	$('#result').html(res);
-	      	// $('#data-table').dataTable().fnDraw();
-	    }
-	});
-}
-
-function editCategory($this){
+function editCategory($id){
 	$('#action').hide();
 	$('#update').show();
-	$id=$this;
 	$.ajax({
 		type: "get",
 	    url: "<?php echo base_url('HrConfigCtrl/employeeCategory')?>",
@@ -221,11 +264,11 @@ function updateCategory(){
   	var prefix=$('#prefix').val();
   	var status=$('[name="EMP_C_ACTIVE_YN"]').val();
 	$.ajax({
-		type: "put",
+		type: "post",
 	    url: "<?php echo base_url('HrConfigCtrl/employeeCategory')?>",
 	    data:{id:id,name:name,prefix:prefix,status:status},
 	    success: function(res) {
-	      	fetchCategoryDetails();
+	      	$('#dataRespTable').dataTable().fnDraw();
 	    }
 	});
 }
@@ -234,20 +277,26 @@ $('#Add').click(function(){
 	$('#update').hide();
 })
 
-function deleteCategory($this) {
-	$id=$this;
+function deleteCategory($id) {
 	$.ajax({
 		type: "delete",
-	    url: "<?php echo base_url('HrConfigCtrl/employeeCategory')?>",
+	    url: "<?php echo base_url('HrConfigCtrl/employeeCategory?id=')?>"+$id,
 	    data:{id:$id},
 	    success: function(res) {
-	      	fetchCategoryDetails();
+	    	console.log(res.message);
+	    	console.log(res.message.message);
+	    	if(res.status==true){
+		    	$('#alert').append('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> '+res.message.message+'</div>');
+		    	$('#dataRespTable').dataTable().fnDraw();
+		    }else{
+		    	$('#alert').append('<div class="alert alert-danger "><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">&times;</a><strong>Failure!</strong>'+res.message+'</div>');
+		    }
+		    setTimeout(function(){ $('#alert').empty(); }, 5000);
 	    }
 	});
 }
 $('.form-horizontal input').on('change', function() {
    var valu=$('input[name="checking"]:checked', '.form-horizontal').val();
-   $('input[name="EMP_C_ACTIVE_YN"]').val(valu);
-   
+   $('input[name="EMP_C_ACTIVE_YN"]').val(valu);   
 });
 </script>

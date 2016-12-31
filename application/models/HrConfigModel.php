@@ -4,12 +4,22 @@
 
 		// Employee category 
 		public function addEmployeeCategory(){
+	    	$id=$_POST['id'];
 	    	$name=$_POST['name'];
 	    	$prefix=$_POST['prefix'];
 	    	$active_yn=$_POST['status'];
-	    	$sql="INSERT INTO employee_category (EMP_C_NAME, EMP_C_PREFIX, EMP_C_ACTIVE_YN) VALUES ('$name','$prefix','$active_yn')";
-			$this->db->query($sql);
-			return true;
+	    	$sql="SELECT count(EMP_C_NAME) FROM employee_category WHERE EMP_C_ID='$id'";
+			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
+			if($result[0]['count(EMP_C_NAME)']!=0){
+				$sql="UPDATE employee_category SET EMP_C_NAME='$name',EMP_C_PREFIX='$prefix',EMP_C_ACTIVE_YN='$active_yn' WHERE EMP_C_ID='$id'";
+				$this->db->query($sql);
+				return true;
+			}else {
+				$sql="INSERT INTO employee_category (EMP_C_NAME, EMP_C_PREFIX, EMP_C_ACTIVE_YN) VALUES ('$name','$prefix','$active_yn')";
+				$this->db->query($sql);
+				return true;
+			}
+	    	
 	    }
 	    function fetchCategoryDetails(){
 			$sql="SELECT * FROM employee_category order by EMP_C_ID";
@@ -17,22 +27,23 @@
 	    }
 	    function deleteCategory($id){
 	    	$sql="DELETE FROM employee_category WHERE EMP_C_ID='$id'";
-	    	return $result = $this->db->query($sql);
+	    	$result = $this->db->query($sql);
+	    	return $this->db->affected_rows();
 	    }
 	    function getCategory_details($id){
 	    	$sql="SELECT * FROM employee_category where EMP_C_ID ='$id'";
 			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
 	    }
-	    function updateCategory($id,$name,$prefix,$status){
-	    	$data = array(  
-				'EMP_C_NAME' => $name,  
-				'EMP_C_PREFIX' => $prefix,
-				'EMP_C_ACTIVE_YN' => $status
-			);  
-			$this->db->where('EMP_C_ID', $id);  
-			$this->db->update('employee_category', $data);
-			return true;
-	    }
+	  //   function updateCategory($id,$name,$prefix,$status){
+	  //   	$data = array(  
+			// 	'EMP_C_NAME' => $name,  
+			// 	'EMP_C_PREFIX' => $prefix,
+			// 	'EMP_C_ACTIVE_YN' => $status
+			// );  
+			// $this->db->where('EMP_C_ID', $id);  
+			// $this->db->update('employee_category', $data);
+			// return true;
+	  //   }
 
 	    // ---------------------------------------- Employee department ---------------------------------------------------
 

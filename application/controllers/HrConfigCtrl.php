@@ -20,35 +20,28 @@ class HrConfigCtrl extends REST_Controller {
 		}
     }
     function employeeCategory_get(){
-		$id=$this->get('id');
-		if ($id == null){
-			$result=$this->HrConfigModel->fetchCategoryDetails();
-			foreach ($result as $cat) { ?>
-				<tr>
-					<td> <?php echo $cat['EMP_C_NAME'];?></td>
-					<td><?php echo $cat['EMP_C_ACTIVE_YN'];?></td>
-					<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="editCategory('<?php echo $cat['EMP_C_ID'];?>')" category-id="<?php echo $cat['EMP_C_ID'];?>"><i class="fa fa-edit"></i></button>
-					<button type="button" category-id="<?php echo $cat['EMP_C_ID'];?>" onclick="deleteCategory('<?php echo $cat['EMP_C_ID'];?>')" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
-			   </tr>
-			<?php } 
-		}else {
-			$result=$this->HrConfigModel->getCategory_details($id);
-    		echo json_encode($result);
-		}	
+    	$id=$this->get('id');
+    	$result=$this->HrConfigModel->getCategory_details($id);
+    	echo json_encode($result);		
 	}
-	function employeeCategory_put(){
-    	$id=$this->put('id');
-		$name=$this->put('name');
-		$prefix=$this->put('prefix');
-		$status=$this->put('status');
-		$result=$this->HrConfigModel->updateCategory($id,$name,$prefix,$status);
-		if($result==true){
-			echo "success";
-		}
-    }
+
     function employeeCategory_delete(){
     	$id=$this->delete('id');
-    	$result=$this->HrConfigModel->deleteCategory($id);
+    	if ($id == null)
+        {
+            $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);
+        }else{
+			$result=$this->HrConfigModel->deleteCategory($id);
+			if($result!=0){
+				$message = [
+				'id' => $id,
+				'message' => 'Record Deleted Successfully'
+				];
+				$this->set_response(['status'=>TRUE,'message'=>$message], REST_Controller::HTTP_OK);
+			}else{
+				$this->set_response(['status'=>FALSE,'message'=>'There is no Record found'], REST_Controller::HTTP_NOT_FOUND);
+			}
+		}  
     }
 
     

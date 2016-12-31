@@ -6,6 +6,7 @@ class hrSettingsC extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('HrConfigModel');
+        $this->load->library('Datatables');
     }
 
    function index()
@@ -19,6 +20,11 @@ class hrSettingsC extends CI_Controller {
         $this->load->view('header');
         $this->load->view('hrSetting/employee_category');
         $this->load->view('footer');
+    }
+    function employeeCategoryView(){
+        $this->datatables->select('EMP_C_ID, EMP_C_NAME, EMP_C_PREFIX, EMP_C_ACTIVE_YN')
+        ->from('employee_category');
+        echo $this->datatables->generate();
     }
     function employee_department()
     {

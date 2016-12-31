@@ -34,8 +34,20 @@
 	<script src="<?php echo base_url(); ?>assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/form-wizards.demo.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>assets/bootstrap-filestyle/bootstrap-filestyle.min.js"> </script>
-	
 	<script type="text/javascript" src="<?php echo base_url();?>assets/js/bootbox.min.js"> </script>
+
+	<!-- Added Vijayaraj 31-12-16 -->
+	<script src="<?php echo base_url(); ?>assets/plugins/DataTables/js/jquery.dataTables.js"></script>
+	<script src="<?php echo base_url(); ?>assets/plugins/DataTables/js/dataTables.autoFill.js"></script>
+	<script src="<?php echo base_url(); ?>assets/plugins/DataTables/js/dataTables.colVis.js"></script>
+	<script src="<?php echo base_url(); ?>assets/plugins/DataTables/js/dataTables.fixedHeader.js"></script>
+	<script src="<?php echo base_url(); ?>assets/plugins/DataTables/js/dataTables.keyTable.js"></script>
+	<script src="<?php echo base_url(); ?>assets/plugins/DataTables/js/dataTables.tableTools.js"></script>
+	<script src="<?php echo base_url(); ?>assets/plugins/DataTables/js/dataTables.responsive.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/table-manage-responsive.demo.min.js"></script>	
+	<script src="<?php echo base_url(); ?>assets/plugins/gritter/js/jquery.gritter.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/table-manage-combine.demo.min.js"></script>
+
 
 <script>
 		$(document).ready(function() {
