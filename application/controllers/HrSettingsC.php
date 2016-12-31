@@ -101,5 +101,24 @@ class hrSettingsC extends CI_Controller {
 	$this->load->view('hrSetting/advancedSearch');
 	$this->load->view('footer');
     }
-   
+    function employeeDepartmentView(){
+        $this->datatables->select('EMP_D_ID, EMP_D_NAME, EMP_D_CODE, EMP_D_STATUS')
+        ->from('employee_department');
+        echo $this->datatables->generate();
+    }
+    function employeeGradeView(){
+        $this->datatables->select('EMP_G_ID, EMP_G_NAME, EMP_G_PRIORITY, EMP_G_MAX_DAY,EMP_G_MAX_WEEK,EMP_G_ACTIVE_YN')
+        ->from('employee_grade');
+        echo $this->datatables->generate();
+    }
+    function employeePositionView(){
+        $this->datatables->select('EMP_P_ID, EMP_P_CATEGORY_ID, EMP_P_NAME, EMP_P_ACTIVE_YN')
+        ->from('employee_position');
+        echo $this->datatables->generate();
+    }
+    function employeeBankDeatailsView(){
+        $this->datatables->select('EMP_BNK_ID, EMP_BNK_NAME, EMP_BNK_ACTIVE_YN')
+        ->from('employee_bank_details');
+        echo $this->datatables->generate();
+    }
 }
