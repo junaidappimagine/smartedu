@@ -116,8 +116,8 @@ class HrConfigCtrl extends REST_Controller {
 				<tr>
 					<td> <?php echo $cat['EMP_P_NAME'];?></td>
 					<td><?php echo $cat['EMP_P_ACTIVE_YN'];?></td>
-					<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="editCategory('<?php echo $cat['EMP_P_ID'];?>')" category-id="<?php echo $cat['EMP_P_ID'];?>"><i class="fa fa-edit"></i></button>
-					<button type="button" category-id="<?php echo $cat['EMP_P_ID'];?>" onclick="deleteCategory('<?php echo $cat['EMP_P_ID'];?>')" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
+					<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="editPositions('<?php echo $cat['EMP_P_ID'];?>')" category-id="<?php echo $cat['EMP_P_ID'];?>"><i class="fa fa-edit"></i></button>
+					<button type="button" onclick="deletePositions('<?php echo $cat['EMP_P_ID'];?>')" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
 			   </tr>
 			<?php } 
 		}else {
@@ -159,8 +159,8 @@ class HrConfigCtrl extends REST_Controller {
 				<tr>
 					<td> <?php echo $grade['EMP_G_NAME'];?></td>
 					<td><?php echo $grade['EMP_G_ACTIVE_YN'];?></td>
-					<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="editGrade('<?php echo $grade['EMP_G_ID'];?>')"><i class="fa fa-edit"></i></button>
-					<button type="button" onclick="deleteGrade('<?php echo $grade['EMP_G_ID'];?>')" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
+					<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="editGrades('<?php echo $grade['EMP_G_ID'];?>')"><i class="fa fa-edit"></i></button>
+					<button type="button" onclick="deleteGrades('<?php echo $grade['EMP_G_ID'];?>')" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
 			   </tr>
 			<?php } 
 		}else {
@@ -205,8 +205,8 @@ class HrConfigCtrl extends REST_Controller {
 					<td> <?php echo $leave_type['EMP_L_NAME'];?></td>
 					<td><?php echo $leave_type['EMP_L_CODE'];?></td>
 					<td><?php echo $leave_type['EMP_L_VALID_FROM'];?></td>
-					<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="editGrade('<?php echo $leave_type['EMP_L_ID'];?>')"><i class="fa fa-edit"></i></button>
-					<button type="button" onclick="deleteGrade('<?php echo $leave_type['EMP_L_ID'];?>')" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
+					<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="editLeaveTypes('<?php echo $leave_type['EMP_L_ID'];?>')"><i class="fa fa-edit"></i></button>
+					<button type="button" onclick="deleteLeaveTypes('<?php echo $leave_type['EMP_L_ID'];?>')" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
 			   </tr>
 			<?php } 
 		}else {
@@ -252,8 +252,8 @@ class HrConfigCtrl extends REST_Controller {
 				<tr>
 					<td> <?php echo $bank['EMP_BNK_NAME'];?></td>
 					<td><?php echo $bank['EMP_BNK_ACTIVE_YN'];?></td>
-					<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="editGrade('<?php echo $bank['EMP_BNK_ID'];?>')"><i class="fa fa-edit"></i></button>
-					<button type="button" onclick="deleteGrade('<?php echo $bank['EMP_BNK_ID'];?>')" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
+					<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="editBankDetail('<?php echo $bank['EMP_BNK_ID'];?>')"><i class="fa fa-edit"></i></button>
+					<button type="button" onclick="deleteBankDetail('<?php echo $bank['EMP_BNK_ID'];?>')" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
 			   </tr>
 			<?php } 
 		}else {
