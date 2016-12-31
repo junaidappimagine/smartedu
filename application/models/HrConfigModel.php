@@ -34,7 +34,7 @@
 			return true;
 	    }
 
-	    // Employee department
+	    // ---------------------------------------- Employee department ---------------------------------------------------
 
 	    function addDepartment_Details(){
 	    	$name=$_POST['name'];
@@ -69,13 +69,13 @@
 			return true;
 	    }
 
-	    // Employee Position
+	    // ---------------------------------------------- Employee Position ----------------------------------------------------
 
 	    function addPosition_Details(){
-	    	$id=$_POST['EMP_P_CATEGORY_ID'];
-	    	$name=$_POST['EMP_P_NAME'];
+	    	$cat_id=$_POST['EMP_P_CATEGORY_ID'];
+	    	$pos_name=$_POST['EMP_P_NAME'];
 	    	$status=$_POST['EMP_P_ACTIVE_YN'];
-	    	$sql="INSERT INTO employee_position (EMP_P_CATEGORY_ID, EMP_P_NAME, EMP_P_ACTIVE_YN) VALUES ('$id','$name','$status')";
+	    	$sql="INSERT INTO employee_position (EMP_P_CATEGORY_ID, EMP_P_NAME, EMP_P_ACTIVE_YN) VALUES ('$cat_id','$pos_name','$status')";
 			$this->db->query($sql);
 			return true;
 	    }
@@ -91,11 +91,11 @@
 	    	$sql="SELECT * FROM employee_position where EMP_P_ID ='$id'";
 			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
 	    }
-	    function updatePosition($id,$name,$prefix,$status){
+	    function updatePosition($id,$name,$cat_code,$status){
 	    	$data = array(  
-				'EMP_D_NAME' => $name,  
-				'EMP_D_CODE' => $prefix,
-				'EMP_D_STATUS' => $status
+	    		'EMP_P_CATEGORY_ID' => $cat_code,
+				'EMP_P_NAME' => $name,  
+				'EMP_P_ACTIVE_YN' => $status
 			);  
 			$this->db->where('EMP_P_ID', $id);  
 			$this->db->update('employee_position', $data);
@@ -103,7 +103,7 @@
 	    }
 
 
-	    // Employee grade
+	    // ---------------------------------------- Employee grade -----------------------------------------------------
 
 	    function addGrade_Details(){
 	    	$name=$_POST['grade_name'];
@@ -141,5 +141,80 @@
 	    	return $result = $this->db->query($sql);
 	    }
 
+	    // ----------------------------------------- leave Type ------------------------------------------------------
+
+	    function addleaveType(){
+	    	$name=$_POST['EMP_L_NAME'];
+	    	$leave_code=$_POST['EMP_L_CODE'];
+	    	$leave_count=$_POST['EMP_L_COUNT'];
+	    	$valid_from=$_POST['EMP_L_VALID_FROM'];
+	    	$leave_bal=$_POST['EMP_L_ALLOW_LEAVE_BAL'];
+	    	$no_leave_count=$_POST['EMP_L_ALLOW_BAL_COUNT'];
+	    	$add_leave=$_POST['EMP_L_ADDI_LEAVE_DED_YN'];
+	    	$status=$_POST['EMP_L_STATUS'];
+	    	$sql="INSERT INTO employee_leave_type (EMP_L_NAME,EMP_L_CODE,EMP_L_COUNT,EMP_L_VALID_FROM,EMP_L_ALLOW_LEAVE_BAL,EMP_L_ALLOW_BAL_COUNT,EMP_L_ADDI_LEAVE_DED_YN,EMP_L_STATUS) VALUES ('$name','$leave_code','$leave_count','$valid_from','$leave_bal','$no_leave_count','$add_leave','$status')";
+			$this->db->query($sql);
+			return true;
+	    }
+	    function fetchLeaveType_Details(){
+			$sql="SELECT * FROM employee_leave_type";
+	    	return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+	    }
+	    
+	    function fetchPerticularLeaveType_Details($id){
+	    	$sql="SELECT * FROM employee_leave_type where EMP_L_ID ='$id'";
+			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+	    }
+	    function updateLeaveType($id,$name,$code,$count,$valid_from,$leave_bal,$bal_count,$add_leave,$status){
+	    	$data = array(		    	
+				'EMP_L_NAME' => $name,
+				'EMP_L_CODE' =>  $code,
+				'EMP_L_COUNT' =>  $count,
+				'EMP_L_VALID_FROM' =>  $valid_from,
+				'EMP_L_ALLOW_LEAVE_BAL' =>  $leave_bal,
+				'EMP_L_ALLOW_BAL_COUNT' =>  $bal_count,
+				'EMP_L_ADDI_LEAVE_DED_YN' =>  $add_leave,
+				'EMP_L_STATUS' =>  $status
+			);
+			$this->db->where('EMP_L_ID', $id);  
+			$this->db->update('employee_leave_type', $data);
+			return true;
+	    }
+	    function employeeLeaveType_delete($id){
+	    	$sql="DELETE FROM employee_leave_type WHERE EMP_L_ID='$id'";
+	    	return $result = $this->db->query($sql);
+	    }
+
+	    // ------------------------------------------ Bank details ----------------------------------------------------------
+
+	    function addBankDetails(){
+	    	$name=$_POST['EMP_BNK_NAME'];
+	    	$status=$_POST['EMP_BNK_ACTIVE_YN'];
+	    	$sql="INSERT INTO employee_bank_details (EMP_BNK_NAME,EMP_BNK_ACTIVE_YN) VALUES ('$name','$status')";
+			$this->db->query($sql);
+			return true;
+	    }
+	    function fetchAllBankDetails(){
+			$sql="SELECT * FROM employee_bank_details";
+	    	return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+	    }
+	    
+	    function fetchBank_Details($id){
+	    	$sql="SELECT * FROM employee_bank_details where EMP_BNK_ID ='$id'";
+			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+	    }
+	    function updateBankDetails($id,$name,$active){
+	    	$data = array(		    	
+				'EMP_BNK_NAME' => $name,
+				'EMP_BNK_ACTIVE_YN' =>  $active
+			);
+			$this->db->where('EMP_BNK_ID', $id);  
+			$this->db->update('employee_bank_details', $data);
+			return true;
+	    }
+	    function deleteBankDetails($id){
+	    	$sql="DELETE FROM employee_bank_details WHERE EMP_BNK_ID='$id'";
+	    	return $result = $this->db->query($sql);
+	    }
 	}
 ?>

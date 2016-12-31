@@ -53,7 +53,7 @@ class HrConfigCtrl extends REST_Controller {
 
     
 
-    // Employee Department
+    // ------------------------------------------------------- Employee Department ---------------------------------------------
 
     function employeeDepartment_post()
     {
@@ -97,7 +97,7 @@ class HrConfigCtrl extends REST_Controller {
     }
 
 
-    // Employee Position
+    // ---------------------------------------------------Employee Position ----------------------------------------
 
     function employeePosition_post()
     {
@@ -128,9 +128,9 @@ class HrConfigCtrl extends REST_Controller {
 	function employeePosition_put(){
     	$id=$this->put('id');
 		$name=$this->put('name');
-		$prefix=$this->put('prefix');
+		$cat_code=$this->put('cat_code');
 		$status=$this->put('status');
-		$result=$this->HrConfigModel->updatePosition($id,$name,$prefix,$status);
+		$result=$this->HrConfigModel->updatePosition($id,$name,$cat_code,$status);
 		if($result==true){
 			echo "success";
 		}
@@ -140,7 +140,7 @@ class HrConfigCtrl extends REST_Controller {
     	$result=$this->HrConfigModel->deletePosition($id);
     }
 
-    // Employee Grade
+    // -------------------------------------------- Employee Grade --------------------------------------------
 
     function employeeGrade_post()
     {
@@ -183,6 +183,96 @@ class HrConfigCtrl extends REST_Controller {
     function employeeGrade_delete(){
     	$id=$this->delete('id');
     	$result=$this->HrConfigModel->deleteGrade($id);
+    }
+
+    // ------------------------------------------ Employee Leave Type ----------------------------------------------------
+
+
+    function employeeLeaveType_post(){
+    	$result=$this->HrConfigModel->addleaveType();
+    	if($result==true){
+			$this->set_response(['status' =>TRUE,'message'=>"Record Inserted Successfully"], REST_Controller::HTTP_CREATED);
+		}else{
+			$this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
+		}
+    }
+    function employeeLeaveType_get(){
+		$id=$this->get('id');
+		if ($id == null){
+			$result=$this->HrConfigModel->fetchLeaveType_Details();
+			foreach ($result as $leave_type) { ?>
+				<tr>
+					<td> <?php echo $leave_type['EMP_L_NAME'];?></td>
+					<td><?php echo $leave_type['EMP_L_CODE'];?></td>
+					<td><?php echo $leave_type['EMP_L_VALID_FROM'];?></td>
+					<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="editGrade('<?php echo $leave_type['EMP_L_ID'];?>')"><i class="fa fa-edit"></i></button>
+					<button type="button" onclick="deleteGrade('<?php echo $leave_type['EMP_L_ID'];?>')" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
+			   </tr>
+			<?php } 
+		}else {
+			$result=$this->HrConfigModel->fetchPerticularLeaveType_Details($id);
+    		echo json_encode($result);
+		}	
+	}
+	function employeeLeaveType_put(){
+    	$id=$this->put('id');
+		$name=$this->put('EMP_L_NAME');
+		$code=$this->put('EMP_L_CODE');
+		$count=$this->put('EMP_L_COUNT');
+		$valid_from=$this->put('EMP_L_VALID_FROM');
+		$leave_bal=$this->put('EMP_L_ALLOW_LEAVE_BAL');
+		$bal_count=$this->put('EMP_L_ALLOW_BAL_COUNT');
+		$add_leave=$this->put('EMP_L_ADDI_LEAVE_DED_YN');
+		$status=$this->put('EMP_L_STATUS');
+		$result=$this->HrConfigModel->updateLeaveType($id,$name,$code,$count,$valid_from,$leave_bal,$bal_count,$add_leave,$status);
+		if($result==true){
+			echo "success";
+		}
+    }
+    function employeeLeaveType_delete(){
+    	$id=$this->delete('id');
+    	$result=$this->HrConfigModel->deleteLeaveType($id);
+    }
+
+    // ------------------------------------------ Bank Details --------------------------------------------------------------
+
+    function employeeBankdetails_post(){
+    	$result=$this->HrConfigModel->addBankDetails();
+    	if($result==true){
+			$this->set_response(['status' =>TRUE,'message'=>"Record Inserted Successfully"], REST_Controller::HTTP_CREATED);
+		}else{
+			$this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
+		}
+    }
+    function employeeBankdetails_get(){
+		$id=$this->get('id');
+		if ($id == null){
+			$result=$this->HrConfigModel->fetchAllBankDetails();
+			foreach ($result as $bank) { ?>
+				<tr>
+					<td> <?php echo $bank['EMP_BNK_NAME'];?></td>
+					<td><?php echo $bank['EMP_BNK_ACTIVE_YN'];?></td>
+					<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="editGrade('<?php echo $bank['EMP_BNK_ID'];?>')"><i class="fa fa-edit"></i></button>
+					<button type="button" onclick="deleteGrade('<?php echo $bank['EMP_BNK_ID'];?>')" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
+			   </tr>
+			<?php } 
+		}else {
+			$result=$this->HrConfigModel->fetchBank_Details($id);
+    		echo json_encode($result);
+		}	
+	}
+	function employeeBankdetails_put(){
+    	$id=$this->put('bank_id');
+		$name=$this->put('bank_name');
+		$active=$this->put('bank_active');
+		$result=$this->HrConfigModel->updateBankDetails($id,$name,$active);
+		if($result==true){
+			echo "success";
+		}
+    }
+    function employeeBankdetails_delete(){
+    	$id=$this->delete('id');
+    	$result=$this->HrConfigModel->deleteBankDetails($id);
     }
 
 }
