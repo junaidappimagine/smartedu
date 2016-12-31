@@ -1,20 +1,24 @@
 
     $('#Batch').on('change',function(){
+$('#Subject').selectpicker('refresh');
     var data=$('#Batch').val();
     //console.log(data);
     if (data == 'A') {
         console.log('tamil,english');
         $("#Subject").empty().append('<option selected >'+'Select Subject'+'</option>');
         $("#Subject").append('<option value="'+'English'+'">'+'English'+'</option>');
-        $("#Subject").append('<option value="'+'Tamil'+'">'+'Tamil'+'</option>');        
+        $("#Subject").append('<option value="'+'Tamil'+'">'+'Tamil'+'</option>');
+	$('#Subject').selectpicker('refresh');
     }else if (data == 'B') {
         console.log('maths,science');
         $("#Subject").empty().append('<option selected >'+'Select Subject'+'</option>');
         $('#Subject').append('<option value="Maths">'+'Maths'+'</option>');
         $('#Subject').append('<option value="science">'+'science'+'</option>');
+	$('#Subject').selectpicker('refresh');
     }else{
         console.log('no subject');
         $("#Subject").empty().append('<option selected >'+'Select Subject'+'</option>');
+	$('#Subject').selectpicker('refresh');
     }
     });
     $('#Subject').on('change',function(){
