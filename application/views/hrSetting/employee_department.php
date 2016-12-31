@@ -43,19 +43,18 @@
 								<th>Action</th>
 							    </tr>
 							 </thead>
-							 <tbody>
-							        <tr>
-									<td> <span class="badge badge-success">-</span> &nbsp;&nbsp;Department 1(D1)</td>
-									 <td>Y</td>
-									<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button>
-									<button type="button"  name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
-								</tr>
-							        <tr>
-									<td><span class="badge badge-danger">-</span>&nbsp;&nbsp;Department 2(D2)</td>
-															 <td>N</td>
-									<td><button type="button" name="edit"  id="edit2" value="edit2" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button>
-									<button onclick="" name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
-								</tr>
+							 <tbody id="result">
+							 <?php 
+							 $Department=$this->HrConfigModel->fetchDepartment_Details();
+							 foreach ($Department as $dept) { ?>
+							 	<tr>
+									<td> <?php echo $dept['EMP_D_NAME'];?></td>
+									<td><?php echo $dept['EMP_D_STATUS'];?></td>
+									<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="editDepartment('<?php echo $dept['EMP_D_ID'];?>')" category-id="<?php echo $dept['EMP_D_ID'];?>"><i class="fa fa-edit"></i></button>
+									<button type="button" category-id="<?php echo $dept['EMP_D_ID'];?>" onclick="deleteDepartment('<?php echo $dept['EMP_D_ID'];?>')" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
+							   </tr>
+							 <?php } ?>
+							    
 							 </tbody>
 						     </table>
 						 </div>
@@ -86,16 +85,17 @@
 							<div class="form-group">
 								<label class="col-md-4 control-label">Department Name</label>
 								<div class="col-md-4">
-									<input type="text" class="form-control input-sm" id="name" name="EMP_D_NAME" placeholder="" />
+									<input type="hidden" class="form-control input-sm" id="Dept_Id"  name="DEPT_ID">
+									<input type="text" class="form-control input-sm" id="Dept_Name" name="EMP_D_NAME" placeholder="" />
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-4 control-label">Department Code</label>
 								<div class="col-md-4">
-									<input type="text" class="form-control input-sm" id="prefix" name="EMP_D_CODE" placeholder="" d/>
+									<input type="text" class="form-control input-sm" id="Dept_Code" name="EMP_D_CODE" placeholder="" d/>
 								</div>
 							</div>
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label class="col-md-4 control-label">Status</label>
 								<div class="col-md-6">
 								  <label class="radio-inline">
@@ -105,11 +105,28 @@
 										<input type="radio" name="EMP_D_STATUS" id="radio_2" value="N">Inactive
 								  </label>
 								</div>
+							</div><br> -->
+							<div class="form-group">
+								<label class="col-md-2 control-label">Status</label>
+								<div class="col-md-6">
+								  	<label class="radio-inline">
+									 	<input type="radio"  name="checking" id="first" value="Y" checked="" />Active
+								   	</label>
+								   	<label class="radio-inline">
+									 	<input type="radio" name="checking" id="second" value="N"/>Inactive
+								 	</label>
+								 	<input type="hidden" name="EMP_D_STATUS" value="Y">
+								</div>
 							</div><br>
 							<div class="form-group">
 								<label class="col-md-4 control-label"></label>
-								<div class="col-md-2">
+								<!-- <div class="col-md-2">
 									<button type="submit" class="btn btn-primary btn-sm" id="action" >Create</button>
+								</div> -->
+								<div class="col-md-2">
+									<button type="button" class="btn btn-primary btn-sm add" id="action" onclick="addDepartment()">Create</button>
+
+									<button type="button" class="btn btn-primary btn-sm" id="update" onclick="updateDepartment()">Update</button>
 								</div>
 								<div class="col-md-2">
 									 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancel</button>
@@ -122,7 +139,7 @@
         </div>
 	</div>
 </div>
-<script>
+<!-- <script>
 $(document).ready(function() {
 	$('button').click(function(){
 		console.log($(this).val());
@@ -223,7 +240,120 @@ $(document).ready(function() {
 	       }
 	   })
        }
-</script>	
+</script>	 -->
+
+<script>
+$(document).ready(function() {
+	$('#action').hide();
+	$('#update').hide();
+	$('button').click(function(){
+		if($(this).val()=='Add')
+		{
+			$('.modal-title').text('Create Employee Department');
+			$('#Dept_Name').val('');
+			$('#Dept_Code').val('');
+		}
+		else if($(this).val()=='edit')
+		{
+			$('.modal-title').text('Edit Employee Department');
+		}
+		else if($(this).val()=='edit2')
+		{
+			$('.modal-title').text('Edit Employee Department');
+		}
+	});
+});
+function addE_Department() {
+	$('#myModal').modal('show');
+}
+function addDepartment(){
+	$('#myModal').modal('hide');
+	$name=$('[name="EMP_D_NAME"]').val();
+	$code=$('[name="EMP_D_CODE"]').val();
+	$status=$('[name="EMP_D_STATUS"]').val();
+	$.ajax({
+		type: "POST",
+	    url: "<?php echo base_url('HrConfigCtrl/employeeDepartment')?>",
+	    data: {name:$name,code:$code,status:$status},
+	    success: function(res) {
+	      	fetchDepartmentDetails();	      	
+	    }
+	});
+}
+
+function fetchDepartmentDetails(){
+	$.ajax({
+		type: "get",
+	    url: "<?php echo base_url('HrConfigCtrl/employeeDepartment')?>",
+	    success: function(res) {
+	      	$('#result').html(res);
+	    }
+	});
+}
+
+function editDepartment($this){
+	$('#action').hide();
+	$('#update').show();
+	$id=$this;
+	$.ajax({
+		type: "get",
+	    url: "<?php echo base_url('HrConfigCtrl/employeeDepartment')?>",
+	    data:{id:$id},
+	    dataType: "json",
+	    success: function(res) {
+	      	console.log(res);
+	      	$('#myModal').modal('show');
+	      	$('#Dept_Id').val(res[0].EMP_D_ID);
+	      	$('#Dept_Name').val(res[0].EMP_D_NAME);
+	      	$('#Dept_Code').val(res[0].EMP_D_CODE);
+	      	$('[name="EMP_D_STATUS"]').val(res[0].EMP_D_STATUS);
+	      	if(res[0].EMP_D_STATUS=='N'){
+	      		$('#second').attr('checked',true);
+	      		$('#first').attr('checked',false);
+	      	}else {
+	      		$('#second').attr('checked',false);
+	      		$('#first').attr('checked',true);
+	      	}
+	    }
+	});
+}
+function updateDepartment(){
+	$('#myModal').modal('hide');
+	var dept_id=$('#Dept_Id').val();
+  	var dept_name=$('#Dept_Name').val();
+  	var dept_code=$('#Dept_Code').val();
+  	var dept_status=$('[name="EMP_D_STATUS"]').val();
+	$.ajax({
+		type: "put",
+	    url: "<?php echo base_url('HrConfigCtrl/employeeDepartment')?>",
+	    data:{dept_id:dept_id,dept_name:dept_name,dept_code:dept_code,dept_status:dept_status},
+	    success: function(res) {
+	      	fetchDepartmentDetails();
+	    }
+	});
+}
+$('#Add').click(function(){
+	$('#action').show();
+	$('#update').hide();
+})
+
+function deleteDepartment($this) {
+	$id=$this;
+	$.ajax({
+		type: "delete",
+	    url: "<?php echo base_url('HrConfigCtrl/employeeDepartment')?>",
+	    data:{id:$id},
+	    success: function(res) {
+	      	fetchDepartmentDetails();
+	    }
+	});
+}
+$('.form-horizontal input').on('change', function() {
+   var valu=$('input[name="checking"]:checked', '.form-horizontal').val();
+   $('input[name="EMP_D_STATUS"]').val(valu);
+   
+});
+</script>
 	
 	
   

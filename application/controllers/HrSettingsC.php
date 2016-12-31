@@ -5,7 +5,7 @@ class hrSettingsC extends CI_Controller {
     function hrSettingsC()
     {
         parent::__construct();
-        $this->load->model('SampleMod');
+        $this->load->model('HrConfigModel');
     }
 
    function index()
