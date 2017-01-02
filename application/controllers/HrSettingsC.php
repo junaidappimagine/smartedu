@@ -121,4 +121,9 @@ class hrSettingsC extends CI_Controller {
         ->from('employee_bank_details');
         echo $this->datatables->generate();
     }
+    function employeeLeaveTypeView(){
+        $this->datatables->select('EMP_L_ID, EMP_L_NAME, EMP_L_CODE,EMP_L_COUNT,EMP_L_VALID_FROM,EMP_L_ALLOW_LEAVE_BAL,EMP_L_ALLOW_BAL_COUNT,EMP_L_ADDI_LEAVE_DED_YN,EMP_L_STATUS')
+        ->from('employee_leave_type');
+        echo $this->datatables->generate();
+    }
 }
