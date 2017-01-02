@@ -70,7 +70,7 @@
 	    	$sql="SELECT count(EMP_P_NAME) FROM employee_position WHERE EMP_P_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(EMP_P_NAME)']!=0){
-				$sql="UPDATE employee_department SET EMP_P_CATEGORY_ID='$cat_id',EMP_P_NAME='$name',EMP_P_ACTIVE_YN='$status' WHERE EMP_P_ID='$id'";
+				$sql="UPDATE employee_position SET EMP_P_CATEGORY_ID='$cat_id',EMP_P_NAME='$name',EMP_P_ACTIVE_YN='$status' WHERE EMP_P_ID='$id'";
 				$this->db->query($sql);
 				return true;
 			}else {
