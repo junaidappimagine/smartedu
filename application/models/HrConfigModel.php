@@ -1,6 +1,6 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
-	class HrConfigModel extends CI_Model {
+	class hrConfigModel extends CI_Model {
 
 		// Employee category 
 		public function addEmployeeCategory(){

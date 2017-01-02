@@ -5,14 +5,14 @@ class HrConfigCtrl extends REST_Controller {
     function HrConfigCtrl()
     {
 		parent::__construct();
-		$this->load->model('HrConfigModel');
+		$this->load->model('hrConfigModel');
     }
 
     // Employee category
 
     function employeeCategory_post()
     {
-    	$result=$this->HrConfigModel->addEmployeeCategory();
+    	$result=$this->hrConfigModel->addEmployeeCategory();
     	if($result==true){
 			$this->set_response(['status' =>TRUE,'message'=>"Record Inserted Successfully"], REST_Controller::HTTP_CREATED);
 		}else{
@@ -21,7 +21,7 @@ class HrConfigCtrl extends REST_Controller {
     }
     function employeeCategory_get(){
     	$id=$this->get('id');
-    	$result=$this->HrConfigModel->getCategory_details($id);
+    	$result=$this->hrConfigModel->getCategory_details($id);
     	echo json_encode($result);		
 	}
 
@@ -31,7 +31,7 @@ class HrConfigCtrl extends REST_Controller {
         {
             $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);
         }else{
-			$result=$this->HrConfigModel->deleteCategory($id);
+			$result=$this->hrConfigModel->deleteCategory($id);
 			if($result!=0){
 				$message = [
 				'id' => $id,
@@ -50,7 +50,7 @@ class HrConfigCtrl extends REST_Controller {
 
     function employeeDepartment_post()
     {
-    	$result=$this->HrConfigModel->addDepartment_Details();
+    	$result=$this->hrConfigModel->addDepartment_Details();
     	if($result==true){
 			$this->set_response(['status' =>TRUE,'message'=>"Record Inserted Successfully"], REST_Controller::HTTP_CREATED);
 		}else{
@@ -59,7 +59,7 @@ class HrConfigCtrl extends REST_Controller {
     }
     function employeeDepartment_get(){
 		$id=$this->get('id');
-		$result=$this->HrConfigModel->fetchDaprtment_Details($id);
+		$result=$this->hrConfigModel->fetchDaprtment_Details($id);
     	echo json_encode($result);
 	}
     function employeeDepartment_delete(){
@@ -68,7 +68,7 @@ class HrConfigCtrl extends REST_Controller {
         {
             $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);
         }else{
-			$result=$this->HrConfigModel->deleteDepartment($id);
+			$result=$this->hrConfigModel->deleteDepartment($id);
 			if($result!=0){
 				$message = [
 				'id' => $id,
@@ -86,7 +86,7 @@ class HrConfigCtrl extends REST_Controller {
 
     function employeePosition_post()
     {
-    	$result=$this->HrConfigModel->addPosition_Details();
+    	$result=$this->hrConfigModel->addPosition_Details();
     	if($result==true){
 			$this->set_response(['status' =>TRUE,'message'=>"Record Inserted Successfully"], REST_Controller::HTTP_CREATED);
 		}else{
@@ -95,7 +95,7 @@ class HrConfigCtrl extends REST_Controller {
     }
     function employeePosition_get(){
 		$id=$this->get('id');
-		$result=$this->HrConfigModel->fetchAllPosition_Details($id);
+		$result=$this->hrConfigModel->fetchAllPosition_Details($id);
     	echo json_encode($result);
 	}
     function employeePosition_delete(){
@@ -104,7 +104,7 @@ class HrConfigCtrl extends REST_Controller {
         {
             $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);
         }else{
-			$result=$this->HrConfigModel->deletePosition($id);
+			$result=$this->hrConfigModel->deletePosition($id);
 			if($result!=0){
 				$message = [
 				'id' => $id,
@@ -121,7 +121,7 @@ class HrConfigCtrl extends REST_Controller {
 
     function employeeGrade_post()
     {
-    	$result=$this->HrConfigModel->addGrade_Details();
+    	$result=$this->hrConfigModel->addGrade_Details();
     	if($result==true){
 			$this->set_response(['status' =>TRUE,'message'=>"Record Inserted Successfully"], REST_Controller::HTTP_CREATED);
 		}else{
@@ -130,7 +130,7 @@ class HrConfigCtrl extends REST_Controller {
     }
     function employeeGrade_get(){
 		$id=$this->get('id');
-		$result=$this->HrConfigModel->fetchGrade_Details($id);
+		$result=$this->hrConfigModel->fetchGrade_Details($id);
     	echo json_encode($result);
 	}
     function employeeGrade_delete(){
@@ -139,7 +139,7 @@ class HrConfigCtrl extends REST_Controller {
         {
             $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);
         }else{
-			$result=$this->HrConfigModel->deleteGrade($id);
+			$result=$this->hrConfigModel->deleteGrade($id);
 			if($result!=0){
 				$message = [
 				'id' => $id,
@@ -156,7 +156,7 @@ class HrConfigCtrl extends REST_Controller {
 
 
     function employeeLeaveType_post(){
-    	$result=$this->HrConfigModel->addleaveType();
+    	$result=$this->hrConfigModel->addleaveType();
     	if($result==true){
 			$this->set_response(['status' =>TRUE,'message'=>"Record Inserted Successfully"], REST_Controller::HTTP_CREATED);
 		}else{
@@ -165,7 +165,7 @@ class HrConfigCtrl extends REST_Controller {
     }
     function employeeLeaveType_get(){
 		$id=$this->get('id');
-		$result=$this->HrConfigModel->fetchLeaveType_Details();
+		$result=$this->hrConfigModel->fetchLeaveType_Details();
     	echo json_encode($result);
 	}
     function employeeLeaveType_delete(){
@@ -174,7 +174,7 @@ class HrConfigCtrl extends REST_Controller {
         {
             $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);
         }else{
-			$result=$this->HrConfigModel->deleteLeaveType($id);
+			$result=$this->hrConfigModel->deleteLeaveType($id);
 			if($result!=0){
 				$message = [
 				'id' => $id,
@@ -190,7 +190,7 @@ class HrConfigCtrl extends REST_Controller {
     // ------------------------------------------ Bank Details --------------------------------------------------------------
 
     function employeeBankdetails_post(){
-    	$result=$this->HrConfigModel->addBankDetails();
+    	$result=$this->hrConfigModel->addBankDetails();
     	if($result==true){
 			$this->set_response(['status' =>TRUE,'message'=>"Record Inserted Successfully"], REST_Controller::HTTP_CREATED);
 		}else{
@@ -199,7 +199,7 @@ class HrConfigCtrl extends REST_Controller {
     }
     function employeeBankdetails_get(){
 		$id=$this->get('id');
-		$result=$this->HrConfigModel->fetchBank_Details($id);
+		$result=$this->hrConfigModel->fetchBank_Details($id);
     	echo json_encode($result);
 		
 	}
@@ -209,7 +209,7 @@ class HrConfigCtrl extends REST_Controller {
         {
             $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);
         }else{
-			$result=$this->HrConfigModel->deleteBankDetails($id);
+			$result=$this->hrConfigModel->deleteBankDetails($id);
 			if($result!=0){
 				$message = [
 				'id' => $id,

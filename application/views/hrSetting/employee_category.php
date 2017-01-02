@@ -278,22 +278,26 @@ $('#Add').click(function(){
 })
 
 function deleteCategory($id) {
-	$.ajax({
-		type: "delete",
-	    url: "<?php echo base_url('HrConfigCtrl/employeeCategory?id=')?>"+$id,
-	    data:{id:$id},
-	    success: function(res) {
-	    	console.log(res.message);
-	    	console.log(res.message.message);
-	    	if(res.status==true){
-		    	$('#alert').append('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> '+res.message.message+'</div>');
-		    	$('#dataRespTable').dataTable().fnDraw();
-		    }else{
-		    	$('#alert').append('<div class="alert alert-danger "><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">&times;</a><strong>Failure!</strong>'+res.message+'</div>');
-		    }
-		    setTimeout(function(){ $('#alert').empty(); }, 5000);
-	    }
-	});
+	 bootbox.confirm("<h5>Are you want to delete this record ?<h5/>", function(confirmed) {   
+	    if (confirmed) {
+			$.ajax({
+				type: "delete",
+			    url: "<?php echo base_url('HrConfigCtrl/employeeCategory?id=')?>"+$id,
+			    data:{id:$id},
+			    success: function(res) {
+			    	console.log(res.message);
+			    	console.log(res.message.message);
+			    	if(res.status==true){
+				    	$('#alert').append('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> '+res.message.message+'</div>');
+				    	$('#dataRespTable').dataTable().fnDraw();
+				    }else{
+				    	$('#alert').append('<div class="alert alert-danger "><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">&times;</a><strong>Failure!</strong>'+res.message+'</div>');
+				    }
+				    setTimeout(function(){ $('#alert').empty(); }, 5000);
+			    }
+			});
+		}
+		})
 }
 $('.form-horizontal input').on('change', function() {
    var valu=$('input[name="checking"]:checked', '.form-horizontal').val();
