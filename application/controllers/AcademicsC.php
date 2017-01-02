@@ -341,4 +341,5 @@ class AcademicsC extends CI_Controller {
       $this->load->view('Academics/importSubject');
       $this->load->view('footer');
    }
+   
 }
