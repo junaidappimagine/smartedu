@@ -67,6 +67,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 						</form>
 					</li>
+					<li>
+					   <li><a href="<?php echo base_url();?>EmailCtrl/email"><i class="fa fa-mail-o"></i>Mail</a></li>
+					</li>
 					<li class="dropdown">
 						<a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
 							<i class="fa fa-bell-o"></i>
@@ -208,8 +211,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<i class="fa fa-suitcase text-warning"></i> 
 							<span>Academics</span>
 						</a>
-
+						
 						<ul class="sub-menu">
+						   
+						    <li><a href="<?php echo base_url();?>AcademicsC/manageSubjects">Manage Subjects</a></li>
+						    <li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+							    <a href="javascript:;">
+								    <span class="caret pull-right"></span><span>Attendance</span>
+							    </a>
+							    <ul class="sub-menu">
+							        <li><a href="<?php echo base_url();?>AcademicsC/attendanceRegister">Attendance Register</a></li>
+								<li><a href="<?php echo base_url();?>AcademicsC/attendanceReport">Attendance Report</a></li>
+							    </ul>
+							</li>
+
 							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
 							    <a href="javascript:;">
 								    <span class="caret pull-right"></span><span>Timetable</span>
@@ -227,7 +242,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							       <li><a href="<?php echo base_url();?>AcademicsC/timeTableView">View Timetable</a></li>
 							    </ul>
 							</li>
-														<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
+							<li class="has-sub" style="list-style-type:none; list-style:none; list-style-image:none;">
 							    <a href="javascript:;">
 								    <span class="caret pull-right"></span><span>Manage Courses & Batches</span>
 							    </a>
