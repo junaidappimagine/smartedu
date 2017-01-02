@@ -164,12 +164,12 @@ class HrConfigCtrl extends REST_Controller {
 		}
     }
     function employeeLeaveType_get(){
-		$id=$this->get('id');
+		$id=$this->get('EMP_L_ID');
 		$result=$this->hrConfigModel->fetchLeaveType_Details();
     	echo json_encode($result);
 	}
     function employeeLeaveType_delete(){
-    	$id=$this->delete('id');
+    	$id=$this->delete('EMP_L_ID');
     	if ($id == null)
         {
             $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);

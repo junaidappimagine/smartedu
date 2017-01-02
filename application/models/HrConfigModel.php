@@ -125,15 +125,15 @@
 	    // ----------------------------------------- leave Type ------------------------------------------------------
 
 	    function addleaveType(){
-	    	$id=$this->input->post('id');
-			$name=$this->input->post('l_name');
-	    	$leave_code=$this->input->post('l_code');
-	    	$leave_count=$this->input->post('l_count');
-	    	$valid_from=$this->input->post('val_from');
-	    	$leave_bal=$this->input->post('l_bal');
-	    	$no_leave_count=$this->input->post('bal_count');
-	    	$add_leave=$this->input->post('add_leave');
-	    	$status=$this->input->post('l_status');
+	    	$id=$this->input->post('EMP_L_ID');
+			$name=$this->input->post('EMP_L_NAME');
+	    	$leave_code=$this->input->post('EMP_L_CODE');
+	    	$leave_count=$this->input->post('EMP_L_COUNT');
+	    	$valid_from=$this->input->post('EMP_L_VALID_FROM');
+	    	$leave_bal=$this->input->post('EMP_L_ALLOW_LEAVE_BAL');
+	    	$no_leave_count=$this->input->post('EMP_L_ALLOW_BAL_COUNT');
+	    	$add_leave=$this->input->post('EMP_L_ADDI_LEAVE_DED_YN');
+	    	$status=$this->input->post('EMP_L_STATUS');
 	    	$sql="SELECT count(EMP_L_NAME) FROM employee_leave_type WHERE EMP_L_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(EMP_L_NAME)']!=0){
@@ -162,7 +162,7 @@
 			$id=$this->input->post('bank_id');
 	    	$name=$this->input->post('bank_name');
 	    	$status=$this->input->post('bank_status');
-	    	$sql="SELECT count(EMP_P_NAME) FROM employee_bank_details WHERE EMP_BNK_ID='$id'";
+	    	$sql="SELECT count(EMP_BNK_NAME) FROM employee_bank_details WHERE EMP_BNK_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(EMP_BNK_NAME)']!=0){
 				$sql="UPDATE employee_bank_details SET EMP_BNK_NAME='$name',EMP_BNK_ACTIVE_YN='$status' WHERE EMP_BNK_ID='$id'";
