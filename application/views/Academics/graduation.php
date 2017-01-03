@@ -1,14 +1,43 @@
+<style>
+	.imp{
+		color:red;
+	}
+	.tips{
+		background-color: #3F729B;
+		color:white;
+	}
+	
+	.tabs{
+		border: 1px solid;
+		width:300px;
+		padding:0px;
+	}
+	.nav-pills > li > a {
+    
+   border-radius: 0 0 0 0  !important;
+}
+.section_header{
+	border-bottom: 1px solid;
+}
+.conditional{
+	
+	border:1px solid;
+}
+	.hidden{ display: none; }
+	
+</style>
+
 <!-- begin #content -->
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
-			<ol class="breadcrumb pull-right">
-				<li><a href="javascript:;"></a>Manage Course & Batch</li>
-				<li><a href="javascript:;"></a>Manage Batch</li>
-				<li class="active">Batch Transfer</li>
-			</ol>
+				<ol class="breadcrumb pull-right">
+					<li><a href="javascript:;">Academics</a></li>
+					<li><a href="javascript:;">Manage Course & Batch</a></li>
+					<li class="active">Manage Batch </li>
+				</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Manage Course & Batch | Manage Batch</h1>
+			<h1 class="page-header">Manage Batch | Batch Transfer</h1>
 			<!-- end page-header -->
 			
 			<!-- begin row -->
@@ -24,39 +53,44 @@
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                                 <!--<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>-->
                             </div>
-                            <h4 class="panel-title">Batch Transfer</h4>
+                            <h4 class="panel-title">Gradutaion</h4>
                         </div>
                         <div class="panel-body">
-							     <div>
-									<table width="100%;">
-									   <tr>
-									   <td style="text-align: center;background-color: #c3d9ff!important;padding:5px">Highlighted students in this batch have unpaid fees!</td>
-									   </tr>
-								   </table>
-								</div><hr>
-								<form class="form-horizontal">
-									<div class="form-group">
-										<label class="col-md-2 control-label">Transferring Batch</label>
-										<div class="col-md-3">
-											<input type="text" class="form-control input-sm" placeholder="" value="C1-A"/>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-2 control-label">Transfer to batch</label>
-										<div class="col-md-3">
-											<select name="value"  class="form-control input-sm selectpicker" data-style="btn-sm btn-white" id="batch">
-												<option>select a batch</option>
-												<!--<option value="c1">C1-A</option>-->
-												<option value="dip">Diploma in Theatre Semester 6(GPA)</option>
-											</select>
-										</div>
-									</div>
-								</form><br>
-								
+						   <form class="form-horizontal">
 								<div class="row">
-									<div class="col-md-offset-2 col-md-7">
+									<div class="form-group">
+										<div class="col-md-offset-1 col-md-12">
+											<h4>Graduating Batch: C1-A</h4>
+										</div>
+									</div>
+								 </div>
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-offset-1 col-md-12">
+											<h6>These studets will now be transferred to former student database. Add the status description for the students like, for example, 'Graduated 10th grade,2010'.</h6>
+										</div>
+									</div>
+								 </div>
+								<div class="form-group">
+									<div class="col-md-offset-1 col-md-3">
+										<label>Status Description</label>
+										<input type="text" class="form-control input-sm" placeholder="" value=""/>
+									</div>
+									<div class="col-md-offset-1 col-md-3">
+										<label>Leaving Date</label>
+										<span class="input-group">
+											<input type="text" class="form-control dateSet input-sm"  id="from_date">
+											<span class="input-group-addon" >
+												<span class="glyphicon glyphicon-calendar"></span>
+											</span>
+										</span>
+									</div>
+								</div>
+							</form><br>
+								<div class="row">
+									<div class="col-md-offset-1 col-md-7">
+										<h6>Uncheck the students not eligible for gradution </h6>
 										<div class="table-responsive">
-											<h5>Uncheck the students not eligible for batch transfer.</h5><br>
 											<table class="table table-bordered" id="myTable">
 												<thead id="sub">
 													<tr style="background-color: #d9edf7; border-color: #b6e2ef;">
@@ -80,8 +114,8 @@
 											</table>
 										</div>
 									</div>
-							  </div><br>
-								<div class="col-md-offset-4 col-md-3">
+							  </div>
+								<div class="col-md-offset-1 col-md-4">
 									<button type="button" class="btn btn-sm btn-success">Save</button>
 								</div>
 						</div>
@@ -93,3 +127,8 @@
             <!-- end row -->
       </div>
 		<!-- end #content -->
+<script>
+$(document).ready(function(){
+$('.dateSet').datepicker({format: 'd MM yyyy'}).datepicker('setDate', '22 December 2016');	
+});
+</script>

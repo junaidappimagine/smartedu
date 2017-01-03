@@ -49,7 +49,7 @@
 						<tbody>
 							<tr>
 								<td>1.</td>
-								<td><a  href="<?php echo base_url('AcademicsC/batchwise_student');?>" >C1-A</a></td>
+								<td><a  href="<?php echo base_url('AcademicsC/batchwise_student?var1=A');?>" >C1-A</a></td>
 								<td><a  href="<?php echo base_url('AcademicsC/edit_batch?var1=A');?>" type="button" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 								<button type="button"  name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
 							</tr>
@@ -75,7 +75,7 @@
 						<tbody>
 							<tr>
 								<td>1.</td>
-								<td><a  href="<?php echo base_url('AcademicsC/batchwise_student');?>" >DT Sem6 - A 2015</a></td>
+								<td><a  href="<?php echo base_url('AcademicsC/batchwise_student?var1=A 2015');?>" >DT Sem6 - A 2015</a></td>
 								<td><a  href="<?php echo base_url('AcademicsC/edit_batch?var1=A 2015');?>" type="button" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
 								<button type="button"  name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
 							</tr>
@@ -87,9 +87,13 @@
 			 
 			<?php if($result1=='Grade 1(Normal)')
 			{ ?>
-				<div class="" style="background-color: #EFDC86;width:100%;">
-					<h5 style="text-align: center;">No batches in this course</h5>
-				</div>
+			<div>
+				<table width="100%;">
+				   <tr>
+				   <td style="text-align: center;background-color: #c3d9ff!important;padding:8px">No Batches in this Course</td>
+				   </tr>
+			   </table>
+		    </div>
 			 <?php } ?>
 		</div>
 	 </div>

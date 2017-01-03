@@ -28,9 +28,8 @@
                             <select class="selectpicker form-control" id="batch" data-style="btn-sm btn-white">
                              <option value="">select a course</option>
 							 <option value="course">Course</option>
-                            <option value="dp">DT Sem6 - A 2015</option>
-							<option value="grade">Grade 1(Normal)</option>
-                        </select>
+                           <!-- <option value="dp">DT Sem6 - A 2015</option>-->
+						</select>
                         </div>
                     </div>
                 </div><br><br>
@@ -40,13 +39,13 @@
                            <tr style="background-color: #d9edf7; border-color: #b6e2ef;" class="main hidden">
 								<th width="10%">C1 - A</th>
 								<th width="10%"><a  href="<?php echo base_url('AcademicsC/change_batch?var1=C1 - A');?>" >Batch transfer</a></th>
-								<th width="10%"><a  href="<?php echo base_url('AcademicsC/graduation?var1=C1 - A');?>" >Graduation</a>Graduation</th>
+								<th width="10%"><a  href="<?php echo base_url('AcademicsC/graduation');?>" >Graduation</a></th>
 							</tr>
-                            <tr style="background-color: #d9edf7; border-color: #b6e2ef;" class="dip hidden">
+                           <!-- <tr style="background-color: #d9edf7; border-color: #b6e2ef;" class="second hidden">
 								<th width="10%">DT Sem6 - A 2015</th>
 								<th width="10%"><a  href="<?php echo base_url('AcademicsC/batch_tran?var1=DT Sem6 - A 2015');?>" >Batch transfer</a>Batch transfer</th>
-								<th width="10%"><a  href="<?php echo base_url('AcademicsC/graduation?var1=DT Sem6 - A 2015');?>" >Graduation</a>Graduation</th>
-							</tr>
+								<th width="10%"><a  href="<?php echo base_url('AcademicsC/graduation?var1=DT Sem6 - A 2015');?>" >Graduation</a></th>
+							</tr>-->
 							<tr style="background-color: #d9edf7; border-color: #b6e2ef;" class="grade hidden">
 								<th colspan="3">No active batch exits for this group</th>
 							</tr>
@@ -60,32 +59,22 @@
     </div>
 	 
 <script>
-$('#batch').change(function(){
+$('#batch').change(function()
+{
     //alert();
 	console.log($(this).val());
 	
     if($(this).val()=='course')
     {
-    $('.main').removeClass('hidden');
-    $('.dip').addClass('hidden');
-	$('.grade').addClass('hidden');
-    }
-    if($(this).val()=='dp')
-    {
-    $('.main').addClass('hidden');
-    $('.dip').removeClass('hidden');
-	$('.grade').addClass('hidden');
-    }
-    if($(this).val()=='grade')
-    {
-    $('.main').addClass('hidden');
-    $('.dip').addClass('hidden');
-	$('.grade').removeClass('hidden');
-    }
+		$('.main').removeClass('hidden');
+		//$('.second').addClass('hidden');
+	}
+//    if($(this).val()=='dp')
+//    {
+//		$('.main').addClass('hidden');
+//		$('.second').removeClass('hidden');
+//	}
 });
-
-     
-   
 </script>
   
 

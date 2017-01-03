@@ -33,6 +33,7 @@
 					<a  href="<?php echo base_url('AcademicsC/');?>"  type="button" class="btn btn-primary btn-sm">Manage</a>
 				</div>
 			</div><br>
+			<?php if($result=='A 2015') { ?>
 			<div class="panel-body">
 			<div>
 				<div class="table-responsive">
@@ -55,7 +56,7 @@
 							</tr>
 							<tr>
 								<td>2.</td>
-								<td><a  href="<?php echo base_url('AcademicsC/student_view?var1=Jenny&var2=S55&var3=DT02&var4=Stephn');?>" >Jenny</a></td>
+								<td><a  href="<?php echo base_url('AcademicsC/student_view?var1=Jenny&var2=S55&var3=DT02&var4=Stephen');?>" >Jenny</a></td>
 								<td>S55</td>
 								<td>DT02</td>
 							</tr>
@@ -63,10 +64,18 @@
 					</table>
 				</div>
 			</div>
-		 </div><br><br>
-		   <div class="" style="background-color: #EFDC86;width:100%;">
-				<h5 style="text-align: center;">No Student in this batch</h5>
-			</div>
+		 </div>
+			<?php } ?>
+			<br><br>
+		  <?php if($result=='A') { ?>
+		   <div>
+			<table width="100%;">
+			   <tr>
+			   <td style="text-align: center;background-color: #c3d9ff!important;padding:8px">No Student Found</td>
+			   </tr>
+		   </table>
+		</div>
+		   <?php } ?>
 		</div>
 	 </div>
 	 <div>
