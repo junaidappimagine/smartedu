@@ -163,7 +163,7 @@ class AcademicsC extends CI_Controller {
       }
       function new_batch()
       {
-    $data['mode']='add';
+         $data['mode']='add';
 	      $this->load->view('header');
 	      $this->load->view('Academics/new_batch',$data);
 	      $this->load->view('footer');
@@ -269,78 +269,25 @@ class AcademicsC extends CI_Controller {
       $this->load->view('Academics/revertBatchesTransfer');
       $this->load->view('footer');
    }
-	
-	function reports()
+	function student_fees()
 	{
+		$data['result']=$this->input->get('var1');
 		$this->load->view('header');
-      $this->load->view('Academics/reports');
+      $this->load->view('Academics/student_fees',$data);
       $this->load->view('footer');
 	}
-	function gaurdians()
+	function list_fees()
 	{
+		$data['result']=$this->input->get('var1');
 		$this->load->view('header');
-      $this->load->view('Academics/gaurdians');
+      $this->load->view('Academics/list_fees',$data);
       $this->load->view('footer');
 	}
-	function add_guardians()
+	function new_payee()
 	{
 		$this->load->view('header');
-      $this->load->view('Academics/add_guardians');
+      $this->load->view('Academics/new_payee');
       $this->load->view('footer');
 	}
-	function configure_sibling()
-	{
-		$this->load->view('header');
-      $this->load->view('Academics/configure_sibling');
-      $this->load->view('footer');
-	}
-	 function attendanceRegister()
-   {
-      $this->load->view('header');
-      $this->load->view('Academics/attendanceRegister');
-      $this->load->view('footer');
-   }
-   function attendanceReport()
-   {
-      $this->load->view('header');
-      $this->load->view('Academics/attendanceReport');
-      $this->load->view('footer');
-   }
-   function addReport_pdf_generate()
-   {
-     $html=$this->load->view('pdf/addReport',$data=array(),true);
-     pdf_create($html,"test",$stream=TRUE,'portrait');   
-   }
-   function manageSubjects()
-   {
-      $this->load->view('header');
-      $this->load->view('Academics/manageSubjects');
-      $this->load->view('footer');
-   }
-   function assingnedElective()
-   {
-      $this->load->view('header');
-      $this->load->view('Academics/assingnedElective');
-      $this->load->view('footer');
-   }
-   function importsubject1()
-   {
-      $this->load->view('header');
-      $this->load->view('Academics/importsubject1');
-      $this->load->view('footer');
-   }
-   function newElective()
-   {
-      $this->load->view('header');
-      $this->load->view('Academics/newElective');
-      $this->load->view('footer');
-   }
-   function importSubject()
-   {
-      $this->load->view('header');
-      $this->load->view('Academics/importSubject');
-      $this->load->view('footer');
-   }
-   
    
 }
