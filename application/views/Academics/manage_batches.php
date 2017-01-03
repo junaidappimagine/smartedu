@@ -24,6 +24,7 @@
 		<div class="well">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-6" style="text-align: right;">
+					<a  href="<?php echo base_url('AcademicsC/create_batch');?>"  type="button" class="btn btn-primary btn-sm">New</a>
 					<a  href="<?php echo base_url('AcademicsC/grading_system');?>"  type="button" class="btn btn-primary btn-sm">Grading System</a>
 					<a  href="<?php echo base_url('AcademicsC/batch_transfer');?>"  type="button" class="btn btn-primary btn-sm">Batch Transfer</a>
 					<a  href="<?php echo base_url('AcademicsC/revertBatchesTransfer');?>"  type="button" class="btn btn-primary btn-sm">Revert Batch Transfer</a>
