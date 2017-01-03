@@ -341,5 +341,36 @@ class AcademicsC extends CI_Controller {
       $this->load->view('Academics/importSubject');
       $this->load->view('footer');
    }
+   function reports()
+   {
+    $this->load->view('header');
+	$this->load->view('Academics/reports');
+	$this->load->view('footer');
+   }
+   function gaurdians()
+   {
+    $this->load->view('header');
+	$this->load->view('Academics/gaurdians');
+	$this->load->view('footer');
+   }
+   function add_guardians()
+   {
+    $this->load->view('header');
+	$this->load->view('Academics/add_guardians');
+	$this->load->view('footer');
+   }
+   function configure_sibling()
+   {
+    $this->load->view('header');
+	$this->load->view('Academics/configure_sibling');
+	$this->load->view('footer');
+   }
+   function student_fees()
+   {
+    $data['result']=$this->input->get('var1');
+    $this->load->view('header');
+	$this->load->view('Academics/student_fees',$data);
+	$this->load->view('footer');
+   }
    
 }
