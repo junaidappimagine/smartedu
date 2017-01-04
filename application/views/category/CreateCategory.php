@@ -32,49 +32,36 @@
         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
         <!--<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>-->
     </div>
-     <?php if($mode=='add'){?>
-    <h4 class="panel-title"> Create Finance Category</h4>
-    <?php } ?>
-    <?php if($mode=='edit'){?>
-    <h4 class="panel-title"> Update Finance Category</h4>
-    <?php } ?>
+    <h4 class="panel-title"> <?php if($mode=='add'){ echo 'Create Finance Category';}else if($mode=='edit'){  echo 'Update Finance Category';}?>
     </div>
     <div class="panel-body">
     <div class="well">
-<form class="form-horizontal">
+<form class="form-horizontal" id="saveData">
      <fieldset>
              <div class="form-group">
                 <label class="col-md-2 control-label">Category Name : </label>
                 <div class="col-md-4">
-                    <input type="text" class="form-control input-sm" placeholder="" value="<?php if($mode=='edit'){ echo $val1 ;} ?>"/>
+                    <input type="hidden" class="form-control input-sm" name="FINC_CA_ID" id="FINC_CA_ID">
+                    <input type="text" class="form-control input-sm" name="FINC_CA_NAME" id="FINC_CA_NAME">
                 </div>
              </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Description :</label>
                     <div class="col-md-4">
-                        <input type="text" class="form-control input-sm" placeholder="" value="" />
+                        <input type="text" class="form-control input-sm" name="FINC_CA_DESC" id="FINC_CA_DESC">
                     </div>
                 </div>
              <div class="form-group">
                 <label class="col-md-2 control-label">Is this under income?</label>
                 <div class="col-md-4">
                     <label class="">
-                        <input type="checkbox" class="" value="income" <?php if($mode=='edit'){ echo 'checked="checked"' ;}?> name="optcheck">
+                        <input type="checkbox" value="N" id="checkbox" name="FINC_CA_INCOME_YN">
                     </label>
                 </div>
              </div>
              <br>
-                <div class="col-md-offset-3 col-md-1">
-                 <?php if($mode=='add'){ ?>
-                 <button type="button" class="btn btn-sm btn-primary">Create</button>
-                 <?php } ?>
-                   <?php if($mode=='edit'){ ?>
-                 <button type="button" class="btn btn-sm btn-primary">Update</button>
-                 <?php } ?>
-                </div>
-                 <div class="col-md-3">
-                    <button type="button" class="btn btn-sm btn-danger ">Cancel</button>
-                 </div>
+                <div class="col-md-offset-3">
+                 <button type="button" onclick="saveCategoryData()" class="btn btn-primary btn-sm"><?php if($mode=="add"){ echo 'Create'; }elseif($mode=="edit"){ echo 'Update'; } ?></button>
              </fieldset>
      </form>                    
       </div>
@@ -88,3 +75,53 @@
     <!-- end row -->
     </div>
     <!-- end #content -->
+
+    <script>
+        function saveCategoryData(){
+            var url_data="<?php echo base_url('FinanceAPI/category');?>";
+            var url1="<?php echo base_url('FinCategoryCtrl/finCategoryview');?>";
+            $.ajax({
+                type:'post',
+                url:url_data,
+                data:$('#saveData').serialize(),
+                success:function(res){
+                    console.log(res.status);
+                    window.location.href = url1;
+                }
+            });
+        }
+
+        <?php if($mode=='edit') {?>
+            $(document).ready(function(){
+                var id="<?php echo $row_id;?>";
+                $.ajax({
+                    type:'get',
+                    url:"<?php echo base_url('FinanceAPI/category');?>",
+                    data:{id:id},
+                    dataType: "json",
+                    success:function(res){
+                        console.log(res);
+                        $('#FINC_CA_ID').val(res[0].FINC_CA_ID);
+                        $('#FINC_CA_NAME').val(res[0].FINC_CA_NAME);
+                        $('#FINC_CA_DESC').val(res[0].FINC_CA_DESC);
+                        $('#checkbox').val(res[0].FINC_CA_INCOME_YN);
+                        if($('#checkbox').val()=='Y'){
+                            $('#checkbox').attr('checked',true);
+                        }else {
+                            $('#checkbox').val('N');
+                            $('#checkbox').attr('checked',false);
+                        }
+                    }
+                });
+            });
+        <?php } ?>
+
+        $('#checkbox').change(function() {
+            if($(this).is(":checked")) {
+                $(this).val('Y');
+            }
+            else {
+                $(this).val('N');
+            }       
+        });
+    </script>

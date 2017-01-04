@@ -58,56 +58,6 @@
     <div>
 </div>
 <script>
-    $(document).ready(function() {
-        var table = $("#dataRespTable").DataTable({
-            "sDom": "<'row'<'col-md-4 no 'f><'col-md-6 trcalign' TRC><'col-md-2 yes'l>r><t><'row'<'col-md-6'i><'col-md-6'p>>",
-            "bServerSide": true,
-            "bProcessing": false,
-            "sAjaxSource": '<?php echo base_url('hrSettingsC/employeeCategoryView')?>',
-            'responsive': true,
-            //'scrollX':true,
-            "bStateSave": true, 
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "All"] // change per page values here
-            ],
-            // "order": [[ 0, "desc" ]],
-            "language": {
-            "sLengthMenu": "_MENU_",
-            "lengthMenu": " _MENU_ records",
-            "processing": true
-            },
-            columns: [
-            { data: 'EMP_C_NAME'},
-            { data: 'EMP_C_ACTIVE_YN'},
-            {
-                data: null, className: "all", 
-                    render: function( data, type, row) {
-                    return '<button type="button" name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="javascript:editCategory('+data['EMP_C_ID']+');"><i class="fa fa-edit"></i></button> <button type="button" id="delete" class="btn btn-xs btn-danger" onclick="javascript:deleteCategory('+data['EMP_C_ID']+');"><i class="fa fa-trash-o"></i></button>';
-                    }
-                },
-            ],
-            'fnServerData': function(sSource, aoData, fnCallback){
-                $.ajax({
-                'dataType': 'json',
-                'type'    : 'POST',
-                'url'     : sSource,
-                'data'    : aoData,
-                'success' : fnCallback
-                });
-            },
-            "tableTools": {
-                "sSwfPath": "<?php echo site_url()?>assets/plugins/DataTables/swf/copy_csv_xls_pdf.swf",
-            }
-            });       
-                
-        //------------- Start for Processing Icon image------------------------------------//       
-        $('#dataRespTable')
-            .on( 'processing.dt', function ( e, settings, processing ) {
-            // $('#processingIndicator').css( 'display', processing ? loadLoader() : unLoader());
-        }).dataTable(); 
-    });
-
     $('#saveData').submit(function(e){
         var url_data="<?php echo base_url('FinanceAPI/Asset');?>";
         var url1="<?php echo base_url('AssetCntrl/assetView');?>";

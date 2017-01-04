@@ -30,7 +30,7 @@
 		<br>
 	       <div class="form-group col-sm-12">
 			<div class="table-responsive">
-			    <table id="data-table" class="table table-striped table-bordered">
+			    <table id="dataRespTable" class="table table-striped table-bordered">
 				 <thead>
                                     <tr>
                                         <th>Liability</th>
@@ -40,13 +40,7 @@
                                     </tr>
 				 </thead>
 				 <tbody>
-				    <tr>
-					 <td>Tables and chairs</td>
-					 <td>24/02/2016 </td>
-					 <td>Rs. 3000.00 </td>
-                                         <td><a  href="<?php echo base_url('AssetCntrl/liability_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
-					     <a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
-				    </tr>
+				    
 				 </tbody>
 			     </table>
 			  </div>
@@ -62,33 +56,70 @@
     </div>
  
     <script>
-    $(document).ready(function(){
-          $('#datePicker').datepicker({
-	       format: 'dd-mm-yyyy'
-	   });
-	  $('#datePicker1').datepicker({
-	       format: 'dd-mm-yyyy'
-	   });
-     
-	  $('#selectDate').removeClass('hidden');
-	  $('#dropdown1').change(function(){
-	       if ($(this).val()=='Student') {
-		    $('#search').removeClass('hidden');
-		    $('#selectDate').addClass('hidden');
-	       }else  if ($(this).val()=='Fee') {
-		     $('#search').removeClass('hidden');
-		    $('#selectDate').addClass('hidden');
-	       }
-	       else {
-		    $('#selectDate').removeClass('hidden');
-	       }
-	  });
-	 
-    
-    });
-     $("input").keyup(function(){
-		
-		 var table =  $('#data-table').DataTable();
-                    table.columns(1).search( this.value ).draw();
-                } );
+    	$(document).ready(function() {
+	        var table = $("#dataRespTable").DataTable({
+	            // "sDom": "<'row'<'col-md-4 no 'f><'col-md-2 yes'l>r><t><'row'<'col-md-6'i>>",
+	            "sDom": 'Tlfrtip',
+	            "bServerSide": true,
+	            "bProcessing": false,
+	            "sAjaxSource": '<?php echo base_url('AssetCntrl/fetchLiabilityView')?>',
+	            'responsive': true,
+	            "bStateSave": true, 
+	            "language": {
+	            "sLengthMenu": "_MENU_",
+	            "lengthMenu": " _MENU_ records",
+	            "processing": true
+	            },
+	            columns: [
+	            { data: 'FINC_LI_TITLE'},
+	            { data: 'FINC_LI_CRT_DT'},
+	            { data: 'FINC_LI_AMT'},
+	            {
+	                data: null, className: "all", 
+	                    render: function( data, type, row) {
+	                    return '<a href="<?php $phpvar="'+ data['FINC_LI_ID']+ '"; echo base_url('AssetCntrl/liability_edit/'.$phpvar);?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>  <button class="btn btn-xs btn-danger" onclick="javascript:deleteLiability('+data['FINC_LI_ID']+')"><i class="fa fa-trash-o"></i></button>';
+	                    }
+	                },
+	            ],
+	            'fnServerData': function(sSource, aoData, fnCallback){
+	                $.ajax({
+	                'dataType': 'json',
+	                'type'    : 'POST',
+	                'url'     : sSource,
+	                'data'    : aoData,
+	                'success' : fnCallback
+	                });
+	            },
+	            "tableTools": {
+	                "sSwfPath": "<?php echo site_url()?>assets/plugins/DataTables/swf/copy_csv_xls_pdf.swf",
+	            }
+	            });       
+	                
+	        //------------- Start for Processing Icon image------------------------------------//       
+	        $('#dataRespTable')
+	            .on( 'processing.dt', function ( e, settings, processing ) {
+	            // $('#processingIndicator').css( 'display', processing ? loadLoader() : unLoader());
+	        }).dataTable(); 
+	    });
+	    function deleteLiability($curr_id){
+	    	bootbox.confirm("<h5>Are you want to delete this record ?<h5/>", function(confirmed) {   
+			    if (confirmed) {
+					$.ajax({
+						type: "delete",
+					    url: "<?php echo base_url('FinanceAPI/liability?id=')?>"+$curr_id,
+					    success: function(res) {
+					    	console.log(res.message);
+					    	console.log(res.message.message);
+					    	if(res.status==true){
+						    	$('#alert').append('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> '+res.message.message+'</div>');
+						    	$('#dataRespTable').dataTable().fnDraw();
+						    }else{
+						    	$('#alert').append('<div class="alert alert-danger "><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">&times;</a><strong>Failure!</strong>'+res.message+'</div>');
+						    }
+						    setTimeout(function(){ $('#alert').empty(); }, 5000);
+					    }
+					});
+				}
+			})
+	    }
     </script>

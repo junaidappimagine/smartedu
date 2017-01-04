@@ -56,13 +56,13 @@ class FinanceAPI extends REST_Controller {
         }
     }
     function liability_get(){
-        $id=$this->get('FINC_LI_ID');
+        $id=$this->get('id');
         $result=$this->financemodel->getLiability_details($id);
         echo json_encode($result);      
     }
 
     function liability_delete(){
-        $id=$this->delete('FINC_LI_ID');
+        $id=$this->delete('id');
         if ($id == null)
         {
             $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);
@@ -92,13 +92,13 @@ class FinanceAPI extends REST_Controller {
         }
     }
     function category_get(){
-        $id=$this->get('FINC_CA_ID');
+        $id=$this->get('id');
         $result=$this->financemodel->getFinanceCategory($id);
         echo json_encode($result);      
     }
 
     function category_delete(){
-        $id=$this->delete('FINC_CA_ID');
+        $id=$this->delete('id');
         if ($id == null)
         {
             $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);

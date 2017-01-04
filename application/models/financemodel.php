@@ -80,11 +80,11 @@
 			}
 	    }
 	    function getFinanceCategory($id){
-	    	$sql="SELECT * FROM finance_liability where FINC_CA_ID ='$id'";
+	    	$sql="SELECT * FROM finance_category where FINC_CA_ID ='$id'";
 			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
 	    }
 	    function deleteFinanceCategory($id){
-	    	$sql="DELETE FROM finance_liability WHERE FINC_CA_ID='$id'";
+	    	$sql="DELETE FROM finance_category WHERE FINC_CA_ID='$id'";
 	    	$result = $this->db->query($sql);
 	    	return $this->db->affected_rows();
 	    }

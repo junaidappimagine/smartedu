@@ -54,8 +54,9 @@ function __construct(){
       $this->load->view('Asset/createLiability',$data);
       $this->load->view('footer');
    }
-    function liability_edit()
+    function liability_edit($id)
    {
+      $data["row_id"]=$id;
       $data["mode"]='edit';
       $this->load->view('header');
       $this->load->view('Asset/createLiability',$data);
@@ -72,6 +73,12 @@ function __construct(){
     function fetchAssetView(){
       $this->datatables->select('FINC_AS_ID, FINC_AS_TITLE, FINC_AS_DESC,FINC_AS_AMT,FINC_AS_CRT_DT')
       ->from('finance_asset');
+      echo $this->datatables->generate();
+    }
+
+    function fetchLiabilityView(){
+      $this->datatables->select('FINC_LI_ID, FINC_LI_TITLE, FINC_LI_DESC,FINC_LI_AMT,FINC_LI_CRT_DT')
+      ->from('finance_liability');
       echo $this->datatables->generate();
     }
 }

@@ -16,70 +16,40 @@
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                            <!-- <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>-->
                         </div>
-                         <?php if($mode=='add'){?>
-                            <h4 class="panel-title">Create Liability View</h4>
-                         <?php }?>
-                         <?php if($mode=='edit'){?>
-                            <h4 class="panel-title">Update Liability View</h4>
-                         <?php }?>
+                         <h4 class="panel-title"><?php if($mode=="add"){ echo 'Create Liability'; }elseif($mode=="edit"){ echo 'Update Liability'; } ?></h4>
                     </div>
                     <div class="panel-body">
                         <div class="well">
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" id="saveData">
                                         <fieldset>
-                                                <?php if($mode=='add'){?>
-                                                <legend>
+                                               <legend>
                                                 <div class="col-sm-10">
-                                                        <h1 class="page-header" style="font-size:21px;">Create Liability</h1>
+                                                        <h1 class="page-header" style="font-size:21px;"><?php if($mode=="add"){ echo 'Create Liability'; }elseif($mode=="edit"){ echo 'Update Liability'; } ?></h1>
                                                 </div>
                                                 </legend>
-                                                <?php }?>
-                                               <?php if($mode=='edit'){?>
-                                                <legend>
-                                                <div class="col-sm-10">
-                                                        <h1 class="page-header" style="font-size:21px;">Update Liability</h1>
-                                                </div>
-                                                </legend>
-                                                  <?php }?>
                                                 <div class="form-group">
                                                         <label class="col-md-2 control-label">Title :</label>
                                                         <div class="col-md-3">
-                                                            <input type="text" class="form-control input-sm" placeholder="" id="code"  value=" <?php if($mode=='edit') { echo "Tables and chairs"; } ?> " />
+                                                            <input type="hidden" id="FINC_LI_ID" name="FINC_LI_ID">
+                                                            <input type="text" class="form-control input-sm" id="FINC_LI_TITLE" name="FINC_LI_TITLE">
 					                </div>
                                                 </div>
                                                 <div class="form-group">
                                                         <label class="col-md-2 control-label">Description :</label>
                                                         <div class="col-md-3">
-                                                            <input type="text" class="form-control input-sm" placeholder="" id="code"  value=" <?php if($mode=='edit') { echo ""; } ?> " />
+                                                            <input type="text" class="form-control input-sm" id="FINC_LI_DESC" name="FINC_LI_DESC">
 					                </div>
                                                 </div>
                                                 <div class="form-group">
                                                         <label class="col-md-2 control-label">Amount :</label>
                                                         <div class="col-md-3">
-                                                            <input type="text" class="form-control input-sm" placeholder="" id="code"  value=" <?php if($mode=='edit') { echo "3000.00"; } ?> " />
+                                                            <input type="text" class="form-control input-sm" id="FINC_LI_AMT" name="FINC_LI_AMT">
 					                </div>
                                                 </div>
-                                                <div class="form-group">
-                                                        <!--<div class="col-md-8 col-md-offset-2">-->
-                                                                <?php if($mode=='add') {?>
-                                                                 <div class="col-md-8 col-md-offset-3">
-                                                                    <button type="button" class="btn btn-primary btn-sm col-md-1 ccol-md-offset-2">Create</button>
-                                                                 </div>
-                                                                        
-                                                                        <?php }?>
-                                                                        <?php if($mode=='edit') {?>
-                                                                        <div class="col-md-8 col-md-offset-2">
-                                                                            <div class="col-md-2">
-                                                                                <button type="button" class="btn btn-primary btn-sm">Update</button>
-                                                                            </div>
-                                                                            <div class="col-md-2">
-                                                                                <button type="button" class="btn btn-danger btn-sm " onclick="window.history.back();">Cancel</button>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                         
-                                                                <?php }?>
-                                                       
+                                                <<div class="form-group">
+                                                    <div class="col-md-offset-3">
+                                                        <button type="button" onclick="saveLiablityData()" class="btn btn-primary btn-sm"><?php if($mode=="add"){ echo 'Create'; }elseif($mode=="edit"){ echo 'Update'; } ?></button>
+                                                    </div>
                                                 </div>
                                         </fieldset>
                                 </form>
@@ -89,30 +59,39 @@
             </div>
         <div>
     </div>
-		<!-- end #content -->
 	<script>
-		
-		$(document).ready(function(){
-                    
-                    $('#datePicker').datepicker({
-		    format: 'dd/mm/yyyy'
-                    });
-			$('#all').click(function(){
-				console.log($(this).val());
-				$('.case').prop('checked',true);
-				$('#none').prop('checked',false);
-			});
-			$('#none').click(function(){
-				console.log($(this).val());
-				$('.case').prop('checked',false);
-			});
-			$('.case').click(function(){
-				console.log($(this).val());
-				$('#none').prop('checked',false);
-				
-			});
-		});
-		
-	</script>
+        function saveLiablityData(){
+            var url_data="<?php echo base_url('FinanceAPI/liability');?>";
+            var url1="<?php echo base_url('AssetCntrl/liabilityView');?>";
+            $.ajax({
+                type:'post',
+                url:url_data,
+                data:$('#saveData').serialize(),
+                success:function(res){
+                    console.log(res.status);
+                    window.location.href = url1;
+                }
+            });
+        }
+
+        <?php if($mode=='edit') {?>
+            $(document).ready(function(){
+                var id="<?php echo $row_id;?>";
+                $.ajax({
+                    type:'get',
+                    url:"<?php echo base_url('FinanceAPI/liability');?>",
+                    data:{id:id},
+                    dataType: "json",
+                    success:function(res){
+                        console.log(res);
+                        $('#FINC_LI_ID').val(res[0].FINC_LI_ID);
+                        $('#FINC_LI_TITLE').val(res[0].FINC_LI_TITLE);
+                        $('#FINC_LI_DESC').val(res[0].FINC_LI_DESC);
+                        $('#FINC_LI_AMT').val(res[0].FINC_LI_AMT);
+                    }
+                });
+            });
+        <?php } ?>
+    </script>
 
 		
