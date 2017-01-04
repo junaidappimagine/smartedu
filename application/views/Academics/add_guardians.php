@@ -40,81 +40,81 @@
 								<div>
 									<table width="100%;">
 										  <tr>
-											 <td style="text-align: center;background-color: #c3d9ff;!important;padding:4px" class="left">Student name: <span style="color:#ab0000"><?php $result2; ?></span> Admn no : <span style="color:#ab0000"> <?php $result3; ?></span></td>
+											 <td style="text-align: center;background-color: #c3d9ff;!important;padding:4px" class="left">Student name :&nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#ab0000"><?php echo $result; ?></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admn no : &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ab0000"><?php echo $result1; ?></span></td>
 										  </tr>
-									 </table>
+									  </table>
 								</div><br>
 								<div class="row">
 									<div class="col-md-offset-2 col-md-8">
-											<h4 style="color:#ab0000;"><u>Parent-Personal Details</u></h4>
-											<div class="table-responsive">
-												<table class="table table-bordered" width="700px">
-														<tbody>
-														<tr style="background-color: #c3d9ff;; border-color: #b6e2ef;">
-															<td class="left" > First Name</td>
-															<td class="right"><input type="text" name=""></td>
-														</tr>
-														<tr>
-															<td  class="left"> Last Name</td>
-															<td class="right"><input type="text" name=""></td>
-														</tr>
-														<tr  style="background-color: #c3d9ff;; border-color: #b6e2ef;">
-															<td  class="left">Relation</td>
-															<td class="right"><input type="text" name=""></td>
-														</tr>
-														<tr>
-															<td  class="left">Date of Birth</td>
-															<td class="right"><input type="text" name=""></td>
-														</tr>
-														<tr style="background-color: #c3d9ff;; border-color: #b6e2ef;">
-															<td  class="left">Education</td>
-															<td class="right"><input type="text" name=""></td>
-														</tr>
-														<tr>
-															<td  class="left">Occupation</td>
-															<td class="right"><input type="text" name=""></td>
-														</tr>
-														<tr style="background-color: #c3d9ff;; border-color: #b6e2ef;">
-															<td  class="left">Income</td>
-															<td class="right"><input type="text" name=""></td>
-														</tr>
-														<tr>
-															<td  class="left">E-mail</td>
-															<td class="right"><input type="text" name=""></td>
-														</tr>
-														<tr style="background-color: #c3d9ff;; border-color: #b6e2ef;">
-															<td  class="left">Office Phone 1</td>
-															<td class="right"><input type="text" name=""></td>
-														</tr>
-														<tr>
-															<td  class="left">Office Phone 2</td>
-															<td class="right"><input type="text" name=""></td>
-														</tr>
-														<tr  style="background-color: #c3d9ff;; border-color: #b6e2ef;">
-															<td  class="left">Mobile Phone No.</td>
-															<td class="right"><input type="text" name=""></td>
-														</tr>
-														<tr>
-															<td  class="left">Address</td>
-															<td class="right"><input type="text" name=""></td>
-														</tr>
-														<tr  style="background-color: #c3d9ff;; border-color: #b6e2ef;">
-															<td  class="left">City</td>
-															<td class="right"><input type="text" name=""></td>
-														</tr>
-														<tr>
-															<td  class="left">State</td>
-															<td class="right"><input type="text" name=""></td>
-														</tr>
-														<tr  style="background-color: #c3d9ff;; border-color: #b6e2ef;">
-															<td  class="left">Country</td>
-															<td class="right"><input type="text" name=""></td>
-														</tr>
-													</tbody>
-												</table>
-											</div>
-											<button type="button" class="btn btn-primary btn-sm">Finish</button>
+										<h4 style="color:#ab0000;"><u>Parent-Personal Details</u></h4>
+										<div class="table-responsive">
+											<table class="table table-bordered" width="700px">
+													<tbody>
+													<tr style="background-color: #c3d9ff;; border-color: #b6e2ef;">
+														<td class="left" > First Name</td>
+														<td class="right"><input type="text" name="" value="<?php if($mode=='edit'){ echo "Joseph";}?>" ></td>
+													</tr>
+													<tr>
+														<td  class="left"> Last Name</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr  style="background-color: #c3d9ff;; border-color: #b6e2ef;">
+														<td  class="left">Relation</td>
+														<td class="right"><input type="text" name="" value="<?php if($mode=='edit'){ echo "Father";}?>"></td>
+													</tr>
+													<tr>
+														<td  class="left">Date of Birth</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr style="background-color: #c3d9ff;; border-color: #b6e2ef;">
+														<td  class="left">Education</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr>
+														<td  class="left">Occupation</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr style="background-color: #c3d9ff;; border-color: #b6e2ef;">
+														<td  class="left">Income</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr>
+														<td  class="left">E-mail</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr style="background-color: #c3d9ff;; border-color: #b6e2ef;">
+														<td  class="left">Office Phone 1</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr>
+														<td  class="left">Office Phone 2</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr  style="background-color: #c3d9ff;; border-color: #b6e2ef;">
+														<td  class="left">Mobile Phone No.</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr>
+														<td  class="left">Address</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr  style="background-color: #c3d9ff;; border-color: #b6e2ef;">
+														<td  class="left">City</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr>
+														<td  class="left">State</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr  style="background-color: #c3d9ff;; border-color: #b6e2ef;">
+														<td  class="left">Country</td>
+														<td class="right"><input type="text" name="" value="<?php if($mode=='edit'){ echo "India";}?>"></td>
+													</tr>
+												</tbody>
+											</table>
 										</div>
+										<button type="button" class="btn btn-primary btn-sm">Finish</button>
+									</div>
 								</div>
 							</div>
                         </div>
