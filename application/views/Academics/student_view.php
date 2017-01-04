@@ -41,21 +41,22 @@
 									 <div class="row">
 										<div class="col-md-offset-4 col-md-6" style="text-align:right;">
 											<a type="button" href="<?php echo base_url('AcademicsC/reports');?>" class="btn btn-primary btn-sm">Reports</a>
-											<a type="button" href="<?php echo base_url('AcademicsC/gaurdians');?>" class="btn btn-primary btn-sm">Guardians</a>
+											<a type="button" href="<?php echo base_url("AcademicsC/gaurdians?var1=$result&var2=$result1&var3=$result3");?>" class="btn btn-primary btn-sm">Guardians</a>
 											<a type="button" href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">Send email</a>
 											<a type="button" href="#" data-toggle="modal" data-target="#delstudents" class="btn btn-primary btn-sm">Delete</a>
 										</div>
+										
 									</div><hr>
 									<div class="row">
 											<div class="col-md-offset-2 col-md-3" style="text-align:right;">
 												<img src="<?php echo base_url('assets/img/student.jpg');?>" width="200px" height="180px">
 											</div>
 											<div class="col-md-5" >
-												<h3>  <?php echo $result;?> </h3>
-												<h4 style="color:#ab0000"> Course: Diploma in Theatre Semester 6(GPA) </h4>
-												<h4 style="color:#ab0000"> Batch : DT Sem6 - A 2015 </h4>
-												<h4 style="color:#ab0000"> Admn no : <?php echo $result1;?> </h4>
-												<h4 style="color:#ab0000"> Roll number : <?php echo $result2;?>  </h4>
+												<h3 style="color:#ab0000"><?php if($mode=='view'){echo "Jack";} else{echo $result;}?> </h3>
+												<h4 style=""> Course: Diploma in Theatre Semester 6(GPA) </h4>
+												<h4 style=""> Batch : DT Sem6 - A 2015 </h4>
+												<h4 style=""> Admn no : <?php if($mode=='view'){echo "S51";} echo $result1;?> </h4>
+												<h4 style=""> Roll number : <?php if($mode=='view'){echo "DT01";} echo $result2;?>  </h4>
 											</div>
 										</div><hr>
 										<div class="row student_view">
@@ -146,7 +147,7 @@
 														<tr  style="background-color: #c3d9ff; border-color: #b6e2ef;">
 															<td  class="left">Name</td>
 															<td class="right">
-															<a href="<?php echo base_url("AcademicsC/gaurdians?var1='$result3'&var2='$result'");?>"> <?php echo $result3?> </a>
+															<a href="<?php echo base_url("AcademicsC/gaurdians?var1=$result&var2=$result1&var3=$result3");?>"> <?php  if($mode=='view'){echo "Joseph";}  echo $result3?> </a>
 															</td>
 														</tr>
 														<tr>
@@ -156,7 +157,7 @@
 														<tr style="background-color:#c3d9ff; border-color: #b6e2ef;">
 															<td  class="left"></td>
 															<td class="right">
-															<a href="">Change immediate contact</a>
+															<a id="change_immediate">Change immediate contact</a>
 															</td>
 														</tr>
 														<tr>
@@ -181,7 +182,7 @@
 													</table>
 												</div>
 											</div>
-										</div>
+										</div><br>
 										<div class="row current_sib  hidden">
 											<div class="col-md-offset-2">
 												<form class="form-horizontal">
@@ -204,9 +205,39 @@
 															<input type="text" class="form-control input-sm" placeholder="" value=""/>
 														</div>
 													</div><hr>
+													<div class="form-group">
+														<label class="col-md-2 control-label"></label>
+														<div class="col-md-3">
+															<button type="button" class="btn btn-primary btn-sm">Save</button>
+															<button type="button" class="btn btn-danger btn-sm current">Cancel</button>
+														</div>
+													</div><hr>
 												</form>
 											</div>
-										</div>
+										</div><br>
+										<div class="row change_immediate hidden">
+											<div class="col-md-offset-2 col-md-8">
+												<table width="670px">
+												  <tr>
+													 <td style="text-align: center;background-color: #c3d9ff;!important;padding:4px" class="left">Select one of the guardians as emergency contact</td>
+												  </tr>
+											   </table>
+												<form>
+													<div class="form-group">
+														<div class="radio">
+															<label><input type="radio" name="optradio" checked>Joseph</label>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-2 control-label"></label>
+														<div class="col-md-3">
+															<button type="button" class="btn btn-primary btn-sm">Save</button>
+															<button type="button" class="btn btn-danger btn-sm change">Cancel</button>
+														</div>
+													</div><hr>
+												</form>
+											</div>
+									  </div>
 							</div>
                         </div>
                     </div>
@@ -324,6 +355,18 @@ $(document).ready(function() {
 	$("#add_details").click(function(){
 		//alert();
 		$('.current_sib').removeClass('hidden');
+	});
+	$("#change_immediate").click(function(){
+		//alert();
+		$('.change_immediate').removeClass('hidden');
+	});
+	$(".current").click(function(){
+		//alert();
+		$('.current_sib').addClass('hidden');
+	});
+	$(".change").click(function(){
+		//alert();
+		$('.change_immediate').addClass('hidden');
 	});
 	$("#show_fill").click(function(){
 		$('.fill_form').removeClass('hidden');
