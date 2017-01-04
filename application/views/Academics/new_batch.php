@@ -46,7 +46,7 @@
 												<label class="col-md-3 control-label">Start Date</label></label>
 												<div class="col-md-3">
 													<span class="input-group">
-														<input type="text" class="form-control dateSet input-sm"  id="from_date">
+														<input type="text" class="form-control dateSet input-sm"  id="from_date" value="<?php if($mode=='edit'){ echo "05 January 2016";} else{ echo "22 December 2016";} ?>" >
 														<span class="input-group-addon" >
 															<span class="glyphicon glyphicon-calendar"></span>
 														</span>
@@ -57,7 +57,7 @@
 												<label class="col-md-3 control-label">End Date</label>
 												<div class="col-md-3">
 													<span class="input-group">
-														<input type="text" class="form-control dateSet1 input-sm"  id="from_date">
+														<input type="text" class="form-control dateSet1 input-sm"  id="from_date" value="<?php if($mode=='edit'){  echo "31 December 2016"; } else{ echo "22 December 2016";} ?>">
 														<span class="input-group-addon" >
 															<span class="glyphicon glyphicon-calendar"></span>
 														</span>
@@ -103,9 +103,11 @@
 		<!-- end #content -->
 <script>
 $(document).ready(function(){
-		
-$('.dateSet').datepicker({format: 'd MM yyyy'}).datepicker('setDate', '22 December 2016');
-$('.dateSet1').datepicker({format: 'd MM yyyy'}).datepicker('setDate', '22 December 2017');
+$('.dateSet').datepicker({
+            format: 'd MM yyyy',
+});	$('.dateSet1').datepicker({
+            format: 'd MM yyyy',
+});
 
 });
 
