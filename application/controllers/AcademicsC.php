@@ -148,12 +148,24 @@ class AcademicsC extends CI_Controller {
       {
 			$data['result']=$this->input->get('var1');
 	      $this->load->view('header');
-	      $this->load->view('Academics/batchwise_student');
+	      $this->load->view('Academics/batchwise_student',$data);
 	      $this->load->view('footer');
       }
       function student_view()
       {
 	      $data['result']=$this->input->get('var1');
+	      $data['result1']=$this->input->get('var2');
+	      $data['result2']=$this->input->get('var3');
+	      $data['result3']=$this->input->get('var4');
+			$data['mode']='add';
+	      $this->load->view('header');
+	      $this->load->view('Academics/student_view',$data);
+	      $this->load->view('footer');
+      }
+		 function student_guardian_view()
+      {
+	      $data['mode']='view';
+			 $data['result']=$this->input->get('var1');
 	      $data['result1']=$this->input->get('var2');
 	      $data['result2']=$this->input->get('var3');
 	      $data['result3']=$this->input->get('var4');
@@ -289,7 +301,7 @@ class AcademicsC extends CI_Controller {
       $this->load->view('Academics/new_payee');
       $this->load->view('footer');
 	}
-	function manageSubjects()
+ function manageSubjects()
    {
       $this->load->view('header');
       $this->load->view('Academics/manageSubjects');
@@ -319,5 +331,54 @@ class AcademicsC extends CI_Controller {
       $this->load->view('Academics/importSubject');
       $this->load->view('footer');
    }
-   
+   function create_batch()   {
+         $this->load->view('header');
+	      $this->load->view('Academics/create_batch');
+	      $this->load->view('footer');
+   }
+	 function gaurdians()
+   {
+		   $data['result']=$this->input->get('var1');
+		   $data['result1']=$this->input->get('var2');
+			$data['result2']=$this->input->get('var3');
+         $this->load->view('header');
+	      $this->load->view('Academics/gaurdians',$data);
+	      $this->load->view('footer');
+   }
+	 function previous_edu()
+   {
+		$this->load->view('header');
+	   $this->load->view('Academics/previous_edu');
+	   $this->load->view('footer');
+   }
+   function reports()
+   {
+		$this->load->view('header');
+	   $this->load->view('Academics/reports');
+	   $this->load->view('footer');
+   }
+	function add_guardians()
+   {
+		$data['mode']='add';
+		$data['result']=$this->input->get('var1');
+		$data['result1']=$this->input->get('var2');
+		$this->load->view('header');
+	   $this->load->view('Academics/add_guardians',$data);
+	   $this->load->view('footer');
+   }
+	function configure_sibling()
+   {
+		$this->load->view('header');
+	   $this->load->view('Academics/configure_sibling');
+	   $this->load->view('footer');
+   }
+	function edit_guardians()
+   {
+		$data['mode']='edit';
+		$data['result']=$this->input->get('var1');
+		$data['result1']=$this->input->get('var2');
+		$this->load->view('header');
+	   $this->load->view('Academics/add_guardians',$data);
+	   $this->load->view('footer');
+   }
 }
