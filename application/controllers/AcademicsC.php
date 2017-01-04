@@ -289,5 +289,35 @@ class AcademicsC extends CI_Controller {
       $this->load->view('Academics/new_payee');
       $this->load->view('footer');
 	}
+	function manageSubjects()
+   {
+      $this->load->view('header');
+      $this->load->view('Academics/manageSubjects');
+      $this->load->view('footer');
+   }
+   function assingnedElective()
+   {
+      $this->load->view('header');
+      $this->load->view('Academics/assingnedElective');
+      $this->load->view('footer');
+   }
+   function importsubject1()
+   {
+      $this->load->view('header');
+      $this->load->view('Academics/importsubject1');
+      $this->load->view('footer');
+   }
+   function newElective()
+   {
+      $this->load->view('header');
+      $this->load->view('Academics/newElective');
+      $this->load->view('footer');
+   }
+   function importSubject()
+   {
+      $this->load->view('header');
+      $this->load->view('Academics/importSubject');
+      $this->load->view('footer');
+   }
    
 }
