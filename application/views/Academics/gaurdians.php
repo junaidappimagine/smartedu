@@ -40,32 +40,33 @@
 								<fieldset>
 								    <div class="row">
 										<div class="col-md-offset-4 col-md-6" style="text-align:right;">
-											<a type="button" href="<?php echo base_url('AcademicsC/student_view');?>" class="btn btn-primary btn-sm">Profile</a>
-											<a type="button" href="<?php echo base_url('AcademicsC/add_guardians');?>" class="btn btn-primary btn-sm" id="add_gaurdians">Add Guardian</a>
+											<a type="button" href="<?php echo base_url('AcademicsC/student_guardian_view');?>" class="btn btn-primary btn-sm">Profile</a>
+											<a type="button"  href="<?php echo base_url("AcademicsC/add_guardians?var1=$result&var2=$result1");?>" class="btn btn-primary btn-sm" id="add_gaurdians" >Add Guardian</a>
 											<a type="button" href="<?php echo base_url('AcademicsC/configure_sibling');?>"class="btn btn-primary btn-sm">Configure sibling</a>
 										</div>
 									</div><hr>
 									<div>
 										<table width="100%;">
 										  <tr>
-											 <td style="text-align: center;background-color: #c3d9ff;!important;padding:4px" class="left">Student name: <span style="color:#ab0000"><?php $result1; ?></span> Admn no : <span style="color:#ab0000"></span></td>
+											 <td style="text-align: center;background-color: #c3d9ff;!important;padding:4px" class="left">Student name :&nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#ab0000"><?php echo $result; ?></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admn no : &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ab0000"><?php echo $result1; ?></span></td>
 										  </tr>
 									  </table>
-									</div>
-									<div class="row show_gaurdians">
-										<div class="col-md-offset-2">
-											<h4 style="color:#ab0000;"><u>Parents/Gaurdian</u></h4>
-											<h4><?php $result; ?></h4>
+									</div><br>
+									<div class="show_gaurdians">
+										<div class="row">
+											<div class="col-md-offset-2">
+												<h4 style="color:#ab0000;"><u>Parents/Gaurdian</u></h4>
+												<h4><?php echo $result2; ?></h4>
+											</div>
 										</div>
-									</div><br><br>
-										<div class="row show_gaurdians">
+										<div class="row">
 											<div class="col-md-offset-2 col-md-8">
 												<div class="table-responsive">
 													<table class="table table-bordered" width="700px">
 															<tbody>
 															<tr  style="background-color: #c3d9ff;; border-color: #b6e2ef;">
 																<td class="left">Name</td>
-																<td class="right"><?php $result; ?></td>
+																<td class="right"><?php echo $result2;?></td>
 															</tr>
 															<tr>
 																<td class="left">Relation</td>
@@ -118,9 +119,82 @@
 														</tbody>
 													</table>
 												</div>
-												<button type="button" class="btn btn-primary btn-sm">Edit</button>
+												<a type="button"  href="<?php echo base_url("AcademicsC/edit_guardians?var1=$result&var2=$result1");?>" class="btn btn-primary">Edit</a>
 											</div>
 										</div><br>
+									</div>
+									<div class="row hidden add_guardian">
+										<div class="col-md-offset-2 col-md-8">
+											<h4 style="color:#ab0000;"><u>Parent-Personal Details</u></h4>
+										<div class="table-responsive">
+											<table class="table table-bordered" width="700px">
+													<tbody>
+													<tr style="background-color: #c3d9ff;; border-color: #b6e2ef;">
+														<td class="left" > First Name</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr>
+														<td  class="left"> Last Name</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr  style="background-color: #c3d9ff;; border-color: #b6e2ef;">
+														<td  class="left">Relation</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr>
+														<td  class="left">Date of Birth</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr style="background-color: #c3d9ff;; border-color: #b6e2ef;">
+														<td  class="left">Education</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr>
+														<td  class="left">Occupation</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr style="background-color: #c3d9ff;; border-color: #b6e2ef;">
+														<td  class="left">Income</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr>
+														<td  class="left">E-mail</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr style="background-color: #c3d9ff;; border-color: #b6e2ef;">
+														<td  class="left">Office Phone 1</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr>
+														<td  class="left">Office Phone 2</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr  style="background-color: #c3d9ff;; border-color: #b6e2ef;">
+														<td  class="left">Mobile Phone No.</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr>
+														<td  class="left">Address</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr  style="background-color: #c3d9ff;; border-color: #b6e2ef;">
+														<td  class="left">City</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr>
+														<td  class="left">State</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+													<tr  style="background-color: #c3d9ff;; border-color: #b6e2ef;">
+														<td  class="left">Country</td>
+														<td class="right"><input type="text" name=""></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<button type="button" class="btn btn-primary btn-sm">Finish</button>
+										</div>
+								   </div>
 							</div>
                         </div>
                     </div>
