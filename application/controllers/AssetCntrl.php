@@ -7,6 +7,7 @@ function __construct(){
       $this->load->helper('dompdf_helper');
       $this->load->library('session');
       $this->load->helper('url');
+      $this->load->library('Datatables');    
    }
    function index()
    {
@@ -27,8 +28,9 @@ function __construct(){
       $this->load->view('Asset/createAsset',$data);
       $this->load->view('footer');
    }
-    function createAsset_edit()
+    function createAsset_edit($id)
    {
+      $data["row_id"]=$id;
       $data["mode"]='edit';
       $this->load->view('header');
       $this->load->view('Asset/createAsset',$data);
@@ -63,6 +65,14 @@ function __construct(){
     {
       $html=$this->load->view('pdf/liability',$data=array(),true);
       pdf_create($html,"test",$stream=TRUE,'portrait');   
+    }
+
+  // Written By Vijayaraj 4-1-17
+
+    function fetchAssetView(){
+      $this->datatables->select('FINC_AS_ID, FINC_AS_TITLE, FINC_AS_DESC,FINC_AS_AMT,FINC_AS_CRT_DT')
+      ->from('finance_asset');
+      echo $this->datatables->generate();
     }
 }
 ?>

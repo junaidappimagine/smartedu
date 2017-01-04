@@ -20,13 +20,13 @@ class FinanceAPI extends REST_Controller {
 		}
     }
     function Asset_get(){
-    	$id=$this->get('FINC_AS_ID');
+    	$id=$this->get('id');
     	$result=$this->financemodel->getAsset_details($id);
     	echo json_encode($result);		
 	}
 
     function Asset_delete(){
-    	$id=$this->delete('FINC_AS_ID');
+    	$id=$this->delete('id');
     	if ($id == null)
         {
             $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);

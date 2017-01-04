@@ -1,104 +1,123 @@
 <style>
-     .panel-body h1{
-                    font-size: 15px;
-                }
+    .panel-body h1{
+        font-size: 15px;
+    }
 </style>
-    <div id="content" class="content">
-	    <ol class="breadcrumb pull-right">
-		    <li><a href="javascript:;">Asset Liability Management</a></li>
-		    <li><a href="javascript:;">Asset</a></li>
-		    <li><a href="javascript:;">View </a></li>
-	    </ol>
-	    <h1 class="page-header">Asset Liability Management | Asset View</h1>
-	    <div class="row">
+<div id="content" class="content">
+	<ol class="breadcrumb pull-right">
+		<li><a href="javascript:;">Asset Liability Management</a></li>
+		<li><a href="javascript:;">Asset</a></li>
+		<li><a href="javascript:;">View </a></li>
+	</ol>
+	<h1 class="page-header">Asset Liability Management | Asset View</h1>
+	<div class="row">
 		<div class="col-md-12">
-	<div class="panel panel-inverse" data-sortable-id="form-stuff-1">
-	    <div class="panel-heading">
-		<div class="panel-heading-btn">
-		    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-		    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
-		    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-		   <!-- <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>-->
-		</div>
-		<h4 class="panel-title">Asset View</h4>
+			<div class="panel panel-inverse" data-sortable-id="form-stuff-1">
+	    		<div class="panel-heading">
+					<div class="panel-heading-btn">
+					    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+					    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+					    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+					</div>
+					<h4 class="panel-title">Asset View</h4>
+	    		</div>
+			    <div class="panel-body">
+			    	<div id="alert"></div>
+			    	<div class="well" style="padding:6px 2px 0 6px !important;">
+			    		<p id="" class="col-md-offset-10">
+							<a class="btn btn-primary btn-sm" href="<?php echo site_url('AssetCntrl/createAsset');?>">Create Asset</a>
+				    	</p>
+			    	</div>
+				    <div class="form-group col-sm-12">
+						<div class="table-responsive">
+						    <table id="dataRespTable" class="table table-striped table-bordered">
+							<thead>
+			                    <tr>
+			                    	<th>Asset</th>
+			                        <th>Created at</th>
+			                        <th>Total Amount</th>
+			                        <th>Action</th>
+			                    </tr>
+							</thead>
+							<tbody></tbody>
+						    </table>
+						</div>
+					</div>
+					<div class="col-sm-2 col-sm-offset-4">
+			            <div class="col-md-2 col-md-offset-1">
+			            	<a href="<?php echo base_url('AssetCntrl/asset_pdf_generate'); ?>" class="btn btn-primary btn-sm" role="button">PDF Report</a>
+			            </div>
+					</div>
+				</div>
+			</div>
 	    </div>
-	    <div class="panel-body">
-		<div class="well">
-                    <div style="float: right;"><div class="col-md-2 col-md-offset-4"><a href="<?php echo base_url('AssetCntrl/createAsset'); ?>" class="btn btn-primary btn-sm" role="button">Create Asset</a></div></div>
-                    <br><br>
-		</div>
-		<br>
-	       <div class="form-group col-sm-12">
-			<div class="table-responsive">
-			    <table id="data-table" class="table table-striped table-bordered">
-				 <thead>
-                                    <tr>
-                                        <th>Asset</th>
-                                        <th>Created at</th>
-                                        <th>Total Amount</th>
-                                        <th>Action</th>
-                                    </tr>
-				 </thead>
-				 <tbody>
-				    <tr>
-					 <td>Asset</td>
-					 <td>24/02/2016 </td>
-					 <td>Rs. 5000.00</td>
-                                         <td><a  href="<?php echo base_url('AssetCntrl/createAsset_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
-					     <a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
-				    </tr>
-				     
-				     <tr>
-					 <td>Asset</td>
-					 <td>24/02/2016 </td>
-					 <td>Rs. 4000.00</td>
-                                         <td><a  href="<?php echo base_url('AssetCntrl/createAsset_edit');?>" role="button"  id="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
-					     <a href="" role="button" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
-				     </tr>
-				 </tbody>
-			     </table>
-			  </div>
-		     </div>
-	  
-		    <div class="col-sm-2 col-sm-offset-4">
-                         <div class="col-md-2 col-md-offset-1"><a href="<?php echo base_url('AssetCntrl/asset_pdf_generate'); ?>" class="btn btn-primary btn-sm" role="button">PDF Report</a></div>
-		    </div>
-		   
-	       </div>
-		</div>
-	    </div>
-	 </div>
-	 <div>
-    </div>
- 
-    <script>
-    $(document).ready(function(){
-          $('#datePicker').datepicker({
-	       format: 'dd-mm-yyyy'
-	   });
-	  $('#datePicker1').datepicker({
-	       format: 'dd-mm-yyyy'
-	   });
-     
-	  $('#selectDate').removeClass('hidden');
-	  $('#dropdown1').change(function(){
-	       if ($(this).val()=='Student') {
-		    $('#search').removeClass('hidden');
-		    $('#selectDate').addClass('hidden');
-	       }else  if ($(this).val()=='Fee') {
-		     $('#search').removeClass('hidden');
-		    $('#selectDate').addClass('hidden');
-	       }
-	       else {
-		    $('#selectDate').removeClass('hidden');
-	       }
-	  });
-	 
-    
+	</div>
+<div> 
+<script>
+	$(document).ready(function() {
+        var table = $("#dataRespTable").DataTable({
+            // "sDom": "<'row'<'col-md-4 no 'f><'col-md-2 yes'l>r><t><'row'<'col-md-6'i>>",
+            "sDom": 'Tlfrtip',
+            "bServerSide": true,
+            "bProcessing": false,
+            "sAjaxSource": '<?php echo base_url('AssetCntrl/fetchAssetView')?>',
+            'responsive': true,
+            "bStateSave": true, 
+            "language": {
+            "sLengthMenu": "_MENU_",
+            "lengthMenu": " _MENU_ records",
+            "processing": true
+            },
+            columns: [
+            { data: 'FINC_AS_TITLE'},
+            { data: 'FINC_AS_CRT_DT'},
+            { data: 'FINC_AS_AMT'},
+            {
+                data: null, className: "all", 
+                    render: function( data, type, row) {
+                    return '<a href="<?php $phpvar="'+ data['FINC_AS_ID']+ '"; echo base_url('AssetCntrl/createAsset_edit/'.$phpvar);?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>  <button class="btn btn-xs btn-danger" onclick="javascript:deleteAsset('+data['FINC_AS_ID']+')"><i class="fa fa-trash-o"></i></button>';
+                    }
+                },
+            ],
+            'fnServerData': function(sSource, aoData, fnCallback){
+                $.ajax({
+                'dataType': 'json',
+                'type'    : 'POST',
+                'url'     : sSource,
+                'data'    : aoData,
+                'success' : fnCallback
+                });
+            },
+            "tableTools": {
+                "sSwfPath": "<?php echo site_url()?>assets/plugins/DataTables/swf/copy_csv_xls_pdf.swf",
+            }
+            });       
+                
+        //------------- Start for Processing Icon image------------------------------------//       
+        $('#dataRespTable')
+            .on( 'processing.dt', function ( e, settings, processing ) {
+            // $('#processingIndicator').css( 'display', processing ? loadLoader() : unLoader());
+        }).dataTable(); 
     });
-     $("input").keyup(function(){
-		
-		 var table =  $('#data-table').DataTable();
-                    table.columns(1).search( this.value ).draw();
-                } );
-    </script>
+    function deleteAsset($curr_id){
+    	bootbox.confirm("<h5>Are you want to delete this record ?<h5/>", function(confirmed) {   
+		    if (confirmed) {
+				$.ajax({
+					type: "delete",
+				    url: "<?php echo base_url('FinanceAPI/Asset?id=')?>"+$curr_id,
+				    success: function(res) {
+				    	console.log(res.message);
+				    	console.log(res.message.message);
+				    	if(res.status==true){
+					    	$('#alert').append('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> '+res.message.message+'</div>');
+					    	$('#dataRespTable').dataTable().fnDraw();
+					    }else{
+					    	$('#alert').append('<div class="alert alert-danger "><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">&times;</a><strong>Failure!</strong>'+res.message+'</div>');
+					    }
+					    setTimeout(function(){ $('#alert').empty(); }, 5000);
+				    }
+				});
+			}
+		})
+    }
+</script>
