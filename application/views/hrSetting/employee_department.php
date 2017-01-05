@@ -34,8 +34,8 @@
 					<div class="col-md-4"><button type="button" class="btn btn-primary btn-sm" id="Add" value="Add" onclick="addE_Department()"><i class="fa fa-plus"></i><span class="f-s-14 f-w-500"> Add</span></a></div>
 				 </div><br>
 			        	<div class="panel-body">
-						<div class="table-responsive">
-						     <table id="data-table" class="table table-striped table-bordered">
+						<div class="table-responsive" >
+						     <table id="dataRespTable" class="table table-striped table-bordered">
 							 <thead>
 							    <tr>
 								<th>Employee Department</th>
@@ -44,17 +44,6 @@
 							    </tr>
 							 </thead>
 							 <tbody id="result">
-							 <?php 
-							 $Department=$this->HrConfigModel->fetchDepartment_Details();
-							 foreach ($Department as $dept) { ?>
-							 	<tr>
-									<td> <?php echo $dept['EMP_D_NAME'];?></td>
-									<td><?php echo $dept['EMP_D_STATUS'];?></td>
-									<td><button type="button"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="editDepartment('<?php echo $dept['EMP_D_ID'];?>')" category-id="<?php echo $dept['EMP_D_ID'];?>"><i class="fa fa-edit"></i></button>
-									<button type="button" category-id="<?php echo $dept['EMP_D_ID'];?>" onclick="deleteDepartment('<?php echo $dept['EMP_D_ID'];?>')" id="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
-							   </tr>
-							 <?php } ?>
-							    
 							 </tbody>
 						     </table>
 						 </div>
@@ -139,111 +128,54 @@
         </div>
 	</div>
 </div>
-<!-- <script>
-$(document).ready(function() {
-	$('button').click(function(){
-		console.log($(this).val());
-		if($(this).val()=='Add')
-		{
-		    //alert();
-		    $('.modal-title').text('Create Employee Department');
-		    $('#action').text('Create');
-		    $("#radio_1").prop("checked", true);
-		     $("#radio_2").prop("checked", false);
-	    
-		    $('#name').val('');
-		    $('#prefix').val('');
-		}
-		else if($(this).val()=='edit')
-		{
-		    //alert();
-		    $('.modal-title').text('Edit Employee Department');
-		    $('#action').text('Update');
-		    $("#radio_1").prop("checked", true);
-		    $('#name').val('Department 1');
-		    $('#prefix').val('D1');
-		    $('#FormValidation').bootstrapValidator('updateStatus', 'EMP_D_NAME','VALIDATED');
-	            $('#FormValidation').bootstrapValidator('updateStatus', 'EMP_D_CODE','VALIDATED');
-		}
-		else if($(this).val()=='edit2')
-		{
-		    //alert();
-		    $('.modal-title').text('Edit Employee Department');
-		    $('#action').text('Update');
-		    $("#radio_2").prop("checked", true);
-		    $("#radio_1").prop("checked", false);
-		    $('#name').val('Department 2');
-		    $('#prefix').val('D2');
-		}
-	});
-	$('#FormValidation').bootstrapValidator({
-	    message: 'This value is not valid',
-	    excluded: ':disabled',
-	    container: 'tooltip',
-	    feedbackIcons:
-	    {
-		valid: 'fa fa-check',
-		invalid: 'fa fa-times',
-		validating: 'fa fa-refresh'
-	    },
-	    fields: {
-		EMP_D_NAME: {
-		    validators: {
-			notEmpty: {
-			    message: 'The Department name is required'
-			}
-		    }
-		},
-		EMP_D_CODE: {
-		    validators: {
-			notEmpty: {
-			    message: 'The Department code is required'
-			}
-		    }
-		},
-		
-	    }
-	});
-});
-    function addE_Department() {
-	$('#myModal').modal('show');
-	$('#FormValidation').bootstrapValidator('updateStatus', 'EMP_D_NAME','VALIDATED');
-	$('#FormValidation').bootstrapValidator('updateStatus', 'EMP_D_CODE','VALIDATED');
-    }
-    $("#save").click(function(){
-	var EMP_D_NAME=$("#EMP_D_NAME").val();
-	var EMP_D_CODE=$("#EMP_D_CODE").val();
-	var EMP_D_STATUS=$("#EMP_D_STATUS").val();
-	$.ajax({
-	   type: "POST",
-	   url: "<?php echo site_url('/');?>",
-	
-	   data: {EMP_D_NAME:EMP_D_NAME,EMP_D_CODE:EMP_D_CODE,EMP_D_STATUS:EMP_D_STATUS},
-	   success : function(html){
-		 
-	    },
-	});
-    });
-    function editData($id){
-	   $('#id').val($id);
-	   var URL ="<?php echo site_url('/');?>";
-	   $.ajax({
-	       type: "POST",
-	       url: URL,
-	       data: {id:id},
-	       dataType:'json',
-	       success: function(json)
-	       {
-		   $('#EMP_D_NAME').val(json[0].EMP_D_NAME);
-		   $('#EMP_D_CODE').val(json[0].EMP_D_CODE);
-		   $('#EMP_D_STATUS').val(json[0].EMP_D_STATUS);
-	       }
-	   })
-       }
-</script>	 -->
+
 
 <script>
-$(document).ready(function() {
+    $(document).ready(function() {
+	var table = $("#dataRespTable").DataTable({
+	    "sDom": "<'row'<'col-md-4 no 'f><'col-md-6 trcalign' TRC><'col-md-2 yes'l>r><t><'row'<'col-md-6'i><'col-md-6'p>>",
+	    "bServerSide": true,
+	    "bProcessing": false,
+	    "sAjaxSource": '<?php echo base_url('hrSettingsC/employeeDepartmentView')?>',
+	    'responsive': true,
+	    //'scrollX':true,
+	    "bStateSave": true,	
+	    "lengthMenu": [
+		[10, 20, 50, -1],
+		[10, 20, 50, "All"] // change per page values here
+	    ],
+	    // "order": [[ 0, "desc" ]],
+	    "language": {
+	    "sLengthMenu": "_MENU_",
+	    "lengthMenu": " _MENU_ records",
+	    "processing": true
+	    },
+	    columns: [
+	    { data: 'EMP_D_NAME'},
+	    { data: 'EMP_D_STATUS'},
+	    {
+		    data: null, className: "all", 
+			render: function( data, type, row) {
+			    return '<button type="button" name="edit" id="edit" value="edit" class="btn btn-xs btn-primary" onclick="javascript:editBankDetail('+data['EMP_BNK_ID']+');"><i class="fa fa-edit"></i></button> <button type="button" id="delete" class="btn btn-xs btn-danger" onclick="javascript:deleteBankDetail('+data['EMP_BNK_ID']+');"><i class="fa fa-trash-o"></i></button>';
+			}
+		    },
+	    ],
+	    'fnServerData': function(sSource, aoData, fnCallback){
+		$.ajax({
+		    'dataType': 'json',
+		    'type'    : 'POST',
+		    'url'     : sSource,
+		    'data'    : aoData,
+		    'success' : fnCallback
+		});
+	    },
+	    "tableTools": {
+		"sSwfPath": "<?php echo site_url()?>assets/plugins/DataTables/swf/copy_csv_xls_pdf.swf",
+	    }
+	});
+    });
+	
+    $(document).ready(function() {
 	$('#action').hide();
 	$('#update').hide();
 	$('button').click(function(){

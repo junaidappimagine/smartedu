@@ -1,5 +1,3 @@
-
-	
 <div id="content" class="content">
     <ol class="breadcrumb pull-right">
         <li><a href="javascript:;">HR</a></li>
@@ -77,11 +75,11 @@
                                 <div class="modal-body">
                                     <div class="panel-body">
                                         <div class="col-md-offset-2">
-                                            <form method="" action="" class="form-horizontal">
+                                            <form method="" action="" class="form-horizontal" id="form-horizontal">
                                                 <div class="form-group">
                                                     <label class="col-md-4 control-label">Name</label>
                                                     <div class="col-md-4">
-                                                        <input type="text" class="form-control input-sm" id="passNumber" placeholder="" />
+                                                        <input type="text" class="form-control  input-sm" id="passNumber" name="name" placeholder="" />
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -211,4 +209,25 @@
                                 x--;
                             })
                     </script>
+	<script>
+	    $(document).ready(function() {
+		$('#form-horizontal').bootstrapValidator({
+		    feedbackIcons: {
+		    valid: 'glyphicon glyphicon-ok',
+		    invalid: 'glyphicon glyphicon-remove',
+		    validating: 'glyphicon glyphicon-refresh'
+		    },
+		    fields: {
+		    name:{
+			validators:{
+			notEmpty:{
+			message: 'Name is required and cannot be empty'	
+			},
+			} 
+			},
+		    },
+		});
+	    });
+	</script>
+
 		    

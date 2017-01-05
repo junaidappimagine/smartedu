@@ -29,7 +29,7 @@
                                <td><label class="col-md-12 "><b>:</b></label></td>
                                <td>
                                    <div class="col-sm-12">
-                                 <select class="form-control input-sm">
+                                 <select class="form-control input-sm selectpicker" data-style="btn-white">
                                     <option>All Department</option>
                                     <option>English</option>
                                     <option>Maths</option>

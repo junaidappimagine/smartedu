@@ -43,7 +43,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label"> Batch &nbsp; :</label>
 					    <div class="col-sm-3">
-                                            <select name="" class="form-control selectpicker input-sm" data-style="btn-white" id="Batch">
+                                            <select name="EMP_AS_BATCH" class="form-control selectpicker input-sm" data-style="btn-white" id="Batch">
                                                 <option selected value="Select_Batch">Select  Batch</option>
                                                 <option value="A">A</option>
                                                 <option value="B">B</option>
@@ -54,7 +54,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label">Subject &nbsp; :</label>
 					    <div class="col-sm-3">
-					    <select name="" class="form-control selectpicker input-sm" data-style="btn-white" id="Subject">
+					    <select name="EMP_AS_SUBJECT" class="form-control selectpicker input-sm" data-style="btn-white" id="Subject">
                                                 <option disabled selected>Select  Subject</option>
                                             </select>
 					    </div>
@@ -68,7 +68,7 @@
 					    <div class="form-group hidden hidedata" id="department_select">
 						<label class="col-sm-2 control-label">Department &nbsp; :</label>
 						<div class="col-sm-3">
-						<select name="" class="form-control input-sm" id="Department">
+						<select name="" class="form-control input-sm selectpicker"  data-style="btn-white" id="Department">
 						    <option selected value="Select_Department">Select  Department</option>
 						    <option value="English">English</option>
 						    <option value="Hindi">Hindi</option>
@@ -98,5 +98,43 @@
 		</div>
 	    </div>
 	</div>
+	<script>
+	$('#Batch').on('change',function(){
+	    var data=$this.val();
+	    $.ajax({
+		type:"get",
+		url:"<?php echo base_url('/');?>",
+		data:{data:data},
+		dataType:"json",
+		success:function(json){
+		    $('#Subject').append();
+		}
+		})
+	});
+	$('#Subject').on('change',function(){
+	    var data=$this.val();
+	    $.ajax({
+		type:"get",
+		url:"<?php echo base_url('/');?>",
+		data:{data:data},
+		dataType:"json",
+		success:function(json){
+		    
+		}
+		})
+	});
+	$('#department_select').on('change',function(){
+	    var data=$this.val();
+	    $.ajax({
+		type:"get",
+		url:"<?php echo base_url('/');?>",
+		data:{data:data},
+		dataType:"json",
+		success:function(json){
+		    
+		}
+		})
+	});
+	</script>
 <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery-1.9.1.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/controls/employeesubjectasso.js"></script>

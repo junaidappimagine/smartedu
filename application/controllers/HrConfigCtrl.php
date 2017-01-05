@@ -169,7 +169,8 @@ class HrConfigCtrl extends REST_Controller {
     	echo json_encode($result);
 	}
     function employeeLeaveType_delete(){
-    	$id=$this->delete('EMP_L_ID');
+    	$id=$this->delete('id');
+//	echo 'jmkm'.$id;exit;
     	if ($id == null)
         {
             $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);

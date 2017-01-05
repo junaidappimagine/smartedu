@@ -4,7 +4,6 @@
                 .panel-body h1{
                  font-size: 15px;
                 }
-		
             </style>
         </head>     
         <body>

@@ -36,7 +36,7 @@
                                                <div class="form-group">
                                                   <label class="col-md-2 control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Payroll Group Name *</label>
                                                    <div class="col-md-4">
-                                                      <input type="text" class="form-control input-sm" placeholder="Payroll Group Name" value="<?php if($mode=='edit') echo 'BASIC';?>"/>
+                                                      <input type="text" name="PR_G_H_NAME" class="form-control input-sm" placeholder="Payroll Group Name" value="<?php if($mode=='edit') echo 'BASIC';?>"/>
                                                    </div>
                                                </div>
                                                <h1 class="page-header">Salary Preference</h1><hr>
@@ -44,13 +44,13 @@
                                                    <label class="col-md-2 control-label">Pyment Frequency *</label>
                                                    <div class="col-md-4">
                                                          <?php if($mode!='edit') { ?>
-                                                       <select class="form-control input-sm" id="Pyment" onchange="selectPreference()">
+                                                       <select class="form-control input-sm selectpicker" name="PR_G_H_PAY_H_PERIOD_TYPE"  id="Pyment" data-style="btn-white" onchange="selectPreference()">
                                                            <option selected>Daily</option>
                                                            <option>Weekly</option>
                                                            <option>monthly</option>
                                                        </select>
                                                            <?php } else { ?>
-                                                       <select class="form-control input-sm" id="Pyment" onchange="onloadPreference()">
+                                                       <select class="form-control input-sm selectpicker"   id="Pyment" data-style="btn-white" onchange="onloadPreference()">
                                                            <option>Daily</option>
                                                            <option>Weekly</option>
                                                            <option selected value="monthly">monthly</option>
@@ -62,7 +62,7 @@
                                                 <div class="form-group hidden" id="PayslipDay">
                                                    <label class="col-md-2 control-label">Payslip generation day *</label>
                                                    <div class="col-md-4">
-                                                       <select class="form-control input-sm" onchange="">
+                                                       <select class="form-control input-sm selectpicker" data-style="btn-white" onchange="">
                                                            <option>Sunday</option>
                                                            <option>Monday</option>
                                                            <option>Tuesday</option>
@@ -76,7 +76,7 @@
                                                  <div class="form-group hidden" id="PayslipDate">
                                                    <label class="col-md-2 control-label">Payslip generation date *</label>
                                                    <div class="col-md-4">
-                                                       <select class="form-control input-sm" onchange="" >
+                                                       <select class="form-control selectpicker input-sm" name="PR_G_H_PAYSLIP_GEN_DT" data-style="btn-white"  onchange="" >
                                                             <option>1</option>
                                                             <option>2</option>
                                                             <option>3</option>
@@ -257,13 +257,13 @@
                                                   <div class="col-sm-12">
                                                        <div class="col-md-4">
                                                            <label class="radio-inline" style="float: left;">
-                                                                <input type="radio" name="LOP" value="option1"  onclick="EnableDeduction()"/>
+                                                                <input type="radio" name="PR_G_H_LOP_CRITERIA_YN" value="option1"  onclick="EnableDeduction()"/>
                                                                   Enable LOP Deduction
                                                            </label>
                                                        </div>
                                                        <div class="col-md-4">
                                                             <label class="radio-inline">
-                                                                <input type="radio" name="LOP" value="option2" onclick="DisableDeduction()" checked/>
+                                                                <input type="radio" name="PR_G_H_LOP_CRITERIA_YN" value="option2" onclick="DisableDeduction()" checked/>
                                                                 LOP not applicable
                                                             </label>
                                                        </div>
@@ -273,7 +273,7 @@
                                              <div class="form-group hidden" id="EnableLOP" >
                                                   <label class="col-md-2 control-label">Value type <span  class="imp">*</span> </label>
                                                   <div class="col-md-4">
-                                                       <select name="value"  class="form-control input-sm" id="value_type">
+                                                       <select name="PR_G_L_CALC_TYPE"  class="form-control input-sm selectpicker" data-style="btn-white" id="value_type">
                                                             <option>select value type</option>
                                                             <option>Numeric</option>
                                                             <option>Formula</option>
@@ -347,7 +347,7 @@
                                                                          <div class="form-group">
                                                                                  <label class="col-md-2 control-label">if</label>
                                                                                  <div class="col-md-8">
-                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                                                        <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_VALI_1"> </textarea> 
                                                                                  </div>
                                                                                  <div class="col-md-2">
                                                                                     <a href="#">Validate</a>
@@ -356,18 +356,21 @@
                                                                          <div class="form-group">
                                                                                   <label class="col-md-2 control-label"></label>
                                                                                          <div class="col-md-8">
-                                                                                                 <select name="value"  class="form-control input-sm">
-                                                                                                         <option>select value type</option>
-                                                                                                         <option>Numeric</option>
-                                                                                                         <option>Formula</option>
-                                                                                                         <option>Conditional Formula</option>
+                                                                                                 <select name="PR_G_L_VALI_2"  class="form-control input-sm selectpicker" data-style="btn-white">
+                                                                                                        <option value="">select</option>
+                                                                                                        <option value="">is greater than or equal to</option>
+                                                                                                        <option value="">is less than or equal to</option>
+                                                                                                        <option value="">is greater than</option>
+                                                                                                        <option value="">is lesser than</option>
+                                                                                                        <option value="">is equal to</option>
+                                                                                                        <option value="">is not equal to</option>
                                                                                                  </select>
                                                                                          </div>
                                                                          </div>
                                                                          <div class="form-group" id="">
                                                                                  <label class="col-md-2 control-label"></label>
                                                                                  <div class="col-md-8">
-                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_VALI_3"> </textarea> 
                                                                                  </div>
                                                                                  <div class="col-md-2">
                                                                                     <a href="#">Validate</a>
@@ -376,7 +379,7 @@
                                                                          <div class="form-group" id="">
                                                                                  <label class="col-md-2 control-label">then</label>
                                                                                  <div class="col-md-8">
-                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_VALI_4"> </textarea> 
                                                                                  </div>
                                                                                  <div class="col-md-2">
                                                                                     <a href="#">Validate</a>
@@ -437,7 +440,7 @@
                                                                          <div class="form-group">
                                                                                  <label class="col-md-2 control-label">if</label>
                                                                                  <div class="col-md-8">
-                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_VALI_1"> </textarea> 
                                                                                  </div>
                                                                                  <div class="col-md-2">
                                                                                     <a href="#">Validate</a>
@@ -446,18 +449,21 @@
                                                                          <div class="form-group">
                                                                                   <label class="col-md-2 control-label"></label>
                                                                                          <div class="col-md-8">
-                                                                                                 <select name="value"  class="form-control input-sm">
-                                                                                                         <option>select value type</option>
-                                                                                                         <option>Numeric</option>
-                                                                                                         <option>Formula</option>
-                                                                                                         <option>Conditional Formula</option>
+                                                                                                 <select name="value" name="PR_G_L_VALI_2"  class="form-control input-sm">
+                                                                                                        <option value="">select</option>
+                                                                                                        <option value="">is greater than or equal to</option>
+                                                                                                        <option value="">is less than or equal to</option>
+                                                                                                        <option value="">is greater than</option>
+                                                                                                        <option value="">is lesser than</option>
+                                                                                                        <option value="">is equal to</option>
+                                                                                                        <option value="">is not equal to</option>
                                                                                                  </select>
                                                                                          </div>
                                                                          </div>
                                                                          <div class="form-group" id="">
                                                                                  <label class="col-md-2 control-label"></label>
                                                                                  <div class="col-md-8">
-                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_VALI_3"> </textarea> 
                                                                                  </div>
                                                                                  <div class="col-md-2">
                                                                                     <a href="#">Validate</a>
@@ -466,7 +472,7 @@
                                                                          <div class="form-group" id="">
                                                                                  <label class="col-md-2 control-label">then</label>
                                                                                  <div class="col-md-8">
-                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_VALI_4"> </textarea> 
                                                                                  </div>
                                                                                  <div class="col-md-2">
                                                                                     <a href="#">Validate</a>
@@ -524,7 +530,7 @@
                                                                          <div class="form-group">
                                                                                  <label class="col-md-2 control-label">Value</label>
                                                                                  <div class="col-md-8">
-                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_DEFAULT_VAL"> </textarea> 
                                                                                  </div>
                                                                                  <div class="col-md-2">
                                                                                     <a href="#">Validate</a>
@@ -551,6 +557,76 @@
                          </div>
                     </div>
                <script>
+                $(document).ready(function() {
+		$('.form-horizontal').bootstrapValidator({
+		    feedbackIcons: {
+		    valid: 'glyphicon glyphicon-ok',
+		    invalid: 'glyphicon glyphicon-remove',
+		    validating: 'glyphicon glyphicon-refresh'
+		    },
+		    fields: {
+		    PR_G_H_NAME:{
+			validators:{
+			notEmpty:{
+			message: 'Name is required and cannot be empty'	
+			},
+			} 
+			},
+                    PR_G_L_VALI_1:{
+			validators:{
+			notEmpty:{
+			message: 'Name is required and cannot be empty'	
+			},
+                        regexp:{
+			regexp: /^[0-9\s]+$/i,
+			message:'Numbers Only'
+			}
+			} 
+			},
+                    PR_G_L_VALI_2:{
+			validators:{
+			notEmpty:{
+			message: 'Name is required and cannot be empty'	
+			},
+			} 
+			},
+                    PR_G_L_VALI_3:{
+			validators:{
+			notEmpty:{
+			message: 'Name is required and cannot be empty'	
+			},
+                        regexp:{
+			regexp: /^[0-9\s]+$/i,
+			message:'Numbers Only'
+			}
+			} 
+		    },
+                    PR_G_L_VALI_4:{
+			validators:{
+			notEmpty:{
+			message: 'Name is required and cannot be empty'	
+			},
+                        regexp:{
+			regexp: /^[0-9\s]+$/i,
+			message:'Numbers Only'
+			}
+			} 
+		    },
+                    PR_G_L_DEFAULT_VAL:{
+			validators:{
+			notEmpty:{
+			message: 'Name is required and cannot be empty'	
+			},
+                        regexp:{
+			regexp: /^[0-9\s]+$/i,
+			message:'Numbers Only'
+			}
+			} 
+		    },
+                    
+		    },
+                    });
+                });
                     <?php if($mode!= 'edit') { ?>
                     function addEarning($this){
                              var valu=$('#earn');
