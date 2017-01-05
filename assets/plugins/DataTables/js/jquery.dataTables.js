@@ -5036,8 +5036,6 @@
 			console.log( msg );
 		}
 	}
-	
-	
 	/**
 	 * See if a property is defined on one object, if so assign it to the other object
 	 *  @param {object} ret target object
