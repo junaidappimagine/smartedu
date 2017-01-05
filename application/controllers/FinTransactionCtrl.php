@@ -5,6 +5,7 @@ class FinTransactionCtrl extends CI_Controller {
     
     function __construct(){
         parent::__construct();
+        $this->load->model('default_model');
         $this->load->helper('url');
         $this->load->library('Datatables');    
     }
@@ -23,8 +24,9 @@ class FinTransactionCtrl extends CI_Controller {
     function add_expense()
     {
         $this->load->view('header');
+        $result['fin_cat']=$this->default_model->fetchFinanceCategory();
+        $this->load->view('transaction/add_expense',$result);
         $this->load->view('footer');
-        $this->load->view('transaction/add_expense');
     }
     function income()
     {
@@ -35,8 +37,9 @@ class FinTransactionCtrl extends CI_Controller {
     function add_income()
     {
         $this->load->view('header');
+        $result['fin_cat']=$this->default_model->fetchFinanceCategory();
+        $this->load->view('transaction/add_income',$result);
         $this->load->view('footer');
-        $this->load->view('transaction/add_income');
     }
     function revertedTransaction()
     {
@@ -53,13 +56,13 @@ class FinTransactionCtrl extends CI_Controller {
 
     // Written by Vijayaraj 4-1-17
     function showExpenseView(){
-      $this->datatables->select('FINC_TXN_EX_ID, FINC_TXN_EX_CA_ID,FINC_TXN_EX_TITLE, FINC_TXN_EX_DESC,FINC_TXN_EX_AMT,FINC_TXN_EX_DT,FINC_TXN_EX_STATUS')
-      ->from('finance_txn_expense');
+      $this->datatables->select('FINC_TXN_EX_ID, FINC_TXN_EX_CA_ID,FINC_TXN_EX_TITLE,FINC_CA_NAME, FINC_TXN_EX_DESC,FINC_TXN_EX_AMT,FINC_TXN_EX_DT,FINC_TXN_EX_STATUS')
+      ->from('finance_txn_expense_view');
       echo $this->datatables->generate();
     }
     function showIncomeView(){
-      $this->datatables->select('FINC_TXN_IN_ID,FINC_TXN_IN_CA_ID, FINC_TXN_IN_TITLE, FINC_TXN_IN_DESC,FINC_TXN_IN_AMT,FINC_TXN_IN_DT,FINC_TXN_IN_STATUS')
-      ->from('finance_txn_income');
+      $this->datatables->select('FINC_TXN_IN_ID,FINC_TXN_IN_CA_ID, FINC_TXN_IN_TITLE,FINC_CA_NAME, FINC_TXN_IN_DESC,FINC_TXN_IN_AMT,FINC_TXN_IN_DT,FINC_TXN_IN_STATUS')
+      ->from('finance_txn_income_view');
       echo $this->datatables->generate();
     }
 }

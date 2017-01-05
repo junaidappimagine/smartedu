@@ -74,8 +74,8 @@
             },
             columns: [
             { data: 'FINC_TXN_EX_TITLE'},
-            { data: 'FINC_TXN_EX_CA_ID'},
             { data: 'FINC_TXN_EX_DESC'},
+            { data: 'FINC_CA_NAME'},
             { data: 'FINC_TXN_EX_AMT'},
             { data: 'FINC_TXN_EX_DT'},
             {

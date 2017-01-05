@@ -72,8 +72,10 @@
                           <label class="col-md-2 control-label">Category <span  class="imp">*</span>: </label>
                               <div class="col-md-4">
                     <select class="form-control selectpicker" data-live-search="true" data-style="btn-white btn-sm" name="FINC_TXN_IN_CA_ID">
-                     <option>Select category</option>
-                     <option value="Book for Students">Book for Students</option>
+                      <option value="">Select</option>
+            <?php foreach ($fin_cat as $cat) { ?>
+                <option value="<?php echo $cat['FINC_CA_ID']?>"><?php echo $cat['FINC_CA_NAME']?></option>
+           <?php  } ?>
                  
                    </select>
                               </div>
@@ -103,9 +105,6 @@
     </div>
     <!-- end #content -->
     <script>
-        $('.dateSet').datepicker({
-		  format: 'd MM yyyy',
-	    });
 
         $('#saveData').submit(function(e){
           var url_data="<?php echo base_url('FinanceTxnAPI/income');?>";

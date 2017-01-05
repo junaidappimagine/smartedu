@@ -83,7 +83,7 @@
             columns: [
             { data: 'FINC_TXN_IN_TITLE'},
             { data: 'FINC_TXN_IN_DESC'},
-            { data: 'FINC_TXN_IN_CA_ID'},
+            { data: 'FINC_CA_NAME'},
             { data: 'FINC_TXN_IN_AMT'},
             { data: 'FINC_TXN_IN_DT'},
             {

@@ -74,9 +74,10 @@
         <label class="col-md-2 control-label">Category <span  class="imp">*</span>: </label>
         <div class="col-md-4">
         <select class="form-control selectpicker" data-live-search="true" data-style="btn-white btn-sm" name="FINC_TXN_EX_CA_ID">
-        <option>Select category</option>
-        <option value="Pantry-food">Pantry-food</option>
-
+            <option value="">Select</option>
+            <?php foreach ($fin_cat as $cat) { ?>
+                <option value="<?php echo $cat['FINC_CA_ID']?>"><?php echo $cat['FINC_CA_NAME']?></option>
+           <?php  } ?>
         </select>
         </div>
         </div>
@@ -86,7 +87,7 @@
         <button type="submit" class="btn btn-sm btn-primary">Save</button>
         </div>
         <div class="col-md-3">
-        <button type="button" class="btn btn-sm btn-danger ">Cancel</button>
+        <button type="button" class="btn btn-sm btn-danger" onclick="window.history.back();">Cancel</button>
         </div>
 
         </fieldset>
@@ -105,9 +106,7 @@
     </div>
     <!-- end #content -->
     <script>
-        $('.dateSet').datepicker({
-  			 format: 'd MM yyyy',
-  	    });
+      
         $('#saveData').submit(function(e){
           var url_data="<?php echo base_url('FinanceTxnAPI/expense');?>";
           var url1="<?php echo base_url('FinTransactionCtrl/expense');?>";
@@ -121,6 +120,10 @@
               }
           });
           e.preventDefault();
-        })
+        });
+
+        // $('.dateSet').datepicker({
+        //      format: 'd MM yyyy',
+        // });
     </script>
  
