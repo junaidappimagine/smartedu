@@ -57,21 +57,11 @@ class hrSettingsC extends CI_Controller {
 	$this->load->view('hrSetting/leaveTypeAdd',$data);
 	$this->load->view('footer');
     }
-//    function leaveTypeEdit($type,$code,$date)
-//    {
-//	$this->load->view('header');
-//	$data['Type']=$type;
-//	$data['Code']=$code;
-//	$data['Date']=$date;
-//	$data['Mode']="Edit";
-//	$this->load->view('hrSetting/leaveTypeAdd',$data);
-//	$this->load->view('footer');
-//    }
    function leaveTypeEdit($id)
     {
 	$this->load->view('header');
         $data['Mode']="Edit";
-	$data['Editdata']=$this->HrSettingModel->leaveTypeEdit($id);
+	$data['Editdata']=$id;
 	//print_r($data['Editdata']);exit;
 	$this->load->view('hrSetting/leaveTypeAdd',$data);
 	$this->load->view('footer');

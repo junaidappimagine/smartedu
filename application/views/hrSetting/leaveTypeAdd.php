@@ -1,5 +1,3 @@
-	<?php/* echo "<pre>";print_r($Editdata);exit;*/?>
-
 <!-- begin #content -->
 	<div id="content" class="content">
 		<!-- begin breadcrumb -->
@@ -10,7 +8,6 @@
 	    </ol>
 	    <!-- end breadcrumb -->
 	    <!-- begin page-header -->
-	    
 		<h1 class="page-header"> <?php if($Mode=="Add"){echo "Add Leave Types Here...";}else {echo "Edit Leave Types Here...";}?></h1>
 	    <!-- end page-header -->
 	    <!-- begin row -->
@@ -30,32 +27,32 @@
 			</div>
 			<div class="panel-body">
 				<legend><?php if($Mode=="Add"){echo "Add Leave Types";}else {echo "Edit Leave Types";}?></legend>
-				<form class="form-horizontal" id="form" action="" method="post">
+				<form class="form-horizontal" id="form_datas">
 				    <div class="col-md-12">
 					<div class="form-group">
 					    <label class="col-md-2 control-label">Leave Name &nbsp; :</label>
 					    <div class="col-md-3">
-						<input type="hidden" class="userid" value="<?php if($Mode=='Edit'){echo $Editdata[0]['EMP_L_ID'];}else{ echo '';}?>">
-						<input class="form-control input-sm" name="EMP_L_NAME" id="EMP_L_NAME" type="text" value="<?php if($Mode=='Edit'){echo $Editdata[0]['EMP_L_NAME'];}else{ echo '';}?>">
+						<input type="hidden" class="userid" value="">
+						<input class="form-control input-sm" name="EMP_L_NAME" id="EMP_L_NAME" type="text" value="">
 					    </div>
 					</div>
 					<div class="form-group">
 					    <label class="col-md-2 control-label">Leave Code &nbsp; :</label>
 					    <div class="col-md-3">
-						<input class="form-control input-sm" name="EMP_L_CODE" id="EMP_L_CODE" type="text" value="<?php if($Mode=='Edit'){echo $Editdata[0]['EMP_L_CODE'];}else{ echo '';}?>">
+						<input class="form-control input-sm" name="EMP_L_CODE" id="EMP_L_CODE" type="text" value="">
 					    </div>
 					</div>
 					<div class="form-group">
 					    <label class="col-md-2 control-label">Leave Count &nbsp; :</label>
 					    <div class="col-md-3">
-						<input class="form-control input-sm" name="EMP_L_COUNT" id="EMP_L_COUNT" type="text"  value="<?php if($Mode=='Edit'){echo $Editdata[0]['EMP_L_COUNT'];}else{ echo '';}?>">
+						<input class="form-control input-sm" name="EMP_L_COUNT" id="EMP_L_COUNT" type="text"  value="">
 					    </div>
 					</div>
 					<div class="form-group">
 					    <label class="col-md-2 control-label">Valid From &nbsp; :</label>
 					    <div class="col-md-3">
 						<span class="input-group">
-						<input class="form-control dateSet input-sm" name="EMP_L_VALID_FROM" size="30" id="EMP_L_VALID_FROM" type="text" value="<?php if($Mode=='Edit'){echo $Editdata[0]['EMP_L_VALID_FROM'];}else{ echo '';}?>">
+						<input class="form-control dateSet input-sm" name="EMP_L_VALID_FROM" size="30" id="EMP_L_VALID_FROM" type="text" value="">
 						<span class="input-group-addon">
 						    <span class="glyphicon glyphicon-calendar"></span>
 						</span>
@@ -72,13 +69,13 @@
 							</div>
 							<div class="col-md-3 row">
 							<label class="radio-inline">
-							    <input name="EMP_L_ALLOW_LEAVE" id="allow" class="checkallow" value="Y" type="radio" <?php if($Mode=='Edit'){if ($Editdata[0]['EMP_L_ALLOW_LEAVE_BAL']=="Y")echo 'checked=""';}?> >
+							    <input name="EMP_L_ALLOW_LEAVE" id="allow" class="checkallow" value="Y" type="radio"  >
 							    Allow leave carry forward
 							</label>
 							</div>
 							<div class="col-md-3">
 							<label class="radio-inline">
-							    <input name="EMP_L_ALLOW_LEAVE" id="discard"  class="checkallow"  value="N" type="radio" <?php if($Mode=='Edit'){if ($Editdata[0]['EMP_L_ALLOW_LEAVE_BAL']=="N")echo 'checked=""';}?>>
+							    <input name="EMP_L_ALLOW_LEAVE" id="discard"  class="checkallow"  value="N" type="radio" >
 							    Discard leave balance
 							    <input type="hidden" name="EMP_L_ALLOW_LEAVE_BAL" id="EMP_L_ALLOW_LEAVE_BAL">
 							</label>
@@ -92,19 +89,19 @@
 							</div>
 							<div class="col-md-3 row">
 							<label class="radio-inline">
-							    <input name="A_L_BAL_SPE" class="checkVal" id="allowC" value="allow" <?php if($Mode=='Edit'){if ($Editdata[0]['EMP_L_ALLOW_BAL_COUNT']=="Y")echo 'checked=""';}?> type="radio">
+							    <input name="A_L_BAL_SPE" class="checkVal" id="allowC" value="allow"  type="radio">
 							    All leave balance
 							</label>
 							</div>
 							<div class="col-md-3">
 							<label class="radio-inline">
-							    <input name="A_L_BAL_SPE" class="checkVal" id="speicalC"  value="speical" type="radio" <?php if($Mode=='Edit'){if ($Editdata[0]['EMP_L_ALLOW_BAL_COUNT']!="Y")echo 'checked=""';}?>>
+							    <input name="A_L_BAL_SPE" class="checkVal" id="speicalC"  value="speical" type="radio" >
 							    Special count
 							    <input type="hidden" name="EMP_L_ALLOW_BAL_COUNT" id="EMP_L_ALLOW_BAL_COUNT" value="" >
 							</label>
 							</div>
 							<div class="col-md-2">
-							    <input type="text" name="" class="form-control input-sm hidden" id="countfiled" name="" value='<?php if($Mode=='Edit'){echo $Editdata[0]['EMP_L_ALLOW_BAL_COUNT'];}?>'>
+							    <input type="text" name="" class="form-control input-sm hidden" id="countfiled" name="" value=''>
 							</div>
 						    </div>
 						</div>
@@ -118,13 +115,13 @@
 							</div>
 							<div class="col-md-3 row">
 							    <label class="radio-inline">
-								<input name="EMP_L_ADDI_LEAVE_YN" class="cleardata" value="Y" type="radio" <?php if($Mode=='Edit'){if ($Editdata[0]['EMP_L_ADDI_LEAVE_DED_YN']=="Y")echo 'checked=""';}?>>
+								<input name="EMP_L_ADDI_LEAVE_YN" class="cleardata" value="Y" type="radio" >
 								Liable for salary deduction(LOP)
 							    </label>
 							</div>
 							<div class="col-md-3">
 							    <label class="radio-inline">
-								<input name="EMP_L_ADDI_LEAVE_YN" class="cleardata"  value="N" type="radio" <?php if($Mode=='Edit'){if ($Editdata[0]['EMP_L_ADDI_LEAVE_DED_YN']=="N")echo 'checked=""';}?>>
+								<input name="EMP_L_ADDI_LEAVE_YN" class="cleardata"  value="N" type="radio" >
 								No salary deduction
 							    </label><br>
 							    <input name="EMP_L_ADDI_LEAVE_DED_YN"  id="EMP_L_ADDI_LEAVE_DED_YN"  type="hidden">
@@ -138,13 +135,13 @@
 						    <div class="radio">
 							<div class="col-md-3 row">
 							    <label class="radio-inline">
-								<input name="EMP_STATUS" class="cleardata" value="Y" <?php if($Mode=='Edit'){if ($Editdata[0]['EMP_L_STATUS']=="Y")echo 'checked=""';}?> type="radio">
+								<input name="EMP_STATUS" class="cleardata" value="Y"  type="radio">
 								Active
 							    </label>
 							</div>
 							<div class="col-md-3">
 							    <label class="radio-inline">
-								<input name="EMP_STATUS" class="cleardata" value="N" <?php if($Mode=='Edit'){if ($Editdata[0]['EMP_L_STATUS']=="N")echo 'checked=""';}?> type="radio">
+								<input name="EMP_STATUS" class="cleardata" value="N" type="radio">
 								In active
 								<input type="hidden" name="EMP_L_STATUS" id="EMP_L_STATUS">
 							    </label><br>
@@ -155,11 +152,7 @@
 					    <p></p>
 					    <div class="form-group">
 						<p></p>
-						<?php if($Mode=="Edit"){?>
-						&nbsp;&nbsp;<input type="button" class="btn btn-warning btn-sm col-md-offset-3" name="update" id="update" value='update'>
-						<?php }else{?>
-						&nbsp;&nbsp;<input type="button" class="btn btn-primary btn-sm col-md-offset-3" name="insert" id="save" value='save'>						
-						<?php }?>
+						&nbsp;&nbsp;<input type="submit" class="btn btn-success btn-sm col-md-offset-3" name="update" id="update" value='<?php if($Mode=="Edit"){ echo "update";}else{ echo "save";}?>'>
 						<input type="button" class="btn btn-danger btn-sm" onclick="window.history.back();" value="Cancel">
 					    </div>
 				    </div>
@@ -172,8 +165,6 @@
 	    </div>
 	</div>
 <script>
-    
-    
     if($('#allow').is(':checked')){
     $('#allowdive').removeClass('hidden');
 	if($('#speicalC').is(':checked')){
@@ -190,14 +181,10 @@
     })
     
     $(document).ready(function(){
-	
     $('.dateSet').datepicker({
 	format: 'd MM yyyy',
     });
     });
-    //$("#countfiled").hide();
-    //checkbox and radio button//
-    //Leave Balance//
     
     $('.form-horizontal input').on('change', function() {
     var valu=$('input[name="EMP_L_ALLOW_LEAVE"]:checked', '.form-horizontal').val();
@@ -242,27 +229,65 @@
     });
     //insert//
     //$(document).on('submit','form.remember',function(){
-    $('#save').on('click',function(){
+    $('#form_datas').submit(function(e){
+        var url_data="<?php echo base_url('HrconfigCtrl/employeeLeaveType');?>";
+        //var url1="<?php echo base_url('AssetCntrl/assetView');?>";
+        $.ajax({
+            type:'post',
+            url:url_data,
+            data:$('#form_datas').serialize(),
+            success:function(res){
+                console.log(res);
+                //window.location.href = url1; 
+            }
+        });
+        e.preventDefault();
+    })
+    //    $('#save').on('click',function(){
+    //    
+    //	var EMP_L_NAME=$('#EMP_L_NAME').val();
+    //	var EMP_L_CODE=$('#EMP_L_CODE').val();
+    //	var EMP_L_COUNT=$('#EMP_L_COUNT').val();
+    //	var EMP_L_VALID_FROM=$('#EMP_L_VALID_FROM').val();
+    //	var EMP_L_ALLOW_LEAVE_BAL=$('#EMP_L_ALLOW_LEAVE_BAL').val();
+    //	var EMP_L_ALLOW_BAL_COUNT=$('#EMP_L_ALLOW_BAL_COUNT').val();
+    //	var EMP_L_ADDI_LEAVE_DED_YN=$('#EMP_L_ADDI_LEAVE_DED_YN').val();
+    //	var EMP_L_STATUS=$('#EMP_L_STATUS').val();    
+    //	//alert();
+    //	$.ajax({
+    //	type:"post",
+    //	url:"<?php echo base_url('HrconfigCtrl/employeeLeaveType');?>",
+    //	data:{EMP_L_NAME:EMP_L_NAME,EMP_L_CODE:EMP_L_CODE,EMP_L_COUNT:EMP_L_COUNT,EMP_L_VALID_FROM:EMP_L_VALID_FROM,EMP_L_ALLOW_LEAVE_BAL:EMP_L_ALLOW_LEAVE_BAL,EMP_L_ALLOW_BAL_COUNT:EMP_L_ALLOW_BAL_COUNT,EMP_L_ADDI_LEAVE_DED_YN:EMP_L_ADDI_LEAVE_DED_YN,EMP_L_STATUS:EMP_L_STATUS},
+    //	success:function(result){
+    //	    window.location.href="<?php echo base_url('HrSettingsC/leave_Types');?>";
+    //	}
+    //	});
+    //    });
+	//});
+    <?php if($Mode=='Edit') {?>
+        $(document).ready(function(){
+            var id="<?php echo $Editdata;?>";
+            $.ajax({
+                type:'get',
+                url:"<?php echo base_url('HrConfigCtrl/employeeLeaveType');?>",
+                data:{id:id},
+                dataType: "json",
+                success:function(res){
+                    console.log(res);
+                    $('#EMP_L_ID').val(res[0].EMP_L_ID);
+                    $('#EMP_L_NAME').val(res[0].EMP_L_NAME);
+                    $('#EMP_L_CODE').val(res[0].EMP_L_CODE);
+                    $('#EMP_L_COUNT').val(res[0].EMP_L_COUNT);
+		    $('#EMP_L_ALLOW_LEAVE_BAL').val(res[0].EMP_L_ALLOW_LEAVE_BAL);
+		    $('#EMP_L_VALID_FROM').val(res[0].EMP_L_VALID_FROM);
+                    $('#EMP_L_ALLOW_BAL_COUNT').val(res[0].EMP_L_ALLOW_BAL_COUNT);
+                    $('#EMP_L_ADDI_LEAVE_DED_YN').val(res[0].EMP_L_ADDI_LEAVE_DED_YN);
+                    $('#EMP_L_STATUS').val(res[0].EMP_L_STATUS);
+                }
+            });
+        })
+    <?php } ?>
     
-	var EMP_L_NAME=$('#EMP_L_NAME').val();
-	var EMP_L_CODE=$('#EMP_L_CODE').val();
-	var EMP_L_COUNT=$('#EMP_L_COUNT').val();
-	var EMP_L_VALID_FROM=$('#EMP_L_VALID_FROM').val();
-	var EMP_L_ALLOW_LEAVE_BAL=$('#EMP_L_ALLOW_LEAVE_BAL').val();
-	var EMP_L_ALLOW_BAL_COUNT=$('#EMP_L_ALLOW_BAL_COUNT').val();
-	var EMP_L_ADDI_LEAVE_DED_YN=$('#EMP_L_ADDI_LEAVE_DED_YN').val();
-	var EMP_L_STATUS=$('#EMP_L_STATUS').val();    
-	//alert();
-	$.ajax({
-	type:"post",
-	url:"<?php echo base_url('HrconfigCtrl/employeeLeaveType');?>",
-	data:{EMP_L_NAME:EMP_L_NAME,EMP_L_CODE:EMP_L_CODE,EMP_L_COUNT:EMP_L_COUNT,EMP_L_VALID_FROM:EMP_L_VALID_FROM,EMP_L_ALLOW_LEAVE_BAL:EMP_L_ALLOW_LEAVE_BAL,EMP_L_ALLOW_BAL_COUNT:EMP_L_ALLOW_BAL_COUNT,EMP_L_ADDI_LEAVE_DED_YN:EMP_L_ADDI_LEAVE_DED_YN,EMP_L_STATUS:EMP_L_STATUS},
-	success:function(result){
-	    window.location.href="<?php echo base_url('HrSettingsC/leave_Types');?>";
-	}
-	});
-    });
-    //});
     //update//
     $('#update').on('click',function(){
 	var EMP_L_ID=$('.userid').val();
@@ -283,5 +308,12 @@
 	    window.location.href="<?php echo base_url('HrSettingsC/leave_Types');?>";
 	}
 	})
-    });    
+    });
+    
+    
+    
+    
+    
+    
+    
 </script>

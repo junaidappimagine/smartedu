@@ -39,22 +39,22 @@
 				</div>
 			    </div>
 			    	<!--<div class="panel-body">-->
-					<div class="table-responsive">
-					     <table id="dataRespTable" class="table table-striped table-bordered">
-						<thead>
-							<tr>
-							    <th>Leave Type</th>
-							    <th>Code</th>
-							    <th>Valid from</th>
-							    <th>Action</th>
-							</tr>
-							<tr>
-							    <th colspan="4">Active leave Type</th>
-							</tr>
-						    </thead>
-						    <tbody id="result"></tbody>
-					     </table>
-					 </div>
+				<div class="table-responsive">
+				     <table id="dataRespTable" class="table table-striped table-bordered">
+					<thead>
+					    <tr>
+						<th>Leave Type</th>
+						<th>Code</th>
+						<th>Valid from</th>
+						<th>Action</th>
+					    </tr>
+					    <tr>
+						<th colspan="4">Active leave Type</th>
+					    </tr>
+					</thead>
+					<tbody id="result"></tbody>
+				     </table>
+				 </div>
 				<!--</div>-->			   
 			</div>
 		    <!-- end panel -->
@@ -67,7 +67,8 @@
 <script>
     $(document).ready(function() {
 	var table = $("#dataRespTable").DataTable({
-	    "sDom": "<'row'<'col-md-4 no 'f><'col-md-6 trcalign' TRC><'col-md-2 yes'l>r><t><'row'<'col-md-6'i><'col-md-6'p>>",
+	    //"sDom": "<'row'<'col-md-4 no 'f><'col-md-6 trcalign' TRC><'col-md-2 yes'l>r><t><'row'<'col-md-6'i><'col-md-6'p>>",
+	    "sDom": 'lfrtip',
 	    "bServerSide": true,
 	    "bProcessing": false,
 	    "sAjaxSource": '<?php echo base_url('hrSettingsC/employeeLeaveTypeView')?>',
@@ -89,11 +90,11 @@
 	    { data: 'EMP_L_CODE'},
 	    { data: 'EMP_L_VALID_FROM'},
 	    {
-		    data: null, className: "all", 
-			render: function( data, type, row) {
-			    return '<a href="<?php echo base_url("HrSettingsC/leaveTypeEdit/'+ data['EMP_L_ID']+ '");?>"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a> <button type="button" id="delete" class="btn btn-xs btn-danger" onclick="javascript:deleteLeavetype('+data['EMP_L_ID']+');"><i class="fa fa-trash-o"></i></button>';
-			}
-		    },
+	    data: null, className: "all", 
+		render: function( data, type, row) {
+		    return '<a href="<?php echo base_url("HrSettingsC/leaveTypeEdit/'+ data['EMP_L_ID']+ '");?>"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a> <button type="button" id="delete" class="btn btn-xs btn-danger" onclick="javascript:deleteLeavetype('+data['EMP_L_ID']+');"><i class="fa fa-trash-o"></i></button>';
+		}
+	    },
 	    ],
 	    'fnServerData': function(sSource, aoData, fnCallback){
 		$.ajax({
@@ -110,33 +111,33 @@
 	});
 		    
     //------------- Start for Processing Icon image------------------------------------//		
-    $('#dataRespTable')
-	.on( 'processing.dt', function ( e, settings, processing ) {
-	// $('#processingIndicator').css( 'display', processing ? loadLoader() : unLoader());
-    }).dataTable();	
+	$('#dataRespTable')
+	    .on( 'processing.dt', function ( e, settings, processing ) {
+	    // $('#processingIndicator').css( 'display', processing ? loadLoader() : unLoader());
+	}).dataTable();	
     });
     //delete//
     function deleteLeavetype($id) {
-            bootbox.confirm("<h5>Are you want to delete this record ?<h5/>", function(confirmed) {   
+        bootbox.confirm("<h5>Are you want to delete this record ?<h5/>", function(confirmed) {   
             if (confirmed) {
-            $.ajax({
-            type: "delete",
-                url: "<?php echo base_url('HrConfigCtrl/employeeLeaveType?id=')?>"+$id,
-                data:{id:$id},
-                success: function(res) {
-                    console.log(res.message);
-                    console.log(res.message.message);
-                    if(res.status==true){
-                            $('#alert').append('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> '+res.message.message+'</div>');
-                            $('#dataRespTable').dataTable().fnDraw();
-                        }else{
-                            $('#alert').append('<div class="alert alert-danger "><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">&times;</a><strong>Failure!</strong>'+res.message+'</div>');
-                        }
-                        setTimeout(function(){ $('#alert').empty(); }, 5000);
-                }
-            });
+		$.ajax({
+		type: "delete",
+		    url: "<?php echo base_url('HrConfigCtrl/employeeLeaveType?id=')?>"+$id,
+		    data:{id:$id},
+		    success: function(res) {
+			console.log(res.message);
+			console.log(res.message.message);
+			if(res.status==true){
+				$('#alert').append('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> '+res.message.message+'</div>');
+				$('#dataRespTable').dataTable().fnDraw();
+			    }else{
+				$('#alert').append('<div class="alert alert-danger "><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">&times;</a><strong>Failure!</strong>'+res.message+'</div>');
+			    }
+			    setTimeout(function(){ $('#alert').empty(); }, 5000);
+		    }
+		});
             }
     
-            })
-        }
+        })
+    }
 </script>
