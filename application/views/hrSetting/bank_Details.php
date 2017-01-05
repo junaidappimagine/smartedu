@@ -258,7 +258,7 @@
             });
             //delete//
         function deleteBankDetail($id) {
-            bootbox.confirm("<h5>Are you want to delete this record ?<h5/>", function(confirmed) {   
+            bootbox.confirm("<h5>Are you sure want to delete ?<h5/>", function(confirmed) {   
             if (confirmed) {
             $.ajax({
             type: "delete",

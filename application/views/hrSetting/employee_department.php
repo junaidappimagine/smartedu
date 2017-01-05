@@ -38,6 +38,7 @@
 					<thead>
 					   <tr>
 					       <th>Employee Department</th>
+					       <th>Department Code</th>
 					       <th>Active</th>
 					       <th>Action</th>
 					   </tr>
@@ -132,6 +133,7 @@
 	},
 	columns: [
 	{ data: 'EMP_D_NAME'},
+	{ data: 'EMP_D_CODE'},
 	{ data: 'EMP_D_STATUS'},
 	{
 	    data: null, className: "all", 
@@ -249,7 +251,7 @@
 	$('#update').hide();
 	})
 	function deleteDepartment($id) {
-	bootbox.confirm("<h5>Are you want to delete this record ?<h5/>", function(confirmed) {   
+	bootbox.confirm("<h5>Are you sure want to delete ?<h5/>", function(confirmed) {   
 	if (confirmed) {
 	$.ajax({
 	type: "delete",

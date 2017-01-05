@@ -44,12 +44,14 @@
 					<thead>
 					    <tr>
 						<th>Leave Type</th>
-						<th>Code</th>
+						<th>Leave Code</th>
+						<th>Leave Count</th>
 						<th>Valid from</th>
+						<th>Leave Balance</th>
+						<th>Balance Count</th>
+						<th>Additional Leaves</th>
+						<th>Status</th>
 						<th>Action</th>
-					    </tr>
-					    <tr>
-						<th colspan="4">Active leave Type</th>
 					    </tr>
 					</thead>
 					<tbody id="result"></tbody>
@@ -88,7 +90,12 @@
 	    columns: [
 	    { data: 'EMP_L_NAME'},
 	    { data: 'EMP_L_CODE'},
+	    { data: 'EMP_L_COUNT'},
 	    { data: 'EMP_L_VALID_FROM'},
+	    { data: 'EMP_L_ALLOW_LEAVE_BAL'},
+	    { data: 'EMP_L_ALLOW_BAL_COUNT'},
+	    { data: 'EMP_L_ADDI_LEAVE_DED_YN'},
+	    { data: 'EMP_L_STATUS'},
 	    {
 	    data: null, className: "all", 
 		render: function( data, type, row) {
@@ -118,7 +125,7 @@
     });
     //delete//
     function deleteLeavetype($id) {
-        bootbox.confirm("<h5>Are you want to delete this record ?<h5/>", function(confirmed) {   
+        bootbox.confirm("<h5>Are you sure want to delete ?<h5/>", function(confirmed) {   
             if (confirmed) {
 		$.ajax({
 		type: "delete",

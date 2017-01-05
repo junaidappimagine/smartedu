@@ -33,6 +33,7 @@
 						<thead>
 						   <tr>
 						       <th>Employee Name</th>
+						       <th>Category</th>
 						       <th>Active</th>
 						       <th>Action</th>
 						   </tr>
@@ -128,6 +129,7 @@
 		},
 		columns: [
 		{ data: 'EMP_P_NAME'},
+		{ data: 'EMP_P_CATEGORY_ID'},
 		{ data: 'EMP_P_ACTIVE_YN'},
 		{
 			data: null, className: "all", 
@@ -282,7 +284,7 @@
 	});
 	//delete//
 	function deletePosition($id) {
-	    bootbox.confirm("<h5>Are you want to delete this record ?<h5/>", function(confirmed) {   
+	    bootbox.confirm("<h5>Are you sure want to delete ?<h5/>", function(confirmed) {   
 	    if (confirmed) {
 	    $.ajax({
 	    type: "delete",

@@ -32,7 +32,7 @@
 					<div class="form-group">
 					    <label class="col-md-2 control-label">Leave Name &nbsp; :</label>
 					    <div class="col-md-3">
-						<input type="hidden" class="userid" value="">
+						<input type="hidden" name="EMP_L_ID" class="EmpID" value="">
 						<input class="form-control input-sm" name="EMP_L_NAME" id="EMP_L_NAME" type="text" value="">
 					    </div>
 					</div>
@@ -115,13 +115,13 @@
 							</div>
 							<div class="col-md-3 row">
 							    <label class="radio-inline">
-								<input name="EMP_L_ADDI_LEAVE_YN" class="cleardata" value="Y" type="radio" >
+								<input name="EMP_L_ADDI_LEAVE_YN" class="cleardata" id="ADDI_YES" value="Y" type="radio" >
 								Liable for salary deduction(LOP)
 							    </label>
 							</div>
 							<div class="col-md-3">
 							    <label class="radio-inline">
-								<input name="EMP_L_ADDI_LEAVE_YN" class="cleardata"  value="N" type="radio" >
+								<input name="EMP_L_ADDI_LEAVE_YN" class="cleardata" id="ADDI_NO"  value="N" type="radio" >
 								No salary deduction
 							    </label><br>
 							    <input name="EMP_L_ADDI_LEAVE_DED_YN"  id="EMP_L_ADDI_LEAVE_DED_YN"  type="hidden">
@@ -135,13 +135,13 @@
 						    <div class="radio">
 							<div class="col-md-3 row">
 							    <label class="radio-inline">
-								<input name="EMP_STATUS" class="cleardata" value="Y"  type="radio">
+								<input name="EMP_STATUS" class="cleardata" id="STA_YES"  value="Y"  type="radio">
 								Active
 							    </label>
 							</div>
 							<div class="col-md-3">
 							    <label class="radio-inline">
-								<input name="EMP_STATUS" class="cleardata" value="N" type="radio">
+								<input name="EMP_STATUS" class="cleardata" id="STA_NO" value="N" type="radio">
 								In active
 								<input type="hidden" name="EMP_L_STATUS" id="EMP_L_STATUS">
 							    </label><br>
@@ -152,7 +152,7 @@
 					    <p></p>
 					    <div class="form-group">
 						<p></p>
-						&nbsp;&nbsp;<input type="submit" class="btn btn-success btn-sm col-md-offset-3" name="update" id="update" value='<?php if($Mode=="Edit"){ echo "update";}else{ echo "save";}?>'>
+						&nbsp;&nbsp;<input type="submit" class="btn btn-success btn-sm col-md-offset-3" name="update"  value='<?php if($Mode=="Edit"){ echo "update";}else{ echo "save";}?>'>
 						<input type="button" class="btn btn-danger btn-sm" onclick="window.history.back();" value="Cancel">
 					    </div>
 				    </div>
@@ -165,12 +165,12 @@
 	    </div>
 	</div>
 <script>
-    if($('#allow').is(':checked')){
-    $('#allowdive').removeClass('hidden');
-	if($('#speicalC').is(':checked')){
-	$('#countfiled').removeClass('hidden');
-    }
-    }
+//    if($('#allow').is(':checked')){
+//    $('#allowdive').removeClass('hidden');
+//	if($('#speicalC').is(':checked')){
+//	$('#countfiled').removeClass('hidden');
+//    }
+//    }
     $('.form-horizontal input').on('change', function() {
 	if($('#allow').is(':checked')){
     $('#allowdive').removeClass('hidden');
@@ -179,7 +179,6 @@
     }
     }
     })
-    
     $(document).ready(function(){
     $('.dateSet').datepicker({
 	format: 'd MM yyyy',
@@ -227,46 +226,27 @@
     //console.log(valu);
     $('input[name="EMP_L_STATUS"]').val(valu);
     });
+    
     //insert//
-    //$(document).on('submit','form.remember',function(){
     $('#form_datas').submit(function(e){
         var url_data="<?php echo base_url('HrconfigCtrl/employeeLeaveType');?>";
-        //var url1="<?php echo base_url('AssetCntrl/assetView');?>";
+        var url1="<?php echo base_url('HrSettingsC/leave_Types');?>";
         $.ajax({
             type:'post',
             url:url_data,
             data:$('#form_datas').serialize(),
             success:function(res){
                 console.log(res);
-                //window.location.href = url1; 
+                window.location.href = url1; 
             }
         });
         e.preventDefault();
     })
-    //    $('#save').on('click',function(){
-    //    
-    //	var EMP_L_NAME=$('#EMP_L_NAME').val();
-    //	var EMP_L_CODE=$('#EMP_L_CODE').val();
-    //	var EMP_L_COUNT=$('#EMP_L_COUNT').val();
-    //	var EMP_L_VALID_FROM=$('#EMP_L_VALID_FROM').val();
-    //	var EMP_L_ALLOW_LEAVE_BAL=$('#EMP_L_ALLOW_LEAVE_BAL').val();
-    //	var EMP_L_ALLOW_BAL_COUNT=$('#EMP_L_ALLOW_BAL_COUNT').val();
-    //	var EMP_L_ADDI_LEAVE_DED_YN=$('#EMP_L_ADDI_LEAVE_DED_YN').val();
-    //	var EMP_L_STATUS=$('#EMP_L_STATUS').val();    
-    //	//alert();
-    //	$.ajax({
-    //	type:"post",
-    //	url:"<?php echo base_url('HrconfigCtrl/employeeLeaveType');?>",
-    //	data:{EMP_L_NAME:EMP_L_NAME,EMP_L_CODE:EMP_L_CODE,EMP_L_COUNT:EMP_L_COUNT,EMP_L_VALID_FROM:EMP_L_VALID_FROM,EMP_L_ALLOW_LEAVE_BAL:EMP_L_ALLOW_LEAVE_BAL,EMP_L_ALLOW_BAL_COUNT:EMP_L_ALLOW_BAL_COUNT,EMP_L_ADDI_LEAVE_DED_YN:EMP_L_ADDI_LEAVE_DED_YN,EMP_L_STATUS:EMP_L_STATUS},
-    //	success:function(result){
-    //	    window.location.href="<?php echo base_url('HrSettingsC/leave_Types');?>";
-    //	}
-    //	});
-    //    });
-	//});
+
     <?php if($Mode=='Edit') {?>
         $(document).ready(function(){
             var id="<?php echo $Editdata;?>";
+	    $('.EmpID').val(id);
             $.ajax({
                 type:'get',
                 url:"<?php echo base_url('HrConfigCtrl/employeeLeaveType');?>",
@@ -278,42 +258,42 @@
                     $('#EMP_L_NAME').val(res[0].EMP_L_NAME);
                     $('#EMP_L_CODE').val(res[0].EMP_L_CODE);
                     $('#EMP_L_COUNT').val(res[0].EMP_L_COUNT);
-		    $('#EMP_L_ALLOW_LEAVE_BAL').val(res[0].EMP_L_ALLOW_LEAVE_BAL);
 		    $('#EMP_L_VALID_FROM').val(res[0].EMP_L_VALID_FROM);
+		    $('#EMP_L_ALLOW_LEAVE_BAL').val(res[0].EMP_L_ALLOW_LEAVE_BAL);
+		    if($('#EMP_L_ALLOW_LEAVE_BAL').val()=="Y"){
+			$('#allow').attr('checked',true);
+			//$('#discard').prop('checked',false);
+			$('#allowdive').removeClass('hidden');
+		    }else{
+			$('#discard').attr('checked',true);
+			//$('#allow').prop('checked',false);
+			$('#allowdive').addClass('hidden');
+		    }
                     $('#EMP_L_ALLOW_BAL_COUNT').val(res[0].EMP_L_ALLOW_BAL_COUNT);
+		    if ($('#EMP_L_ALLOW_BAL_COUNT').val()=="Y") {
+			$('#countfiled').addClass('hidden');
+			$('#allowC').attr('checked',true);
+		    }else{
+			$('#countfiled').removeClass('hidden');
+			$('#speicalC').attr('checked',true);
+			var count=$('#EMP_L_ALLOW_BAL_COUNT').val();
+			$('#countfiled').val(count);
+		    }
                     $('#EMP_L_ADDI_LEAVE_DED_YN').val(res[0].EMP_L_ADDI_LEAVE_DED_YN);
+		    if ($('#EMP_L_ADDI_LEAVE_DED_YN').val()=="Y") {
+			$('#ADDI_YES').attr('checked',true);
+		    }else {
+			$('#ADDI_NO').attr('checked',true);
+		    }
                     $('#EMP_L_STATUS').val(res[0].EMP_L_STATUS);
+		      if ($('#EMP_L_STATUS').val()=="Y") {
+			$('#STA_YES').attr('checked',true);
+		    }else{
+			$('#STA_NO').attr('checked',true);
+		    }
                 }
             });
         })
     <?php } ?>
-    
-    //update//
-    $('#update').on('click',function(){
-	var EMP_L_ID=$('.userid').val();
-	//console.log(EMP_L_ID);
-	var EMP_L_NAME=$('#EMP_L_NAME').val();
-	var EMP_L_CODE=$('#EMP_L_CODE').val();
-	var EMP_L_COUNT=$('#EMP_L_COUNT').val();
-	var EMP_L_VALID_FROM=$('#EMP_L_VALID_FROM').val();
-	var EMP_L_ALLOW_LEAVE_BAL=$('#EMP_L_ALLOW_LEAVE_BAL').val();
-	var EMP_L_ALLOW_BAL_COUNT=$('#EMP_L_ALLOW_BAL_COUNT').val();
-	var EMP_L_ADDI_LEAVE_DED_YN=$('#EMP_L_ADDI_LEAVE_DED_YN').val();
-	var EMP_L_STATUS=$('#EMP_L_STATUS').val();
-	$.ajax({
-	type:"post",
-	url:"<?php echo base_url('HrconfigCtrl/employeeLeaveType');?>",
-	data:{EMP_L_ID:EMP_L_ID,EMP_L_NAME:EMP_L_NAME,EMP_L_CODE:EMP_L_CODE,EMP_L_COUNT:EMP_L_COUNT,EMP_L_VALID_FROM:EMP_L_VALID_FROM,EMP_L_ALLOW_LEAVE_BAL:EMP_L_ALLOW_LEAVE_BAL,EMP_L_ALLOW_BAL_COUNT:EMP_L_ALLOW_BAL_COUNT,EMP_L_ADDI_LEAVE_DED_YN:EMP_L_ADDI_LEAVE_DED_YN,EMP_L_STATUS:EMP_L_STATUS},
-	success:function(result){
-	    window.location.href="<?php echo base_url('HrSettingsC/leave_Types');?>";
-	}
-	})
-    });
-    
-    
-    
-    
-    
-    
     
 </script>

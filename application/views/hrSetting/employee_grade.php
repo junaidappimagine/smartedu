@@ -37,6 +37,9 @@
 					<thead>
 					    <tr>
 					    <th>Employee Grade</th>
+					    <th>Priority</th>
+					    <th>Max Day</th>
+					    <th>Max Week</th>
 					    <th>Active</th>
 					    <th>Action</th>
 					    </tr>
@@ -145,6 +148,9 @@
 	},
 	columns: [
 	{ data: 'EMP_G_NAME'},
+	{ data: 'EMP_G_PRIORITY'},
+	{ data: 'EMP_G_MAX_DAY'},
+	{ data: 'EMP_G_MAX_WEEK'},
 	{ data: 'EMP_G_ACTIVE_YN'},
 	{
 		data: null, className: "all", 
@@ -273,7 +279,7 @@
     });
     //delete//
     function deleteGrade($id) {
-	bootbox.confirm("<h5>Are you want to delete this record ?<h5/>", function(confirmed) {   
+	bootbox.confirm("<h5>Are you sure want to delete ?<h5/>", function(confirmed) {   
 	    if (confirmed) {
 		$.ajax({
 		    type: "delete",
