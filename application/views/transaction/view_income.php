@@ -35,31 +35,19 @@
 </div><br>
 
 <div class="table-responsive">
-<table class="table table-bordered">
+<table class="table table-bordered" id="dataRespTable">
         <thead>
             <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
                 <th>Name</th>
                 <th>Description</th>
                 <th>Category</th>
-                <th>Voucher No</th>
                 <th>Amount</th>
                 <th>Transaction Date</th>
-                <th>Receipt No</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Text</td>
-                <td>XXXXX</td>
-                <td>Food</td>
-                <td>0454</td>
-                <td>2500</td>
-                <td>Dec-2016</td>
-                <td>121</td>
-                <td><button onclick="" name="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> </button></td>
-            </tr>
-   </tbody>
+        </tbody>
 </table>
 </div>
 
@@ -76,3 +64,74 @@
 <!-- end row -->
 </div>
 <!-- end #content -->
+
+<script>
+    $(document).ready(function() {
+        var table = $("#dataRespTable").DataTable({
+            // "sDom": "<'row'<'col-md-4 no 'f><'col-md-2 yes'l>r><t><'row'<'col-md-6'i>>",
+            "sDom": 'Tlfrtip',
+            "bServerSide": true,
+            "bProcessing": false,
+            "sAjaxSource": '<?php echo base_url('FinTransactionCtrl/showIncomeView')?>',
+            'responsive': true,
+            "bStateSave": true, 
+            "language": {
+            "sLengthMenu": "_MENU_",
+            "lengthMenu": " _MENU_ records",
+            "processing": true
+            },
+            columns: [
+            { data: 'FINC_TXN_IN_TITLE'},
+            { data: 'FINC_TXN_IN_DESC'},
+            { data: 'FINC_TXN_IN_CA_ID'},
+            { data: 'FINC_TXN_IN_AMT'},
+            { data: 'FINC_TXN_IN_DT'},
+            {
+                data: null, className: "all", 
+                    render: function( data, type, row) {
+                    return '<button class="btn btn-xs btn-danger" onclick="javascript:deleteIncomeData('+data['FINC_TXN_IN_ID']+')"><i class="fa fa-trash-o"></i></button>';
+                    }
+                },
+            ],
+            'fnServerData': function(sSource, aoData, fnCallback){
+                $.ajax({
+                'dataType': 'json',
+                'type'    : 'POST',
+                'url'     : sSource,
+                'data'    : aoData,
+                'success' : fnCallback
+                });
+            },
+            "tableTools": {
+                "sSwfPath": "<?php echo site_url()?>assets/plugins/DataTables/swf/copy_csv_xls_pdf.swf",
+            }
+            });       
+                
+        //------------- Start for Processing Icon image------------------------------------//       
+        $('#dataRespTable')
+            .on( 'processing.dt', function ( e, settings, processing ) {
+            // $('#processingIndicator').css( 'display', processing ? loadLoader() : unLoader());
+        }).dataTable(); 
+    });
+    function deleteIncomeData($curr_id){
+        bootbox.confirm("<h5>Are you want to delete this record ?<h5/>", function(confirmed) {   
+            if (confirmed) {
+                $.ajax({
+                    type: "delete",
+                    url: "<?php echo base_url('FinanceTxnAPI/income?id=')?>"+$curr_id,
+                    success: function(res) {
+                        console.log(res.message);
+                        console.log(res.message.message);
+                        if(res.status==true){
+                            $('#alert').append('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> '+res.message.message+'</div>');
+                            $('#dataRespTable').dataTable().fnDraw();
+                        }else{
+                            $('#alert').append('<div class="alert alert-danger "><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">&times;</a><strong>Failure!</strong>'+res.message+'</div>');
+                        }
+                        setTimeout(function(){ $('#alert').empty(); }, 5000);
+                    }
+                });
+            }
+        })
+    }
+</script>

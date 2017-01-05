@@ -26,7 +26,7 @@ class FinanceTxnAPI extends REST_Controller {
 	}
 
     function expense_delete(){
-    	$id=$this->delete('FINC_TXN_EX_ID');
+    	$id=$this->delete('id');
     	if ($id == null)
         {
             $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);
@@ -62,7 +62,7 @@ class FinanceTxnAPI extends REST_Controller {
     }
 
     function income_delete(){
-        $id=$this->delete('FINC_TXN_IN_ID');
+        $id=$this->delete('id');
         if ($id == null)
         {
             $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);

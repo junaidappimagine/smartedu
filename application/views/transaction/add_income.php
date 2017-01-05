@@ -1,11 +1,8 @@
-    <style>
+<style>
     .imp{
-    color:red;
+        color:red;
     }
-   
-    
-    </style>
-    
+</style>    
     <!-- begin #content -->
     <div id="content" class="content">
     <!-- begin breadcrumb -->
@@ -36,61 +33,62 @@
     </div>
     <div class="panel-body">
     <div class="well">
-                                           <form class="form-horizontal">
-                                                <fieldset>
-                                                  
-                                                        <div class="form-group">
-                                                                <label class="col-md-2 control-label">Title <span  class="imp">*</span>: </label>
-                                                                <div class="col-md-4">
-                                                                        <input type="text" class="form-control input-sm" placeholder="" value=""/>
-                                                                </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                                <label class="col-md-2 control-label">Description :</label>
-                                                                <div class="col-md-4">
-                                                                        <input type="text" class="form-control input-sm" placeholder="" value="" />
-                                                                </div>
-                                                                
-                                                        </div>
-                                                         <div class="form-group">
-                                                                <label class="col-md-2 control-label">Amount <span  class="imp">*</span>: </label>
-                                                                <div class="col-md-4">
-                                                                        <input type="text" class="form-control input-sm" placeholder="" value=""/>
-                                                                </div>
-                                                        </div>
-                                                         <div class="form-group">
-                                                                    <label class="control-label col-md-2">Date</label>
-                                                                  
-                                                            <div class="col-md-4">	   												    <span class="input-group">
-                                                                <input type="text" class="form-control dateSet input-sm" size="30" id="from_date">
-                                                                <span class="input-group-addon" >
-                                                                    <span class="glyphicon glyphicon-calendar"></span>
-                                                                </span>
-                                                                </span>
-                                                                 
-                                                                </div>
-                                                         </div>
-                                                         <div class="form-group">
-                                                              <label class="col-md-2 control-label">Category <span  class="imp">*</span>: </label>
-                                                                  <div class="col-md-4">
-                                                        <select class="form-control selectpicker" data-live-search="true" data-style="btn-white btn-sm">
-                                                         <option>Select category</option>
-                                                         <option value="Book for Students">Book for Students</option>
-                                                     
-                                                       </select>
-                                                                  </div>
-                                                         </div>
-                                                  
-                                                         <br>
-                                                        <div class="col-md-offset-3 col-md-1">
-                                                             <button type="button" class="btn btn-sm btn-primary">Save</button>
-                                                         </div>
-                                                         <div class="col-md-3">
-                                                                 <button type="button" class="btn btn-sm btn-danger ">Cancel</button>
-                                                            </div>
-                                                       
-                                                        </fieldset>
-                                                </form>
+       <form class="form-horizontal" id="saveData">
+            <fieldset>
+              
+                    <div class="form-group">
+                            <label class="col-md-2 control-label">Title <span  class="imp">*</span>: </label>
+                            <div class="col-md-4">
+                                <input type="hidden" name="FINC_TXN_IN_ID">
+                                <input type="text" class="form-control input-sm" name="FINC_TXN_IN_TITLE">
+                            </div>
+                    </div>
+                    <div class="form-group">
+                            <label class="col-md-2 control-label">Description :</label>
+                            <div class="col-md-4">
+                                    <input type="text" class="form-control input-sm" name="FINC_TXN_IN_DESC">
+                            </div>
+                            
+                    </div>
+                     <div class="form-group">
+                            <label class="col-md-2 control-label">Amount <span  class="imp">*</span>: </label>
+                            <div class="col-md-4">
+                                    <input type="text" class="form-control input-sm" name="FINC_TXN_IN_AMT">
+                            </div>
+                    </div>
+                     <div class="form-group">
+                                <label class="control-label col-md-2">Date</label>
+                              
+                        <div class="col-md-4">	   												    <span class="input-group">
+                            <input type="text" class="form-control dateSet input-sm" size="30" id="from_date" name="FINC_TXN_IN_DT">
+                            <span class="input-group-addon" >
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                            </span>
+                             
+                            </div>
+                     </div>
+                     <div class="form-group">
+                          <label class="col-md-2 control-label">Category <span  class="imp">*</span>: </label>
+                              <div class="col-md-4">
+                    <select class="form-control selectpicker" data-live-search="true" data-style="btn-white btn-sm" name="FINC_TXN_IN_CA_ID">
+                     <option>Select category</option>
+                     <option value="Book for Students">Book for Students</option>
+                 
+                   </select>
+                              </div>
+                     </div>
+              
+                     <br>
+                    <div class="col-md-offset-3 col-md-1">
+                         <button type="submit" class="btn btn-sm btn-primary">Save</button>
+                     </div>
+                     <div class="col-md-3">
+                             <button type="button" class="btn btn-sm btn-danger ">Cancel</button>
+                        </div>
+                   
+                    </fieldset>
+            </form>
                                            
       </div>
     </div>
@@ -105,8 +103,23 @@
     </div>
     <!-- end #content -->
     <script>
-         $('.dateSet').datepicker({
-		format: 'd MM yyyy',
+        $('.dateSet').datepicker({
+		  format: 'd MM yyyy',
 	    });
+
+        $('#saveData').submit(function(e){
+          var url_data="<?php echo base_url('FinanceTxnAPI/income');?>";
+          var url1="<?php echo base_url('FinTransactionCtrl/income');?>";
+          $.ajax({
+              type:'post',
+              url:url_data,
+              data:$('#saveData').serialize(),
+              success:function(res){
+                  console.log(res);
+                  window.location.href = url1; 
+              }
+          });
+          e.preventDefault();
+        })
     </script>
  
