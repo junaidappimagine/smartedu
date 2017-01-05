@@ -47,12 +47,21 @@
 	<script src="<?php echo base_url(); ?>assets/js/table-manage-responsive.demo.min.js"></script>	
 	<script src="<?php echo base_url(); ?>assets/plugins/gritter/js/jquery.gritter.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/table-manage-combine.demo.min.js"></script>
+	
+	 
+	  <script src="<?php echo base_url(); ?>assets/plugins/jquery-tag-it/js/tag-it.min.js"></script>
+	  <script src="<?php echo base_url(); ?>assets/plugins/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
+	  <script src="<?php echo base_url(); ?>assets/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js"></script>
+	  <script src="<?php echo base_url(); ?>assets/js/email-compose.demo.min.js"></script>
+	  <script src="<?php echo base_url(); ?>assets/Burtlanassets/include/js/chosen.jquery.js"></script>
 
 
 <script>
 		$(document).ready(function() {
 			App.init();
 			TableManageDefault.init();
+			EmailCompose.init();
+			Inbox.init();
 			//DashboardV2.init();
 		});
 	</script>

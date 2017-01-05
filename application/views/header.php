@@ -34,6 +34,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link href="<?php echo base_url(); ?>assets/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" />
+	
+	
 </head>
 <body>
 <!-- begin #page-loader -->
@@ -68,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</form>
 					</li>
 					<li>
-					   <li><a href="<?php echo base_url();?>EmailCtrl/email"><i class="fa fa-mail-o"></i>Mail</a></li>
+					   <li><a href="<?php echo base_url();?>EmailCtrl/emailInbox"><i class="fa fa-mail-o"></i>Mail</a></li>
 					</li>
 					<li class="dropdown">
 						<a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
@@ -312,6 +314,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</li>
 						</ul>
 					</li>
+					<li class="has-sub">
+					    <a href="javascript:;">
+						    <span class="caret pull-right"></span>
+						    <i class="fa fa-suitcase text-warning"></i>
+						    <span>News</span>
+						    
+					    </a>
+					    <ul class="sub-menu">
+						<li><a href="<?php echo base_url();?>NewsCtrl/viewNews">View News</a></li>
+						    
+					    </ul>
+					</li>
+					<li class="has-sub">
+					    <a href="javascript:;">
+						    <span class="caret pull-right"></span>
+						    <i class="fa fa-suitcase text-warning"></i>
+						    <span>Event</span>
+						    
+					    </a>
+					    <ul class="sub-menu">
+						<li><a href="<?php echo base_url();?>EventCtrl/eventCreation">Create Event</a></li>
+						    
+					    </ul>
+					</li>
+					
 					<li class="has-sub">
 						<a href="javascript:;">
 							<span class="caret pull-right"></span>
