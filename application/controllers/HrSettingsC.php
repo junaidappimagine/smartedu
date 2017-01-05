@@ -2,6 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class hrSettingsC extends CI_Controller {
+    function __construct(){
+        parent::__construct();
+        $this->load->model('default_model');
+        $this->load->library('Datatables');
+    }
     function hrSettingsC()
     {
         parent::__construct();
@@ -81,7 +86,8 @@ class hrSettingsC extends CI_Controller {
     function employee_position()
     {
         $this->load->view('header');
-        $this->load->view('hrSetting/employeePosition');
+        $result['emp_cat']=$this->default_model->fetchEmployeeCategory();
+        $this->load->view('hrSetting/employeePosition',$result);
         $this->load->view('footer');
     }
     function employeeSearch()
@@ -111,8 +117,8 @@ class hrSettingsC extends CI_Controller {
         echo $this->datatables->generate();
     }
     function employeePositionView(){
-        $this->datatables->select('EMP_P_ID, EMP_P_CATEGORY_ID, EMP_P_NAME, EMP_P_ACTIVE_YN')
-        ->from('employee_position');
+        $this->datatables->select('EMP_P_ID, EMP_P_CATEGORY_ID, EMP_P_NAME,EMP_C_NAME,EMP_P_ACTIVE_YN')
+        ->from('employee_position_view');
         echo $this->datatables->generate();
     }
     function employeeBankDeatailsView(){

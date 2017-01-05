@@ -70,10 +70,11 @@
 				    <div class="form-group">
 					<label class="col-md-4 control-label">Employee Category</label>
 					<div class="col-md-4">
-					    <select name="EMP_P_CATEGORY_ID" class="form-control selectpicker input-sm" id="EMP_P_CATEGORY_ID" data-style="btn-white">
-						<option>Select Category</option>
-						<option value="p1">p1</option>
-						<option value="p2">p2</option>
+					    <select name="EMP_P_CATEGORY_ID" class="form-control selectpicker btn input-sm" id="EMP_P_CATEGORY_ID" data-style="btn-white">
+					    <option value="">Select</option>
+					    <?php foreach ($emp_cat as $cat) { ?>
+					    	<option value="<?php echo $cat['EMP_C_ID']?>"><?php echo $cat['EMP_C_NAME']?></option>
+					   <?php  } ?>
 					    </select>
 					</div>
 				    </div>
@@ -129,7 +130,7 @@
 		},
 		columns: [
 		{ data: 'EMP_P_NAME'},
-		{ data: 'EMP_P_CATEGORY_ID'},
+		{ data: 'EMP_C_NAME'},
 		{ data: 'EMP_P_ACTIVE_YN'},
 		{
 			data: null, className: "all", 
@@ -247,7 +248,7 @@
 	    success: function(json)
 	    {
 	    $('#EMP_P_NAME').val(json[0].EMP_P_NAME);
-	    $('#EMP_P_CATEGORY_ID').val(json[0].EMP_P_CATEGORY_ID);
+	    $('#EMP_P_CATEGORY_ID').val(json[0].EMP_P_CATEGORY_ID).selectpicker('refresh');
 	    $('#EMP_P_ACTIVE_YN').val(json[0].EMP_P_ACTIVE_YN);
 	    var check=$('#EMP_P_ACTIVE_YN').val();
 	    console.log(check);
