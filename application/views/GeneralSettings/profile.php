@@ -50,7 +50,7 @@
                             <div class="form-group">
                                     <label class="col-md-7 control-label"></label>
                                     <div class="col-md-1">
-                                        <select id="selectProfile" class="form-control selectpicker"  data-style="btn-warning btn-xs">
+                                        <select id="selectProfile" class="form-control selectpicker"   data-style="btn-warning btn-xs">
                                             <option selected disabled>Profile</option>
                                             <option value="General">General</option>
                                             <option value="Personal">Personal</option>
@@ -68,7 +68,7 @@
                                         </select>
                                      </div>
                                     <div class="col-md-1">
-                                        <select id="selectClass" class="form-control selectpicker"  data-style="btn-warning btn-xs">
+                                        <select id="selectClass" class="form-control selectpicker"   data-style="btn-warning btn-xs">
                                             <option selected disabled>Leaves</option>
                                             <option value="">My leaves</option>
                                             <option value="">Apply leave</option>
@@ -90,7 +90,6 @@
 		    </div>
                   <hr>
                 <div class="container" style="width: 100% !important">
-               
                   <br>
                   <form class="form-horizontal">
                     <div class="row">
@@ -360,7 +359,19 @@
             $('#actions').removeClass('hidden');
            
             });
-         $('#selectProfile').change(function(){
+	    $('#selectProfile').on('change',function(){
+		var selectData=$(this).val();
+		$.ajax({
+		    type:"get",
+		    url:"<?php echo base_url();?>",
+		    data:{selectData:selectData},
+		    dataType:"json",
+		    success:function (result){
+			
+		    }
+		    
+		    })
+		
                 if ($(this).val() =='General') {
                     $('.mytable').removeClass('hidden');
                     $('#actions').removeClass('hidden');
@@ -461,7 +472,7 @@
                     $('#library').addClass('hidden');
                 }
             });
-         $('#selectSalary').change(function(){
+	    $('#selectSalary').change(function(){
                 if ($(this).val() =='Payroll') {
                     $('#payroll').removeClass('hidden');
                     $('#payslip').addClass('hidden');
@@ -507,7 +518,7 @@
                     $('#library').addClass('hidden');
                 }
             });
-          $('#selectMore').change(function(){
+	    $('#selectMore').change(function(){
                 if ($(this).val() =='Library') {
                     $('#library').removeClass('hidden');
                     $('#payroll').addClass('hidden');
