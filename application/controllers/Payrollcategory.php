@@ -2,7 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class payrollcategory extends CI_Controller {
-
+	function __construct(){
+	parent::__construct();
+	   $this->load->helper('dompdf_helper');
+	   $this->load->library('session');
+	   $this->load->helper('url');
+	   $this->load->library('Datatables');    
+	}
 	/**
 	 * Index Page for this controller.
 	 *
@@ -51,15 +57,19 @@ class payrollcategory extends CI_Controller {
 	}
 	function Edit_Payroll_Category(){
 		
-	    $this->load->view('header');
-		$this->load->view('footer');
-			
-		$data['val1']=$this->input->get('var1');
-		$data['val2']=$this->input->get('var2');
-		$data['val3']=$this->input->get('var3');
-		$data['val4']=$this->input->get('var4');
-		
+	        $this->load->view('header');
 		$data['mode']='edit';
 		$this->load->view('payroll/Createpayroll',$data);
+		$this->load->view('footer');
 	}
+	
+	function fetchP_categoryView(){
+		
+		$this->datatables->select('PR_C_H_ID, PR_C_H_NAME, PR_C_H_CODE,PR_C_H_TYPE,PR_C_H_VAL_TYPE,PR_C_L_DEFAULT_VAL')
+		->from('payroll_category_head,');
+		echo $this->datatables->generate();
+		//print_r($res);
+		//exit;
+	}
+
 }
