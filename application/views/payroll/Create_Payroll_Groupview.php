@@ -32,37 +32,28 @@
                            <div class="panel-body">
                                <h1 class="page-header">Create Payroll Group <br><small>Create payroll group for salary preferences. Payroll categories and LOP calculation must be included.</small></h1>
                                <hr>
-                               <form class="form-horizontal">
+                               <form class="form-horizontal" id="saveData">
                                                <div class="form-group">
                                                   <label class="col-md-2 control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Payroll Group Name *</label>
                                                    <div class="col-md-4">
-                                                      <input type="text" name="PR_G_H_NAME" class="form-control input-sm" placeholder="Payroll Group Name" value="<?php if($mode=='edit') echo 'BASIC';?>"/>
+                                                      <input type="text" class="form-control input-sm" placeholder="Payroll Group Name" name="PR_G_H_NAME" id="PR_G_H_NAME"/>
                                                    </div>
                                                </div>
                                                <h1 class="page-header">Salary Preference</h1><hr>
                                                <div class="form-group">
                                                    <label class="col-md-2 control-label">Pyment Frequency *</label>
                                                    <div class="col-md-4">
-                                                         <?php if($mode!='edit') { ?>
-                                                       <select class="form-control input-sm selectpicker" name="PR_G_H_PAY_H_PERIOD_TYPE"  id="Pyment" data-style="btn-white" onchange="selectPreference()">
-                                                           <option selected>Daily</option>
+                                                       <select class="form-control input-sm" id="PR_G_H_PAY_H_PERIOD_TYPE" name="PR_G_H_PAY_H_PERIOD_TYPE" onchange="onloadPreference()">
+                                                           <option>Daily</option>
                                                            <option>Weekly</option>
                                                            <option>monthly</option>
                                                        </select>
-                                                           <?php } else { ?>
-                                                       <select class="form-control input-sm selectpicker"   id="Pyment" data-style="btn-white" onchange="onloadPreference()">
-                                                           <option>Daily</option>
-                                                           <option>Weekly</option>
-                                                           <option selected value="monthly">monthly</option>
-                                                       </select>
-                                                           <?php } ?>
-                                                       
                                                    </div>
                                                </div>
                                                 <div class="form-group hidden" id="PayslipDay">
-                                                   <label class="col-md-2 control-label">Payslip generation day *</label>
-                                                   <div class="col-md-4">
-                                                       <select class="form-control input-sm selectpicker" data-style="btn-white" onchange="">
+                                                  <label class="col-md-2 control-label">Payslip generation day *</label>
+                                                  <div class="col-md-4">
+                                                       <select class="form-control input-sm" name="PR_G_H_PAYSLIP_GEN_DT" id="PR_G_H_PAYSLIP_GEN_DT">
                                                            <option>Sunday</option>
                                                            <option>Monday</option>
                                                            <option>Tuesday</option>
@@ -71,12 +62,12 @@
                                                            <option>Friday</option>
                                                            <option selected >Saturday</option>
                                                        </select>
-                                                   </div>
+                                                  </div>
                                                </div>
                                                  <div class="form-group hidden" id="PayslipDate">
                                                    <label class="col-md-2 control-label">Payslip generation date *</label>
                                                    <div class="col-md-4">
-                                                       <select class="form-control selectpicker input-sm" name="PR_G_H_PAYSLIP_GEN_DT" data-style="btn-white"  onchange="" >
+                                                       <select class="form-control input-sm" name="PR_G_H_PAYSLIP_GEN_DT" id="PR_G_H_PAYSLIP_GEN_DT" >
                                                             <option>1</option>
                                                             <option>2</option>
                                                             <option>3</option>
@@ -256,14 +247,14 @@
                                              <div class="form-group">
                                                   <div class="col-sm-12">
                                                        <div class="col-md-4">
-                                                           <label class="radio-inline" style="float: left;">
-                                                                <input type="radio" name="PR_G_H_LOP_CRITERIA_YN" value="option1"  onclick="EnableDeduction()"/>
+                                                            <label class="radio-inline" style="float: left;">
+                                                                 <input type="radio" name="PR_G_H_LOP_CRITERIA_YN" value="Y" id="PR_G_H_LOP_CRITERIA_YN" onclick="EnableDeduction()"/>
                                                                   Enable LOP Deduction
-                                                           </label>
+                                                            </label>
                                                        </div>
                                                        <div class="col-md-4">
                                                             <label class="radio-inline">
-                                                                <input type="radio" name="PR_G_H_LOP_CRITERIA_YN" value="option2" onclick="DisableDeduction()" checked/>
+                                                                <input type="radio" name="PR_G_H_LOP_CRITERIA_YN" value="N" id="PR_G_H_LOP_CRITERIA_YN" onclick="DisableDeduction()" checked/>
                                                                 LOP not applicable
                                                             </label>
                                                        </div>
@@ -273,24 +264,24 @@
                                              <div class="form-group hidden" id="EnableLOP" >
                                                   <label class="col-md-2 control-label">Value type <span  class="imp">*</span> </label>
                                                   <div class="col-md-4">
-                                                       <select name="PR_G_L_CALC_TYPE"  class="form-control input-sm selectpicker" data-style="btn-white" id="value_type">
+                                                       <select name="PR_G_H_VAL_TYPE"  class="form-control input-sm" id="PR_G_H_VAL_TYPE">
                                                             <option>select value type</option>
-                                                            <option>Numeric</option>
-                                                            <option>Formula</option>
-                                                            <option>Conditional Formula</option>
+                                                            <option value="N">Numeric</option>
+                                                            <option value="F">Formula</option>
+                                                            <option value="CF">Conditional Formula</option>
                                                        </select>
                                                   </div>
                                              </div>		    
                                              <div class="form-group" id="numeric">
                                                   <label class="col-md-2 control-label">Amount <span class="imp">*</span> </label>
                                                   <div class="col-md-4">
-                                                       <input type="text" class="form-control input-sm" placeholder="" />
+                                                       <input type="text" class="form-control input-sm" name="PR_G_L_DEFAULT_VAL" id="PR_G_L_DEFAULT_VAL"/>
                                                   </div>
                                              </div>
                                              <div class="form-group" id="formula">
                                                   <label class="col-md-2 control-label">Formula <span class="imp">*</span> </label>
                                                   <div class="col-md-4">
-                                                       <textarea  style="width: 100%;" rows="3"  class="form-control input-sm" cols="38" name=""> </textarea> 
+                                                       <textarea  style="width: 100%;" rows="3"  class="form-control input-sm" cols="38" name="PR_G_L_DEFAULT_VAL" id="PR_G_L_DEFAULT_VAL"> </textarea> 
                                                   </div>
                                                   <div class="col-md-1">
                                                        <a href="#">Validate</a>
@@ -347,7 +338,7 @@
                                                                          <div class="form-group">
                                                                                  <label class="col-md-2 control-label">if</label>
                                                                                  <div class="col-md-8">
-                                                                                        <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_VALI_1"> </textarea> 
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_VALI_1[]" id="PR_G_L_VALI_1"> </textarea> 
                                                                                  </div>
                                                                                  <div class="col-md-2">
                                                                                     <a href="#">Validate</a>
@@ -356,21 +347,18 @@
                                                                          <div class="form-group">
                                                                                   <label class="col-md-2 control-label"></label>
                                                                                          <div class="col-md-8">
-                                                                                                 <select name="PR_G_L_VALI_2"  class="form-control input-sm selectpicker" data-style="btn-white">
-                                                                                                        <option value="">select</option>
-                                                                                                        <option value="">is greater than or equal to</option>
-                                                                                                        <option value="">is less than or equal to</option>
-                                                                                                        <option value="">is greater than</option>
-                                                                                                        <option value="">is lesser than</option>
-                                                                                                        <option value="">is equal to</option>
-                                                                                                        <option value="">is not equal to</option>
+                                                                                                 <select name="PR_G_L_VALI_2[]" id="PR_G_L_VALI_2" class="form-control input-sm">
+                                                                                                         <option>select value type</option>
+                                                                                                         <option>Numeric</option>
+                                                                                                         <option>Formula</option>
+                                                                                                         <option>Conditional Formula</option>
                                                                                                  </select>
                                                                                          </div>
                                                                          </div>
                                                                          <div class="form-group" id="">
                                                                                  <label class="col-md-2 control-label"></label>
                                                                                  <div class="col-md-8">
-                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_VALI_3"> </textarea> 
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_VALI_3[]" id="PR_G_L_VALI_3"> </textarea> 
                                                                                  </div>
                                                                                  <div class="col-md-2">
                                                                                     <a href="#">Validate</a>
@@ -379,7 +367,7 @@
                                                                          <div class="form-group" id="">
                                                                                  <label class="col-md-2 control-label">then</label>
                                                                                  <div class="col-md-8">
-                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_VALI_4"> </textarea> 
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_VALI_4[]" id="PR_G_L_VALI_4"> </textarea> 
                                                                                  </div>
                                                                                  <div class="col-md-2">
                                                                                     <a href="#">Validate</a>
@@ -425,97 +413,94 @@
                                                              </div>
                                                          </div>
                                                          
-                                                         <div class="row template hidden" id="template" style="margin-top: 50px">
-                                                             <div class="col-md-offset-1 col-md-5" style="border:1px solid;"  >
-                                                                         <div class="row section_header">
-                                                                                 <div class="col-md-2">
-                                                                                         <h6>Condition </h6>
-                                                                                 </div>
-                                                                                 <div class="col-md-offset-9 col-md-1">
-                                                                                         <a  class="cancel">[X]</a>
-                                                                                         
-                                                                                 </div>
-                                                                         </div>
-                                                                         <br>
-                                                                         <div class="form-group">
-                                                                                 <label class="col-md-2 control-label">if</label>
-                                                                                 <div class="col-md-8">
-                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_VALI_1"> </textarea> 
-                                                                                 </div>
-                                                                                 <div class="col-md-2">
-                                                                                    <a href="#">Validate</a>
-                                                                                 </div>
-                                                                         </div>
-                                                                         <div class="form-group">
-                                                                                  <label class="col-md-2 control-label"></label>
-                                                                                         <div class="col-md-8">
-                                                                                                 <select name="value" name="PR_G_L_VALI_2"  class="form-control input-sm">
-                                                                                                        <option value="">select</option>
-                                                                                                        <option value="">is greater than or equal to</option>
-                                                                                                        <option value="">is less than or equal to</option>
-                                                                                                        <option value="">is greater than</option>
-                                                                                                        <option value="">is lesser than</option>
-                                                                                                        <option value="">is equal to</option>
-                                                                                                        <option value="">is not equal to</option>
-                                                                                                 </select>
-                                                                                         </div>
-                                                                         </div>
-                                                                         <div class="form-group" id="">
-                                                                                 <label class="col-md-2 control-label"></label>
-                                                                                 <div class="col-md-8">
-                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_VALI_3"> </textarea> 
-                                                                                 </div>
-                                                                                 <div class="col-md-2">
-                                                                                    <a href="#">Validate</a>
-                                                                                 </div>
-                                                                         </div>
-                                                                         <div class="form-group" id="">
-                                                                                 <label class="col-md-2 control-label">then</label>
-                                                                                 <div class="col-md-8">
-                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_VALI_4"> </textarea> 
-                                                                                 </div>
-                                                                                 <div class="col-md-2">
-                                                                                    <a href="#">Validate</a>
-                                                                                 </div>
-                                                                         </div>
-                                                            </div>
-                                                                 <div class="col-md-offset-1 col-md-5" id="reference_code">
-                                                                         <ul class="nav nav-tabs">
-                                                                                 <li class="active"><a data-toggle="tab" href="#categories">Payroll categories</a></li>
-                                                                                 <li><a data-toggle="tab" href="#formula">Formula Examples</a></li>
-                                                                         </ul>
-                                                                         <div class="tab-content well">
-                                                                                 <div id="categories" class="tab-pane fade in active">
-                                                                                         <h6 class="section_header">Standard codes</h6>
-                                                                                          <div class="row">
-                                                                                                 <div class="col-md-6">Gross pay</div>
-                                                                                                 <div class="col-md-offset-2 col-md-4">GROSS</div>
-                                                                                          </div>
-                                                                                          <div class="row">
-                                                                                                 <div class="col-md-6">Number of working days</div>
-                                                                                                 <div class="col-md-offset-2 col-md-4">NWD</div>
-                                                                                          </div>
-                                                                                          <h6 class="section_header">Earnings</h6>
-                                                                                          <div class="row">
-                                                                                                 <div class="col-md-6">Basic</div>
-                                                                                                 <div class="col-md-offset-2 col-md-4">Travelling </div>
-                                                                                          </div>
-                                                                                          <div class="row">
-                                                                                                 <div class="col-md-6">Number of working days</div>
-                                                                                                 <div class="col-md-offset-2 col-md-4">NWD</div>
-                                                                                          </div>
-                                                                                          <h6 class="section_header">Deductions</h6>
-                                                                                 </div>
-                                                                                 <div id="formula" class="tab-pane fade">
-                                                                                         <ul>
-                                                                                                 <li>content 1</li>
-                                                                                                 <li>content 2</li>
-                                                                                                 <li>content 3</li>
-                                                                                         </ul>
-                                                                                 </div>
-                                                                         </div>
-                                                             </div>
-                                                         </div>
+							     <div class="row template hidden" id="template" style="margin-top: 50px">
+								 <div class="col-md-offset-1 col-md-5" style="border:1px solid;"  >
+									     <div class="row section_header">
+										     <div class="col-md-2">
+											     <h6>Condition </h6>
+										     </div>
+										     <div class="col-md-offset-9 col-md-1">
+											     <a  class="cancel">[X]</a>
+										     </div>
+									     </div>
+									     <br>
+									     <div class="form-group">
+										     <label class="col-md-2 control-label">if</label>
+										     <div class="col-md-8">
+											     <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" id="value1[]"> </textarea> 
+										     </div>
+										     <div class="col-md-2">
+											<a href="#">Validate</a>
+										     </div>
+									     </div>
+									     <div class="form-group">
+										      <label class="col-md-2 control-label"></label>
+											     <div class="col-md-8">
+												     <select id="value2[]"  class="form-control input-sm">
+													     <option>select value type</option>
+													     <option>Numeric</option>
+													     <option>Formula</option>
+													     <option>Conditional Formula</option>
+												     </select>
+											     </div>
+									     </div>
+									     <div class="form-group" id="">
+										     <label class="col-md-2 control-label"></label>
+										     <div class="col-md-8">
+											     <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" id="value3[]"> </textarea> 
+										     </div>
+										     <div class="col-md-2">
+											<a href="#">Validate</a>
+										     </div>
+									     </div>
+									     <div class="form-group" id="">
+										     <label class="col-md-2 control-label">then</label>
+										     <div class="col-md-8">
+											     <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" id="value4[]"> </textarea> 
+										     </div>
+										     <div class="col-md-2">
+											<a href="#">Validate</a>
+										     </div>
+									     </div>
+								</div>
+								     
+								     <div class="col-md-offset-1 col-md-5" id="reference_code">
+									     <ul class="nav nav-tabs">
+										     <li class="active"><a data-toggle="tab" href="#categories">Payroll categories</a></li>
+										     <li><a data-toggle="tab" href="#formula">Formula Examples</a></li>
+									     </ul>
+									     <div class="tab-content well">
+										     <div id="categories" class="tab-pane fade in active">
+											     <h6 class="section_header">Standard codes</h6>
+											      <div class="row">
+												     <div class="col-md-6">Gross pay</div>
+												     <div class="col-md-offset-2 col-md-4">GROSS</div>
+											      </div>
+											      <div class="row">
+												     <div class="col-md-6">Number of working days</div>
+												     <div class="col-md-offset-2 col-md-4">NWD</div>
+											      </div>
+											      <h6 class="section_header">Earnings</h6>
+											      <div class="row">
+												     <div class="col-md-6">Basic</div>
+												     <div class="col-md-offset-2 col-md-4">Travelling </div>
+											      </div>
+											      <div class="row">
+												     <div class="col-md-6">Number of working days</div>
+												     <div class="col-md-offset-2 col-md-4">NWD</div>
+											      </div>
+											      <h6 class="section_header">Deductions</h6>
+										     </div>
+										     <div id="formula" class="tab-pane fade">
+											     <ul>
+												     <li>content 1</li>
+												     <li>content 2</li>
+												     <li>content 3</li>
+											     </ul>
+										     </div>
+									     </div>
+								 </div>
+							     </div>
                                                          
                                                          <div class="row">
                                                                  <div class="col-md-offset-1 col-md-3">
@@ -530,7 +515,7 @@
                                                                          <div class="form-group">
                                                                                  <label class="col-md-2 control-label">Value</label>
                                                                                  <div class="col-md-8">
-                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_DEFAULT_VAL"> </textarea> 
+                                                                                         <textarea  style="width: 100%;" rows="2"  class="form-control input-sm" cols="38" name="PR_G_L_DEFAULT_VAL" id="PR_G_L_DEFAULT_VAL"> </textarea> 
                                                                                  </div>
                                                                                  <div class="col-md-2">
                                                                                     <a href="#">Validate</a>
@@ -557,76 +542,6 @@
                          </div>
                     </div>
                <script>
-                $(document).ready(function() {
-		$('.form-horizontal').bootstrapValidator({
-		    feedbackIcons: {
-		    valid: 'glyphicon glyphicon-ok',
-		    invalid: 'glyphicon glyphicon-remove',
-		    validating: 'glyphicon glyphicon-refresh'
-		    },
-		    fields: {
-		    PR_G_H_NAME:{
-			validators:{
-			notEmpty:{
-			message: 'Name is required and cannot be empty'	
-			},
-			} 
-			},
-                    PR_G_L_VALI_1:{
-			validators:{
-			notEmpty:{
-			message: 'Name is required and cannot be empty'	
-			},
-                        regexp:{
-			regexp: /^[0-9\s]+$/i,
-			message:'Numbers Only'
-			}
-			} 
-			},
-                    PR_G_L_VALI_2:{
-			validators:{
-			notEmpty:{
-			message: 'Name is required and cannot be empty'	
-			},
-			} 
-			},
-                    PR_G_L_VALI_3:{
-			validators:{
-			notEmpty:{
-			message: 'Name is required and cannot be empty'	
-			},
-                        regexp:{
-			regexp: /^[0-9\s]+$/i,
-			message:'Numbers Only'
-			}
-			} 
-		    },
-                    PR_G_L_VALI_4:{
-			validators:{
-			notEmpty:{
-			message: 'Name is required and cannot be empty'	
-			},
-                        regexp:{
-			regexp: /^[0-9\s]+$/i,
-			message:'Numbers Only'
-			}
-			} 
-		    },
-                    PR_G_L_DEFAULT_VAL:{
-			validators:{
-			notEmpty:{
-			message: 'Name is required and cannot be empty'	
-			},
-                        regexp:{
-			regexp: /^[0-9\s]+$/i,
-			message:'Numbers Only'
-			}
-			} 
-		    },
-                    
-		    },
-                    });
-                });
                     <?php if($mode!= 'edit') { ?>
                     function addEarning($this){
                              var valu=$('#earn');
@@ -673,29 +588,14 @@
                          <?php } ?>
                  
                   
-                   <?php if($mode!='edit') { ?>
-                    function selectPreference()
-                    {
-                       if($('#Pyment').val() == 'Weekly') {
+                   
+                    $("#PR_G_H_PAY_H_PERIOD_TYPE").change(function(){
+                         
+                         $('#PayslipDate').removeClass('hidden');
+                       if($(this).val() == 'Weekly') {
                          $('#PayslipDate').addClass('hidden');
                          $('#PayslipDay').removeClass('hidden');
-                       }else if($("#Pyment").val() == 'monthly') {
-                         $('#PayslipDay').addClass('hidden');
-                         $('#PayslipDate').removeClass('hidden');
-                       } else{
-                         $('#PayslipDate').addClass('hidden');
-                         $('#PayslipDay').addClass('hidden');
-                       }
-                   }
-                   <?php } else { ?>
-                    
-                    function onloadPreference()
-                    {
-                         $('#PayslipDate').removeClass('hidden');
-                       if($('#Pyment').val() == 'Weekly') {
-                         $('#PayslipDate').addClass('hidden');
-                         $('#PayslipDay').removeClass('hidden');
-                       }else if($("#Pyment").val()=='monthly') {
+                       }else if($(this).val()=='monthly') {
                          $('#PayslipDay').addClass('hidden');
                          $('#PayslipDate').removeClass('hidden');
                        } else{
@@ -703,10 +603,8 @@
                          $('#PayslipDay').addClass('hidden');
                        
                        }
-                   }
-                   <?php } ?>
-                               
-                   
+                   });
+                  
                    function EnableDeduction()
                    {
                          $("#EnableLOP").removeClass('hidden');
@@ -729,33 +627,33 @@
                 
                    }
                     
-                  $('#numeric').hide();
-                          $('#formula').hide();
-                          $('#conditional_formula').hide();
-                          $(document).ready(function() {
-                  $("#value_type").change(function(){
-                                          //alert();
-                                  console.log($(this).val());
-                                   if($(this).val()==='Numeric')
-                                           {
-                                                  $('#numeric').show();
-                                              $('#formula').hide();
-                                                  $('#conditional_formula').hide();
-                                           }
-                                           else if($(this).val()==='Formula')
-                                           {
-                                                  $('#numeric').hide();
-                                                  $('#formula').show();
-                                                  $('#conditional_formula').hide();
-                                           }
-                                           else if($(this).val()==='Conditional Formula')
-                                           {
-                                                  $('#numeric').hide();
-                                                  $('#formula').hide();
-                                                  $('#conditional_formula').show();
-                                           }
-                                  });
-                          });
+                    $('#numeric').hide();
+                    $('#formula').hide();
+                    $('#conditional_formula').hide();
+                    $(document).ready(function() {
+                        $("#PR_G_H_VAL_TYPE").change(function(){
+                                    //alert();
+                            console.log($(this).val());
+                             if($(this).val()==='N')
+                                     {
+                                            $('#numeric').show();
+                                            $('#formula').hide();
+                                            $('#conditional_formula').hide();
+                                     }
+                                     else if($(this).val()==='F')
+                                     {
+                                            $('#numeric').hide();
+                                            $('#formula').show();
+                                            $('#conditional_formula').hide();
+                                     }
+                                     else if($(this).val()==='CF')
+                                     {
+                                            $('#numeric').hide();
+                                            $('#formula').hide();
+                                            $('#conditional_formula').show();
+                                     }
+                            });
+                        });
 		
                          $(document).ready(function(){
                              var resData = $('#Pyment').val();
@@ -764,14 +662,38 @@
                                   $('#PayslipDate').removeClass('hidden');
                              }
                          });
-                         $('#add').click(function(){
-				var newEle= $('#template').clone(true).insertBefore('#template').addClass('clonediv').removeClass('hidden');
-				$(newEle).find("div#reference_code").remove();
-			});
+                         $('#saveData').submit(function(e){
+                              e.preventDefault();
+                              var url_data="<?php echo base_url('PayrollAPI/payrollGroup');?>";
+                              var url1="<?php echo base_url('payrollgroup/Add_Payroll_Groupview');?>";
+                              $.ajax({
+                                  type:'post',
+                                  url:url_data,
+                                  data:$('#saveData').serialize(),
+                                  success:function(res){
+                                      console.log(res);
+                                      //window.location.href = url1; 
+                                  }
+                              });
+                              
+                          });
+                         $('#add').click(function()
+                         {
+                             var $template = $('#template'),
+                             $clone = $('#template').clone(true).insertBefore('#template').addClass('clonediv').removeClass('hidden');
+                             $clone.find('[id="value1[]"]').attr('name','PR_G_L_VALI_1[]');
+                             $clone.find('[id="value2[]"]').attr('name','PR_G_L_VALI_2[]');
+                             $clone.find('[id="value3[]"]').attr('name','PR_G_L_VALI_3[]');
+                             $clone.find('[id="value4[]"]').attr('name','PR_G_L_VALI_4[]');
+                         });
+//                         $('#add').click(function(){
+//				var newEle= $('#template').clone(true).insertBefore('#template').addClass('clonediv').removeClass('hidden');
+//				$(newEle).find("div#reference_code").remove();
+//			});
                          $('.cancel').click(function(){
-					console.log($(this).val());
-					var ele=$(this).parents('.clonediv').remove();
-					console.log(ele);
+                              console.log($(this).val());
+                              var ele=$(this).parents('.clonediv').remove();
+                              console.log(ele);
 			   });
                 
                </script>
