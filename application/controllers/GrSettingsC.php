@@ -155,5 +155,10 @@ function __construct(){
       ->from('user');
       echo $this->datatables->generate();
     }
+    function employeeAdmissionView(){
+      $this->datatables->select('EMP_ID,EMP_FIRST_NAME,EMP_DEPT,EMP_CATEGORY,EMP_POSITION,EMP_GRADE')
+      ->from('employee_admission');
+      echo $this->datatables->generate();
+    }
 }
 ?>
