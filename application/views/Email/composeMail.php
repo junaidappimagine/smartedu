@@ -6,7 +6,7 @@
          
 	  <link href="<?php echo base_url(); ?>assets/plugins/jquery-tag-it/css/jquery.tagit.css" rel="stylesheet" />
 	  <link href="<?php echo base_url(); ?>assets/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.css" rel="stylesheet" />
-	   <link href="<?php echo base_url(); ?>assets/Burtlanassets/include/css/chosen.css" rel="stylesheet" />
+	   <link href="<?php echo base_url(); ?>assets/css/chosen.css" rel="stylesheet" />
 	  <!--<link href="<?php echo base_url(); ?>assets/css/style.min.css" rel="stylesheet" />-->
 	  
 	  
@@ -259,6 +259,7 @@
                     $('#p_Bsc').hide();
                     $('#p_c1a').hide();
                     $('#p_c2a').hide();
+                    EmailCompose.init();
             });
             $('#selectDept').change(function(){
                 if ($(this).val()=='English'){ 
@@ -328,4 +329,5 @@
             });
             
         </script>
-	 
+	 <script src="<?php echo base_url(); ?>assets/js/email-compose.demo.min.js"></script>
+      <script src="<?php echo base_url(); ?>assets/js/chosen.jquery.js"></script>
