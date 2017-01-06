@@ -14,8 +14,16 @@
 			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
 		}
 		function search($val){
-			$sql="SELECT * FROM user WHERE USER_TYPE like '$val%' ";
+			$sql="SELECT * FROM user WHERE USER_TYPE like '$val%'";
 			// LIKE  '%''".$val."''%'
+			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+		}
+		function fetchAllUserType(){
+			$sql="SELECT DISTINCT name FROM testing";
+			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+		}
+		function fetchAdmissionDetails(){
+			$sql="SELECT * FROM employee_admission where EMP_ID=''";
 			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
 		}
 	}

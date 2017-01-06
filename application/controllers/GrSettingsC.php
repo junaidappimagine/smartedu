@@ -7,6 +7,7 @@ function __construct(){
       $this->load->helper('dompdf_helper');
       $this->load->library('session');
       $this->load->helper('url');
+      $this->load->model('default_model');
    }
    function index()
    {
@@ -89,6 +90,7 @@ function __construct(){
    function userProfile()
    {
       $this->load->view('header');
+      $result=$this->default_model->fetchAdmissionDetails();
       $this->load->view('GeneralSettings/userProfile');
       $this->load->view('footer');
    }
@@ -145,5 +147,12 @@ function __construct(){
       $this->load->view('GeneralSettings/editPersonal');
       $this->load->view('footer');
    }
+
+   // Created by Viayaraj 06-01-16
+   function fetchUserView(){
+      $this->datatables->select('USER_ID,USER_FIRST_NAME,USER_LAST_NAME,USER_PASSWORD,USER_TYPE,USER_UNIQ_VALUE')
+      ->from('user');
+      echo $this->datatables->generate();
+    }
 }
 ?>
