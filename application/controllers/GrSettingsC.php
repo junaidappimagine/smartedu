@@ -84,7 +84,8 @@ function __construct(){
    function userView()
    {
       $this->load->view('header');
-      $this->load->view('GeneralSettings/userView');
+      $result['usertype']=$this->default_model->fetchAllUserType();
+      $this->load->view('GeneralSettings/userView',$result);
       $this->load->view('footer');
    }
    function userProfile()

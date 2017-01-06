@@ -19,7 +19,7 @@
 			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
 		}
 		function fetchAllUserType(){
-			$sql="SELECT DISTINCT name FROM testing";
+			$sql="SELECT DISTINCT USER_TYPE FROM user";
 			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
 		}
 		function fetchAdmissionDetails(){
