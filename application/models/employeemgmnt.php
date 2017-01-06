@@ -4,8 +4,14 @@
 
 		// ------------------------------ Asset -----------------------------------------------------------------
 		public function saveEmployeeAdmission(){
+			$f_name=$this->input->post('EMP_FIRST_NAME');
+			$l_name=$this->input->post('EMP_LAST_NAME');
+			$sql="SELECT * FROM emp_auto_gen";
+			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
+			$gener_id=$result[0]['ID'];
+			$gener_code=$result[0]['EMP_AUTO_GEN_CODE'];
 			$data = array(
-			   'EMP_NO' => $this->input->post('EMP_NO'),
+			   'EMP_NO' => $gener_code,
 			   'EMP_JOIN_DT' => $this->input->post('EMP_JOIN_DT'),
 			   'EMP_FIRST_NAME' => $this->input->post('EMP_FIRST_NAME'),
 			   'EMP_LAST_NAME' => $this->input->post('EMP_LAST_NAME'),
@@ -44,7 +50,31 @@
 			   'EMP_WORK_PERMIT' => $this->input->post('EMP_WORK_PERMIT')
 			);
 			$this->db->insert('employee_admission', $data); 
+			$this->addtousertable($gener_code,$f_name,$l_name);
+			$this->updategenerationCode($gener_id,$gener_code);
 			return true;
+	    }
+	    function updategenerationCode($gener_id,$gener_code){
+	    	$genr_name = substr($gener_code,0,3);
+	    	$genr_code = substr($gener_code,3);
+	    	$new_gen_code = $genr_code+1;
+	    	$final_val=$genr_name.$new_gen_code;
+	    	$this->db->where('id', $gener_id);
+	    	$data= array(
+                'EMP_AUTO_GEN_CODE'=>$final_val,
+	    	);
+	    	$this->db->update('emp_auto_gen',$data);
+	    }
+	    function addtousertable($gener_code,$f_name,$l_name){
+	    	$data = array(
+			   'USER_ID' => $this->input->post('USER_ID'),
+			   'USER_FIRST_NAME' => $f_name,
+			   'USER_LAST_NAME' => $l_name,
+			   'USER_PASSWORD' => '123',
+			   'USER_TYPE' => 'student',
+			   'USER_UNIQ_VALUE' => $gener_code
+			);
+			$this->db->insert('user', $data); 
 	    }
 	    function addPayrollDetails(){
 	    	$data = array(

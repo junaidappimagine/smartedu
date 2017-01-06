@@ -1,3 +1,4 @@
+<?php //print_r($emp_gen_code);exit;?>
 <style type="text/css">
 		a { color: inherit; } 
 		#set_bck_color {
@@ -62,7 +63,8 @@
 			    <div class="row">
 				<div class="form-group col-md-3">
 				    <label class="control-label ">Employee number</label>
-				      <input type="text" class="form-control input-sm" id="" name="EMP_NO" placeholder="">
+				      <input type="text" class="form-control input-sm" id="" name="EMP_NO" readonly value="<?php echo $emp_gen_code[0]['EMP_AUTO_GEN_CODE']?>">
+				      
 				</div>
 				<div class="form-group col-md-3">
 				    <label class="control-label ">Joining date</label>
@@ -560,7 +562,7 @@
             success: function(res)
             {
                console.log(res);
-               window.location.href = urlNew; 
+               // window.location.href = urlNew; 
             }
      	});
 		e.preventDefault(); 
