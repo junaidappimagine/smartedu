@@ -240,7 +240,7 @@
 				<input type="text" class="form-control input-sm" name="EMP_ADD_1" placeholder="">
 			    </div>
 			    <div class="form-group col-md-3">
-				<label class="control-label">Address Line 1</label>
+				<label class="control-label">Address Line 2</label>
 				<input type="text" class="form-control input-sm" name="EMP_ADD_2" placeholder="">
 			    </div>
 			    <div class="form-group col-md-3">
@@ -305,7 +305,7 @@
 			    </div>
 			    <div class="form-group col-md-3">
 				<label class="control-label">Branch Name</label>
-				<input type="text" class="form-control input-sm" iname="EMP_BANK_BRANCH_NAME" placeholder="">
+				<input type="text" class="form-control input-sm" name="EMP_BANK_BRANCH_NAME" placeholder="">
 			    </div>
 			    </div>
 			</fieldset>

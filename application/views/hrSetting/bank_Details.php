@@ -101,7 +101,7 @@
     <script>
         $(document).ready(function() {
             var table = $("#dataRespTable").DataTable({
-                "sDom": "<'row'<'col-md-4 no 'f><'col-md-6 trcalign' TRC><'col-md-2 yes'l>r><t><'row'<'col-md-6'i><'col-md-6'p>>",
+                //"sDom": "<'row'<'col-md-4 no 'f><'col-md-6 trcalign' TRC><'col-md-2 yes'l>r><t><'row'<'col-md-6'i><'col-md-6'p>>",
                 "bServerSide": true,
                 "bProcessing": false,
                 "sAjaxSource": '<?php echo base_url('hrSettingsC/employeeBankDeatailsView')?>',

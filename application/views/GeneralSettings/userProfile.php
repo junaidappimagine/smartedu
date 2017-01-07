@@ -1,3 +1,5 @@
+
+<?php /*echo "<pre>";print_r($UserDetails);exit;*/?>
 <style>
     @media only screen and (min-width: 320px) and (max-width: 359px){
     .mytable{
@@ -54,17 +56,17 @@
                         <tr style="">
                             <td><label class="col-md-12 ">Username</label></td>
                             <td><label class="col-md-12 "><b>:</b></label></td>
-                            <td><label class="col-md-12 "><b>Admin</b></label></td>
+                            <td><label class="col-md-12 "><b><?php echo $UserDetails[0]['USER_FIRST_NAME'];?></b></label></td>
                         </tr>
                         <tr>
                             <td><label class="col-md-12 ">Name</label></td>
                             <td><label class="col-md-12 "><b>:</b></label></td>
-                            <td><label class="col-md-12 "><b>Admin User</b></label></td>
+                            <td><label class="col-md-12 "><b><?php echo $UserDetails[0]['USER_LAST_NAME'];?></b></label></td>
                         </tr>
                         <tr>
                             <td><label class="col-md-12 ">Role</label></td>
                             <td><label class="col-md-12 "><b>:</b></label></td>
-                            <td><label class="col-md-12 "><b>Admin</b></label></td>
+                            <td><label class="col-md-12 "><b><?php echo $UserDetails[0]['USER_TYPE'];?></b></label></td>
                         </tr>
                         <tr>
                             <td><label class="col-md-12 ">E-mail</label></td>
@@ -92,7 +94,7 @@
              </div><br>
             <div class="form-group col-md-offset-4">
                 <div class="col-md-2">
-                    <a href="<?php echo base_url('GrSettingsC/profile'); ?>" class="btn btn-primary btn-xs" role="button">View Profile</a>
+                    <a href="<?php echo base_url('GrSettingsC/profile/');?><?php echo $UserDetails[0]['USER_UNIQ_VALUE']?>" class="btn btn-primary btn-xs" role="button">View Profile</a>
                 </div>
                 <div class="col-md-3 ">
                     <a href="<?php echo base_url('GrSettingsC/changePassword'); ?>" class="btn btn-warning btn-xs" role="button">Change Password</a>

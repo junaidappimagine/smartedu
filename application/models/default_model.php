@@ -22,8 +22,12 @@
 			$sql="SELECT DISTINCT USER_TYPE FROM user";
 			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
 		}
-		function fetchAdmissionDetails(){
-			$sql="SELECT * FROM employee_admission where EMP_ID=''";
+		function fetchAdmissionDetails($id){
+			$sql="SELECT * FROM employee_admission where EMP_NO='$id'";
+			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+		}
+		function fetchUsersDetails($id){
+			$sql="SELECT * FROM user where USER_ID='$id'";
 			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
 		}
 	}

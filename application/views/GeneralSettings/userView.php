@@ -1,3 +1,5 @@
+   
+   
     <html>
         <head>
             <style>
@@ -41,12 +43,11 @@
 					    <label class="control-label"> <h1 class="page-header"><b style="margin-left:19px;"> Select a Role : </<b></h1></label>
 					</div>
 					<div class="col-sm-3">
-					    <select class="form-control selectpicker" data-style="btn-white btn-sm" id="selectRoll">
-						<option>Select a Role</option>
-                                                <option value="Admin">Admin</option>
-                                                <option value="Employee">Employee</option>
-                                                <option value="Student">Student</option>
-                                                <option value="Parent">Parent</option>
+					    <select class="form-control selectpicker" data-style="btn-white btn-sm" id="selectRoll">												    
+						<option >Select</option>
+						<?php foreach ($usertype as $row){?>
+						    <option value="<?php echo $row['USER_TYPE'];?>"><?php echo $row['USER_TYPE'];?></option>
+						<?php }?>
 					    </select>
 					</div>
                                         <div class="col-sm-3 hidden" id="department">
@@ -63,55 +64,17 @@
 				
                                 <div class="col-md-12 row hidden" id="tableData2"><br><br>
 				     <div class="table-responsive">
-                                             <table id="data-table" class="table table-striped table-bordered">
+                                             <table id="dataRespTable" class="table table-striped table-bordered">
                                                 <thead style="background-color: rgb(195,217,255);">
                                                     <tr>
-                                                        <th>Sl. no. </th>
-                                                        <th>Name </th>
-                                                        <th>Username </th>
-							<th>Profile</th>
+                                                        <th>First Name</th>
+                                                        <th>Last Name</th>
+                                                        <th>Role</th>
+							<th>Action</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                     <tr class="hidden admin">
-                                                        <td>1</td>
-                                                        <td>Admin User </td>
-                                                        <td>admin </td>
-                                                        <td><a href="<?php echo base_url('GrSettingsC/userProfile');?>">View profile</a></td>
-                                                    </tr>
-                                                    <tr class="hidden admin">
-                                                        <td>2</td>
-                                                        <td>Duplicate admin </td>
-                                                        <td>admin1 </td>
-                                                        <td><a href="<?php echo base_url('GrSettingsC/userProfile');?>">View profile</a></td>
-                                                    </tr>
-                                                    <tr class="hidden" id="eng">
-                                                        <td>1</td>
-                                                        <td>Senthil</td>
-                                                        <td>EMP002 </td>
-                                                        <td><a href="<?php echo base_url('GrSettingsC/userProfile');?>">View profile</a></td>
-                                                    </tr>
-                                                    <tr  class="hidden hindi" >
-                                                        <td>1</td>
-                                                        <td>Duplicate admin </td>
-                                                        <td>EMP006</td>
-                                                        <td><a href="<?php echo base_url('GrSettingsC/userProfile');?>">View profile</a></td>
-                                                    </tr>
-                                                    <tr  class="hidden hindi" >
-                                                        <td>2</td>
-                                                        <td>Duplicate admin </td>
-                                                        <td>EMP009</td>
-                                                        <td><a href="<?php echo base_url('GrSettingsC/userProfile');?>">View profile</a></td>
-                                                    </tr>
-                                                     <tr  class="hidden maths" >
-                                                        <td>1</td>
-                                                        <td>Keerthi</td>
-                                                        <td>EMP003</td>
-                                                        <td><a href="<?php echo base_url('GrSettingsC/userProfile');?>">View profile</a></td>
-                                                    </tr>
-                                                   
-                                                </tbody>
-                                             </table>
+						<tbody></tbody>
+                                            </table>
                                          </div>
 				</div>
                             </div>
@@ -120,10 +83,61 @@
                 </div>
             </body>
         <script>
-	   
-            $(document).ready(function(){
+	       
+    $(document).ready(function() {
+            var table = $("#dataRespTable").DataTable({
+                //"sDom": "<'row'<'col-md-4 no 'f><'col-md-6 trcalign' TRC><'col-md-2 yes'l>r><t><'row'<'col-md-6'i><'col-md-6'p>>",
+		"sDom":'lfb',
+                "bServerSide": true,
+                "bProcessing": false,
+                "sAjaxSource": '<?php echo base_url('GrSettingsC/fetchUserView')?>',
+                'responsive': true,
+                //'scrollX':true,
+                "bStateSave": true,	
+                "lengthMenu": [
+                    [10, 20, 50, -1],
+                    [10, 20, 50, "All"] // change per page values here
+                ],
+                // "order": [[ 0, "desc" ]],
+                "language": {
+                "sLengthMenu": "_MENU_",
+                "lengthMenu": " _MENU_ records",
+                "processing": true
+                },
+                columns: [
+                { data: 'USER_FIRST_NAME'},
+                { data: 'USER_LAST_NAME'},
+		{ data: 'USER_TYPE'},	
+                {
+                        data: null, className: "all", 
+                            render: function( data, type, row) {
+                                return '<a href="<?php echo base_url("GrSettingsC/userProfile/'+ data['USER_ID']+ '");?>"  name="edit" id="edit" value="edit" class="btn btn-xs btn-primary">view &nbsp;<i class="glyphicon glyphicon-open-file"></i></a></button>';
+                            }
+                        },
+                ],
+                'fnServerData': function(sSource, aoData, fnCallback){
+                    $.ajax({
+                        'dataType': 'json',
+                        'type'    : 'POST',
+                        'url'     : sSource,
+                        'data'    : aoData,
+                        'success' : fnCallback
+                    });
+                },
+                "tableTools": {
+                    "sSwfPath": "<?php echo site_url()?>assets/plugins/DataTables/swf/copy_csv_xls_pdf.swf",
+                }
             });
-	$('#selectRoll').change(function(){
+         
+                        
+        //------------- Start for Processing Icon image------------------------------------//		
+        $('#dataRespTable')
+            .on( 'processing.dt', function ( e, settings, processing ) {
+            // $('#processingIndicator').css( 'display', processing ? loadLoader() : unLoader());
+        }).dataTable();	
+        });
+	//------------- End of Data table------------------------------------//		
+    	$('#selectRoll').change(function(){
             
             if ($(this).val() == 'Admin') {
                 $("#tableData2").removeClass('hidden');

@@ -8,6 +8,7 @@ function __construct(){
       $this->load->library('session');
       $this->load->helper('url');
       $this->load->model('default_model');
+      $this->load->library('Datatables');
    }
    function index()
    {
@@ -85,20 +86,22 @@ function __construct(){
    {
       $this->load->view('header');
       $result['usertype']=$this->default_model->fetchAllUserType();
+      //print_r($result['usertype']);exit;
       $this->load->view('GeneralSettings/userView',$result);
       $this->load->view('footer');
    }
-   function userProfile()
+   function userProfile($id)
    {
       $this->load->view('header');
-      $result=$this->default_model->fetchAdmissionDetails();
-      $this->load->view('GeneralSettings/userProfile');
+      $result['UserDetails']=$this->default_model->fetchUsersDetails($id);
+      $this->load->view('GeneralSettings/userProfile',$result);
       $this->load->view('footer');
    }
-   function profile()
-   {
+   function profile($id)
+   { 
       $this->load->view('header');
-      $this->load->view('GeneralSettings/profile');
+      $result['AdDetails']=$this->default_model->fetchAdmissionDetails($id);
+      $this->load->view('GeneralSettings/profile',$result);
       $this->load->view('footer');
    }
    function editGeneralDetails()
