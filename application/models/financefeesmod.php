@@ -167,6 +167,7 @@
 	    function getScheduleFees($id){
 	    	$sql="SELECT * FROM finance_schedule where FINC_SCH_ID ='$id'";
 			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+		//print_r($result);exit;
 	    }
 	    function deleteSheduleFees($id){
 	    	$sql="DELETE FROM finance_schedule WHERE FINC_SCH_ID='$id'";
