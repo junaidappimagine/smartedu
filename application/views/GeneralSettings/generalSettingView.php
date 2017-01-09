@@ -27,7 +27,7 @@
                                         <fieldset>
                                                 <legend>
                                                 <div class="col-sm-10">
-                                                    <h1 class="page-header" style="font-size:21px;">Update settings</h1>
+                                                    <h1 class="page-header" style="font-size:21px;">General settings</h1>
                                                 </div>
                                                 </legend>
 						<div class="col-sm-offset-2">
