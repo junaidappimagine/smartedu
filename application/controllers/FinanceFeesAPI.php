@@ -160,6 +160,7 @@ class FinanceFeesAPI extends REST_Controller {
     }
     function feesSchedule_get(){
         $id=$this->get('FINC_SCH_ID');
+	//print_r($id);exit;
         $result=$this->financefeesmod->getScheduleFees($id);
         echo json_encode($result);      
     }
@@ -261,29 +262,29 @@ class FinanceFeesAPI extends REST_Controller {
             $this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
         }
     }
-    function applyRefund_get(){
-        $id=$this->get('FINC_AP_RF_ID');
-        $result=$this->financefeesmod->getFeeCollection($id);
-        echo json_encode($result);      
-    }
-    function applyRefund_delete(){
-        $id=$this->delete('FINC_AP_RF_ID');
-        if ($id == null)
-        {
-            $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);
-        }else{
-            $result=$this->financefeesmod->deleteFeeCollection($id);
-            if($result!=0){
-                $message = [
-                'id' => $id,
-                'message' => 'Record Deleted Successfully'
-                ];
-                $this->set_response(['status'=>TRUE,'message'=>$message], REST_Controller::HTTP_OK);
-            }else{
-                $this->set_response(['status'=>FALSE,'message'=>'There is no Record found'], REST_Controller::HTTP_NOT_FOUND);
-            }
-        }  
-    }
+    //function applyRefund_get(){
+    //    $id=$this->get('FINC_AP_RF_ID');
+    //    $result=$this->financefeesmod->getFeeCollection($id);
+    //    echo json_encode($result);      
+    //}
+    //function applyRefund_delete(){
+    //    $id=$this->delete('FINC_AP_RF_ID');
+    //    if ($id == null)
+    //    {
+    //        $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);
+    //    }else{
+    //        $result=$this->financefeesmod->deleteFeeCollection($id);
+    //        if($result!=0){
+    //            $message = [
+    //            'id' => $id,
+    //            'message' => 'Record Deleted Successfully'
+    //            ];
+    //            $this->set_response(['status'=>TRUE,'message'=>$message], REST_Controller::HTTP_OK);
+    //        }else{
+    //            $this->set_response(['status'=>FALSE,'message'=>'There is no Record found'], REST_Controller::HTTP_NOT_FOUND);
+    //        }
+    //    }  
+    //}
 }
 ?>
    

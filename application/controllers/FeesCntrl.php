@@ -8,6 +8,7 @@ class FeesCntrl extends CI_Controller {
       //$this->load->model('payroll/payslipmodel');
       $this->load->library('session');
       $this->load->helper('url');
+      $this->load->library('Datatables');    
     }
    function index()
    {
@@ -140,10 +141,9 @@ class FeesCntrl extends CI_Controller {
 		$this->load->view('fees/create_fee_collection',$data);
 		$this->load->view('footer');
    }
-	function edit_fee_collection()
+	function edit_fee_collection($id)
 	{
-		$data['result']=$this->input->get('var1');
-		$data['result1']=$this->input->get('var2');
+	        $data["row_id"]=$id;
 		$data["mode"]='edit';
 		$this->load->view('header');
 		$this->load->view('fees/create_fee_collection',$data);
@@ -219,4 +219,9 @@ class FeesCntrl extends CI_Controller {
       $this->load->view('fees/payFees');
       $this->load->view('footer');
    }
+   function fetchScheduleFeeView(){
+      $this->datatables->select('FINC_SCH_ID,FINC_SCH_FEE_CA_ID,FINC_SCH_NAME,FINC_SCH_FI_ID,FINC_SCH_START_DT,FINC_SCH_END_DT,FINC_SCH_ACTIVE_YN')
+      ->from('finance_schedule');
+      echo $this->datatables->generate();
+    }
 }
