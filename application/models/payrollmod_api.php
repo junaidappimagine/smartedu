@@ -52,7 +52,7 @@
 		    		$this->db->where('PR_C_L_ID', $parent_id);
 		    		$this->db->update('payroll_category_line', $line_data); 
 		    	}
-
+		    	return array('status'=>true, 'message'=>"Record Updated Successfully");
 		    }else {
 			
 		    	$cat_name=$this->input->post('PR_C_H_NAME');
@@ -95,7 +95,7 @@
 		    		);
 		    		$this->db->insert('payroll_category_line', $line_data1); 
 		    	}	
-		    	return true;
+		    	return array('status'=>true, 'message'=>"Record Inserted Successfully");
 		    }  	
 	    }
 
@@ -148,7 +148,7 @@
 		    		$this->db->where('PR_G_L_ID', $group_id);
 		    		$this->db->update('payroll_group_line', $line_data); 
 		    	}
-		    	return true;
+		    	return array('status'=>true, 'message'=>"Record Updated Successfully");
 		    }else {
 		    	$data=array(
 	    			'PR_G_H_NAME'=>$this->input->post('PR_G_H_NAME'),
@@ -185,7 +185,7 @@
 		    		);
 		    		$this->db->insert('payroll_group_line', $line_data); 
 		    	}	
-		    	return true;
+		    	return array('status'=>true, 'message'=>"Record Inserted Successfully");
 		    } 
 	    }
 
@@ -219,7 +219,7 @@
 		    		$this->db->where('PS_L_ID', $gen_line_id);
 		    		$this->db->update('payslip_gen_line', $line); 
 	    		}
-	    		return true;
+	    		return array('status'=>true, 'message'=>"Record Updated Successfully");
 			}else {
 				$data=array(
 	    			'PS_H_PR_GRP_ID'=>$this->input->post('PS_H_PR_GRP_ID'),
@@ -242,7 +242,7 @@
 		    		);
 		    		$this->db->insert('payslip_gen_line', $line);
 	    		}
-	    		return true;
+	    		return array('status'=>true, 'message'=>"Record Inserted Successfully");
 			}
 	    }
 	}
