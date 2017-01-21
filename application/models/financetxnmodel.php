@@ -5,13 +5,13 @@
 		// ------------------------------ Finance Expense -----------------------------------------------------------------
 		public function addExpenseData(){
 	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->data->FINC_TXN_EX_ID;
-	    	$cat_id=$data->data->FINC_TXN_EX_CA_ID;
-	    	$title=$data->data->FINC_TXN_EX_TITLE;
-	    	$desc=$data->data->FINC_TXN_EX_DESC;
-	    	$amount=$data->data->FINC_TXN_EX_AMT;
-	    	$date=$data->data->FINC_TXN_EX_DT;
-	    	$status=$data->data->FINC_TXN_EX_STATUS;
+	    	$id=$data->FINC_TXN_EX_ID;
+	    	$cat_id=$data->FINC_TXN_EX_CA_ID;
+	    	$title=$data->FINC_TXN_EX_TITLE;
+	    	$desc=$data->FINC_TXN_EX_DESC;
+	    	$amount=$data->FINC_TXN_EX_AMT;
+	    	$date=$data->FINC_TXN_EX_DT;
+	    	$status=$data->FINC_TXN_EX_STATUS;
 
 	    	$sql="SELECT count(FINC_TXN_EX_TITLE) FROM finance_txn_expense WHERE FINC_TXN_EX_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
@@ -44,13 +44,13 @@
 
 	    public function addIncomeData(){
 	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->data->FINC_TXN_IN_ID;
-	    	$cat_id=$data->data->FINC_TXN_IN_CA_ID;
-	    	$title=$data->data->FINC_TXN_IN_TITLE;
-	    	$desc=$data->data->FINC_TXN_IN_DESC;
-	    	$amount=$data->data->FINC_TXN_EX_AMT;
-	    	$date=$data->data->FINC_TXN_IN_DT;
-	    	$status=$data->data->FINC_TXN_IN_STATUS;
+	    	$id=$data->FINC_TXN_IN_ID;
+	    	$cat_id=$data->FINC_TXN_IN_CA_ID;
+	    	$title=$data->FINC_TXN_IN_TITLE;
+	    	$desc=$data->FINC_TXN_IN_DESC;
+	    	$amount=$data->FINC_TXN_EX_AMT;
+	    	$date=$data->FINC_TXN_IN_DT;
+	    	$status=$data->FINC_TXN_IN_STATUS;
 
 	    	$sql="SELECT count(FINC_TXN_IN_TITLE) FROM finance_txn_income WHERE FINC_TXN_IN_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();

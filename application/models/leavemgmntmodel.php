@@ -5,10 +5,10 @@
 		// ------------------------------ Asset -----------------------------------------------------------------
 		public function addLeaveResetData(){
 	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->data->EMP_RES_ID;
-	    	$emp_no=$data->data->EMP_RES_EMP_NO;
-	    	$reset_date=$data->data->EMP_RES_DT;
-	    	$resetby=$data->data->EMP_RES_BY;
+	    	$id=$data->EMP_RES_ID;
+	    	$emp_no=$data->EMP_RES_EMP_NO;
+	    	$reset_date=$data->EMP_RES_DT;
+	    	$resetby=$data->EMP_RES_BY;
 
 	    	$sql="SELECT count(EMP_RES_EMP_NO) FROM employee_reset WHERE EMP_RES_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();

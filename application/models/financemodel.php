@@ -5,10 +5,10 @@
 		// ------------------------------ Asset -----------------------------------------------------------------
 		public function addAssetData(){
 	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->data->FINC_AS_ID;
-	    	$title=$data->data->FINC_AS_TITLE;
-	    	$desc=$data->data->FINC_AS_DESC;
-	    	$amount=$data->data->FINC_AS_AMT;
+	    	$id=$data->FINC_AS_ID;
+	    	$title=$data->FINC_AS_TITLE;
+	    	$desc=$data->FINC_AS_DESC;
+	    	$amount=$data->FINC_AS_AMT;
 	    	$sql="SELECT count(FINC_AS_TITLE) FROM finance_asset WHERE FINC_AS_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(FINC_AS_TITLE)']!=0){
@@ -39,10 +39,10 @@
 	    // ---------------------------------------- Liability ---------------------------------------------------------
 	    public function addLiabilityData(){
 	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->data->FINC_LI_ID;
-	    	$title=$data->data->FINC_LI_TITLE;
-	    	$desc=$data->data->FINC_LI_DESC;
-	    	$amount=$data->data->FINC_LI_AMT;
+	    	$id=$data->FINC_LI_ID;
+	    	$title=$data->FINC_LI_TITLE;
+	    	$desc=$data->FINC_LI_DESC;
+	    	$amount=$data->FINC_LI_AMT;
 
 	    	$sql="SELECT count(FINC_LI_TITLE) FROM finance_liability WHERE FINC_LI_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
@@ -75,10 +75,10 @@
 
 	    function addFinanceCategory(){
 	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->data->FINC_CA_ID;
-	    	$name=$data->data->FINC_CA_NAME;
-	    	$desc=$data->data->FINC_CA_DESC;
-	    	$income_yn=$data->data->FINC_CA_INCOME_YN;
+	    	$id=$data->FINC_CA_ID;
+	    	$name=$data->FINC_CA_NAME;
+	    	$desc=$data->FINC_CA_DESC;
+	    	$income_yn=$data->FINC_CA_INCOME_YN;
 
 	    	$sql="SELECT count(FINC_CA_NAME) FROM finance_category WHERE FINC_CA_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
@@ -110,11 +110,11 @@
 
 	    function addDonation(){
 	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->data->FINC_DO_ID;
-	    	$name=$data->data->FINC_DO_NAME;
-	    	$desc=$data->data->FINC_DO_DESC;
-	    	$txn_date=$data->data->FINC_DO_TXN_DT;
-	    	$amount=$data->data->FINC_DO_AMT;
+	    	$id=$data->FINC_DO_ID;
+	    	$name=$data->FINC_DO_NAME;
+	    	$desc=$data->FINC_DO_DESC;
+	    	$txn_date=$data->FINC_DO_TXN_DT;
+	    	$amount=$data->FINC_DO_AMT;
 
 	    	$sql="SELECT count(FINC_DO_NAME) FROM finance_donation WHERE FINC_DO_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();

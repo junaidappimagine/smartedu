@@ -5,10 +5,10 @@
 		// ------------------------------ Finance Fees -----------------------------------------------------------------
 		public function addFeesCategory(){
 	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->data->FINC_S_CA_ID;
-	    	$name=$data->data->FINC_S_CA_NAME;
-	    	$desc=$data->data->FINC_S_CA_DESC;
-	    	$batch=$data->data->FINC_S_CA_BATCH;	    	
+	    	$id=$data->FINC_S_CA_ID;
+	    	$name=$data->FINC_S_CA_NAME;
+	    	$desc=$data->FINC_S_CA_DESC;
+	    	$batch=$data->FINC_S_CA_BATCH;	    	
 
 	    	$sql="SELECT count(FINC_S_CA_NAME) FROM finance_setting_category WHERE FINC_S_CA_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
@@ -40,15 +40,15 @@
 	    // ------------------------------ Finance Particular -----------------------------------------------------------------
 		public function addParticularData(){
 	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->data->FINC_S_PA_ID;
-	    	$cat_id=$data->data->FINC_S_PA_CA_ID;
-	    	$name=$data->data->FINC_S_PA_NAME;
-	    	$desc=$data->data->FINC_S_PA_DESC;
-	    	$type=$data->data->FINC_S_PA_CREATE_TYPE;
-	    	$amount=$data->data->FINC_S_PA_AMT;
-	    	$stu_categ=$data->data->FINC_S_PA_STU_CATE;
-	    	$adm_no=$data->data->FINC_S_PA_ADM_NO;
-	    	$batch=$data->data->FINC_S_PA_BATCH;
+	    	$id=$data->FINC_S_PA_ID;
+	    	$cat_id=$data->FINC_S_PA_CA_ID;
+	    	$name=$data->FINC_S_PA_NAME;
+	    	$desc=$data->FINC_S_PA_DESC;
+	    	$type=$data->FINC_S_PA_CREATE_TYPE;
+	    	$amount=$data->FINC_S_PA_AMT;
+	    	$stu_categ=$data->FINC_S_PA_STU_CATE;
+	    	$adm_no=$data->FINC_S_PA_ADM_NO;
+	    	$batch=$data->FINC_S_PA_BATCH;
 
 	    	$sql="SELECT count(FINC_S_PA_NAME) FROM finance_setting_perticular WHERE FINC_S_PA_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
@@ -79,12 +79,13 @@
 
 	    // ------------------------------ Finance Fees Discount -----------------------------------------------------------------
 		public function addFeesDiscount(){
-	    	$id=$this->input->post('FINC_FEE_M_ID');
-	    	$cat_id=$this->input->post('FINC_FEE_M_H_ID');
-	    	$disc_id=$this->input->post('FINC_FEE_M_DISC_ID');
-	    	$type=$this->input->post('FINC_FEE_M_DISC_TYPE');
-	    	$name=$this->input->post('FINC_FEE_M_DISC_NAME');
-	    	$amount=$this->input->post('FINC_FEE_M_DISC_AMT');
+	    	$data = json_decode(file_get_contents("php://input"));
+	    	$id=$data->FINC_FEE_M_ID;
+	    	$cat_id=$data->FINC_FEE_M_H_ID;
+	    	$disc_id=$data->FINC_FEE_M_DISC_ID;
+	    	$type=$data->FINC_FEE_M_DISC_TYPE;
+	    	$name=$data->FINC_FEE_M_DISC_NAME;
+	    	$amount=$data->FINC_FEE_M_DISC_AMT;
 	    	$sql="SELECT count(FINC_FEE_M_DISC_NAME) FROM finance_fees_discount WHERE FINC_FEE_M_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(FINC_FEE_M_DISC_NAME)']!=0){
@@ -162,13 +163,15 @@
 
 	    // ------------------------------ Finance Fees Schedule ----------------------------------------------------------
 		public function addScheduleFees(){
-	    	$id=$this->input->post('FINC_SCH_ID');
-	    	$fees_catid=$this->input->post('FINC_SCH_FEE_CA_ID');
-	    	$name=$this->input->post('FINC_SCH_NAME');
-	    	$fine_id=$this->input->post('FINC_SCH_FI_ID');
-	    	$start_date=$this->input->post('FINC_SCH_START_DT');
-	    	$end_date=$this->input->post('FINC_SCH_END_DT');
-	    	$active=$this->input->post('FINC_SCH_ACTIVE_YN');
+	    	$data = json_decode(file_get_contents("php://input"));
+	    	$id=$data->FINC_SCH_ID;
+	    	$fees_catid=$data->FINC_SCH_FEE_CA_ID;
+	    	$name=$data->FINC_SCH_NAME;
+	    	$fine_id=$data->FINC_SCH_FI_ID;
+	    	$start_date=$data->FINC_SCH_START_DT;
+	    	$end_date=$data->FINC_SCH_END_DT;
+	    	$active=$data->FINC_SCH_ACTIVE_YN;
+
 	    	$sql="SELECT count(FINC_SCH_NAME) FROM finance_schedule WHERE FINC_SCH_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(FINC_SCH_NAME)']!=0){
@@ -199,12 +202,14 @@
 
 	    // ------------------------------ Finance Refund ----------------------------------------------------------
 		public function addRefundData(){
-	    	$id=$this->input->post('FINC_RF_ID');
-	    	$coll_id=$this->input->post('FINC_RF_SCH_COLL_ID');
-	    	$rf_name=$this->input->post('FINC_RF_NAME');
-	    	$rf_valid=$this->input->post('FINC_RF_VALIDITY');
-	    	$rf_type=$this->input->post('FINC_RF_TYPE');
-	    	$rf_value=$this->input->post('FINC_RF_VALUE');
+	    	$data = json_decode(file_get_contents("php://input"));
+	    	$id=$data->FINC_RF_ID;
+	    	$coll_id=$data->FINC_RF_SCH_COLL_ID;
+	    	$rf_name=$data->FINC_RF_NAME;
+	    	$rf_valid=$data->FINC_RF_VALIDITY;
+	    	$rf_type=$data->FINC_RF_TYPE;
+	    	$rf_value=$data->FINC_RF_VALUE;
+
 	    	$sql="SELECT count(FINC_RF_NAME) FROM finance_refund WHERE FINC_RF_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(FINC_RF_NAME)']!=0){
@@ -234,13 +239,14 @@
 
 	    // ------------------------------ Finance Applied Refund ----------------------------------------------------------
 		public function applyRefundData(){
-	    	$id=$this->input->post('FINC_AP_RF_ID');
-	    	$rf_coll_id=$this->input->post('FINC_AP_RF_SCH_COLL_ID');
-	    	$re_std_name=$this->input->post('FINC_AP_RF_STU_NAME');
-	    	$adm_no=$this->input->post('FINC_AP_RF_ADM_NO');
-	    	$rf_amount=$this->input->post('FINC_AP_RF_AMT');
-	    	$rf_date=$this->input->post('FINC_AP_RF_DATE');
-	    	$refund_by=$this->input->post('FINC_AP_RF_REFUNDED_BY');
+	    	$data = json_decode(file_get_contents("php://input"));
+	    	$id=$data->FINC_AP_RF_ID;
+	    	$rf_coll_id=$data->FINC_AP_RF_SCH_COLL_ID;
+	    	$re_std_name=$data->FINC_AP_RF_STU_NAME;
+	    	$adm_no=$data->FINC_AP_RF_ADM_NO;
+	    	$rf_amount=$data->FINC_AP_RF_AMT;
+	    	$rf_date=$data->FINC_AP_RF_DATE;
+	    	$refund_by=$data->FINC_AP_RF_REFUNDED_BY;
 
 	    	$sql="SELECT count(FINC_AP_RF_STU_NAME) FROM finance_applied_refund WHERE FINC_AP_RF_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
@@ -271,22 +277,23 @@
 
 	    // ------------------------------ Finance Fees Collection ----------------------------------------------------------
 		public function addFeeCollection(){
-	    	$id=$this->input->post('FINC_FEE_H_ID');
-	    	$stu_id=$this->input->post('FINC_FEE_H_STU_ID');
-	    	$adm_no=$this->input->post('FINC_FEE_H_STU_ADM_NO');
-	    	$roll_no=$this->input->post('FINC_FEE_H_STU_ROLL_NO');
-	    	$st_name=$this->input->post('FINC_FEE_H_STU_NAME');
-	    	$batch_id=$this->input->post('FINC_FEE_H_BATCH_ID');
-	    	$cat_id=$this->input->post('FINC_FEE_H_CATE_ID');
-	    	$tot_fees=$this->input->post('FINC_FEE_H_TOTAL_FEES');
-	    	$tot_disc=$this->input->post('FINC_FEE_H_TOTAL_DISC');
-	    	$tot_fine=$this->input->post('FINC_FEE_H_TOTAL_FINE');
-	    	$pay_mod=$this->input->post('FINC_FEE_H_PAY_MODE');
-	    	$due_date=$this->input->post('FINC_FEE_H_DUE_AMT');
-	    	$amount_paid=$this->input->post('FINC_FEE_H_AMT_PAID');
-	    	$ref_no=$this->input->post('FINC_FEE_H_REF_NO');
-	    	$pay_date=$this->input->post('FINC_FEE_H_PAY_DT');
-	    	$status=$this->input->post('FINC_FEE_H_STATUS_FEE');
+	    	$data = json_decode(file_get_contents("php://input"));
+	    	$id=$data->FINC_AP_RF_ID;
+	    	$stu_id=$data->FINC_FEE_H_STU_ID;
+	    	$adm_no=$data->FINC_FEE_H_STU_ADM_NO;
+	    	$roll_no=$data->FINC_FEE_H_STU_ROLL_NO;
+	    	$st_name=$data->FINC_FEE_H_STU_NAME;
+	    	$batch_id=$data->FINC_FEE_H_BATCH_ID;
+	    	$cat_id=$data->FINC_FEE_H_CATE_ID;
+	    	$tot_fees=$data->FINC_FEE_H_TOTAL_FEES;
+	    	$tot_disc=$data->FINC_FEE_H_TOTAL_DISC;
+	    	$tot_fine=$data->FINC_FEE_H_TOTAL_FINE;
+	    	$pay_mod=$data->FINC_FEE_H_PAY_MODE;
+	    	$due_date=$data->FINC_FEE_H_DUE_AMT;
+	    	$amount_paid=$data->FINC_FEE_H_AMT_PAID;
+	    	$ref_no=$data->FINC_FEE_H_REF_NO;
+	    	$pay_date=$data->FINC_FEE_H_PAY_DT;
+	    	$status=$data->FINC_FEE_H_STATUS_FEE;	    	
 
 	    	$sql="SELECT count(FINC_FEE_H_STU_NAME) FROM finance_fees_head WHERE FINC_FEE_H_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();

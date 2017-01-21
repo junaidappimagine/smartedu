@@ -5,10 +5,10 @@
 		// Employee category 
 		public function addEmployeeCategory(){
 			$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->data->EMP_C_ID;
-	    	$name=$data->data->EMP_C_NAME;
-	    	$prefix=$data->data->EMP_C_PREFIX;
-	    	$active_yn=$data->data->EMP_C_ACTIVE_YN;
+	    	$id=$data->EMP_C_ID;
+	    	$name=$data->EMP_C_NAME;
+	    	$prefix=$data->EMP_C_PREFIX;
+	    	$active_yn=$data->EMP_C_ACTIVE_YN;
 	    	$sql="SELECT count(EMP_C_NAME) FROM employee_category WHERE EMP_C_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(EMP_C_NAME)']!=0){
@@ -41,10 +41,10 @@
 
 	    function addDepartment_Details(){
 	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->data->EMP_D_ID;
-	    	$name=$data->data->EMP_D_NAME;
-	    	$code=$data->data->EMP_D_CODE;
-	    	$status=$data->data->EMP_D_STATUS;
+	    	$id=$data->EMP_D_ID;
+	    	$name=$data->EMP_D_NAME;
+	    	$code=$data->EMP_D_CODE;
+	    	$status=$data->EMP_D_STATUS;
 
 	    	$sql="SELECT count(EMP_D_NAME) FROM employee_department WHERE EMP_D_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
@@ -76,10 +76,10 @@
 
 	    function addPosition_Details(){
 	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->data->EMP_P_ID;
-	    	$name=$data->data->EMP_P_NAME;
-	    	$cat_id=$data->data->EMP_P_CATEGORY_ID->name;
-	    	$status=$data->data->EMP_P_ACTIVE_YN;
+	    	$id=$data->EMP_P_ID;
+	    	$name=$data->EMP_P_NAME;
+	    	$cat_id=$data->EMP_P_CATEGORY_ID->name;
+	    	$status=$data->EMP_P_ACTIVE_YN;
 
 	    	$sql="SELECT count(EMP_P_NAME) FROM employee_position WHERE EMP_P_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
@@ -113,12 +113,12 @@
 
 	    function addGrade_Details(){
 	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->data->id;
-	    	$grade_name=$data->data->grade_name;
-	    	$priority=$data->data->priority;
-	    	$maxday=$data->data->max_day;
-	    	$maxweek=$data->data->max_week;
-	    	$status=$data->data->status;
+	    	$id=$data->EMP_G_ID;
+	    	$grade_name=$data->EMP_G_NAME;
+	    	$priority=$data->EMP_G_PRIORITY;
+	    	$maxday=$data->EMP_G_MAX_DAY;
+	    	$maxweek=$data->EMP_G_MAX_WEEK;
+	    	$status=$data->EMP_G_ACTIVE_YN;
 	    	$sql="SELECT count(EMP_G_NAME) FROM employee_grade WHERE EMP_G_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(EMP_G_NAME)']!=0){
@@ -148,15 +148,16 @@
 	    // ----------------------------------------- leave Type ------------------------------------------------------
 
 	    function addleaveType(){
-	    	$id=$this->input->post('EMP_L_ID');
-			$name=$this->input->post('EMP_L_NAME');
-	    	$leave_code=$this->input->post('EMP_L_CODE');
-	    	$leave_count=$this->input->post('EMP_L_COUNT');
-	    	$valid_from=$this->input->post('EMP_L_VALID_FROM');
-	    	$leave_bal=$this->input->post('EMP_L_ALLOW_LEAVE_BAL');
-	    	$no_leave_count=$this->input->post('EMP_L_ALLOW_BAL_COUNT');
-	    	$add_leave=$this->input->post('EMP_L_ADDI_LEAVE_DED_YN');
-	    	$status=$this->input->post('EMP_L_STATUS');
+	    	$data = json_decode(file_get_contents("php://input"));
+	    	$id=$data->EMP_L_ID;
+	    	$name=$data->EMP_L_NAME;
+	    	$leave_code=$data->EMP_L_CODE;
+	    	$leave_count=$data->EMP_L_COUNT;
+	    	$valid_from=$data->EMP_L_VALID_FROM;
+	    	$leave_bal=$data->EMP_L_ALLOW_LEAVE_BAL;
+	    	$no_leave_count=$data->EMP_L_ALLOW_BAL_COUNT;
+	    	$add_leave=$data->EMP_L_ADDI_LEAVE_DED_YN;
+	    	$status=$data->EMP_L_STATUS;
 	    	$sql="SELECT count(EMP_L_NAME) FROM employee_leave_type WHERE EMP_L_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(EMP_L_NAME)']!=0){
@@ -187,9 +188,9 @@
 
 	    function addBankDetails(){
 	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->data->bank_id;
-	    	$name=$data->data->bank_name;
-	    	$status=$data->data->bank_status;
+	    	$id=$data->EMP_BNK_ID;
+	    	$name=$data->EMP_BNK_NAME;
+	    	$status=$data->EMP_BNK_ACTIVE_YN;
 
 	    	$sql="SELECT count(EMP_BNK_NAME) FROM employee_bank_details WHERE EMP_BNK_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
@@ -221,9 +222,9 @@
 	    // --------------------------------------  Working Days  ---------------------------------------------------
 	    function addWorkingDays_Details(){
 	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->data->EMP_W_ID;
-	    	$month=$data->data->EMP_W_MONTH;
-	    	$week=$data->data->EMP_W_WEEK;
+	    	$id=$data->EMP_W_ID;
+	    	$month=$data->EMP_W_MONTH;
+	    	$week=$data->EMP_W_WEEK;
 
 	    	$sql="SELECT count(EMP_W_MONTH) FROM employee_working_days WHERE EMP_W_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
@@ -254,11 +255,11 @@
 	    // -------------------------------------- Employee Additional Details ---------------------------------------------------
 	    function addAdditional_Details(){
 	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->data->EMP_ADD_ID;
-	    	$name=$data->data->EMP_ADD_NAME;
-	    	$method=$data->data->EMP_ADD_METHOD;
-	    	$mandatory=$data->data->EMP_ADD_MAND;
-	    	$status=$data->data->EMP_ADD_STATUS;
+	    	$id=$data->EMP_ADD_ID;
+	    	$name=$data->EMP_ADD_NAME;
+	    	$method=$data->EMP_ADD_METHOD;
+	    	$mandatory=$data->EMP_ADD_MAND;
+	    	$status=$data->EMP_ADD_STATUS;
 
 	    	$sql="SELECT count(EMP_ADD_NAME) FROM employee_additional_details WHERE EMP_ADD_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
