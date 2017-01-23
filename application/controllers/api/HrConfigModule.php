@@ -15,7 +15,7 @@ class HrConfigModule extends REST_Controller {
     {
     	$result=$this->hrConfigModel->addEmployeeCategory();
     	if($result['status']==true){
-			$this->set_response(['status' =>TRUE,'message'=>$result['message']], REST_Controller::HTTP_CREATED);
+			$this->set_response(['status' =>TRUE,'message'=>$result['message'],'EMP_C_ID'=>$result['EMP_C_ID']], REST_Controller::HTTP_CREATED);
 		}else{
 			$this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
 		}
@@ -64,7 +64,11 @@ class HrConfigModule extends REST_Controller {
 				];
 				$this->set_response(['status'=>TRUE,'message'=>$message], REST_Controller::HTTP_OK);
 			}else{
-				$this->set_response(['status'=>FALSE,'message'=>'There is no Record found'], REST_Controller::HTTP_NOT_FOUND);
+				$message = [
+				'id' => $id,
+				'message' => 'There is no Record found'
+				];
+				$this->set_response(['status'=>FALSE,'message'=>$message], REST_Controller::HTTP_NOT_FOUND);
 			}
 		}  
     }

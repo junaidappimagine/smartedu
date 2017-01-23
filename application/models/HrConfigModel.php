@@ -9,16 +9,23 @@
 	    	$name=$data->EMP_C_NAME;
 	    	$prefix=$data->EMP_C_PREFIX;
 	    	$active_yn=$data->EMP_C_ACTIVE_YN;
+	    	
+	    	// $id=$this->input->post('EMP_C_ID');
+	    	// $name=$this->input->post('EMP_C_NAME');
+	    	// $prefix=$this->input->post('EMP_C_PREFIX');
+	    	// $active_yn=$this->input->post('EMP_C_ACTIVE_YN');
+
 	    	$sql="SELECT count(EMP_C_NAME) FROM employee_category WHERE EMP_C_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(EMP_C_NAME)']!=0){
 				$sql="UPDATE employee_category SET EMP_C_NAME='$name',EMP_C_PREFIX='$prefix',EMP_C_ACTIVE_YN='$active_yn' WHERE EMP_C_ID='$id'";
 				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Updated Successfully");
+				return array('status'=>true, 'message'=>"Record Updated Successfully",'EMP_C_ID'=>$id);
 			}else {
 				$sql="INSERT INTO employee_category (EMP_C_NAME, EMP_C_PREFIX, EMP_C_ACTIVE_YN) VALUES ('$name','$prefix','$active_yn')";
 				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Inserted Successfully");
+				$emp_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'EMP_C_ID'=>$emp_id);
 			}
 	    	
 	    }
