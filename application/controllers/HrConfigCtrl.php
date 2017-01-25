@@ -6,6 +6,7 @@ class HrConfigCtrl extends REST_Controller {
     {
 		parent::__construct();
 		$this->load->model('hrConfigModel');
+		header("Access-Control-Allow-Origin: *");
     }
 
     // Employee category
@@ -21,8 +22,31 @@ class HrConfigCtrl extends REST_Controller {
     }
     function employeeCategory_get(){
     	$id=$this->get('id');
-    	$result=$this->hrConfigModel->getCategory_details($id);
-    	echo json_encode($result);		
+		if($id==NULL){
+			$result=$this->hrConfigModel->getAllCategory_details();
+			if (!empty($result)){
+				$this->set_response(['status' =>TRUE,'message'=>$result], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+			}
+			else
+			{
+				$this->set_response([
+				'status' => FALSE,
+				'message' => 'Employee category could not be found'
+				], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+			}
+		}else{
+			$result=$this->hrConfigModel->getCategory_details($id);
+			if (!empty($result)){
+				$this->set_response(['status' =>TRUE,'message'=>$result], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+			}
+			else
+			{
+				$this->set_response([
+				'status' => FALSE,
+				'message' => 'Employee category could not be found'
+				], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+			}
+		}
 	}
 
     function employeeCategory_delete(){

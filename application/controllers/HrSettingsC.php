@@ -131,4 +131,8 @@ class hrSettingsC extends CI_Controller {
         ->from('employee_leave_type');
         echo $this->datatables->generate();
     }
+	
+	function getCurDate(){
+		echo date("d-m-Y");
+	}
 }
