@@ -13,7 +13,11 @@ class HrConfigModule extends REST_Controller {
 
     function employeeCategory_post()
     {
-    	$result=$this->hrConfigModel->addEmployeeCategory();
+    	$data['EMP_C_ID']=$this->post('EMP_C_ID');
+    	$data['EMP_C_NAME']=$this->post('EMP_C_NAME');
+    	$data['EMP_C_PREFIX']=$this->post('EMP_C_PREFIX');
+    	$data['EMP_C_ACTIVE_YN']=$this->post('EMP_C_ACTIVE_YN');
+    	$result=$this->hrConfigModel->addEmployeeCategory($data);
     	if($result['status']==true){
 			$this->set_response(['status' =>TRUE,'message'=>$result['message'],'EMP_C_ID'=>$result['EMP_C_ID']], REST_Controller::HTTP_CREATED);
 		}else{
@@ -79,7 +83,11 @@ class HrConfigModule extends REST_Controller {
 
     function employeeDepartment_post()
     {
-    	$result=$this->hrConfigModel->addDepartment_Details();
+    	$data['EMP_D_ID']=$this->post('EMP_D_ID');
+    	$data['EMP_D_NAME']=$this->post('EMP_D_NAME');
+    	$data['EMP_D_CODE']=$this->post('EMP_D_CODE');
+    	$data['EMP_D_STATUS']=$this->post('EMP_D_STATUS');    	
+    	$result=$this->hrConfigModel->addDepartment_Details($data);
     	if($result['status']==true){
 			$this->set_response(['status' =>TRUE,'message'=>$result['message']], REST_Controller::HTTP_CREATED);
 		}else{
@@ -139,7 +147,11 @@ class HrConfigModule extends REST_Controller {
 
     function employeePosition_post()
     {
-    	$result=$this->hrConfigModel->addPosition_Details();
+    	$data['EMP_P_ID']=$this->post('EMP_P_ID');
+    	$data['EMP_P_NAME']=$this->post('EMP_P_NAME');
+    	$data['EMP_P_CATEGORY_ID']=$this->post('EMP_P_CATEGORY_ID');
+    	$data['EMP_P_ACTIVE_YN']=$this->post('EMP_P_ACTIVE_YN');
+    	$result=$this->hrConfigModel->addPosition_Details($data);
     	if($result['status']==true){
 			$this->set_response(['status' =>TRUE,'message'=>$result['message']], REST_Controller::HTTP_CREATED);
 		}else{
@@ -199,7 +211,13 @@ class HrConfigModule extends REST_Controller {
 
     function employeeGrade_post()
     {
-    	$result=$this->hrConfigModel->addGrade_Details();
+    	$data['EMP_G_ID']=$this->post('EMP_G_ID');
+    	$data['EMP_G_NAME']=$this->post('EMP_G_NAME');
+    	$data['EMP_G_PRIORITY']=$this->post('EMP_G_PRIORITY');
+    	$data['EMP_G_MAX_DAY']=$this->post('EMP_G_MAX_DAY');
+    	$data['EMP_G_MAX_WEEK']=$this->post('EMP_G_MAX_WEEK');
+    	$data['EMP_G_ACTIVE_YN']=$this->post('EMP_G_ACTIVE_YN');
+    	$result=$this->hrConfigModel->addGrade_Details($data);
     	if($result['status']==true){
 			$this->set_response(['status' =>TRUE,'message'=>$result['message']], REST_Controller::HTTP_CREATED);
 		}else{
@@ -259,7 +277,17 @@ class HrConfigModule extends REST_Controller {
 
 
     function employeeLeaveType_post(){
-    	$result=$this->hrConfigModel->addleaveType();
+
+    	$data['EMP_L_ID']=$this->post('EMP_L_ID');
+    	$data['EMP_L_NAME']=$this->post('EMP_L_NAME');
+    	$data['EMP_L_CODE']=$this->post('EMP_L_CODE');
+    	$data['EMP_L_COUNT']=$this->post('EMP_L_COUNT');
+    	$data['EMP_L_VALID_FROM']=$this->post('EMP_L_VALID_FROM');
+    	$data['EMP_L_ALLOW_LEAVE_BAL']=$this->post('EMP_L_ALLOW_LEAVE_BAL');
+    	$data['EMP_L_ALLOW_BAL_COUNT']=$this->post('EMP_L_ALLOW_BAL_COUNT');
+    	$data['EMP_L_ADDI_LEAVE_DED_YN']=$this->post('EMP_L_ADDI_LEAVE_DED_YN');
+    	$data['EMP_L_STATUS']=$this->post('EMP_L_STATUS');
+    	$result=$this->hrConfigModel->addleaveType($data);
     	if($result['status']==true){
 			$this->set_response(['status' =>TRUE,'message'=>$result['message']], REST_Controller::HTTP_CREATED);
 		}else{
@@ -317,7 +345,11 @@ class HrConfigModule extends REST_Controller {
     // ------------------------------------------ Bank Details --------------------------------------------------------------
 
     function employeeBankdetails_post(){
-    	$result=$this->hrConfigModel->addBankDetails();
+    	$data['EMP_BNK_ID']=$this->post('EMP_BNK_ID');
+    	$data['EMP_BNK_NAME']=$this->post('EMP_BNK_NAME');
+    	$data['EMP_BNK_ACTIVE_YN']=$this->post('EMP_BNK_ACTIVE_YN');
+
+    	$result=$this->hrConfigModel->addBankDetails($data);
     	if($result['status']==true){
 			$this->set_response(['status' =>TRUE,'message'=>$result['message']], REST_Controller::HTTP_CREATED);
 		}else{
@@ -376,7 +408,10 @@ class HrConfigModule extends REST_Controller {
     // ------------------------------------------ Wroking Days --------------------------------------------------------------
 
     function employeeWorkingDays_post(){
-    	$result=$this->hrConfigModel->addWorkingDays_Details();
+    	$data['EMP_W_ID']=$this->post('EMP_W_ID');
+    	$data['EMP_W_MONTH']=$this->post('EMP_W_MONTH');
+    	$data['EMP_W_WEEK']=$this->post('EMP_W_WEEK');
+    	$result=$this->hrConfigModel->addWorkingDays_Details($data);
     	if($result['status']==true){
 			$this->set_response(['status' =>TRUE,'message'=>$result['message']], REST_Controller::HTTP_CREATED);
 		}else{
@@ -435,7 +470,12 @@ class HrConfigModule extends REST_Controller {
     // ------------------------------------------ Employee Additional Details --------------------------------------------
 
     function employeeAdditionalDetails_post(){
-    	$result=$this->hrConfigModel->addAdditional_Details();
+    	$data['EMP_ADD_ID']=$this->post('EMP_ADD_ID');
+    	$data['EMP_ADD_NAME']=$this->post('EMP_ADD_NAME');
+    	$data['EMP_ADD_METHOD']=$this->post('EMP_ADD_METHOD');
+    	$data['EMP_ADD_MAND']=$this->post('EMP_ADD_MAND');
+    	$data['EMP_ADD_STATUS']=$this->post('EMP_ADD_STATUS');
+    	$result=$this->hrConfigModel->addAdditional_Details($data);
     	if($result['status']==true){
 			$this->set_response(['status' =>TRUE,'message'=>$result['message']], REST_Controller::HTTP_CREATED);
 		}else{

@@ -3,31 +3,28 @@
 	class hrConfigModel extends CI_Model {
 
 		// Employee category 
-		public function addEmployeeCategory(){
-			$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->EMP_C_ID;
-	    	$name=$data->EMP_C_NAME;
-	    	$prefix=$data->EMP_C_PREFIX;
-	    	$active_yn=$data->EMP_C_ACTIVE_YN;
-	    	
-	    	// $id=$this->input->post('EMP_C_ID');
-	    	// $name=$this->input->post('EMP_C_NAME');
-	    	// $prefix=$this->input->post('EMP_C_PREFIX');
-	    	// $active_yn=$this->input->post('EMP_C_ACTIVE_YN');
-
+		public function addEmployeeCategory($value){
+			$id=$value['EMP_C_ID'];
 	    	$sql="SELECT count(EMP_C_NAME) FROM employee_category WHERE EMP_C_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(EMP_C_NAME)']!=0){
-				$sql="UPDATE employee_category SET EMP_C_NAME='$name',EMP_C_PREFIX='$prefix',EMP_C_ACTIVE_YN='$active_yn' WHERE EMP_C_ID='$id'";
-				$this->db->query($sql);
+				$data = array(
+				   'EMP_C_NAME' => $value['EMP_C_NAME'],
+				   'EMP_C_PREFIX' => $value['EMP_C_PREFIX'],
+				   'EMP_C_ACTIVE_YN' => $value['EMP_C_ACTIVE_YN']				);
+				$this->db->where('EMP_C_ID', $id);
+				$this->db->update('employee_category', $data); 
 				return array('status'=>true, 'message'=>"Record Updated Successfully",'EMP_C_ID'=>$id);
 			}else {
-				$sql="INSERT INTO employee_category (EMP_C_NAME, EMP_C_PREFIX, EMP_C_ACTIVE_YN) VALUES ('$name','$prefix','$active_yn')";
-				$this->db->query($sql);
+				$data = array(
+				   'EMP_C_NAME' => $value['EMP_C_NAME'],
+				   'EMP_C_PREFIX' => $value['EMP_C_PREFIX'],
+				   'EMP_C_ACTIVE_YN' => $value['EMP_C_ACTIVE_YN']
+				);
+				$this->db->insert('employee_category', $data);
 				$emp_id=$this->db->insert_id();
 				return array('status'=>true, 'message'=>"Record Inserted Successfully",'EMP_C_ID'=>$emp_id);
 			}
-	    	
 	    }
 	    function deleteCategory($id){
 	    	$sql="DELETE FROM employee_category WHERE EMP_C_ID='$id'";
@@ -47,22 +44,26 @@
 	    // ---------------------------------------- Employee department ---------------------------------------------------
 
 	    function addDepartment_Details(){
-	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->EMP_D_ID;
-	    	$name=$data->EMP_D_NAME;
-	    	$code=$data->EMP_D_CODE;
-	    	$status=$data->EMP_D_STATUS;
-
+	    	$id=$value['EMP_D_ID'];
 	    	$sql="SELECT count(EMP_D_NAME) FROM employee_department WHERE EMP_D_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(EMP_D_NAME)']!=0){
-				$sql="UPDATE employee_department SET EMP_D_NAME='$name',EMP_D_CODE='$code',EMP_D_STATUS='$status' WHERE EMP_D_ID='$id'";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Updated Successfully");
+				$data = array(
+				   'EMP_D_NAME' => $value['EMP_D_NAME'],
+				   'EMP_D_CODE' => $value['EMP_D_CODE'],
+				   'EMP_D_STATUS' => $value['EMP_D_STATUS']				);
+				$this->db->where('EMP_D_ID', $id);
+				$this->db->update('employee_department', $data); 
+				return array('status'=>true, 'message'=>"Record Updated Successfully",'EMP_D_ID'=>$id);
 			}else {
-				$sql="INSERT INTO employee_department (EMP_D_NAME, EMP_D_CODE, EMP_D_STATUS) VALUES ('$name','$code','$status')";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Inserted Successfully");
+				$data = array(
+				   'EMP_D_NAME' => $value['EMP_D_NAME'],
+				   'EMP_D_CODE' => $value['EMP_D_CODE'],
+				   'EMP_D_STATUS' => $value['EMP_D_STATUS']
+				);
+				$this->db->insert('employee_department', $data);
+				$dept_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'EMP_D_ID'=>$dept_id);
 			}
 	    }
 	    function fetchDaprtment_Details($id){
@@ -81,23 +82,28 @@
 
 	    // ---------------------------------------------- Employee Position ----------------------------------------------------
 
-	    function addPosition_Details(){
-	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->EMP_P_ID;
-	    	$name=$data->EMP_P_NAME;
-	    	$cat_id=$data->EMP_P_CATEGORY_ID->name;
-	    	$status=$data->EMP_P_ACTIVE_YN;
-
+	    function addPosition_Details($value){
+	    	$id=$value['EMP_P_ID'];
 	    	$sql="SELECT count(EMP_P_NAME) FROM employee_position WHERE EMP_P_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(EMP_P_NAME)']!=0){
-				$sql="UPDATE employee_position SET EMP_P_CATEGORY_ID='$cat_id',EMP_P_NAME='$name',EMP_P_ACTIVE_YN='$status' WHERE EMP_P_ID='$id'";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Updated Successfully");
+				$data = array(
+				   'EMP_P_NAME' => $value['EMP_P_NAME'],
+				   'EMP_P_CATEGORY_ID' => $value['EMP_P_CATEGORY_ID'],
+				   'EMP_P_ACTIVE_YN' => $value['EMP_P_ACTIVE_YN']				
+				);
+				$this->db->where('EMP_P_ID', $id);
+				$this->db->update('employee_position', $data); 
+				return array('status'=>true, 'message'=>"Record Updated Successfully",'EMP_P_ID'=>$id);
 			}else {
-				$sql="INSERT INTO employee_position (EMP_P_CATEGORY_ID, EMP_P_NAME, EMP_P_ACTIVE_YN) VALUES ('$cat_id','$name','$status')";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Inserted Successfully");
+				$data = array(
+				   'EMP_P_NAME' => $value['EMP_P_NAME'],
+				   'EMP_P_CATEGORY_ID' => $value['EMP_P_CATEGORY_ID'],
+				   'EMP_P_ACTIVE_YN' => $value['EMP_P_ACTIVE_YN']
+				);
+				$this->db->insert('employee_position', $data);
+				$posi_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'EMP_P_ID'=>$posi_id);
 			}
 
 	    }
@@ -118,24 +124,32 @@
 
 	    // ---------------------------------------- Employee grade -----------------------------------------------------
 
-	    function addGrade_Details(){
-	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->EMP_G_ID;
-	    	$grade_name=$data->EMP_G_NAME;
-	    	$priority=$data->EMP_G_PRIORITY;
-	    	$maxday=$data->EMP_G_MAX_DAY;
-	    	$maxweek=$data->EMP_G_MAX_WEEK;
-	    	$status=$data->EMP_G_ACTIVE_YN;
+	    function addGrade_Details($value){
+	    	$id=$value['EMP_G_ID'];
 	    	$sql="SELECT count(EMP_G_NAME) FROM employee_grade WHERE EMP_G_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(EMP_G_NAME)']!=0){
-				$sql="UPDATE employee_grade SET EMP_G_NAME='$grade_name',EMP_G_PRIORITY='$priority',EMP_G_MAX_DAY='$maxday' ,EMP_G_MAX_WEEK='$maxweek',EMP_G_ACTIVE_YN='$status' WHERE EMP_G_ID='$id'";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Updated Successfully");
+				$data = array(
+				   'EMP_G_NAME' => $value['EMP_G_NAME'],
+				   'EMP_G_PRIORITY' => $value['EMP_G_PRIORITY'],
+				   'EMP_G_MAX_DAY' => $value['EMP_G_MAX_DAY'],
+				   'EMP_G_MAX_WEEK' => $value['EMP_G_MAX_WEEK'],
+				   'EMP_G_ACTIVE_YN' => $value['EMP_G_ACTIVE_YN']			
+				);
+				$this->db->where('EMP_G_ID', $id);
+				$this->db->update('employee_grade', $data); 
+				return array('status'=>true, 'message'=>"Record Updated Successfully",'EMP_G_ID'=>$id);
 			}else {
-				$sql="INSERT INTO employee_grade (EMP_G_NAME, EMP_G_PRIORITY, EMP_G_MAX_DAY,EMP_G_MAX_WEEK,EMP_G_ACTIVE_YN) VALUES ('$grade_name','$priority','$maxday','$maxweek','$status')";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Inserted Successfully");
+				$data = array(
+				   'EMP_G_NAME' => $value['EMP_G_NAME'],
+				   'EMP_G_PRIORITY' => $value['EMP_G_PRIORITY'],
+				   'EMP_G_MAX_DAY' => $value['EMP_G_MAX_DAY'],
+				   'EMP_G_MAX_WEEK' => $value['EMP_G_MAX_WEEK'],
+				   'EMP_G_ACTIVE_YN' => $value['EMP_G_ACTIVE_YN']
+				);
+				$this->db->insert('employee_grade', $data);
+				$grade_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'EMP_G_ID'=>$grade_id);
 			}
 	    }
 	    function fetchGrade_Details($id){
@@ -154,27 +168,38 @@
 
 	    // ----------------------------------------- leave Type ------------------------------------------------------
 
-	    function addleaveType(){
-	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->EMP_L_ID;
-	    	$name=$data->EMP_L_NAME;
-	    	$leave_code=$data->EMP_L_CODE;
-	    	$leave_count=$data->EMP_L_COUNT;
-	    	$valid_from=$data->EMP_L_VALID_FROM;
-	    	$leave_bal=$data->EMP_L_ALLOW_LEAVE_BAL;
-	    	$no_leave_count=$data->EMP_L_ALLOW_BAL_COUNT;
-	    	$add_leave=$data->EMP_L_ADDI_LEAVE_DED_YN;
-	    	$status=$data->EMP_L_STATUS;
+	    function addleaveType($value){
+	    	$id=$value['EMP_L_ID'];
 	    	$sql="SELECT count(EMP_L_NAME) FROM employee_leave_type WHERE EMP_L_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(EMP_L_NAME)']!=0){
-				$sql="UPDATE employee_leave_type SET EMP_L_NAME='$name',EMP_L_CODE='$leave_code',EMP_L_COUNT='$leave_count' ,EMP_L_VALID_FROM='$valid_from',EMP_L_ALLOW_LEAVE_BAL='$leave_bal',EMP_L_ALLOW_BAL_COUNT='$no_leave_count',EMP_L_ADDI_LEAVE_DED_YN='$add_leave',EMP_L_STATUS='$status' WHERE EMP_L_ID='$id'";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Updated Successfully");
+				$data = array(
+				   'EMP_L_NAME' => $value['EMP_L_NAME'],
+				   'EMP_L_CODE' => $value['EMP_L_CODE'],
+				   'EMP_L_COUNT' => $value['EMP_L_COUNT'],
+				   'EMP_L_VALID_FROM' => $value['EMP_L_VALID_FROM'],
+				   'EMP_L_ALLOW_LEAVE_BAL' => $value['EMP_L_ALLOW_LEAVE_BAL'],
+				   'EMP_L_ALLOW_BAL_COUNT' => $value['EMP_L_ALLOW_BAL_COUNT'],
+				   'EMP_L_ADDI_LEAVE_DED_YN' => $value['EMP_L_ADDI_LEAVE_DED_YN'],
+				   'EMP_L_STATUS' => $value['EMP_L_STATUS']
+				);
+				$this->db->where('EMP_L_ID', $id);
+				$this->db->update('employee_leave_type', $data); 
+				return array('status'=>true, 'message'=>"Record Updated Successfully",'EMP_L_ID'=>$id);
 			}else {
-				$sql="INSERT INTO employee_leave_type (EMP_L_NAME,EMP_L_CODE,EMP_L_COUNT,EMP_L_VALID_FROM,EMP_L_ALLOW_LEAVE_BAL,EMP_L_ALLOW_BAL_COUNT,EMP_L_ADDI_LEAVE_DED_YN,EMP_L_STATUS) VALUES ('$name','$leave_code','$leave_count','$valid_from','$leave_bal','$no_leave_count','$add_leave','$status')";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Inserted Successfully");
+				$data = array(
+				   'EMP_L_NAME' => $value['EMP_L_NAME'],
+				   'EMP_L_CODE' => $value['EMP_L_CODE'],
+				   'EMP_L_COUNT' => $value['EMP_L_COUNT'],
+				   'EMP_L_VALID_FROM' => $value['EMP_L_VALID_FROM'],
+				   'EMP_L_ALLOW_LEAVE_BAL' => $value['EMP_L_ALLOW_LEAVE_BAL'],
+				   'EMP_L_ALLOW_BAL_COUNT' => $value['EMP_L_ALLOW_BAL_COUNT'],
+				   'EMP_L_ADDI_LEAVE_DED_YN' => $value['EMP_L_ADDI_LEAVE_DED_YN'],
+				   'EMP_L_STATUS' => $value['EMP_L_STATUS']
+				);
+				$this->db->insert('employee_leave_type', $data);
+				$leave_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'EMP_L_ID'=>$leave_id);
 			}
 	    }
 	    function fetchLeaveType_Details($id){
@@ -193,22 +218,26 @@
 
 	    // ------------------------------------------ Bank details ----------------------------------------------------------
 
-	    function addBankDetails(){
-	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->EMP_BNK_ID;
-	    	$name=$data->EMP_BNK_NAME;
-	    	$status=$data->EMP_BNK_ACTIVE_YN;
-
+	    function addBankDetails($data){
+	    	$id=$data['EMP_BNK_ID'];
 	    	$sql="SELECT count(EMP_BNK_NAME) FROM employee_bank_details WHERE EMP_BNK_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(EMP_BNK_NAME)']!=0){
-				$sql="UPDATE employee_bank_details SET EMP_BNK_NAME='$name',EMP_BNK_ACTIVE_YN='$status' WHERE EMP_BNK_ID='$id'";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Updated Successfully");
+				$data = array(
+				   'EMP_BNK_NAME' => $data['EMP_BNK_NAME'],
+				   'EMP_BNK_ACTIVE_YN' => $data['EMP_BNK_ACTIVE_YN']		
+				);
+				$this->db->where('EMP_BNK_ID', $id);
+				$this->db->update('employee_bank_details', $data); 
+				return array('status'=>true, 'message'=>"Record Updated Successfully",'EMP_BNK_ID'=>$id);
 			}else {
-				$sql="INSERT INTO employee_bank_details (EMP_BNK_NAME,EMP_BNK_ACTIVE_YN) VALUES ('$name','$status')";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Inserted Successfully");
+				$data = array(
+				   'EMP_BNK_NAME' => $data['EMP_BNK_NAME'],
+				   'EMP_BNK_ACTIVE_YN' => $data['EMP_BNK_ACTIVE_YN']		
+				);
+				$this->db->insert('employee_bank_details', $data);
+				$bank_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'EMP_BNK_ID'=>$bank_id);
 			}
 	    }
 	    function fetchBank_Details($id){
@@ -227,22 +256,26 @@
 
 
 	    // --------------------------------------  Working Days  ---------------------------------------------------
-	    function addWorkingDays_Details(){
-	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->EMP_W_ID;
-	    	$month=$data->EMP_W_MONTH;
-	    	$week=$data->EMP_W_WEEK;
-
+	    function addWorkingDays_Details($data){
+	    	$id=$data['EMP_W_ID'];
 	    	$sql="SELECT count(EMP_W_MONTH) FROM employee_working_days WHERE EMP_W_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(EMP_W_MONTH)']!=0){
-				$sql="UPDATE employee_working_days SET EMP_W_MONTH='$month',EMP_W_WEEK='$week' WHERE EMP_W_ID='$id'";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Updated Successfully");
+				$data = array(
+				   'EMP_W_MONTH' => $data['EMP_W_MONTH'],
+				   'EMP_W_WEEK' => $data['EMP_W_WEEK']		
+				);
+				$this->db->where('EMP_W_ID', $id);
+				$this->db->update('employee_working_days', $data); 
+				return array('status'=>true, 'message'=>"Record Updated Successfully",'EMP_W_ID'=>$id);
 			}else {
-				$sql="INSERT INTO employee_working_days (EMP_W_MONTH,EMP_W_WEEK) VALUES ('$month','$week')";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Inserted Successfully");
+				$data = array(
+				   'EMP_W_MONTH' => $data['EMP_W_MONTH'],
+				   'EMP_W_WEEK' => $data['EMP_W_WEEK']		
+				);
+				$this->db->insert('employee_working_days', $data);
+				$work_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'EMP_W_ID'=>$work_id);
 			}
 	    }
 	    function fetchAllWorkingDays_Details(){
@@ -260,24 +293,30 @@
 	    }
 
 	    // -------------------------------------- Employee Additional Details ---------------------------------------------------
-	    function addAdditional_Details(){
-	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->EMP_ADD_ID;
-	    	$name=$data->EMP_ADD_NAME;
-	    	$method=$data->EMP_ADD_METHOD;
-	    	$mandatory=$data->EMP_ADD_MAND;
-	    	$status=$data->EMP_ADD_STATUS;
-
+	    function addAdditional_Details($data){
+	    	$id=$data['EMP_ADD_ID'];
 	    	$sql="SELECT count(EMP_ADD_NAME) FROM employee_additional_details WHERE EMP_ADD_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(EMP_ADD_NAME)']!=0){
-				$sql="UPDATE employee_additional_details SET EMP_ADD_NAME='$name',EMP_ADD_METHOD='$method',EMP_ADD_MAND='$mandatory',EMP_ADD_STATUS='$status' WHERE EMP_ADD_ID='$id'";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Updated Successfully");
+				$data = array(
+				   'EMP_ADD_NAME' => $data['EMP_ADD_NAME'],
+				   'EMP_ADD_METHOD' => $data['EMP_ADD_METHOD'],		
+				   'EMP_ADD_MAND' => $data['EMP_ADD_MAND'],
+				   'EMP_ADD_STATUS' => $data['EMP_ADD_STATUS']
+				);
+				$this->db->where('EMP_ADD_ID', $id);
+				$this->db->update('employee_additional_details', $data); 
+				return array('status'=>true, 'message'=>"Record Updated Successfully",'EMP_ADD_ID'=>$id);
 			}else {
-				$sql="INSERT INTO employee_additional_details (EMP_ADD_NAME,EMP_ADD_METHOD,EMP_ADD_MAND,EMP_ADD_STATUS) VALUES ('$name','$method','$mandatory','$status')";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Inserted Successfully");
+				$data = array(
+				   'EMP_ADD_NAME' => $data['EMP_ADD_NAME'],
+				   'EMP_ADD_METHOD' => $data['EMP_ADD_METHOD'],		
+				   'EMP_ADD_MAND' => $data['EMP_ADD_MAND'],
+				   'EMP_ADD_STATUS' => $data['EMP_ADD_STATUS']
+				);
+				$this->db->insert('employee_additional_details', $data);
+				$addit_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'EMP_ADD_ID'=>$addit_id);
 			}
 	    }
 	    function fetchAllAdditional_Details(){
