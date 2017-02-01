@@ -29,19 +29,28 @@ class StudentAPI extends REST_Controller {
     	$data['STU_ADM_STATE']=$this->post('STU_ADM_STATE');
     	$data['STU_ADM_COUNTRY']=$this->post('STU_ADM_COUNTRY');
     	$data['STU_ADM_PINCODE']=$this->post('STU_ADM_PINCODE'); 
-    	$data['STU_ADM_PHONE'] => $this->post('STU_ADM_PHONE');
-	   	$data['STU_ADM_MOBILE'] => $this->post('STU_ADM_MOBILE');
-	   	$data['STU_ADM_EMAIL'] => $this->post('STU_ADM_EMAIL');
-	   	$data['STU_ADM_IMAGE_PATH'] => $this->post('STU_ADM_IMAGE_PATH');
-	   	$data['STU_ADM_CB_COURSE'] => $this->post('STU_ADM_CB_COURSE');
-	   	$data['STU_ADM_CB_BATCH'] => $this->post('STU_ADM_CB_BATCH');
-	   	$data['STU_ADM_CB_ROLL_NO'] => $this->post('STU_ADM_CB_ROLL_NO');
-	   	$data['STU_ADM_USER_ID'] => $this->post('STU_ADM_USER_ID');
-    	$result=$this->studentmodel->addStudentAdmissionDetails($data);
-    	if(!empty($result)){
-			$this->set_response(['status' =>TRUE,'admission no'=>$result], REST_Controller::HTTP_CREATED);
+    	$data['STU_ADM_PHONE'] = $this->post('STU_ADM_PHONE');
+	   	$data['STU_ADM_MOBILE'] = $this->post('STU_ADM_MOBILE');
+	   	$data['STU_ADM_EMAIL'] = $this->post('STU_ADM_EMAIL');
+	   	$data['STU_ADM_CB_COURSE'] = $this->post('STU_ADM_CB_COURSE');
+	   	$data['STU_ADM_CB_BATCH'] = $this->post('STU_ADM_CB_BATCH');
+	   	$data['STU_ADM_CB_ROLL_NO'] = $this->post('STU_ADM_CB_ROLL_NO');
+	   	$data['STU_ADM_USER_ID'] = $this->post('STU_ADM_USER_ID');
+		$id=$this->post('STU_ADM_ID');
+		if($id==NULL){
+			$result=$this->studentmodel->addStudentAdmissionDetails($data);
+			if(!empty($result)){
+				$this->set_response(['status' =>TRUE,'admission_no'=>$result], REST_Controller::HTTP_CREATED);
+			}else{
+				$this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
+			}
 		}else{
-			$this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
+			$result=$this->studentmodel->editStudentAdmissionDetails($id,$data);
+			if(!empty($result)){
+				$this->set_response(['status' =>TRUE,'message'=>'Student Admission Details Updated successfully'], REST_Controller::HTTP_CREATED);
+			}else{
+				$this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
+			}
 		}
     }
 	
@@ -49,7 +58,7 @@ class StudentAPI extends REST_Controller {
 	
 	function studentParentDetails_post()
     {
-    	$data['STU_PA_ADM_NO']=$this->post('STU_PA_ADM_NO');
+    	$id=$this->post('STU_PA_ADM_NO');
     	$data['STU_PA_FIRST_NAME']=$this->post('STU_PA_FIRST_NAME');
     	$data['STU_PA_LAST_NAME']=$this->post('STU_PA_LAST_NAME');
     	$data['STU_PA_RELATION']=$this->post('STU_PA_RELATION');
@@ -65,18 +74,18 @@ class StudentAPI extends REST_Controller {
     	$data['STU_PA_STATE']=$this->post('STU_PA_STATE');
     	$data['STU_PA_COUNTRY']=$this->post('STU_PA_COUNTRY');
     	$data['STU_PA_PHONE1']=$this->post('STU_PA_PHONE1'); 
-    	$data['STU_PA_PHONE2'] => $this->post('STU_PA_PHONE2');
-	   	$data['STU_PA_MOBILE'] => $this->post('STU_PA_MOBILE');
-	   	$data['STU_PA_GA_NAME'] => $this->post('STU_PA_GA_NAME');
-	   	$data['STU_PA_GA_RELATION'] => $this->post('STU_PA_GA_RELATION');
-	   	$data['STU_PA_GA_ADD1'] => $this->post('STU_PA_GA_ADD1');
-	   	$data['STU_PA_GA_ADD2'] => $this->post('STU_PA_GA_ADD2');
-	   	$data['STU_PA_GA_CITY'] => $this->post('STU_PA_GA_CITY');
-	   	$data['STU_PA_GA_STATE'] => $this->post('STU_PA_GA_STATE');
-	   	$data['STU_PA_GA_COUNTRY'] => $this->post('STU_PA_GA_COUNTRY');
-	   	$data['STU_PA_GA_PHONE1'] => $this->post('STU_PA_GA_PHONE1');
-	   	$data['STU_PA_USER_ID'] => $this->post('STU_PA_USER_ID');
-    	$result=$this->studentmodel->addStudentParentDetails($data);
+    	$data['STU_PA_PHONE2'] = $this->post('STU_PA_PHONE2');
+	   	$data['STU_PA_MOBILE'] = $this->post('STU_PA_MOBILE');
+	   	$data['STU_PA_GA_NAME'] = $this->post('STU_PA_GA_NAME');
+	   	$data['STU_PA_GA_RELATION'] = $this->post('STU_PA_GA_RELATION');
+	   	$data['STU_PA_GA_ADD1'] = $this->post('STU_PA_GA_ADD1');
+	   	$data['STU_PA_GA_ADD2'] = $this->post('STU_PA_GA_ADD2');
+	   	$data['STU_PA_GA_CITY'] = $this->post('STU_PA_GA_CITY');
+	   	$data['STU_PA_GA_STATE'] = $this->post('STU_PA_GA_STATE');
+	   	$data['STU_PA_GA_COUNTRY'] = $this->post('STU_PA_GA_COUNTRY');
+	   	$data['STU_PA_GA_PHONE1'] = $this->post('STU_PA_GA_PHONE1');
+	   	$data['STU_PA_UPD_USER_ID'] = $this->post('STU_PA_UPD_USER_ID');
+    	$result=$this->studentmodel->editStudentParentDetails($id,$data);
     	if($result==true){
 			$this->set_response(['status' =>TRUE,'message'=>"success"], REST_Controller::HTTP_CREATED);
 		}else{
@@ -88,16 +97,16 @@ class StudentAPI extends REST_Controller {
 	
 	function studentPreviousEducation_post()
     {
-    	$data['STU_PRE_D_ADM_NO']=$this->post('STU_PRE_D_ADM_NO');
+    	$id=$this->post('STU_PRE_D_ADM_NO');
     	$data['STU_PRE_D_INSTITUTE_NAME']=$this->post('STU_PRE_D_INSTITUTE_NAME');
     	$data['STU_PRE_D_COURSE']=$this->post('STU_PRE_D_COURSE');
     	$data['STU_PRE_D_YEAR']=$this->post('STU_PRE_D_YEAR');
     	$data['STU_PRE_ADD_BLOOD_GROUP']=$this->post('STU_PRE_ADD_BLOOD_GROUP');
     	$data['STU_PRE_ADD_BIRTH_PLACE']=$this->post('STU_PRE_ADD_BIRTH_PLACE');
-    	$data['STU_PRE_ADD_STUD_CATE']=$this->post('STU_PRE_ADD_STUD_CATE');
-    	$data['STU_PRE_D_CRT_DT']=$this->post('STU_PRE_D_CRT_DT'); 
-    	$data['STU_PRE_D_USER_ID']=$this->post('STU_PRE_D_USER_ID');
-    	$result=$this->studentmodel->addStudentPreviousEducation($data);
+    	$data['STU_PRE_ADD_STUD_CATE']=$this->post('STU_PRE_ADD_STUD_CATE'); 
+    	$data['STU_PRE_D_UPD_USER_ID']=$this->post('STU_PRE_D_UPD_USER_ID');
+		$data['STU_PRE_ADD_IMAGE_PATH'] = $this->post('STU_PRE_ADD_IMAGE_PATH');
+    	$result=$this->studentmodel->editStudentPreviousEducation($id,$data);
     	if($result==true){
 			$this->set_response(['status' =>TRUE,'message'=>"success"], REST_Controller::HTTP_CREATED);
 		}else{

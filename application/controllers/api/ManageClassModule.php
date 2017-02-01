@@ -18,13 +18,13 @@ class ManageClassModule extends REST_Controller {
 		$data['ACA_COU_SEC_NAME']=$this->post('ACA_COU_SEC_NAME');
 		$data['ACA_COU_CODE']=$this->post('ACA_COU_CODE');
 		$data['ACA_COU_GRADE_TYPE']=$this->post('ACA_COU_GRADE_TYPE');
-		//$data['ACA_COU_ELECTIVE_SEL_YN']=$this->post('ACA_COU_ELECTIVE_SEL_YN');
-		$data['ACA_COU_ELECTIVE_SEL_YN']='Y';
+		$data['ACA_COU_ELECTIVE_SEL_YN']=$this->post('ACA_COU_ELECTIVE_SEL_YN');
 		$data['ACA_BAT_NAME']=$this->post('ACA_BAT_NAME');
 		$data['ACA_COU_CRT_USER_ID']=$this->post('ACA_COU_CRT_USER_ID');
 		$data['ACA_BAT_START_DT']=$this->post('ACA_BAT_START_DT');
 		$data['ACA_BAT_END_DT']=$this->post('ACA_BAT_END_DT');
-		$data['ACA_BAT_CRT_USER_ID']=$this->post('ACA_BAT_CRT_USER_ID');
+		$data['ACA_BAT_CRT_USER_ID']=$this->post('ACA_COU_CRT_USER_ID');
+		$data['ACA_COU_UPD_USER_ID']=$this->post('ACA_COU_UPD_USER_ID');
 		if($id==NULL){
 			$result=$this->classmodel->addClassAndBatchDetails($data);
 			if(!empty($result)){
@@ -33,7 +33,7 @@ class ManageClassModule extends REST_Controller {
 				$this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
 			}
 		}else{
-			$result=$this->classmodel->EditClassDetails($id);
+			$result=$this->classmodel->EditClassDetails($id,$data);
 			if($result==true){
 				$this->set_response(['status' =>TRUE,'message'=>"Class Updated successfully"], REST_Controller::HTTP_CREATED);
 			}else{
@@ -71,8 +71,7 @@ class ManageClassModule extends REST_Controller {
 			}
 		}
     }
-	
-	
+		
 	function ClassDetail_get(){
 		$id = $this->get('ACA_COU_ID');
 		if($id==NULL){
@@ -101,4 +100,25 @@ class ManageClassModule extends REST_Controller {
 			}
 		}
     }
+	function ClassDetail_delete(){
+		$id = $this->delete('ACA_COU_ID');
+		if($id==NULL){
+			$this->set_response([
+			'status' => FALSE,
+			'message' => 'Class Details could not be found'
+			], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+		}else{
+			$users=$this->classmodel->deleteClassDetail($id);
+			if ($users!=0){
+				$this->set_response(['status' =>TRUE,'message'=>'Class Detail Deleted successfully'], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+			}
+			else
+			{
+				$this->set_response([
+				'status' => FALSE,
+				'message' => 'Class Details could not be found'
+				], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+			}
+		}
+	}
 }
