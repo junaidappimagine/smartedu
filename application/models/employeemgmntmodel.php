@@ -4,7 +4,52 @@
 
 		// ------------------------------ Asset -----------------------------------------------------------------
 		public function saveEmployeeAdmission($data){
-			$data = array(
+			$id=$data['EMP_ID'];
+			if($id == null){
+				$data = array(
+				   'EMP_NO' => $data['EMP_NO'],
+				   'EMP_JOIN_DT' => $data['EMP_JOIN_DT'],
+				   'EMP_FIRST_NAME' => $data['EMP_FIRST_NAME'],
+				   'EMP_LAST_NAME' => $data['EMP_LAST_NAME'],
+				   'EMP_GENDER' => $data['EMP_GENDER'],
+				   'EMP_DOB' => $data['EMP_DOB'],
+				   'EMP_MARITAL_STATUS' => $data['EMP_MARITAL_STATUS'],
+				   'EMP_RELIGION' => $data['EMP_RELIGION'],
+				   'EMP_BLOOD_GROUP' => $data['EMP_BLOOD_GROUP'],
+				   'EMP_NATIONALITY' => $data['EMP_NATIONALITY'],
+				   'EMP_PROFILE' => $data['EMP_PROFILE'],
+				   'EMP_DEPT' => $data['EMP_DEPT'],
+				   'EMP_CATEGORY' => $data['EMP_CATEGORY'],
+				   'EMP_POSITION' => $data['EMP_POSITION'],
+				   'EMP_GRADE' => $data['EMP_GRADE'],
+				   'EMP_JOB_TITLE' => $data['EMP_JOB_TITLE'],
+				   'EMP_QUALI' => $data['EMP_QUALI'],
+				   'EMP_EXPE_INFO' => $data['EMP_EXPE_INFO'],
+				   'EMP_TOT_EXPE' => $data['EMP_TOT_EXPE'],
+				   'EMP_ADD_1' => $data['EMP_ADD_1'],
+				   'EMP_ADD_2' => $data['EMP_ADD_2'],
+				   'EMP_CITY' => $data['EMP_CITY'],
+				   'EMP_STATE' => $data['EMP_STATE'],
+				   'EMP_PINCODE' => $data['EMP_PINCODE'],
+				   'EMP_COUNTRY' => $data['EMP_COUNTRY'],
+				   'EMP_PHONE' => $data['EMP_PHONE'],
+				   'EMP_OFF_PHONE' => $data['EMP_OFF_PHONE'],
+				   'EMP_MOBILE' => $data['EMP_MOBILE'],
+				   'EMP_EMAIL' => $data['EMP_EMAIL'],
+				   'EMP_ACC_NAME' => $data['EMP_ACC_NAME'],
+				   'EMP_ACC_NO' => $data['EMP_ACC_NO'],
+				   'EMP_BANK_NAME' => $data['EMP_BANK_NAME'],
+				   'EMP_BANK_BRANCH_NAME' => $data['EMP_BANK_BRANCH_NAME'],
+				   'EMP_PASSPORT_NO' => $data['EMP_PASSPORT_NO'],
+				   'EMP_PAN_NO' => $data['EMP_PAN_NO'],
+				   'EMP_ADHAR_NO' => $data['EMP_ADHAR_NO'],
+				   'EMP_WORK_PERMIT' => $data['EMP_WORK_PERMIT']
+				);
+				$this->db->insert('employee_admission', $data);
+				$emp_id= $this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'INS_EMP_ID'=>$emp_id);
+			}else {
+				$data = array(
 			   'EMP_NO' => $data['EMP_NO'],
 			   'EMP_JOIN_DT' => $data['EMP_JOIN_DT'],
 			   'EMP_FIRST_NAME' => $data['EMP_FIRST_NAME'],
@@ -43,8 +88,11 @@
 			   'EMP_ADHAR_NO' => $data['EMP_ADHAR_NO'],
 			   'EMP_WORK_PERMIT' => $data['EMP_WORK_PERMIT']
 			);
-			$this->db->insert('employee_admission', $data);
-			return array('status'=>true, 'message'=>"Record Inserted Successfully");
+			$this->db->where('EMP_ID', $id);
+			$this->db->update('employee_admission', $data);
+			return array('status'=>true, 'message'=>"Record Updated Successfully",'INS_EMP_ID'=>$id);
+			}
+			
 	    }
 	    function updategenerationCode($gener_id,$gener_code){
 	    	$genr_name = substr($gener_code,0,3);
