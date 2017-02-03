@@ -138,8 +138,13 @@
 			$this->db->insert('student_category', $data);  	
 	    }
 		
-		public function getStudent(){
-			$sql="SELECT * FROM `student_admission_details`";
+		public function getStudentDetailAll(){
+			$sql="SELECT STU_ADM_NO,STU_ADM_FIRST_NAME,STU_ADM_CB_COURSE,STU_ADM_GENDER FROM student_admission_details";
+			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
+			return $result;
+		}
+		public function getStudentDetail($id){
+			$sql="SELECT * FROM student_admission_details,student_parent_details,student_previous_education where (STU_ADM_NO='$id' AND STU_PA_ADM_NO='$id' AND STU_PRE_D_ADM_NO='$id')";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			return $result;
 		}
