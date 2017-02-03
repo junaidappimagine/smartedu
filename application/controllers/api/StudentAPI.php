@@ -116,17 +116,33 @@ class StudentAPI extends REST_Controller {
 	
 	
 	
-	function studentAdmission_get(){
-		$users=$this->studentmodel->getStudent();
-		if (!empty($users)){
-			$this->set_response(['status' =>TRUE,'aaData'=>$users], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
-		}
-		else
-		{
-			$this->set_response([
-			'status' => FALSE,
-			'message' => 'Student data could not be found'
-			], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+	function studentDetails_get(){
+		$id=$this->get('STU_ADM_NO');
+		if($id==null){
+			$users=$this->studentmodel->getStudentDetailAll();
+			if (!empty($users)){
+				$this->set_response(['status' =>TRUE,'message'=>$users], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+			}
+			else
+			{
+				$this->set_response([
+				'status' => FALSE,
+				'message' => 'Student data could not be found'
+				], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+			}
+
+		}else{
+			$users=$this->studentmodel->getStudentDetail($id);
+			if (!empty($users)){
+				$this->set_response(['status' =>TRUE,'message'=>$users], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+			}
+			else
+			{
+				$this->set_response([
+				'status' => FALSE,
+				'message' => 'Student data could not be found'
+				], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+			}
 		}
     }
 }
