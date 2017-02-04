@@ -12,6 +12,18 @@ class HrEmployeeMgmntModule extends REST_Controller {
 
     function employeeAdmission_post()
     {
+        // $folderPath = $config['upload_path'] = 'uploads/';
+        // $config['allowed_types'] = '*';            
+        // $this->load->library('upload', $config);
+        // // $this->upload->initialize($config);
+        // if (!$this->upload->do_upload($this->post('EMP_PROFILE'))) {
+        //     $error = array('error' => $this->upload->display_errors());
+        //     echo "<pre>";
+        //     print_r($error);
+        // }else {
+        //     echo 'success';
+        // }
+        // exit;
         $data['EMP_ID']=$this->post('EMP_ID');
         $data['EMP_NO']=$this->post('EMP_NO');
         $data['EMP_JOIN_DT']=$this->post('EMP_JOIN_DT');
@@ -57,6 +69,57 @@ class HrEmployeeMgmntModule extends REST_Controller {
         }else{
             $this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
         }
+    }
+    function employeeAdmission_get(){
+        $id=$this->get('id');
+        if ($id == null)
+        {
+            $result=$this->employeemgmntmodel->fetchEmployeeDetails();
+            if (!empty($result)){
+                $this->set_response(['status' =>TRUE,'result'=>$result], REST_Controller::HTTP_OK);
+            }
+            else
+            {
+                $this->set_response([
+                'status' => FALSE,
+                'message' => 'Employee data could not be found'
+                ], REST_Controller::HTTP_NOT_FOUND);
+            }
+        }else {
+            $result=$this->employeemgmntmodel->fetchPerticularEmployeeDetails($id);
+            if (!empty($result)){
+                $this->set_response(['status' =>TRUE,'result'=>$result], REST_Controller::HTTP_OK); 
+            }
+            else
+            {
+                $this->set_response([
+                'status' => FALSE,
+                'message' => 'Employee data could not be found'
+                ], REST_Controller::HTTP_NOT_FOUND);
+            }
+        }
+    }
+    function employeeAdmission_delete(){
+        $id=$this->delete('id');
+        if ($id == null)
+        {
+            $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);
+        }else{
+            $result=$this->employeemgmntmodel->deleteEmployeeDetails($id);
+            if($result!=0){
+                $message = [
+                'id' => $id,
+                'message' => 'Record Deleted Successfully'
+                ];
+                $this->set_response(['status'=>TRUE,'message'=>$message], REST_Controller::HTTP_OK);
+            }else{
+                $message = [
+                'id' => $id,
+                'message' => 'There is no Record found'
+                ];
+                $this->set_response(['status'=>FALSE,'message'=>$message], REST_Controller::HTTP_NOT_FOUND);
+            }
+        }  
     }
 }
 ?>

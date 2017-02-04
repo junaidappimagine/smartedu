@@ -94,6 +94,20 @@
 			}
 			
 	    }
+
+	    function fetchEmployeeDetails(){
+	    	$sql="SELECT * FROM employee_admission";
+			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+	    }
+	    function fetchPerticularEmployeeDetails($id){
+	    	$sql="SELECT * FROM employee_admission WHERE EMP_ID='$id'";
+			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+	    }
+	    function deleteEmployeeDetails($id){
+	    	$sql="DELETE FROM employee_admission WHERE EMP_ID='$id'";
+	    	$result = $this->db->query($sql);
+	    	return $this->db->affected_rows();
+	    }
 	    function updategenerationCode($gener_id,$gener_code){
 	    	$genr_name = substr($gener_code,0,3);
 	    	$genr_code = substr($gener_code,3);
