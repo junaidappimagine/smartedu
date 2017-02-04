@@ -100,6 +100,7 @@ class ManageClassModule extends REST_Controller {
 			}
 		}
     }
+	
 	function ClassDetail_delete(){
 		$id = $this->delete('ACA_COU_ID');
 		if($id==NULL){
@@ -121,4 +122,20 @@ class ManageClassModule extends REST_Controller {
 			}
 		}
 	}
+	
+	//Get course
+	
+	function getCourseDetail_get(){
+		$users=$this->classmodel->getClassDetailsAll();
+		if (!empty($users)){
+			$this->set_response(['status' =>TRUE,'message'=>$users], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+		}
+		else
+		{
+			$this->set_response([
+			'status' => FALSE,
+			'message' => 'Class Detail could not be found'
+			], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+		}
+    }
 }

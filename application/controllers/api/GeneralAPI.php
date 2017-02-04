@@ -98,4 +98,19 @@ class GeneralAPI extends REST_Controller {
 		
 	}
 	
+	function pushReg_post(){
+		$regId = $this->post('regId');
+		$users=$this->GeneralMod->addPushReg($regId);
+		if (!empty($users)){
+			$this->set_response(['status' =>TRUE,'message'=>$users], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+		}
+		else
+		{
+			$this->set_response([
+			'status' => FALSE,
+			'message' => 'regId could not be found'
+			], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+		}
+	}
+	
 }

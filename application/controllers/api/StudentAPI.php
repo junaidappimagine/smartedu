@@ -37,6 +37,7 @@ class StudentAPI extends REST_Controller {
 	   	$data['STU_ADM_CB_ROLL_NO'] = $this->post('STU_ADM_CB_ROLL_NO');
 	   	$data['STU_ADM_USER_ID'] = $this->post('STU_ADM_USER_ID');
 		$id=$this->post('STU_ADM_ID');
+		//$this->set_response(['status' =>TRUE,'id'=>$id,'admission_no'=>$data], REST_Controller::HTTP_CREATED);
 		if($id==NULL){
 			$result=$this->studentmodel->addStudentAdmissionDetails($data);
 			if(!empty($result)){
@@ -47,7 +48,7 @@ class StudentAPI extends REST_Controller {
 		}else{
 			$result=$this->studentmodel->editStudentAdmissionDetails($id,$data);
 			if(!empty($result)){
-				$this->set_response(['status' =>TRUE,'message'=>'Student Admission Details Updated successfully'], REST_Controller::HTTP_CREATED);
+				$this->set_response(['status' =>TRUE,'admission_no'=>$result,'message'=>'Student Admission Details Updated successfully'], REST_Controller::HTTP_CREATED);
 			}else{
 				$this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
 			}

@@ -322,7 +322,7 @@ class ManageBatchModule extends REST_Controller {
 	}
 	
 	function ViewBatchDetail_get(){
-		$users=$this->batchmodel->getBatchDetailAll();
+		$users=$this->batchmodel->viewBatchDetailAll();
 		if (!empty($users)){
 			$this->set_response(['status' =>TRUE,'message'=>$users], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
 		}
