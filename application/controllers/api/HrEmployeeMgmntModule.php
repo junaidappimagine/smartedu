@@ -12,18 +12,16 @@ class HrEmployeeMgmntModule extends REST_Controller {
 
     function employeeAdmission_post()
     {
-        // $folderPath = $config['upload_path'] = 'uploads/';
-        // $config['allowed_types'] = '*';            
-        // $this->load->library('upload', $config);
-        // // $this->upload->initialize($config);
-        // if (!$this->upload->do_upload($this->post('EMP_PROFILE'))) {
-        //     $error = array('error' => $this->upload->display_errors());
-        //     echo "<pre>";
-        //     print_r($error);
-        // }else {
-        //     echo 'success';
-        // }
-        // exit;
+        $folderPath = $config['upload_path'] = 'upload/';
+        $config['allowed_types'] = '*';   
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        if(!$this->upload->do_upload('0')){
+            $this->set_response(['status' =>FALSE,'message'=>'Upload Error'], REST_Controller::HTTP_NOT_FOUND);
+        }else{
+            $data = $this->upload->data();
+            $filePath=$folderPath.$data['file_name'];
+        }
         $data['EMP_ID']=$this->post('EMP_ID');
         $data['EMP_NO']=$this->post('EMP_NO');
         $data['EMP_JOIN_DT']=$this->post('EMP_JOIN_DT');
@@ -35,7 +33,7 @@ class HrEmployeeMgmntModule extends REST_Controller {
         $data['EMP_RELIGION']=$this->post('EMP_RELIGION'); 
         $data['EMP_BLOOD_GROUP']=$this->post('EMP_BLOOD_GROUP');
         $data['EMP_NATIONALITY']=$this->post('EMP_NATIONALITY');
-        $data['EMP_PROFILE']=$this->post('EMP_PROFILE');
+        $data['EMP_PROFILE']=$filePath;
         $data['EMP_DEPT']=$this->post('EMP_DEPT'); 
         $data['EMP_CATEGORY']=$this->post('EMP_CATEGORY');
         $data['EMP_POSITION']=$this->post('EMP_POSITION');
@@ -62,7 +60,7 @@ class HrEmployeeMgmntModule extends REST_Controller {
         $data['EMP_PAN_NO'] = $this->post('EMP_PAN_NO');
         $data['EMP_ADHAR_NO'] = $this->post('EMP_ADHAR_NO');
         $data['EMP_WORK_PERMIT'] = $this->post('EMP_WORK_PERMIT');
-
+        // echo "<pre>";print_r($data);exit;
     	$result=$this->employeemgmntmodel->saveEmployeeAdmission($data);
     	if($result['status']==true){
             $this->set_response(['status' =>TRUE,'message'=>$result], REST_Controller::HTTP_CREATED);
