@@ -51,6 +51,7 @@
 	    }
 		public function editStudentAdmissionDetails($id,$values){
 			$data = array(
+			   'STU_ADM_NO' => $values['STU_ADM_NO'],
 			   'STU_ADM_DT' => $values['STU_ADM_DT'],
 			   'STU_ADM_FIRST_NAME' => $values['STU_ADM_FIRST_NAME'],
 			   'STU_ADM_MIDDLE_NAME' => $values['STU_ADM_MIDDLE_NAME'],
@@ -74,12 +75,9 @@
 			   'STU_ADM_CB_ROLL_NO' => $values['STU_ADM_CB_ROLL_NO'],
 			   'STU_ADM_USER_ID' => $values['STU_ADM_USER_ID']
 			);
-			$this->db->where('STU_ADM_NO', $id);
+			$this->db->where('STU_ADM_ID', $id);
 			$this->db->update('student_admission_details', $data);
-			//return $adm_id;
-			if(!empty($adm_id)){
-				return true;
-			}
+			return $values['STU_ADM_NO'];
 	    }
 
 	    public function editStudentParentDetails($id,$values){

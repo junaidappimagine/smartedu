@@ -12,5 +12,15 @@
 			}
 		}
 		
+		public function addPushReg($Regid){
+			$id=1;
+			$data = array(
+			   'regID' => $Regid
+			);
+			$this->db->where('id', $id);
+			$this->db->update('pushNotify', $data);
+			return true;
+		}
+		
 	}
 ?>

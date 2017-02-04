@@ -175,5 +175,12 @@
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			return $result;
 		}
+		
+		// View batch detail and student count
+		public function viewBatchDetailAll(){
+			$sql="SELECT * FROM `Acodemics_batch_details`";
+			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
+			return $result;
+		}
 	}
 ?>
