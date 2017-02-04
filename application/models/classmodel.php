@@ -81,5 +81,9 @@
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			return $result;
 		}
+		function getCourseandBatchView(){
+			$sql="SELECT * FROM course_batch_view";
+			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+		}
 	}
 ?>
