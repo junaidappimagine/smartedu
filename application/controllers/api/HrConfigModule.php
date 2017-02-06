@@ -24,7 +24,7 @@ class HrConfigModule extends REST_Controller {
 		// }
     }
 
-    //-------------------------------------  Employee category ---------------------------------------------------
+    
     function insertDataFromXcelToDB_get(){
     	$ext=$this->get('ext');
     	//$ext='csv';
@@ -117,6 +117,7 @@ class HrConfigModule extends REST_Controller {
 			}
         }    			
 	}
+	//-------------------------------------  Employee category ---------------------------------------------------
     function employeeCategory_post()
     {
     	$data['EMP_C_ID']=$this->post('EMP_C_ID');
