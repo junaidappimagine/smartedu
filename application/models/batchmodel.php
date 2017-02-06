@@ -35,13 +35,15 @@
 	    }
 		
 		public function getBatchDetailAll(){
-			$sql="SELECT * FROM `Acodemics_batch_details`";
+			// $sql="SELECT * FROM `Acodemics_batch_details`";
+			$sql="SELECT * FROM `course_batch_view`";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			return $result;
 		}
 		
 		public function getBatchDetail($id){
-			$sql="SELECT * FROM `Acodemics_batch_details` where ACA_BAT_COU_ID='$id'";
+			// $sql="SELECT * FROM `Acodemics_batch_details` where ACA_BAT_COU_ID='$id'";
+			$sql="SELECT * FROM `course_batch_view` where ACA_COU_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			return $result;
 		}
