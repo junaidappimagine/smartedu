@@ -182,5 +182,9 @@
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			return $result;
 		}
+		function getSubjectDetailsFromView(){
+			$sql="SELECT * FROM manage_sub_view";
+			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+		}
 	}
 ?>

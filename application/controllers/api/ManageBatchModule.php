@@ -334,5 +334,17 @@ class ManageBatchModule extends REST_Controller {
 			], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
 		}
     }
-	
+	function manageSubjectView_get(){
+		$users=$this->batchmodel->getSubjectDetailsFromView();
+		if (!empty($users)){
+			$this->set_response(['status' =>TRUE,'message'=>$users], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+		}
+		else
+		{
+			$this->set_response([
+			'status' => FALSE,
+			'message' => 'Class Detail could not be found'
+			], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+		}
+	}
 }
