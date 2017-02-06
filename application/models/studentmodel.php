@@ -146,5 +146,9 @@
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			return $result;
 		}
+		function getStudentAdmissionDetails(){
+			$sql="SELECT * FROM student_admission_view";
+			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+		}
 	}
 ?>
