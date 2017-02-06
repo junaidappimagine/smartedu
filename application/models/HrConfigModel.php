@@ -3,6 +3,117 @@
 	class hrConfigModel extends CI_Model {
 
 		// Employee category 
+		function insertDataFromXcelToDB($cameData){
+		$sql="SHOW COLUMNS FROM excel";
+		$resultOfSql = $this->db->query($sql, $return_object = TRUE)->result_array();
+		$sqlKeyword = "SELECT * FROM excel_field_keyword";
+		$resultOfSqlKeyword = $this->db->query($sqlKeyword, $return_object = TRUE)->result_array();
+		$resultOfSqlKeyword=$resultOfSqlKeyword[0];
+		$columnFromDB=array();
+		$firstRow=array();
+		$tempFirstRow=array();
+		$otherRows=array();
+		$fullData=array();
+		$columnHavingIssue=array();
+		foreach ($resultOfSql as $key => $value) {
+			$columnFromDB[]=$value['Field'];
+		}
+		foreach ($cameData as $key => $value) {
+			//print_r($key);
+			$value = array_map('strtolower', $value);// came from csv or xl file convertint to lower case
+			
+			if($key==1){
+				$firstRow=array_values($value);// converting index to numerics as 0 1 2 etc
+			}else{
+				$otherRows[]=array_values($value);// converting index to numerics as 0 1 2 etc
+			}
+		}
+		$tempFirstRow=$firstRow;// assign first row so this array the fields of excel cloumns
+//print_r($firstRow);
+//print_r($otherRows);
+//print_r($resultOfSqlKeyword);
+// first step need to find the excel column field to map with DB  Field
+//for that array search need to use
+//$dataKeywords=array("e-mail"=>"e-mail,e-mail,email","location"=>"place,location","firstname"=>"firstname,test");
+		foreach ($firstRow as $key => $value) {
+			//print"<pre>";
+			foreach ($resultOfSqlKeyword as $keyJ => $valueJ) {
+				//print_r($keyJ);
+				$url_string = explode(',', $valueJ);
+				$index = array_search($value, $url_string); 
+				if ($index !== false) 
+				{
+				    $firstRow[$key]=$keyJ;
+				    break;
+				}else{
+					$firstRow[$key]='noMatchFound';// to identify excel column fields not matching with DB fields
+				}
+			}
+
+			//echo array_search($value,$dataKeywords);	
+			//echo "<br>";
+		}
+		$checkNoMatchFound = array_keys($firstRow,'noMatchFound'); 
+		if(count($checkNoMatchFound)>0) // if found that string then true
+		{
+			foreach ($checkNoMatchFound as $key => $value) {
+				$columnHavingIssue[]=$tempFirstRow[$value];
+			}
+			return array('errorMsg'=>'error','columnHavingIssue'=>$columnHavingIssue);
+		}
+//print_r($firstRow);// from this array we get to know what are the fields not matched
+//if contain nomatchfound then need to ask user to map the exact field with that
+// intersection is second step 
+		$result=array_intersect($firstRow,$columnFromDB);
+		foreach ($otherRows as $key => $value) {
+			$datatest='';
+			foreach ($result as $keyJ => $valueJ) {
+				$datatest[$valueJ]= $value[$keyJ];
+			}
+			$data[]=$datatest;
+		}
+		//print_r($data);
+		$insertedRowCount=$this->db->insert_batch('excel', $data);
+		return array('errorMsg'=>'success','rowInserted'=>$insertedRowCount);
+		
+	}
+	public function getInsertKeyWord(){
+		$sql="SELECT * FROM excel_field_keyword";
+			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+		}
+	public function insertKeyWord($value){
+	    	$sql="SELECT count(firstname) FROM excel_field_keyword";
+			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
+			$firstname=implode(",",$value['firstname']);
+			$lastname=implode(",",$value['lastname']);
+			$email=implode(",",$value['email']);
+			$location=implode(",",$value['location']);
+			$phone=implode(",",$value['phone']);
+			if($result[0]['count(firstname)']!=0){
+				$data = array(
+				   'firstname' => strtolower($firstname),
+				   'lastname' => strtolower($lastname),
+				   'email' => strtolower($email),
+				   'location' => strtolower($location),
+				   'phone' => strtolower($phone)	
+				   );
+				$this->db->where('id', '1');
+				// right now static value 1 and fields name later need to chnage the column anme to column 1 , 2 like that
+				$this->db->update('excel_field_keyword', $data); 
+				return array('status'=>true, 'message'=>"Record Updated Successfully");
+			}else {
+				$data = array(
+				  'firstname' => $firstname,
+				   'lastname' => $lastname,
+				   'email' => $email,
+				   'location' => $location,	
+				   'phone' => $phone
+				);
+				$this->db->insert('excel_field_keyword', $data);
+				$emp_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully");
+			}
+	    }
 		public function addEmployeeCategory($value){
 			$id=$value['EMP_C_ID'];
 	    	$sql="SELECT count(EMP_C_NAME) FROM employee_category WHERE EMP_C_ID='$id'";
