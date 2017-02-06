@@ -139,10 +139,10 @@ class ManageClassModule extends REST_Controller {
 			], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
 		}
 	}
-	function courseandbatchview_get(){
-		$users=$this->classmodel->getCourseandBatchView();
-		if (!empty($users)){
-			$this->set_response(['status' =>TRUE,'message'=>$users], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+	function courseViewDetails_get(){
+		$result=$this->classmodel->getCourseViewDetails();
+		if (!empty($result)){
+			$this->set_response(['status' =>TRUE,'message'=>$result], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
 		}
 		else
 		{
