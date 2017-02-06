@@ -138,6 +138,7 @@ class ManageClassModule extends REST_Controller {
 			'message' => 'Class Detail could not be found'
 			], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
 		}
+	}
 	function courseandbatchview_get(){
 		$users=$this->classmodel->getCourseandBatchView();
 		if (!empty($users)){
@@ -151,5 +152,4 @@ class ManageClassModule extends REST_Controller {
 			], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
 		}
 	}
-    }
 }
