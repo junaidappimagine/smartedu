@@ -1,14 +1,50 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-function getDataFromSheets(){
-require_once("Classes/PHPExcel.php");
+function getDataFromExcel($ext,$check){
+//require_once("Classes/PHPExcel.php");
 require_once("Classes/PHPExcel/IOFactory.php");
-// require_once APPPATH.'helpers/Classes/PHPExcel/PHPExcel.php';
+
+error_reporting(E_ALL);
+set_time_limit(0);
+
+//date_default_timezone_set('Europe/London');
+if($ext=='xls'){
+    $inputFileType = 'Excel5'; 
+}else if($ext=='xlsx'){
+    $inputFileType = 'Excel2007';
+}
+//$inputFileType = 'Excel5';
+   //$inputFileType = 'Excel2007';
+  // $inputFileType = 'Excel2003XML';
+  // $inputFileType = 'OOCalc';
+  // $inputFileType = 'Gnumeric';
+$inputFileName = APPPATH.'uploads\uploadedexcel.'.$ext;
+
+//echo 'Loading file ',pathinfo($inputFileName,PATHINFO_BASENAME),' using IOFactory with a defined reader type of ',$inputFileType,'<br />';
+$objReader = PHPExcel_IOFactory::createReader($inputFileType);
+//echo 'Turning Formatting off for Load<br />';
+$objReader->setReadDataOnly(true);
+$objPHPExcel = $objReader->load($inputFileName);
+
+
+echo '<hr />';
+
+$sheetData = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
+if($check=='one'){
+    return $sheetData[1];    
+}else{
+    return $sheetData;
+}
+
+}
+function getDataFromCsv($ext,$check){
+
+ //require_once APPPATH.'helpers/Classes/PHPExcel/PHPExcel.php';
 
 //set_include_path(get_include_path() . PATH_SEPARATOR . '../../../Classes/');
 
 /** PHPExcel_IOFactory */
-//include 'PHPExcel/IOFactory.php';
-
+require_once("Classes/PHPExcel.php");
+require_once("Classes/PHPExcel/IOFactory.php");
 
 $inputFileType = 'CSV';
 $inputFileName = APPPATH.'uploads\uploadedexcel.csv';
@@ -90,7 +126,11 @@ foreach($loadedSheetNames as $sheetIndex => $loadedSheetName) {
     //var_dump($sheetData);
     //echo '<br />';
 }
-return $dataFromSheets;
+if($check=='one'){
+    return $dataFromSheets[1];    
+}else{
+    return $dataFromSheets;
+}
 }
 
 
