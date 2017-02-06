@@ -7,16 +7,123 @@ class HrConfigModule extends REST_Controller {
 		parent::__construct();
 		$this->load->model('hrConfigModel');
 		header("Access-Control-Allow-Origin: *");
+		$this->load->library('session');
+  //   	$tokenFromUI = $this->input->get('token');
+		// $user_token=$this->session->userdata('user_token');
+		// //exit;
+		// if($user_token!=$tokenFromUI){
+		// 	//$this->set_response(['status' =>FALSE,'message'=>'Erroxdfr'], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+		// 	//exit;
+		// 	$this->set_response([
+		// 	'status' => FALSE,
+		// 	'message' => 'Invalid User'
+		// 	], REST_Controller::HTTP_NOT_FOUND);
+		// 	//exit;
+		// }else{
+		// 	$this->set_response(['status' =>TRUE,'message'=>'Valid User'], REST_Controller::HTTP_OK); 
+		// }
     }
 
     //-------------------------------------  Employee category ---------------------------------------------------
-
+    function insertDataFromXcelToDB_get(){
+    	$ext=$this->get('ext');
+    	//$ext='csv';
+    	//$ext='xls';
+        //$this->load->model('excel');
+        $this->load->helper('excel');
+        if($ext=='csv'){
+        	$data=getDataFromCsv($ext,'many');
+        }else{
+        	$data=getDataFromExcel($ext,'many');	
+        }
+        $status=$this->hrConfigModel->insertDataFromXcelToDB($data);
+        if($status['errorMsg']=='success'){
+		$this->set_response(['status' =>TRUE,'message'=>'Data Inserted Successfully','insertedRowCount'=>$status['rowInserted']], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+		}
+		else
+		{
+			$this->set_response([
+			'status' => FALSE,
+			'message' => 'Columns not matched',
+			'fields' => $status['columnHavingIssue']
+			], REST_Controller::HTTP_OK); // NOT_FOUND (404) being the HTTP response code
+		}
+    }
+    function getDataFromXcel_get(){
+    	$ext=$this->get('ext');
+    	//$ext='csv';
+    	//$ext='xls';
+        //$this->load->model('excel');
+        $this->load->helper('excel');
+        if($ext=='csv'){
+        	$data=getDataFromCsv($ext,'one');
+        }else{
+        	$data=getDataFromExcel($ext,'one');	
+        }
+		if (!empty($data)){
+			$this->set_response(['status' =>TRUE,'data'=>$data], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+		 }
+		 else
+		 {
+			$this->set_response([
+			'status' => FALSE,
+			'message' => 'Data is Empty'
+			], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+		}
+    }
+    function insertKeyWord_post()
+    {
+    	$data['firstname']=$this->post('firstname');
+    	$data['lastname']=$this->post('lastname');
+    	$data['email']=$this->post('email');
+    	$data['location']=$this->post('location');
+    	$data['phone']=$this->post('phone');
+    	//$data['csrf_test_name']=$this->post('csrf_test_name');
+    	$result=$this->hrConfigModel->insertKeyWord($data);
+    	if($result['status']==true){
+			$this->set_response(['status' =>TRUE,'message'=>$result['message']], REST_Controller::HTTP_CREATED);
+		}else{
+			$this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
+		}
+    }
+    function insertKeyWord_get(){
+    	$id=$this->get('id');
+    	if ($id == null)
+        {
+        	$result=$this->hrConfigModel->getInsertKeyWord();
+        	// print_r($result);
+        	// exit;
+        	if (!empty($result)){
+				$this->set_response(['status' =>TRUE,'data'=>$result[0]], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+			}
+			else
+			{
+				$this->set_response([
+				'status' => FALSE,
+				'message' => 'No Data found'
+				], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+			}
+        }else{
+        	$result=$this->hrConfigModel->getInsertKeyWord();
+    		if (!empty($result)){
+				$this->set_response(['status' =>TRUE,'data'=>$result[0]], REST_Controller::HTTP_OK); 
+			}
+			else
+			{
+				$this->set_response([
+				'status' => FALSE,
+				'message' => 'No Data found'
+				], REST_Controller::HTTP_NOT_FOUND);
+			}
+        }    			
+	}
     function employeeCategory_post()
     {
     	$data['EMP_C_ID']=$this->post('EMP_C_ID');
     	$data['EMP_C_NAME']=$this->post('EMP_C_NAME');
     	$data['EMP_C_PREFIX']=$this->post('EMP_C_PREFIX');
     	$data['EMP_C_ACTIVE_YN']=$this->post('EMP_C_ACTIVE_YN');
+    	$data['csrf_test_name']=$this->post('csrf_test_name');
     	$result=$this->hrConfigModel->addEmployeeCategory($data);
     	if($result['status']==true){
 			$this->set_response(['status' =>TRUE,'message'=>$result['message'],'EMP_C_ID'=>$result['EMP_C_ID']], REST_Controller::HTTP_CREATED);
