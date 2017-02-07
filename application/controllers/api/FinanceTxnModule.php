@@ -12,20 +12,27 @@ class FinanceTxnModule extends REST_Controller {
 
     function expense_post()
     {
-    	$result=$this->financetxnmodel->addExpenseData();
-    	if($result['status']==true){
-            $this->set_response(['status' =>TRUE,'message'=>$result['message']], REST_Controller::HTTP_CREATED);
+    	$data['FINC_TXN_EX_ID']=$this->post('FINC_TXN_EX_ID');
+        $data['FINC_TXN_EX_CA_ID']=$this->post('FINC_TXN_EX_CA_ID');
+        $data['FINC_TXN_EX_TITLE']=$this->post('FINC_TXN_EX_TITLE');
+        $data['FINC_TXN_EX_DESC']=$this->post('FINC_TXN_EX_DESC');
+        $data['FINC_TXN_EX_AMT']=$this->post('FINC_TXN_EX_AMT');
+        $data['FINC_TXN_EX_DT']=$this->post('FINC_TXN_EX_DT');
+        $data['FINC_TXN_EX_STATUS']=$this->post('FINC_TXN_EX_STATUS');
+        $result=$this->financetxnmodel->addExpenseData($data);
+        if($result['status']==true){
+            $this->set_response(['status' =>TRUE,'message'=>$result['message'],'FINC_TXN_EX_ID'=>$result['FINC_TXN_EX_ID']], REST_Controller::HTTP_CREATED);
         }else{
             $this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
         }
     }
     function expense_get(){
-    	$id=$this->get('FINC_TXN_EX_ID');
+    	$id=$this->get('id');
         if ($id == null)
         {
             $result=$this->financetxnmodel->getAllExpense_details();
             if (!empty($result)){
-                $this->set_response(['status' =>TRUE,'aaData'=>$result], REST_Controller::HTTP_OK);
+                $this->set_response(['status' =>TRUE,'result'=>$result], REST_Controller::HTTP_OK);
             }
             else
             {
@@ -34,7 +41,7 @@ class FinanceTxnModule extends REST_Controller {
         }else{
             $result=$this->financetxnmodel->getExpense_details($id);
             if (!empty($result)){
-                $this->set_response(['status' =>TRUE,'aaData'=>$result], REST_Controller::HTTP_OK);
+                $this->set_response(['status' =>TRUE,'result'=>$result], REST_Controller::HTTP_OK);
             }
             else
             {
@@ -66,20 +73,27 @@ class FinanceTxnModule extends REST_Controller {
 
     function income_post()
     {
-        $result=$this->financetxnmodel->addIncomeData();
+        $data['FINC_TXN_IN_ID']=$this->post('FINC_TXN_IN_ID');
+        $data['FINC_TXN_IN_CA_ID']=$this->post('FINC_TXN_IN_CA_ID');
+        $data['FINC_TXN_IN_TITLE']=$this->post('FINC_TXN_IN_TITLE');
+        $data['FINC_TXN_IN_DESC']=$this->post('FINC_TXN_IN_DESC');
+        $data['FINC_TXN_IN_AMT']=$this->post('FINC_TXN_IN_AMT');
+        $data['FINC_TXN_IN_DT']=$this->post('FINC_TXN_IN_DT');
+        $data['FINC_TXN_IN_STATUS']=$this->post('FINC_TXN_IN_STATUS');
+        $result=$this->financetxnmodel->addIncomeData($data);
         if($result['status']==true){
-            $this->set_response(['status' =>TRUE,'message'=>$result['message']], REST_Controller::HTTP_CREATED);
+            $this->set_response(['status' =>TRUE,'message'=>$result['message'],'FINC_TXN_IN_ID'=>$result['FINC_TXN_IN_ID']], REST_Controller::HTTP_CREATED);
         }else{
             $this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
         }
     }
     function income_get(){
-        $id=$this->get('FINC_TXN_IN_ID');
+        $id=$this->get('id');
         if ($id == null)
         {
             $result=$this->financetxnmodel->getAllIncome_details();
             if (!empty($result)){
-                $this->set_response(['status' =>TRUE,'aaData'=>$result], REST_Controller::HTTP_OK);
+                $this->set_response(['status' =>TRUE,'result'=>$result], REST_Controller::HTTP_OK);
             }
             else
             {
@@ -88,7 +102,7 @@ class FinanceTxnModule extends REST_Controller {
         }else{
             $result=$this->financetxnmodel->getIncome_details($id);
             if (!empty($result)){
-                $this->set_response(['status' =>TRUE,'aaData'=>$result], REST_Controller::HTTP_OK);
+                $this->set_response(['status' =>TRUE,'result'=>$result], REST_Controller::HTTP_OK);
             }
             else
             {
@@ -114,6 +128,16 @@ class FinanceTxnModule extends REST_Controller {
                 $this->set_response(['status'=>FALSE,'message'=>'There is no Record found'], REST_Controller::HTTP_NOT_FOUND);
             }
         }  
+    }
+    function categoryList_get(){
+        $result=$this->financetxnmodel->fetchCategory();
+        if (!empty($result)){
+            $this->set_response(['status' =>TRUE,'result'=>$result], REST_Controller::HTTP_OK);
+        }
+        else
+        {
+            $this->set_response([ 'status' => FALSE, 'message' => 'Employee data could not be found' ], REST_Controller::HTTP_NOT_FOUND);
+        }
     }
 }
 ?>

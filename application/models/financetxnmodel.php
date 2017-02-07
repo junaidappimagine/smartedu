@@ -3,28 +3,35 @@
 	class financetxnmodel extends CI_Model {
 
 		// ------------------------------ Finance Expense -----------------------------------------------------------------
-		public function addExpenseData(){
-	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->FINC_TXN_EX_ID;
-	    	$cat_id=$data->FINC_TXN_EX_CA_ID;
-	    	$title=$data->FINC_TXN_EX_TITLE;
-	    	$desc=$data->FINC_TXN_EX_DESC;
-	    	$amount=$data->FINC_TXN_EX_AMT;
-	    	$date=$data->FINC_TXN_EX_DT;
-	    	$status=$data->FINC_TXN_EX_STATUS;
-
+		public function addExpenseData($value){
+			$id=$value['FINC_TXN_EX_ID'];
 	    	$sql="SELECT count(FINC_TXN_EX_TITLE) FROM finance_txn_expense WHERE FINC_TXN_EX_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(FINC_TXN_EX_TITLE)']!=0){
-				$sql="UPDATE finance_txn_expense SET FINC_TXN_EX_CA_ID='$cat_id',FINC_TXN_EX_TITLE='$title',FINC_TXN_EX_DESC='$desc',FINC_TXN_EX_AMT='$amount', FINC_TXN_EX_DT='$date',FINC_TXN_EX_STATUS='$status' WHERE FINC_TXN_EX_ID='$id'";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Updated Successfully");
+				$data = array(
+				   'FINC_TXN_EX_CA_ID' => $value['FINC_TXN_EX_CA_ID'],
+				   'FINC_TXN_EX_TITLE' => $value['FINC_TXN_EX_TITLE'],
+				   'FINC_TXN_EX_DESC' => $value['FINC_TXN_EX_DESC'],			
+				   'FINC_TXN_EX_AMT' => $value['FINC_TXN_EX_AMT'],
+				   'FINC_TXN_EX_DT' => $value['FINC_TXN_EX_DT'],
+				   'FINC_TXN_EX_STATUS' => $value['FINC_TXN_EX_STATUS']
+				);
+				$this->db->where('FINC_TXN_EX_ID', $id);
+				$this->db->update('finance_txn_expense', $data); 
+				return array('status'=>true, 'message'=>"Record Updated Successfully",'FINC_TXN_EX_ID'=>$id);
 			}else {
-				$sql="INSERT INTO finance_txn_expense (FINC_TXN_EX_CA_ID,FINC_TXN_EX_TITLE, FINC_TXN_EX_DESC, FINC_TXN_EX_AMT,FINC_TXN_EX_DT,FINC_TXN_EX_STATUS) VALUES ('$cat_id','$title','$desc','$amount','$date','$status')";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Inserted Successfully");
-			}
-	    	
+				$data = array(
+				   'FINC_TXN_EX_CA_ID' => $value['FINC_TXN_EX_CA_ID'],
+				   'FINC_TXN_EX_TITLE' => $value['FINC_TXN_EX_TITLE'],
+				   'FINC_TXN_EX_DESC' => $value['FINC_TXN_EX_DESC'],			
+				   'FINC_TXN_EX_AMT' => $value['FINC_TXN_EX_AMT'],
+				   'FINC_TXN_EX_DT' => $value['FINC_TXN_EX_DT'],
+				   'FINC_TXN_EX_STATUS' => $value['FINC_TXN_EX_STATUS']
+				);
+				$this->db->insert('finance_txn_expense', $data);
+				$emp_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'FINC_TXN_EX_ID'=>$emp_id);
+			}	    	
 	    }
 	    function getExpense_details($id){
 	    	$sql="SELECT * FROM finance_txn_expense where FINC_TXN_EX_ID ='$id'";
@@ -42,28 +49,35 @@
 
 	    // -------------------------------------  Finance Income  ---------------------------------------------------------------
 
-	    public function addIncomeData(){
-	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->FINC_TXN_IN_ID;
-	    	$cat_id=$data->FINC_TXN_IN_CA_ID;
-	    	$title=$data->FINC_TXN_IN_TITLE;
-	    	$desc=$data->FINC_TXN_IN_DESC;
-	    	$amount=$data->FINC_TXN_EX_AMT;
-	    	$date=$data->FINC_TXN_IN_DT;
-	    	$status=$data->FINC_TXN_IN_STATUS;
-
+	    public function addIncomeData($value){
+	    	$id=$value['FINC_TXN_IN_ID'];
 	    	$sql="SELECT count(FINC_TXN_IN_TITLE) FROM finance_txn_income WHERE FINC_TXN_IN_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(FINC_TXN_IN_TITLE)']!=0){
-				$sql="UPDATE finance_txn_income SET FINC_TXN_IN_CA_ID='$cat_id',FINC_TXN_IN_TITLE='$title',FINC_TXN_IN_DESC='$desc',FINC_TXN_IN_AMT='$amount', FINC_TXN_IN_DT='$date',FINC_TXN_IN_STATUS='$status' WHERE FINC_TXN_IN_ID='$id'";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Updated Successfully");
+				$data = array(
+				   'FINC_TXN_IN_CA_ID' => $value['FINC_TXN_IN_CA_ID'],
+				   'FINC_TXN_IN_TITLE' => $value['FINC_TXN_IN_TITLE'],
+				   'FINC_TXN_IN_DESC' => $value['FINC_TXN_IN_DESC'],			
+				   'FINC_TXN_IN_AMT' => $value['FINC_TXN_IN_AMT'],
+				   'FINC_TXN_IN_DT' => $value['FINC_TXN_IN_DT'],
+				   'FINC_TXN_IN_STATUS' => $value['FINC_TXN_IN_STATUS']
+				);
+				$this->db->where('FINC_TXN_IN_ID', $id);
+				$this->db->update('finance_txn_income', $data); 
+				return array('status'=>true, 'message'=>"Record Updated Successfully",'FINC_TXN_IN_ID'=>$id);
 			}else {
-				$sql="INSERT INTO finance_txn_income (FINC_TXN_IN_CA_ID,FINC_TXN_IN_TITLE, FINC_TXN_IN_DESC, FINC_TXN_IN_AMT,FINC_TXN_IN_DT,FINC_TXN_IN_STATUS) VALUES ('$cat_id','$title','$desc','$amount','$date','$status')";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Inserted Successfully");
+				$data = array(
+				   'FINC_TXN_IN_CA_ID' => $value['FINC_TXN_IN_CA_ID'],
+				   'FINC_TXN_IN_TITLE' => $value['FINC_TXN_IN_TITLE'],
+				   'FINC_TXN_IN_DESC' => $value['FINC_TXN_IN_DESC'],			
+				   'FINC_TXN_IN_AMT' => $value['FINC_TXN_IN_AMT'],
+				   'FINC_TXN_IN_DT' => $value['FINC_TXN_IN_DT'],
+				   'FINC_TXN_IN_STATUS' => $value['FINC_TXN_IN_STATUS']
+				);
+				$this->db->insert('finance_txn_income', $data);
+				$emp_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'FINC_TXN_IN_ID'=>$emp_id);
 			}
-	    	
 	    }
 	    function getIncome_details($id){
 	    	$sql="SELECT * FROM finance_txn_income where FINC_TXN_IN_ID ='$id'";
@@ -78,6 +92,9 @@
 	    	$result = $this->db->query($sql);
 	    	return $this->db->affected_rows();
 	    }
-
+	    function fetchCategory(){
+	    	$sql="SELECT * FROM finance_category";
+			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+	    }
 	}
 ?>

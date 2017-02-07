@@ -3,24 +3,29 @@
 	class financemodel extends CI_Model {
 
 		// ------------------------------ Asset -----------------------------------------------------------------
-		public function addAssetData(){
-	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->FINC_AS_ID;
-	    	$title=$data->FINC_AS_TITLE;
-	    	$desc=$data->FINC_AS_DESC;
-	    	$amount=$data->FINC_AS_AMT;
+		public function addAssetData($value){
+	    	$id=$value['FINC_AS_ID'];
 	    	$sql="SELECT count(FINC_AS_TITLE) FROM finance_asset WHERE FINC_AS_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(FINC_AS_TITLE)']!=0){
-				$sql="UPDATE finance_asset SET FINC_AS_TITLE='$title',FINC_AS_DESC='$desc',FINC_AS_AMT='$amount' WHERE FINC_AS_ID='$id'";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Updated Successfully");
+				$data = array(
+				   'FINC_AS_TITLE' => $value['FINC_AS_TITLE'],
+				   'FINC_AS_DESC' => $value['FINC_AS_DESC'],
+				   'FINC_AS_AMT' => $value['FINC_AS_AMT']				
+				);
+				$this->db->where('FINC_AS_ID', $id);
+				$this->db->update('finance_asset', $data); 
+				return array('status'=>true, 'message'=>"Record Updated Successfully",'FINC_AS_ID'=>$id);
 			}else {
-				$sql="INSERT INTO finance_asset (FINC_AS_TITLE, FINC_AS_DESC, FINC_AS_AMT) VALUES ('$title','$desc','$amount')";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Inserted Successfully");
+				$data = array(
+				   'FINC_AS_TITLE' => $value['FINC_AS_TITLE'],
+				   'FINC_AS_DESC' => $value['FINC_AS_DESC'],
+				   'FINC_AS_AMT' => $value['FINC_AS_AMT']				
+				);
+				$this->db->insert('finance_asset', $data);
+				$emp_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'FINC_AS_ID'=>$emp_id);
 			}
-	    	
 	    }
 	    function getAsset_details($id){
 	    	$sql="SELECT * FROM finance_asset where FINC_AS_ID ='$id'";
@@ -37,23 +42,28 @@
 	    }
 
 	    // ---------------------------------------- Liability ---------------------------------------------------------
-	    public function addLiabilityData(){
-	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->FINC_LI_ID;
-	    	$title=$data->FINC_LI_TITLE;
-	    	$desc=$data->FINC_LI_DESC;
-	    	$amount=$data->FINC_LI_AMT;
-
+	    public function addLiabilityData($value){
+			$id=$value['FINC_LI_ID'];
 	    	$sql="SELECT count(FINC_LI_TITLE) FROM finance_liability WHERE FINC_LI_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(FINC_LI_TITLE)']!=0){
-				$sql="UPDATE finance_liability SET FINC_LI_TITLE='$title',FINC_LI_DESC='$desc',FINC_LI_AMT='$amount' WHERE FINC_LI_ID='$id'";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Updated Successfully");
+				$data = array(
+				   'FINC_LI_TITLE' => $value['FINC_LI_TITLE'],
+				   'FINC_LI_DESC' => $value['FINC_LI_DESC'],
+				   'FINC_LI_AMT' => $value['FINC_LI_AMT']				
+				);
+				$this->db->where('FINC_LI_ID', $id);
+				$this->db->update('finance_liability', $data); 
+				return array('status'=>true, 'message'=>"Record Updated Successfully",'FINC_LI_ID'=>$id);
 			}else {
-				$sql="INSERT INTO finance_liability (FINC_LI_TITLE, FINC_LI_DESC, FINC_LI_AMT) VALUES ('$title','$desc','$amount')";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Inserted Successfully");
+				$data = array(
+				   'FINC_LI_TITLE' => $value['FINC_LI_TITLE'],
+				   'FINC_LI_DESC' => $value['FINC_LI_DESC'],
+				   'FINC_LI_AMT' => $value['FINC_LI_AMT']				
+				);
+				$this->db->insert('finance_liability', $data);
+				$emp_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'FINC_LI_ID'=>$emp_id);
 			}
 	    	
 	    }
@@ -73,23 +83,28 @@
 
 	    // -------------------------------------------------- Category --------------------------------------------------------
 
-	    function addFinanceCategory(){
-	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->FINC_CA_ID;
-	    	$name=$data->FINC_CA_NAME;
-	    	$desc=$data->FINC_CA_DESC;
-	    	$income_yn=$data->FINC_CA_INCOME_YN;
-
+	    function addFinanceCategory($value){
+	    	$id=$value['FINC_CA_ID'];
 	    	$sql="SELECT count(FINC_CA_NAME) FROM finance_category WHERE FINC_CA_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(FINC_CA_NAME)']!=0){
-				$sql="UPDATE finance_category SET FINC_CA_NAME='$name',FINC_CA_DESC='$desc',FINC_CA_INCOME_YN='$income_yn' WHERE FINC_CA_ID='$id'";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Updated Successfully");
+				$data = array(
+				   'FINC_CA_NAME' => $value['FINC_CA_NAME'],
+				   'FINC_CA_DESC' => $value['FINC_CA_DESC'],
+				   'FINC_CA_INCOME_YN' => $value['FINC_CA_INCOME_YN']				
+				);
+				$this->db->where('FINC_CA_ID', $id);
+				$this->db->update('finance_category', $data); 
+				return array('status'=>true, 'message'=>"Record Updated Successfully",'FINC_CA_ID'=>$id);
 			}else {
-				$sql="INSERT INTO finance_category (FINC_CA_NAME, FINC_CA_DESC, FINC_CA_INCOME_YN) VALUES ('$name','$desc','$income_yn')";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Inserted Successfully");
+				$data = array(
+				   'FINC_CA_NAME' => $value['FINC_CA_NAME'],
+				   'FINC_CA_DESC' => $value['FINC_CA_DESC'],
+				   'FINC_CA_INCOME_YN' => $value['FINC_CA_INCOME_YN']				
+				);
+				$this->db->insert('finance_category', $data);
+				$emp_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'FINC_CA_ID'=>$emp_id);
 			}
 	    }
 	    function getFinanceCategory($id){
