@@ -10,7 +10,7 @@ class Auth extends CI_Controller {
 		header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Headers: access_token");
 		ini_set('display_errors',1);error_reporting(E_ALL);
-        $userIDByToken=""
+        $userIDByToken="";
     }
     function test(){
           echo "test";
