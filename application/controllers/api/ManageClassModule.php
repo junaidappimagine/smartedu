@@ -7,6 +7,24 @@ class ManageClassModule extends REST_Controller {
 		parent::__construct();
 		$this->load->model('classmodel');
 		header("Access-Control-Allow-Origin: *");
+		if (config_item('rest_enable_keys') AND $use_key)
+		{
+			// Check to see if they can access the controller
+			if (!$this->_check_access())
+			{
+				$this->response(array('status' => false, 'error' => 'This API key does not have access to the requested controller.'), 401);
+			}
+
+			if (config_item('rest_enable_logging') AND $log_method)
+			{
+				$this->_log_request();
+			}
+			if($this->_allow === FALSE){
+				$this->response(array('status' => false, 'error' => 'Invalid API Key.'), 403);
+			}
+
+		}
+		
     }
 
     // Acodemics Class Details 
