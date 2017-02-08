@@ -38,10 +38,10 @@ function checkAccess(){
     $accessA[]=$ci->session->userdata('USER_DELETE');
     $methodtype=$_SERVER['REQUEST_METHOD'];
     $href = $ci->uri->segment(2).'/'.$ci->uri->segment(3);
-    $roleID=$ci->session->userdata('ROLE_ID');
+    $roleID=$ci->session->userdata('USER_ROLE_ID');
+
         $sql="SELECT user_roles.api_id FROM user,user_roles where user.user_role_id='$roleID' and user.user_role_id=user_roles.id ";
         $resultofApi = $ci->db->query($sql, $return_object = TRUE)->result_array();
-
         if(!count($resultofApi)>0){
             dontAccess();
         }
