@@ -7,15 +7,12 @@ class HrConfigModule extends REST_Controller {
     function HrConfigModule()
     {
 		parent::__construct();
-		$this->load->model('hrConfigModel');
 		header("Access-Control-Allow-Origin: *");
-		$this->load->library('session');
-		$this->load->helper('checktoken');
+		header("Access-Control-Allow-Headers: access_token");
+		$this->load->model('hrConfigModel');
 		//loadServer('getResource'); 
 		checkTokenAccess();
 		checkAccess();
-		//checkAccess();
-		//validate  token  in AUTH file
     }
     //Added by rafeeq for Excel
     function insertDataFromXcelToDB_get(){
