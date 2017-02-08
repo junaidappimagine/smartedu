@@ -106,6 +106,17 @@ class StudentAPI extends REST_Controller {
 	
 	function studentPreviousEducation_post()
     {
+		$folderPath = $config['upload_path'] = 'upload/';
+        $config['allowed_types'] = '*';   
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        if(!$this->upload->do_upload('0')){
+            $this->set_response(['status' =>FALSE,'message'=>'Upload Error'], REST_Controller::HTTP_NOT_FOUND);
+        }else{
+            $data = $this->upload->data();
+            $filePath=$folderPath.$data['file_name'];
+        }
+		
     	$id=$this->post('STU_PRE_D_ADM_NO');
     	$data['STU_PRE_D_INSTITUTE_NAME']=$this->post('STU_PRE_D_INSTITUTE_NAME');
     	$data['STU_PRE_D_COURSE']=$this->post('STU_PRE_D_COURSE');
@@ -114,7 +125,7 @@ class StudentAPI extends REST_Controller {
     	$data['STU_PRE_ADD_BIRTH_PLACE']=$this->post('STU_PRE_ADD_BIRTH_PLACE');
     	$data['STU_PRE_ADD_STUD_CATE']=$this->post('STU_PRE_ADD_STUD_CATE'); 
     	$data['STU_PRE_D_UPD_USER_ID']=$this->post('STU_PRE_D_UPD_USER_ID');
-		$data['STU_PRE_ADD_IMAGE_PATH'] = $this->post('STU_PRE_ADD_IMAGE_PATH');
+		$data['STU_PRE_ADD_IMAGE_PATH'] = $filePath;
     	$result=$this->studentmodel->editStudentPreviousEducation($id,$data);
     	if($result==true){
 			$this->set_response(['status' =>TRUE,'message'=>"success"], REST_Controller::HTTP_CREATED);
