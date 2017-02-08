@@ -7,7 +7,8 @@ class hrModule extends REST_Controller  {
         parent::__construct();
         $this->load->model('api/HrModuleMod');
 		header("Access-Control-Allow-Origin: *");
-		header("Access-Control-Allow-Headers: Authorization");
+		//header("Access-Control-Allow-Headers: Authorization");
+		header("Access-Control-Allow-Headers: Content-Type,access_token");
     }
 	// Login
 	function login_post(){

@@ -7,6 +7,7 @@ class HrPayrollModule extends REST_Controller {
 		parent::__construct();
 		$this->load->model('payrollmod_api');
 		header("Access-Control-Allow-Origin: *");
+		header("Access-Control-Allow-Headers: Content-Type,access_token");
     }
 
     // ----------------------------------------- Payroll Category ----------------------------------------------------------

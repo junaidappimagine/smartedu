@@ -9,7 +9,7 @@ class StudentAPI extends REST_Controller {
 		parent::__construct();
 		$this->load->model('studentmodel');
 		header("Access-Control-Allow-Origin: *");
-		header("Access-Control-Allow-Headers: access_token");
+		header("Access-Control-Allow-Headers: Content-Type,access_token");
 		$userIDByToken="";
 
 		//loadServer('getResource'); 

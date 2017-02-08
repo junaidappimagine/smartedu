@@ -7,7 +7,7 @@ class FinanceTxnModule extends REST_Controller {
     {
 		parent::__construct();
         header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Headers: access_token");
+        header("Access-Control-Allow-Headers: Content-Type,access_token");
 		$this->load->model('financetxnmodel');
         $userIDByToken="";
         checkTokenAccess();

@@ -6,6 +6,7 @@ class HrEmployeeMgmntModule extends REST_Controller {
     {
 		parent::__construct();
 		$this->load->model('employeemgmntmodel');
+		header("Access-Control-Allow-Headers: Content-Type,access_token");
     }
 
     // ------------------------------------ Leave Reset -----------------------------------------------------------------
