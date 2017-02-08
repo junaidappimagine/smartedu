@@ -106,10 +106,10 @@ class GeneralAPI extends REST_Controller {
 				'message' => 'Login Detail could not be found'
 				], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
 		}else{
-			$users=$this->GeneralMod->getLoginDetail($email,$pwd);
+			$user=$this->GeneralMod->getLoginDetail($email,$pwd);
 			
-			if (!empty($users)){
-				$this->setSessionData($users);
+			if (!empty($user)){
+				$this->setSessionData($user);
 				$type='password';
 				//$type='client';
 				$client_id='123';
@@ -117,7 +117,7 @@ class GeneralAPI extends REST_Controller {
 				$users=$this->tokenGen($type,$email,$pwd,$client_id);
 				//$users=$this->tokenGen($type,$client_id,$client_secret);
 				//$users=json_decode($users);
-				$this->set_response(['status' =>TRUE,'access_token'=> $users], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+				$this->set_response(['status' =>TRUE,'access_token'=> $users,'message'=>$user], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
 			}
 			else
 			{
@@ -209,7 +209,7 @@ class GeneralAPI extends REST_Controller {
 	}
 
 	function logout_get(){
-
+		
 		$this->session->unset_userdata('user_token');
 		$this->session->unset_userdata('USER_ID');
     	$this->session->unset_userdata('USER_FIRST_NAME');
