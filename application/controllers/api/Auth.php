@@ -8,7 +8,9 @@ class Auth extends CI_Controller {
 		parent::__construct();
 		//$this->load->model('hrConfigModel');
 		header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Headers: access_token");
 		ini_set('display_errors',1);error_reporting(E_ALL);
+        $userIDByToken=""
     }
     function test(){
           echo "test";

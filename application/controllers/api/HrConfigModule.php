@@ -11,6 +11,7 @@ class HrConfigModule extends REST_Controller {
 		header("Access-Control-Allow-Headers: access_token");
 		$this->load->model('hrConfigModel');
 		//loadServer('getResource'); 
+		$userIDByToken="";
 		checkTokenAccess();
 		checkAccess();
     }

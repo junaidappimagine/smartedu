@@ -8,7 +8,6 @@ class GeneralAPI extends REST_Controller {
 		$this->load->model('GeneralMod');
 		header("Access-Control-Allow-Origin: *");
 		$this->load->library('Curl');
-		$this->load->library('session');
     }
     //function tokenGen($type,$client_id,$client_secret){
     function tokenGen($type,$username,$password,$client_id){
@@ -91,15 +90,25 @@ class GeneralAPI extends REST_Controller {
     	$this->session->set_userdata('USER_DELETE',$USER_DELETE);
 
     }
+    function user_get(){
+    	$sessionToken=$this->session->userdata('user_token');
+    	$this->response(['status' =>TRUE,'access_token'=> $sessionToken], REST_Controller::HTTP_OK); // OK 
+			exit;
+    }
 	function login_get(){
 		$email = $this->get('USER_EMAIL');
 		$pwd = $this->get('USER_PASSWORD');
 		$sessionToken=$this->session->userdata('user_token');
-
+		// echo $this->session->userdata('USER_FIRST_NAME');
+		// echo 'sessionToken';
+		//  exit;
 		if($sessionToken!=''){
 			$this->response(['status' =>TRUE,'access_token'=> $sessionToken], REST_Controller::HTTP_OK); // OK 
 			exit;
 		}
+		// $this->session->set_userdata('user_token','test');
+		// echo "came";
+		//exit;
 		if($email==NULL){
 			$this->set_response([
 				'status' => FALSE,
