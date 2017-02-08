@@ -1,11 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . '/libraries/REST_Controller.php';
+require APPPATH . '/helpers/checktoken_helper.php';
 class FinanceModule extends REST_Controller {    
     function FinanceModule()
     {
 		parent::__construct();
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Headers: access_token");
 		$this->load->model('financemodel');
+        $userIDByToken="";
+        checkTokenAccess();
+        checkAccess();
     }
 
     // ------------------------------------ Finance Asset ----------------------------------------------------------------------
