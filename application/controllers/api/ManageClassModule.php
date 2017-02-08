@@ -9,7 +9,7 @@ class ManageClassModule extends REST_Controller {
 		$this->load->model('classmodel');
 		header("Access-Control-Allow-Origin: *");
 		header("Access-Control-Allow-Headers: access_token");
-		$userIDByToken=""
+		$userIDByToken="";
 		checkTokenAccess();
 		checkAccess();
 		// if (config_item('rest_enable_keys') AND $use_key)

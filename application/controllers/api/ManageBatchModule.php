@@ -9,7 +9,7 @@ class ManageBatchModule extends REST_Controller {
 		$this->load->model('batchmodel');
 		header("Access-Control-Allow-Origin: *");
 		header("Access-Control-Allow-Headers: access_token");
-		$userIDByToken=""
+		$userIDByToken="";
 		checkTokenAccess();
 		checkAccess();
     }
