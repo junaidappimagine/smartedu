@@ -19,7 +19,7 @@ class GeneralAPI extends REST_Controller {
 	            'client_secret'    => $client_secret
 
 	        );	
-	        $path='http://localhost/smartedu/api/Auth/getToken';
+	        $path=base_url('api/Auth/getToken');
     	}else if($type=='password'){
     		$data = array(
             'grant_type'      => 'password',
@@ -29,7 +29,7 @@ class GeneralAPI extends REST_Controller {
             'password'    => $password
 
         );
-    		$path='http://localhost/smartedu/api/Auth/checkUser';
+    		$path=base_url('api/Auth/checkUser');
     	}
         
         //grant_type=client_credentials&client_id=TestClient&client_secret=TestSecret
