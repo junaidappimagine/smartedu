@@ -17,10 +17,12 @@ OAuth2\Autoloader::register();
 // $dsn is the Data Source Name for your database, for exmaple "mysql:dbname=my_oauth2_db;host=localhost"
 $storage = new OAuth2\Storage\Pdo(array('dsn' => $dsn, 'username' => $username, 'password' => $password));
 $config = array(
-    'access_lifetime' => 86400// expiry time
+    'access_lifetime' => 3600// expiry time
 );
 // Pass a storage object or array of storage objects to the OAuth2 server class
 $server = new OAuth2\Server($storage,$config);
+
+
 
 // add the grant type to your OAuth server
 $server->addGrantType(new OAuth2\GrantType\ClientCredentials($storage));
@@ -35,14 +37,17 @@ if($loadData=='getToken'){
 
 }else if($loadData=='getAuthCode'){
 	$request = OAuth2\Request::createFromGlobals();
+	//$server->handleTokenRequest($request);
 	$response = new OAuth2\Response();
+	// print_r($response);
+	// exit;
 
 	// validate the authorize request
-	// if (!$server->validateAuthorizeRequest($request, $response)) {
-	// 	//echo "send";
-	//     $response->send();
-	//     die;
-	// }
+	if (!$server->validateAuthorizeRequest($request, $response)) {
+		//echo "send";
+	    $response->send();
+	    die;
+	}
 	// display an authorization form
 	if (empty($_POST)) {
 	  exit('
@@ -67,7 +72,7 @@ if($loadData=='getToken'){
 	    $server->getResponse()->send();
 	    die;
 	}
-	echo json_encode(array('success' => true, 'message' => 'You accessed my APIs!'));
+	//echo json_encode(array('success' => true, 'message' => 'You accessed my APIs!'));
 
 }else if($loadData=='checkClient'){
 	// create test clients in memory
@@ -88,13 +93,19 @@ if($loadData=='getToken'){
 	$server->addGrantType($grantType);
 
 }else if($loadData=='checkUser'){
-	// create some users in memory
-	$users = array('admin@gmail.com' => array('password' => '123', 'first_name' => 'admin', 'last_name' => 'admin'));
+		// create some users in memory
+	$users = array('admin@gmail.com' => array('password' => '123'));
 
 	// create a storage object
 	$memory = new OAuth2\Storage\Memory(array('user_credentials' => $users));
-	// Add the "user Credentials" grant type (it is the simplest of the grant types)
-	$server->addGrantType(new OAuth2\GrantType\UserCredentials($memory));
+
+	// create the grant type
+	$grantType = new OAuth2\GrantType\UserCredentials($memory);
+
+	// add the grant type to your OAuth server
+	$server->addGrantType($grantType);
+
+	$server->handleTokenRequest(OAuth2\Request::createFromGlobals())->send();	
 
 }
 
