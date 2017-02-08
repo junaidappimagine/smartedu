@@ -24,6 +24,8 @@ class Auth extends CI_Controller {
         loadServer('getResource');   
     }
     function checkUser(){
+        // print_r($_POST["my_parm"]);
+        // exit;
         loadServer('checkUser');  
     }
     function checkClient(){

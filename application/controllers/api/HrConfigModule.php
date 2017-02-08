@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . '/libraries/REST_Controller.php';
+//require APPPATH . '/libraries/server.php';
+//require APPPATH . '/helpers/checktoken_helper.php';
 class HrConfigModule extends REST_Controller {    
     function HrConfigModule()
     {
@@ -8,23 +10,14 @@ class HrConfigModule extends REST_Controller {
 		$this->load->model('hrConfigModel');
 		header("Access-Control-Allow-Origin: *");
 		$this->load->library('session');
-  //   	$tokenFromUI = $this->input->get('token');
-		// $user_token=$this->session->userdata('user_token');
-		// //exit;
-		// if($user_token!=$tokenFromUI){
-		// 	//$this->set_response(['status' =>FALSE,'message'=>'Erroxdfr'], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
-		// 	//exit;
-		// 	$this->set_response([
-		// 	'status' => FALSE,
-		// 	'message' => 'Invalid User'
-		// 	], REST_Controller::HTTP_NOT_FOUND);
-		// 	//exit;
-		// }else{
-		// 	$this->set_response(['status' =>TRUE,'message'=>'Valid User'], REST_Controller::HTTP_OK); 
-		// }
+		$this->load->helper('checktoken');
+		//loadServer('getResource'); 
+		//checkTokenAccess();
+		checkAccess();
+		//checkAccess();
+		//validate  token  in AUTH file
     }
-
-    
+    //Added by rafeeq for Excel
     function insertDataFromXcelToDB_get(){
     	$ext=$this->get('ext');
     	//$ext='csv';
@@ -117,6 +110,7 @@ class HrConfigModule extends REST_Controller {
 			}
         }    			
 	}
+	//Added by rafeeq for Excel
 	//-------------------------------------  Employee category ---------------------------------------------------
     function employeeCategory_post()
     {
@@ -133,6 +127,10 @@ class HrConfigModule extends REST_Controller {
 		}
     }
     function employeeCategory_get(){
+    	
+    	
+//    	checkTokenAccess();// validate  token  in helper file
+
     	$id=$this->get('id');
     	if ($id == null)
         {

@@ -9,15 +9,12 @@ class GeneralAPI extends REST_Controller {
 		header("Access-Control-Allow-Origin: *");
 		$this->load->library('Curl');
 		$this->load->library('session');
-		// $headers = apache_request_headers();
-		// print_r($headers);
-		// exit;
     }
-    function tokenGen($type,$client_id,$client_secret){
+    //function tokenGen($type,$client_id,$client_secret){
+    function tokenGen($type,$username,$password,$client_id){
     	if($type=='client'){
 	    	$data = array(
 	            'grant_type'      => 'client_credentials',
-	            //'grant_type'      => 'password',
 	            'client_id' => $client_id,
 	            'client_secret'    => $client_secret
 
@@ -26,20 +23,27 @@ class GeneralAPI extends REST_Controller {
     	}else if($type=='password'){
     		$data = array(
             'grant_type'      => 'password',
-            'client_id' => '123',
-            'username' => 'admin@gmail.com',
-            'password'    => '123'
+            'client_id' => $client_id,
+	        //'client_secret'    => $client_secret,
+            'username' => $username,
+            'password'    => $password
 
         );
-    		$path='http://localhost/smartedu/api/Auth/getToken';
+    		$path='http://localhost/smartedu/api/Auth/checkUser';
     	}
         
         //grant_type=client_credentials&client_id=TestClient&client_secret=TestSecret
         //grant_type=password&client_id=TestClient&username=bshaffer&password=brent123
 
     $data_string = json_encode($data);
+    //echo "<br>";
+//     $data_string = 'my_parm={
+//           "Key1":"Value1",
+//           "Key2":"Value2",
+//           "Key3":"Value3"
+// }';
     $curl = curl_init($path);
-
+    //curl_setopt($curl, CURLOPT_POST, 1);
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
 
     curl_setopt($curl, CURLOPT_HTTPHEADER, array(
@@ -52,36 +56,50 @@ class GeneralAPI extends REST_Controller {
 
     // Send the request
     $result = curl_exec($curl);
-    $valu=json_decode($result,true);
-    // print_r($valu);
+    // print_r($result);
     // exit;
+    $valu=json_decode($result,true);
+    
     $user_token=$valu['access_token'];
     $this->session->set_userdata('user_token',$user_token);
     // $path=APPPATH;
     // echo $path;
-    //$test= new CI_Security();
-    //echo $this->session->userdata('user_token');
-    //$this->config->set_item('csrf_token_name','asdasd');
-    //$config['csrf_exclude_uris'] = $user_token;
-    //echo "<br>";
-    // echo $this->security->get_csrf_token_name().' : '. $this->security->get_csrf_hash(); 
-    // exit;
-    return $user_token;
     // Free up the resources $curl is using
-   // curl_close($curl);
-
-    //echo json_encode($result);
-  //   	$result = $this->curl->simple_post('http://localhost/smartedu/api/Auth/getToken',false,array(CURLOPT_USERAGENT => true));
-  //   	// $result = $this->curl->simple_post('http://localhost/smartedu/api/Auth/getToken',false,array(CURLOPT_USERAGENT => true,'grant_type' => 'client_credentials','client_id'=>'123','client_secret'=>'123456'));
-		// var_dump($result);
-		//pri
+    curl_close($curl);
+    return $user_token;
     }
 
     // Login Details 
-	
+    function setSessionData($users){
+    	$USER_ID = $users[0]['USER_ID'];
+    	$USER_FIRST_NAME = $users[0]['USER_FIRST_NAME'];
+    	$USER_LAST_NAME = $users[0]['USER_LAST_NAME'];
+    	$USER_EMAIL = $users[0]['USER_EMAIL'];
+    	$USER_ROLE_ID = $users[0]['USER_ROLE_ID'];
+    	$USER_READ = $users[0]['USER_READ'];
+    	$USER_WRITE = $users[0]['USER_WRITE'];
+    	$USER_EDIT = $users[0]['USER_EDIT'];
+    	$USER_DELETE = $users[0]['USER_DELETE'];
+    	$this->session->set_userdata('USER_ID',$USER_ID);
+    	$this->session->set_userdata('USER_FIRST_NAME',$USER_FIRST_NAME);
+    	$this->session->set_userdata('USER_LAST_NAME',$USER_LAST_NAME);
+    	$this->session->set_userdata('USER_EMAIL',$USER_EMAIL);
+    	$this->session->set_userdata('USER_ROLE_ID',$USER_ROLE_ID);
+    	$this->session->set_userdata('USER_READ',$USER_READ);
+    	$this->session->set_userdata('USER_WRITE',$USER_WRITE);
+    	$this->session->set_userdata('USER_EDIT',$USER_EDIT);
+    	$this->session->set_userdata('USER_DELETE',$USER_DELETE);
+
+    }
 	function login_get(){
 		$email = $this->get('USER_EMAIL');
 		$pwd = $this->get('USER_PASSWORD');
+		$sessionToken=$this->session->userdata('user_token');
+
+		if($sessionToken!=''){
+			$this->response(['status' =>TRUE,'access_token'=> $sessionToken], REST_Controller::HTTP_OK); // OK 
+			exit;
+		}
 		if($email==NULL){
 			$this->set_response([
 				'status' => FALSE,
@@ -89,12 +107,15 @@ class GeneralAPI extends REST_Controller {
 				], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
 		}else{
 			$users=$this->GeneralMod->getLoginDetail($email,$pwd);
+			
 			if (!empty($users)){
-				//$type='password';
-				$type='client';
+				$this->setSessionData($users);
+				$type='password';
+				//$type='client';
 				$client_id='123';
-				$client_secret='123456';
-				$users=$this->tokenGen($type,$client_id,$client_secret);
+				//$client_secret='123456';
+				$users=$this->tokenGen($type,$email,$pwd,$client_id);
+				//$users=$this->tokenGen($type,$client_id,$client_secret);
 				//$users=json_decode($users);
 				$this->set_response(['status' =>TRUE,'access_token'=> $users], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
 			}
@@ -185,6 +206,22 @@ class GeneralAPI extends REST_Controller {
 			'message' => 'regId could not be found'
 			], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
 		}
+	}
+
+	function logout_get(){
+
+		$this->session->unset_userdata('user_token');
+		$this->session->unset_userdata('USER_ID');
+    	$this->session->unset_userdata('USER_FIRST_NAME');
+    	$this->session->unset_userdata('USER_LAST_NAME');
+    	$this->session->unset_userdata('USER_EMAIL');
+    	$this->session->unset_userdata('USER_ROLE_ID');
+    	$this->session->unset_userdata('USER_READ');
+    	$this->session->unset_userdata('USER_WRITE');
+    	$this->session->unset_userdata('USER_EDIT');
+    	$this->session->unset_userdata('USER_DELETE');
+		$this->set_response(['status' =>TRUE,'message'=>'Log Out Successfully'], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+
 	}
 	
 }

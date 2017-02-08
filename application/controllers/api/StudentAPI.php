@@ -1,12 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . '/libraries/REST_Controller.php';
+//require APPPATH . '/libraries/server.php';
+require APPPATH . '/helpers/checktoken_helper.php';
 class StudentAPI extends REST_Controller {    
     function StudentAPI()
     {
 		parent::__construct();
 		$this->load->model('studentmodel');
 		header("Access-Control-Allow-Origin: *");
+		$this->load->library('session');
+		//$this->load->helper('checktoken');
+
+		//loadServer('getResource'); 
+		checkTokenAccess();
+		checkAccess();
     }
 
     // Student Admission 
@@ -118,6 +126,7 @@ class StudentAPI extends REST_Controller {
 	
 	
 	function studentDetails_get(){
+		
 		$id=$this->get('STU_ADM_NO');
 		if($id==null){
 			$users=$this->studentmodel->getStudentDetailAll();
