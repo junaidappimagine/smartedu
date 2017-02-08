@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 // $config['base_url'] = 'http://192.168.1.136/smartedu/';
-// $config['base_url'] = 'http://192.168.1.109/smartedu/';
+ //$config['base_url'] = 'http://192.168.1.109/smartedu/';
 $config['base_url'] = 'http://localhost/smartedu/';
 
 /*
@@ -376,7 +376,7 @@ $config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
-$config['sess_expire_on_close'] = TRUE; //sess expiry on close of browser
+//$config['sess_expire_on_close'] = TRUE; //sess expiry on close of browser
 
 /*
 |--------------------------------------------------------------------------
