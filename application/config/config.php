@@ -23,6 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
+// $config['base_url'] = 'http://192.168.1.136/smartedu/';
 // $config['base_url'] = 'http://192.168.1.109/smartedu/';
 $config['base_url'] = 'http://localhost/smartedu/';
 
@@ -375,6 +376,7 @@ $config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
+$config['sess_expire_on_close'] = TRUE; //sess expiry on close of browser
 
 /*
 |--------------------------------------------------------------------------
@@ -439,12 +441,23 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_regenerate' = Regenerate token on every submission
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
+
+//Array of URIs which ignore CSRF checks
+$ignoreURL_LIST = array('hrSettingsC/employeeCategoryView','api/GeneralAPI/login','api/Auth/getToken');
+
 $config['csrf_protection'] = FALSE;
-$config['csrf_token_name'] = 'csrf_test_name';
+$config['csrf_token_name'] = 'access_token';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
-$config['csrf_regenerate'] = TRUE;
-$config['csrf_exclude_uris'] = array();
+$config['csrf_regenerate'] = FALSE;
+$config['csrf_exclude_uris'] = $ignoreURL_LIST;
+
+// Another Method
+// if (stripos($_SERVER["REQUEST_URI"],'hrSettingsC/employeeCategoryView') === FALSE) {
+// 	$config['csrf_protection'] 	= TRUE;
+// }else{ 
+// $config['csrf_protection'] 	= FALSE; 
+// }
 
 /*
 |--------------------------------------------------------------------------
