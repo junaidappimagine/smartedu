@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . '/libraries/REST_Controller.php';
 //require APPPATH . '/libraries/server.php';
-//require APPPATH . '/helpers/checktoken_helper.php';
+require APPPATH . '/helpers/checktoken_helper.php';
 class HrConfigModule extends REST_Controller {    
     function HrConfigModule()
     {
@@ -12,7 +12,7 @@ class HrConfigModule extends REST_Controller {
 		$this->load->library('session');
 		$this->load->helper('checktoken');
 		//loadServer('getResource'); 
-		//checkTokenAccess();
+		checkTokenAccess();
 		checkAccess();
 		//checkAccess();
 		//validate  token  in AUTH file
