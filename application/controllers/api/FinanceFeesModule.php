@@ -75,9 +75,18 @@ class FinanceFeesModule extends REST_Controller {
     // ---------------------------------------------- Finance setting perticular -----------------------------------------------
     function particular_post()
     {
-        $result=$this->financefeesmod->addParticularData();
+        $data['FINC_S_PA_ID']=$this->post('FINC_S_PA_ID');
+        $data['FINC_S_PA_CA_ID']=$this->post('FINC_S_PA_CA_ID');
+        $data['FINC_S_PA_NAME']=$this->post('FINC_S_PA_NAME');
+        $data['FINC_S_PA_DESC']=$this->post('FINC_S_PA_DESC');
+        $data['FINC_S_PA_CREATE_TYPE']=$this->post('FINC_S_PA_CREATE_TYPE');
+        $data['FINC_S_PA_AMT']=$this->post('FINC_S_PA_AMT');
+        $data['FINC_S_PA_STU_CATE']=$this->post('FINC_S_PA_STU_CATE');
+        $data['FINC_S_PA_ADM_NO']=$this->post('FINC_S_PA_ADM_NO');
+        $data['FINC_S_PA_BATCH']=$this->post('FINC_S_PA_BATCH');
+        $result=$this->financefeesmod->addParticularData($data);
         if($result['status']==true){
-            $this->set_response(['status' =>TRUE,'message'=>$result['message']], REST_Controller::HTTP_CREATED);
+            $this->set_response(['status' =>TRUE,'message'=>$result['message'],'FINC_S_PA_ID'=>$result['FINC_S_PA_ID']], REST_Controller::HTTP_CREATED);
         }else{
             $this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
         }
@@ -88,7 +97,7 @@ class FinanceFeesModule extends REST_Controller {
         {
             $result=$this->financefeesmod->getAllFeesParticular();
             if (!empty($result)){
-                $this->set_response(['status' =>TRUE,'aaData'=>$result], REST_Controller::HTTP_OK);
+                $this->set_response(['status' =>TRUE,'result'=>$result], REST_Controller::HTTP_OK);
             }
             else
             {
@@ -97,7 +106,7 @@ class FinanceFeesModule extends REST_Controller {
         }else{
             $result=$this->financefeesmod->getFeesParticular($id);
             if (!empty($result)){
-                $this->set_response(['status' =>TRUE,'aaData'=>$result], REST_Controller::HTTP_OK);
+                $this->set_response(['status' =>TRUE,'result'=>$result], REST_Controller::HTTP_OK);
             }
             else
             {
@@ -128,9 +137,17 @@ class FinanceFeesModule extends REST_Controller {
     // ---------------------------------------------- Finance Fees Discount -----------------------------------------------
     function feesDiscount_post()
     {
-        $result=$this->financefeesmod->addFeesDiscount();
+        $data['FINC_S_DIS_ID']=$this->post('FINC_S_DIS_ID');
+        $data['FINC_S_DIS_CA_ID']=$this->post('FINC_S_DIS_CA_ID');
+        $data['FINC_S_DIS_TYPE']=$this->post('FINC_S_DIS_TYPE');
+        $data['FINC_S_DIS_BATCH_NAME']=$this->post('FINC_S_DIS_BATCH_NAME');
+        $data['FINC_S_DIS_STU_CATE']=$this->post('FINC_S_DIS_STU_CATE');
+        $data['FINC_S_DIS_MODE_TYPE']=$this->post('FINC_S_DIS_MODE_TYPE');
+        $data['FINC_S_DIS_AMT']=$this->post('FINC_S_DIS_AMT');
+        $data['FINC_S_DIS_STU_NAME']=$this->post('FINC_S_DIS_STU_NAME');
+        $result=$this->financefeesmod->addFeesDiscount($data);
         if($result['status']==true){
-            $this->set_response(['status' =>TRUE,'message'=>$result['message']], REST_Controller::HTTP_CREATED);
+            $this->set_response(['status' =>TRUE,'message'=>$result['message'],'FINC_S_PA_ID'=>$result['FINC_S_PA_ID']], REST_Controller::HTTP_CREATED);
         }else{
             $this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
         }
@@ -141,7 +158,7 @@ class FinanceFeesModule extends REST_Controller {
         {
             $result=$this->financefeesmod->getAllFeesDiscount();
             if (!empty($result)){
-                $this->set_response(['status' =>TRUE,'aaData'=>$result], REST_Controller::HTTP_OK);
+                $this->set_response(['status' =>TRUE,'result'=>$result], REST_Controller::HTTP_OK);
             }
             else
             {
@@ -150,7 +167,7 @@ class FinanceFeesModule extends REST_Controller {
         }else{
             $result=$this->financefeesmod->getFeesDiscount($id);
             if (!empty($result)){
-                $this->set_response(['status' =>TRUE,'aaData'=>$result], REST_Controller::HTTP_OK);
+                $this->set_response(['status' =>TRUE,'result'=>$result], REST_Controller::HTTP_OK);
             }
             else
             {

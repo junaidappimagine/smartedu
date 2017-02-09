@@ -43,29 +43,38 @@
 
 	    // ------------------------------ Finance Particular -----------------------------------------------------------------
 		public function addParticularData(){
-	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->FINC_S_PA_ID;
-	    	$cat_id=$data->FINC_S_PA_CA_ID;
-	    	$name=$data->FINC_S_PA_NAME;
-	    	$desc=$data->FINC_S_PA_DESC;
-	    	$type=$data->FINC_S_PA_CREATE_TYPE;
-	    	$amount=$data->FINC_S_PA_AMT;
-	    	$stu_categ=$data->FINC_S_PA_STU_CATE;
-	    	$adm_no=$data->FINC_S_PA_ADM_NO;
-	    	$batch=$data->FINC_S_PA_BATCH;
-
+	    	$id=$value['FINC_S_PA_ID'];
 	    	$sql="SELECT count(FINC_S_PA_NAME) FROM finance_setting_perticular WHERE FINC_S_PA_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(FINC_S_PA_NAME)']!=0){
-				$sql="UPDATE finance_setting_perticular SET FINC_S_PA_CA_ID='$cat_id',FINC_S_PA_NAME='$name',FINC_S_PA_DESC='$desc',FINC_S_PA_CREATE_TYPE='$type',FINC_S_PA_AMT='$amount',FINC_S_PA_STU_CATE='$stu_categ',FINC_S_PA_ADM_NO='$adm_no',FINC_S_PA_BATCH='$batch' WHERE FINC_S_PA_ID='$id'";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Updated Successfully");
+				$data = array(
+				   'FINC_S_PA_CA_ID' => $value['FINC_S_PA_CA_ID'],
+				   'FINC_S_PA_NAME' => $value['FINC_S_PA_NAME'],
+				   'FINC_S_PA_DESC' => $value['FINC_S_PA_DESC'],
+				   'FINC_S_PA_CREATE_TYPE' => $value['FINC_S_PA_CREATE_TYPE'],
+				   'FINC_S_PA_AMT' => $value['FINC_S_PA_AMT'],
+				   'FINC_S_PA_STU_CATE' => $value['FINC_S_PA_STU_CATE'],
+				   'FINC_S_PA_ADM_NO' => $value['FINC_S_PA_ADM_NO'],
+				   'FINC_S_PA_BATCH' => $value['FINC_S_PA_BATCH']
+				);
+				$this->db->where('FINC_S_PA_ID', $id);
+				$this->db->update('finance_setting_perticular', $data); 
+				return array('status'=>true, 'message'=>"Record Updated Successfully",'FINC_S_PA_ID'=>$id);
 			}else {
-				$sql="INSERT INTO finance_setting_perticular (FINC_S_PA_CA_ID,FINC_S_PA_NAME,FINC_S_PA_DESC,FINC_S_PA_CREATE_TYPE,FINC_S_PA_AMT,FINC_S_PA_STU_CATE,FINC_S_PA_ADM_NO,FINC_S_PA_BATCH) VALUES ('$cat_id','$name','$desc','$type','$amount','$stu_categ','$adm_no','$batch')";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Inserted Successfully");
+				$data = array(
+				   'FINC_S_PA_CA_ID' => $value['FINC_S_PA_CA_ID'],
+				   'FINC_S_PA_NAME' => $value['FINC_S_PA_NAME'],
+				   'FINC_S_PA_DESC' => $value['FINC_S_PA_DESC'],
+				   'FINC_S_PA_CREATE_TYPE' => $value['FINC_S_PA_CREATE_TYPE'],
+				   'FINC_S_PA_AMT' => $value['FINC_S_PA_AMT'],
+				   'FINC_S_PA_STU_CATE' => $value['FINC_S_PA_STU_CATE'],
+				   'FINC_S_PA_ADM_NO' => $value['FINC_S_PA_ADM_NO'],
+				   'FINC_S_PA_BATCH' => $value['FINC_S_PA_BATCH']
+				);
+				$this->db->insert('finance_setting_perticular', $data);
+				$emp_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'FINC_S_PA_ID'=>$emp_id);
 			}
-	    	
 	    }
 	    function getFeesParticular($id){
 	    	$sql="SELECT * FROM finance_setting_perticular where FINC_S_PA_ID ='$id'";
@@ -83,28 +92,39 @@
 
 	    // ------------------------------ Finance Fees Discount -----------------------------------------------------------------
 		public function addFeesDiscount(){
-	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->FINC_FEE_M_ID;
-	    	$cat_id=$data->FINC_FEE_M_H_ID;
-	    	$disc_id=$data->FINC_FEE_M_DISC_ID;
-	    	$type=$data->FINC_FEE_M_DISC_TYPE;
-	    	$name=$data->FINC_FEE_M_DISC_NAME;
-	    	$amount=$data->FINC_FEE_M_DISC_AMT;
-	    	$sql="SELECT count(FINC_FEE_M_DISC_NAME) FROM finance_fees_discount WHERE FINC_FEE_M_ID='$id'";
+			$id=$value['FINC_S_DIS_ID'];
+	    	$sql="SELECT count(FINC_S_DIS_BATCH_NAME) FROM finance_fees_discount WHERE FINC_S_DIS_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
-			if($result[0]['count(FINC_FEE_M_DISC_NAME)']!=0){
-				$sql="UPDATE finance_fees_discount SET FINC_FEE_M_H_ID='$cat_id',FINC_FEE_M_DISC_ID='$disc_id',FINC_FEE_M_DISC_TYPE='$type',FINC_FEE_M_DISC_NAME='$name',FINC_FEE_M_DISC_AMT='$amount' WHERE FINC_FEE_M_ID='$id'";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Updated Successfully");
+			if($result[0]['count(FINC_S_DIS_BATCH_NAME)']!=0){
+				$data = array(
+				   'FINC_S_DIS_CA_ID' => $value['FINC_S_DIS_CA_ID'],
+				   'FINC_S_DIS_TYPE' => $value['FINC_S_DIS_TYPE'],
+				   'FINC_S_DIS_BATCH_NAME' => $value['FINC_S_DIS_BATCH_NAME'],
+				   'FINC_S_DIS_STU_CATE' => $value['FINC_S_DIS_STU_CATE'],
+				   'FINC_S_DIS_MODE_TYPE' => $value['FINC_S_DIS_MODE_TYPE'],
+				   'FINC_S_DIS_AMT' => $value['FINC_S_DIS_AMT'],
+				   'FINC_S_DIS_STU_NAME' => $value['FINC_S_DIS_STU_NAME']
+				);
+				$this->db->where('FINC_S_DIS_ID', $id);
+				$this->db->update('finance_fees_discount', $data); 
+				return array('status'=>true, 'message'=>"Record Updated Successfully",'FINC_S_DIS_ID'=>$id);
 			}else {
-				$sql="INSERT INTO finance_fees_discount (FINC_FEE_M_H_ID,FINC_FEE_M_DISC_ID,FINC_FEE_M_DISC_TYPE,FINC_FEE_M_DISC_NAME,FINC_FEE_M_DISC_AMT) VALUES ('$cat_id','$disc_id','$type','$name','$amount')";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Inserted Successfully");
+				$data = array(
+				   'FINC_S_DIS_CA_ID' => $value['FINC_S_DIS_CA_ID'],
+				   'FINC_S_DIS_TYPE' => $value['FINC_S_DIS_TYPE'],
+				   'FINC_S_DIS_BATCH_NAME' => $value['FINC_S_DIS_BATCH_NAME'],
+				   'FINC_S_DIS_STU_CATE' => $value['FINC_S_DIS_STU_CATE'],
+				   'FINC_S_DIS_MODE_TYPE' => $value['FINC_S_DIS_MODE_TYPE'],
+				   'FINC_S_DIS_AMT' => $value['FINC_S_DIS_AMT'],
+				   'FINC_S_DIS_STU_NAME' => $value['FINC_S_DIS_STU_NAME']
+				);
+				$this->db->insert('finance_fees_discount', $data);
+				$emp_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'FINC_S_DIS_ID'=>$emp_id);
 			}
-	    	
 	    }
 	    function getFeesDiscount($id){
-	    	$sql="SELECT * FROM finance_fees_discount where FINC_FEE_M_ID ='$id'";
+	    	$sql="SELECT * FROM finance_fees_discount where FINC_S_DIS_ID ='$id'";
 			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
 	    }
 	    function getAllFeesDiscount(){
@@ -112,7 +132,7 @@
 			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
 	    }
 	    function deleteFeesDiscount($id){
-	    	$sql="DELETE FROM finance_fees_discount WHERE FINC_FEE_M_ID='$id'";
+	    	$sql="DELETE FROM finance_fees_discount WHERE FINC_S_DIS_ID='$id'";
 	    	$result = $this->db->query($sql);
 	    	return $this->db->affected_rows();
 	    }
