@@ -42,7 +42,7 @@
 	    }
 
 	    // ------------------------------ Finance Particular -----------------------------------------------------------------
-		public function addParticularData(){
+		public function addParticularData($value){
 	    	$id=$value['FINC_S_PA_ID'];
 	    	$sql="SELECT count(FINC_S_PA_NAME) FROM finance_setting_perticular WHERE FINC_S_PA_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
@@ -91,7 +91,7 @@
 	    }
 
 	    // ------------------------------ Finance Fees Discount -----------------------------------------------------------------
-		public function addFeesDiscount(){
+		public function addFeesDiscount($value){
 			$id=$value['FINC_S_DIS_ID'];
 	    	$sql="SELECT count(FINC_S_DIS_BATCH_NAME) FROM finance_fees_discount WHERE FINC_S_DIS_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
