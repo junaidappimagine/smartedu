@@ -6,7 +6,9 @@ class HrLeaveMgmntModule extends REST_Controller {
     {
 		parent::__construct();
 		$this->load->model('leavemgmntmodel');
+		header("Access-Control-Allow-Origin: *");
 		header("Access-Control-Allow-Headers: Content-Type,access_token");
+		header("Access-Control-Allow-Methods: GET,POST,DELETE");
     }
 
     // ------------------------------------ Leave Reset -----------------------------------------------------------------

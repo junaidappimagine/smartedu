@@ -8,7 +8,8 @@ class Auth extends CI_Controller {
 		parent::__construct();
 		//$this->load->model('hrConfigModel');
 		header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Headers: Content-Type,access_token");
+		header("Access-Control-Allow-Headers: Content-Type,access_token");
+		header("Access-Control-Allow-Methods: GET,POST,DELETE");
 		ini_set('display_errors',1);error_reporting(E_ALL);
         $userIDByToken="";
     }

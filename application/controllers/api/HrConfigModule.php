@@ -9,6 +9,7 @@ class HrConfigModule extends REST_Controller {
 		parent::__construct();
 		header("Access-Control-Allow-Origin: *");
 		header("Access-Control-Allow-Headers: Content-Type,access_token");
+		header("Access-Control-Allow-Methods: GET,POST,DELETE");
 		$this->load->model('hrConfigModel');
 		//loadServer('getResource'); 
 		$userIDByToken="";

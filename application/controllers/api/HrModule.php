@@ -9,6 +9,7 @@ class hrModule extends REST_Controller  {
 		header("Access-Control-Allow-Origin: *");
 		//header("Access-Control-Allow-Headers: Authorization");
 		header("Access-Control-Allow-Headers: Content-Type,access_token");
+		header("Access-Control-Allow-Methods: GET,POST,DELETE");
     }
 	// Login
 	function login_post(){
