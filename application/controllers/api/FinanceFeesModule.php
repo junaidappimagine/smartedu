@@ -416,29 +416,19 @@ class FinanceFeesModule extends REST_Controller {
             $this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
         }
     }
-    // function applyRefund_get(){
-    //     $id=$this->get('FINC_AP_RF_ID');
-    //     $result=$this->financefeesmod->getFeeCollection($id);
-    //     echo json_encode($result);      
-    // }
-    // function applyRefund_delete(){
-    //     $id=$this->delete('FINC_AP_RF_ID');
-    //     if ($id == null)
-    //     {
-    //         $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);
-    //     }else{
-    //         $result=$this->financefeesmod->deleteFeeCollection($id);
-    //         if($result!=0){
-    //             $message = [
-    //             'id' => $id,
-    //             'message' => 'Record Deleted Successfully'
-    //             ];
-    //             $this->set_response(['status'=>TRUE,'message'=>$message], REST_Controller::HTTP_OK);
-    //         }else{
-    //             $this->set_response(['status'=>FALSE,'message'=>'There is no Record found'], REST_Controller::HTTP_NOT_FOUND);
-    //         }
-    //     }  
-    // }
+    function getFeesCategory_get(){
+        $result=$this->classmodel->getFeesCategory();
+        if (!empty($result)){
+            $this->set_response(['status' =>TRUE,'message'=>$result], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+        }
+        else
+        {
+            $this->set_response([
+            'status' => FALSE,
+            'message' => 'Class Detail could not be found'
+            ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+        }
+    }
 }
 ?>
    

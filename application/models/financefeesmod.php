@@ -345,5 +345,9 @@
 	    	$result = $this->db->query($sql);
 	    	return $this->db->affected_rows();
 	    }
+	    function getFeesCategory(){
+	    	$sql="SELECT * FROM finance_setting_category";
+			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+	    }
 	}
 ?>
