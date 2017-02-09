@@ -417,7 +417,7 @@ class FinanceFeesModule extends REST_Controller {
         }
     }
     function getFeesCategory_get(){
-        $result=$this->classmodel->getFeesCategory();
+        $result=$this->financefeesmod->getFeesCategory();
         if (!empty($result)){
             $this->set_response(['status' =>TRUE,'message'=>$result], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
         }
