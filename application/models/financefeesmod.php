@@ -3,25 +3,29 @@
 	class financefeesmod extends CI_Model {
 
 		// ------------------------------ Finance Fees -----------------------------------------------------------------
-		public function addFeesCategory(){
-	    	$data = json_decode(file_get_contents("php://input"));
-	    	$id=$data->FINC_S_CA_ID;
-	    	$name=$data->FINC_S_CA_NAME;
-	    	$desc=$data->FINC_S_CA_DESC;
-	    	$batch=$data->FINC_S_CA_BATCH;	    	
-
+		public function addFeesCategory($value){
+			$id=$value['FINC_S_CA_ID'];
 	    	$sql="SELECT count(FINC_S_CA_NAME) FROM finance_setting_category WHERE FINC_S_CA_ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 			if($result[0]['count(FINC_S_CA_NAME)']!=0){
-				$sql="UPDATE finance_setting_category SET FINC_S_CA_NAME='$name',FINC_S_CA_DESC='$desc',FINC_S_CA_BATCH='$batch' WHERE FINC_S_CA_ID='$id'";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Updated Successfully");
+				$data = array(
+				   'FINC_S_CA_NAME' => $value['FINC_S_CA_NAME'],
+				   'FINC_S_CA_DESC' => $value['FINC_S_CA_DESC'],
+				   'FINC_S_CA_BATCH' => $value['FINC_S_CA_BATCH']			
+				);
+				$this->db->where('FINC_S_CA_ID', $id);
+				$this->db->update('finance_setting_category', $data); 
+				return array('status'=>true, 'message'=>"Record Updated Successfully",'FINC_S_CA_ID'=>$id);
 			}else {
-				$sql="INSERT INTO finance_setting_category (FINC_S_CA_NAME,FINC_S_CA_DESC,FINC_S_CA_BATCH) VALUES ('$name','$desc','$batch')";
-				$this->db->query($sql);
-				return array('status'=>true, 'message'=>"Record Inserted Successfully");
-			}
-	    	
+				$data = array(
+				   'FINC_S_CA_NAME' => $value['FINC_S_CA_NAME'],
+				   'FINC_S_CA_DESC' => $value['FINC_S_CA_DESC'],
+				   'FINC_S_CA_BATCH' => $value['FINC_S_CA_BATCH']				
+				);
+				$this->db->insert('finance_setting_category', $data);
+				$emp_id=$this->db->insert_id();
+				return array('status'=>true, 'message'=>"Record Inserted Successfully",'FINC_S_CA_ID'=>$emp_id);
+			}	    	
 	    }
 	    function getFeesCategory($id){
 	    	$sql="SELECT * FROM finance_setting_category where FINC_S_CA_ID ='$id'";

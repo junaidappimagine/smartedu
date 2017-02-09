@@ -18,9 +18,13 @@ class FinanceFeesModule extends REST_Controller {
 
     function feesCategory_post()
     {
-    	$result=$this->financefeesmod->addFeesCategory();
-    	if($result['status']==true){
-            $this->set_response(['status' =>TRUE,'message'=>$result['message']], REST_Controller::HTTP_CREATED);
+        $data['FINC_S_CA_ID']=$this->post('FINC_S_CA_ID');
+        $data['FINC_S_CA_NAME']=$this->post('FINC_S_CA_NAME');
+        $data['FINC_S_CA_DESC']=$this->post('FINC_S_CA_DESC');
+        $data['FINC_S_CA_BATCH']=$this->post('FINC_S_CA_BATCH');
+        $result=$this->financefeesmod->addFeesCategory($data);
+        if($result['status']==true){
+            $this->set_response(['status' =>TRUE,'message'=>$result['message'],'FINC_S_CA_ID'=>$result['FINC_S_CA_ID']], REST_Controller::HTTP_CREATED);
         }else{
             $this->set_response(['status' =>FALSE,'message'=>"Failure"], REST_Controller::HTTP_CREATED);
         }
@@ -31,7 +35,7 @@ class FinanceFeesModule extends REST_Controller {
         {
             $result=$this->financefeesmod->getAllFeesCategory();
             if (!empty($result)){
-                $this->set_response(['status' =>TRUE,'aaData'=>$result], REST_Controller::HTTP_OK);
+                $this->set_response(['status' =>TRUE,'result'=>$result], REST_Controller::HTTP_OK);
             }
             else
             {
@@ -40,7 +44,7 @@ class FinanceFeesModule extends REST_Controller {
         }else{
             $result=$this->financefeesmod->getFeesCategory($id);
             if (!empty($result)){
-                $this->set_response(['status' =>TRUE,'aaData'=>$result], REST_Controller::HTTP_OK);
+                $this->set_response(['status' =>TRUE,'result'=>$result], REST_Controller::HTTP_OK);
             }
             else
             {
