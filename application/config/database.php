@@ -78,8 +78,13 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
-	//'database' => 'rubycampus',
-        'database' => 'rubycampus',
+    'database' => 'rubycampus',
+	
+	// 'hostname' => 'localhost',
+	// 'username' => 'campusen_DBadmin',
+	// 'password' => 'Rubycampus@123',
+    // 'database' => 'campusen_rubycampus',
+	
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
