@@ -349,5 +349,10 @@
 	    	$sql="SELECT * FROM finance_setting_category";
 			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
 	    }
+	    
+	    function fetchParticularBatchDetails($id){
+	    	$sql="SELECT * FROM finance_setting_category where FINC_S_CA_ID ='$id'";
+			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
+	    }
 	}
 ?>

@@ -6,7 +6,7 @@
 		
 		public function addEmailTemplate($value){
 			$data = array(
-			   'E_TEMP_TYPE' => $value['E_TEMP_TYPE'],
+			   'E_TEMP_NAME' => $value['E_TEMP_NAME'],
 			   'E_TEMP_SUBJECT' => $value['E_TEMP_SUBJECT'],
 			   'E_TEMP_BODY' => $value['E_TEMP_BODY'],
 			   'E_TEMP_USER_ID' => $value['E_TEMP_USER_ID']
@@ -18,12 +18,12 @@
 			}
 	    }
 		
-		public function editEmailTemplate($id,$values){
+		public function editEmailTemplate($id,$value){
 			$data = array(
-			   'E_TEMP_TYPE' => $value['E_TEMP_TYPE'],
+			   'E_TEMP_NAME' => $value['E_TEMP_NAME'],
 			   'E_TEMP_SUBJECT' => $value['E_TEMP_SUBJECT'],
 			   'E_TEMP_BODY' => $value['E_TEMP_BODY'],
-			   'E_TEMP_UPD_USER_ID' => $value['E_TEMP_UPD_USER_ID']
+			   'E_TEMP_UPD_USER_ID' => $value['E_TEMP_USER_ID']
 			);
 			$this->db->where('E_TEMP_ID', $id);
 			$this->db->update('email_template', $data);
