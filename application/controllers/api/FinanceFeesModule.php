@@ -417,7 +417,7 @@ class FinanceFeesModule extends REST_Controller {
         }
     }
     function getFeesCategoryList_get(){
-        $result=$this->financefeesmod->getFeesCategory();
+        $result=$this->financefeesmod->getFeesCategoryList();
         if (!empty($result)){
             $this->set_response(['status' =>TRUE,'message'=>$result], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
         }
@@ -427,6 +427,26 @@ class FinanceFeesModule extends REST_Controller {
             'status' => FALSE,
             'message' => 'Class Detail could not be found'
             ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+        }
+    }
+
+    function getParticularBatch_get(){
+        $id=$this->get('id');
+        if ($id == null)
+        {
+            $this->response(['status'=>FALSE,'message'=>'No data Here'], REST_Controller::HTTP_BAD_REQUEST);
+        }else {
+            $result=$this->financefeesmod->fetchParticularBatchDetails($id);
+            if (!empty($result)){
+                $this->set_response(['status' =>TRUE,'message'=>$result], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+            }
+            else
+            {
+                $this->set_response([
+                'status' => FALSE,
+                'message' => 'Class Detail could not be found'
+                ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+            }
         }
     }
 }

@@ -20,12 +20,11 @@ class EmailTemplateModule extends REST_Controller {
 	
     function EmailTemplate_post()
     {
-    	$id = $this->post('E_TEMP_ID');
-		$data['E_TEMP_TYPE']=$this->post('type');
+    	$id = $this->post('tempId');
+		$data['E_TEMP_NAME']=$this->post('name');
 		$data['E_TEMP_SUBJECT']=$this->post('subject');
 		$data['E_TEMP_BODY']=$this->post('body');
 		$data['E_TEMP_USER_ID']=$this->post('userId');
-		$data['E_TEMP_UPD_USER_ID']=$this->post('E_TEMP_UPD_USER_ID');
 		if($id==NULL){
 			$result=$this->emailtemplatemodel->addEmailTemplate($data);
 			if(!empty($result)){
@@ -44,7 +43,7 @@ class EmailTemplateModule extends REST_Controller {
     }
 	
 	function EmailTemplate_get(){
-		$id = $this->get('E_TEMP_ID');
+		$id = $this->get('tempId');
 		if($id==NULL){
 			$users=$this->emailtemplatemodel->getEmailTemplateAll();
 			if (!empty($users)){
@@ -74,7 +73,7 @@ class EmailTemplateModule extends REST_Controller {
     }
 	
 	function EmailTemplate_delete(){
-		$id = $this->delete('E_TEMP_ID');
+		$id = $this->delete('tempId');
 		if($id==NULL){
 			$this->set_response([
 			'status' => FALSE,
@@ -83,7 +82,7 @@ class EmailTemplateModule extends REST_Controller {
 		}else{
 			$users=$this->emailtemplatemodel->deleteEmailTemplate($id);
 			if ($users!=0){
-				$this->set_response(['status' =>TRUE,'message'=>'Class Detail Deleted successfully'], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+				$this->set_response(['status' =>TRUE,'message'=>'Email Template Detail Deleted successfully'], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
 			}
 			else
 			{
