@@ -20,8 +20,6 @@ class Profile extends REST_Controller {
 	//-------------------------------------  Profile Add/Update ---------------------------------------------------
     function profileDetails_post()
     {
-    	echo "<pre>";
-    	print_r($this->post());exit;
     	$data['ID']=$this->post('ID');
     	$data['FIRSTNAME']=$this->post('FIRSTNAME');
     	$data['MIDDLENAME']=$this->post('MIDDLENAME');
