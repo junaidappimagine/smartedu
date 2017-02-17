@@ -3,15 +3,14 @@
 	class profileModel extends CI_Model {
 
 		// Profile details
-		public function saveProfileDetails($value){
-			$id=$value['ID'];
-	    	$sql="SELECT count(FIRSTNAME) FROM PROFILE WHERE ID='$id'";
+		public function saveProfileDetails($values){
+			$id=$values['ID'];
+	    	$sql="SELECT * FROM PROFILE WHERE ID='$id'";
 			$result = $this->db->query($sql, $return_object = TRUE)->result_array();
-			$location_id=$result[0]['LOCATION_ID'];
-			$edu_id=$result[0]['EDUCATION_ID'];
-
 			// Check Profile data
-			if($result[0]['count(FIRSTNAME)']!=0){
+			if($result){
+				$location_id=$result[0]['LOCATION_ID'];
+				$edu_id=$result[0]['EDUCATION_ID'];
 				$sql="SELECT count(CITY) FROM LOCATION WHERE ID='$location_id'";
 				$result = $this->db->query($sql, $return_object = TRUE)->result_array();
 				if($result[0]['count(CITY)']!=0){
@@ -65,8 +64,8 @@
 				   'FACEBOOK_LINK' => $values['FACEBOOK_LINK'],
 				   'GOOGLE_LINK' => $values['GOOGLE_LINK'],
 				   'BLOOD_GROUP' => $values['BLOOD_GROUP'],
-				   'LOCATION_ID' => $locationId,
-				   'EDUCATION_ID' => $educationId,
+				   'LOCATION_ID' => $location_id,
+				   'EDUCATION_ID' => $edu_id,
 				   'PASSWORD' => $values['PASSWORD'],
 				   'ROLE_ID' => $values['ROLE_ID'],
 				   'CRT_USER_ID' => $values['CRT_USER_ID']
