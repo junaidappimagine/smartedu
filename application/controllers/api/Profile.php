@@ -143,12 +143,14 @@ class Profile extends REST_Controller {
     	$data['LOCATION_ID']=$this->post('LOCATION_ID'); 
     	$data['PASSWORD'] = $this->post('PASSWORD');
 	   	$data['CRT_USER_ID'] = $this->post('CRT_USER_ID');
+	   	// LOCATION
 	   	$data['CITY'] = $this->post('CITY');
 	   	$data['STATE'] = $this->post('STATE');
 	   	$data['COUNTRY'] = $this->post('COUNTRY');
 	   	$data['ZIPCODE'] = $this->post('ZIPCODE');
 	   	$data['LANDMARK'] = $this->post('LANDMARK');
 	   	$data['STREET'] = $this->post('STREET');
+	   	// EDUCATION
 	   	$data['QUALICATION'] = $this->post('QUALICATION');
 	   	$data['INST_NAME'] = $this->post('INST_NAME');
 	   	$data['ADDRESS1'] = $this->post('ADDRESS1');
@@ -158,6 +160,13 @@ class Profile extends REST_Controller {
 	   	$data['PERCENTAGE'] = $this->post('PERCENTAGE');
 	   	$data['DURATION_FROM'] = $this->post('DURATION_FROM');
 	   	$data['DURATION_TO'] = $this->post('DURATION_TO');
+	   	// COURSE
+	   	$data['COURSE_NAME'] = $this->post('QUALICATION');
+	   	$data['COUSER_PERIOD'] = $this->post('INST_NAME');
+	   	$data['COURSE_INFO_1'] = $this->post('ADDRESS1');
+	   	$data['COURSE_INFO_2'] = $this->post('ADDRESS2');
+
+
     	$result=$this->profileModel->saveProfileDetails($data);
     	if($result['status']==true){
 			$this->set_response(['status' =>TRUE,'message'=>$result['message'],'PROF_ID'=>$result['PROF_ID']], REST_Controller::HTTP_CREATED);

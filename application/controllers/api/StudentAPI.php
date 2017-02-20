@@ -11,11 +11,11 @@ class StudentAPI extends REST_Controller {
 		header("Access-Control-Allow-Origin: *");
 		header("Access-Control-Allow-Headers: Content-Type,access_token");
 		header("Access-Control-Allow-Methods: GET,POST,DELETE");
-		$userIDByToken="";
+		// $userIDByToken="";
 
 		//loadServer('getResource'); 
-		checkTokenAccess();
-		checkAccess();
+		// checkTokenAccess();
+		// checkAccess();
     }
 
     // Student Admission 
