@@ -15,15 +15,15 @@ class HrEmployeeMgmntModule extends REST_Controller {
 
     function employeeAdmission_post()
     {
-        $folderPath = $config['upload_path'] = 'upload/';
-        $config['allowed_types'] = '*';   
-        $this->load->library('upload', $config);
-        $this->upload->initialize($config);
-        if(!$this->upload->do_upload('0')){
-            $this->set_response(['status' =>FALSE,'message'=>'Upload Error'], REST_Controller::HTTP_NOT_FOUND);
-        }else{
-            $data = $this->upload->data();
-            $filePath=$folderPath.$data['file_name'];
+        $Images = $this->post('data');
+        $ImageSplit = explode(',', $Images);        
+        $ImageResult = base64_decode($ImageSplit[1]);
+        $im = imagecreatefromstring($ImageResult); 
+        if ($im !== false) 
+        {
+            $fileName = date('Ymdhis') .".png";
+            $resp = imagepng($im, $_SERVER['DOCUMENT_ROOT'].'smartedu/upload/'.$fileName);
+            imagedestroy($im);
         }
         $data['EMP_ID']=$this->post('EMP_ID');
         $data['EMP_NO']=$this->post('EMP_NO');
@@ -36,7 +36,7 @@ class HrEmployeeMgmntModule extends REST_Controller {
         $data['EMP_RELIGION']=$this->post('EMP_RELIGION'); 
         $data['EMP_BLOOD_GROUP']=$this->post('EMP_BLOOD_GROUP');
         $data['EMP_NATIONALITY']=$this->post('EMP_NATIONALITY');
-        $data['EMP_PROFILE']=$filePath;
+        $data['EMP_PROFILE']=$fileName;
         $data['EMP_DEPT']=$this->post('EMP_DEPT'); 
         $data['EMP_CATEGORY']=$this->post('EMP_CATEGORY');
         $data['EMP_POSITION']=$this->post('EMP_POSITION');
