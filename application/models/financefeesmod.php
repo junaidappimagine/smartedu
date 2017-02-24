@@ -354,5 +354,35 @@
 	    	$sql="SELECT * FROM finance_setting_category where FINC_S_CA_ID ='$id'";
 			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
 	    }
+	    //---------------fee Defaulters---------------------------------//
+		function getMail_details($id){
+			//print_r($id);exit;
+			$sql="SELECT * FROM emp_details WHERE id='$id'";
+			return $this->db->query($sql)->result_array();
+			//print_r($ret);exit;
+		
+		}
+		function getPdf_details($id){
+			$sql="SELECT * FROM emp_details WHERE id='$id'";
+			return $this->db->query($sql)->result_array();
+			//print_r($ret);exit;
+		
+		}
+		function getfrom_empdetail($name){
+			$this->db->select('*');
+			$this->db->from('emp_details');
+			$this->db->where('EMP_FIRST_NAME',$name);
+			$var1=$this->db->get();
+			return $var1->result_array();
+			//print_r($name);exit;
+		}
+		function getfrom_salaryMail($name){
+			$sql="select * from payroll_details where EMP_NAME='$name'";
+			return $this->db->query($sql)->result_array();
+		}
+	    
+	    
+	    
+	    
 	}
 ?>
