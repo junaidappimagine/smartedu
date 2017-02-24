@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @package dompdf
  * @link    http://dompdf.github.com/
@@ -745,6 +744,7 @@ class GD_Adapter implements Canvas {
    * @param array  $options associative array, 'type' => jpeg|jpg|png, 'quality' => 0 - 100 (jpeg only)
    */
   function stream($filename, $options = null) {
+
     // Perform any antialiasing
     if ( $this->_aa_factor != 1 ) {
       $dst_w = $this->_width / $this->_aa_factor;
