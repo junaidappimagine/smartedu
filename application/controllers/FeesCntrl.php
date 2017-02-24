@@ -384,14 +384,13 @@ class FeesCntrl extends CI_Controller {
 	  if($UniqEmailsend=='email')
 	    {
 	    
-		return $this->load->view('fees/Email/feeDefaulterEmail',"$value",true);
+		return $this->load->view('fees/Email/feeDefaulterEmail',$value,true);
 	
 	    }else if($UniqEmailsend=='pdf'){
-		return $this->load->view('fees/PrintDocument/emailprint/feeDefaulter',"$value",true);
-		
+		return $this->load->view('fees/PrintDocument/emailprint/feeDefaulter',$value,true);
 	    }
 	    else {
-		return $this->load->view('fees/PrintDocument/feeDefaulterRec',"$value");
+		return $this->load->view('fees/PrintDocument/feeDefaulterRec',$value);
 	    }
     }
     function defaulter_pdf_generate($id)
