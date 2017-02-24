@@ -284,7 +284,7 @@
 												<div class="row">
 													<div class="col-md-offset-7 col-md-4" style="text-align:right;">
 														<div class="form-group">
-															<button type="button" class="btn btn-primary btn-sm">Print Summary</button>
+															<a class="btn btn-primary btn-sm" href="<?php echo base_url('FeesCntrl/feeCollection_pdf_generate');?>">Print Summary</a>
 															<button type="button" class="btn btn-primary btn-sm">Pay Fees</button>
 														</div>
 													</div>
@@ -381,7 +381,7 @@
 												<div class="row">
 													<div class="col-md-offset-7 col-md-4" style="text-align: right;">
 														<div class="form-group">
-															<button type="button" class="btn btn-primary btn-sm">Print Summary</button>
+															<a class="btn btn-primary btn-sm" href="<?php echo base_url('FeesCntrl/feeCollection_pdf_generate');?>">Print Summary</a>
 															<button type="button" class="btn btn-primary btn-sm">Pay Fees</button>
 														</div>
 													</div>

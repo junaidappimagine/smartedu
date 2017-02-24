@@ -3,6 +3,7 @@
                     font-size: 15px;
                 }
 </style>
+<link href="<?php echo base_url(); ?>assets/datatable/jquery.dataTables.min.css" rel="stylesheet" />
     <div id="content" class="content">
 	    <ol class="breadcrumb pull-right">
 		    <li><a href="javascript:;">Fees</a></li>
@@ -66,122 +67,304 @@
 		    </div>
 		</div>
 		    <br>
-	       <div class="panel-body hidden" id="panel">
+     <div class="panel-body " id="panel">
 		  
-			    <div class="table-responsive">
-				   <table class="table table-bordered">
-					<thead>
-					     <tr style="background-color: #d9edf7; border-color: #b6e2ef;">
-						  <th width="10%">Sl.No</th>
-						  <th width="20%">Admission No.</th>
-						  <th width="20%">Roll Number</th>
-						  <th width="20%">Student Name</th>
-						  <th width="10%"></th>
-					     </tr>
-					</thead>
-					<tbody>
-					     <tr class="hidden" id="termData1">
-						       <td>1</td>
-						       <td>STD001 </td>
-						       <td>G11501</td>
-						       <td>Karthik </td>
-						       <td><a  href="<?php echo base_url('FeesCntrl/payFees');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
-					     </tr>
-					     <!--<tr class="hidden" id="termData2">
-						  <td>2</td>
-						  <td>STD002</td>
-						  <td>G11502</td>
-						  <td>Arun</td>
-						  <td><a  href="<?php echo base_url('FeesCntrl/payFees');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
-					     </tr>-->
-					     <tr class="hidden" id="feeStd">
-						  <td>1</td>
-						  <td>STD002 </td>
-						  <td>G11502</td>
-						  <td>Arun</td>
-						  <td><a  href="<?php echo base_url('FeesCntrl/payFees');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
-					     </tr>
-					     <tr class="hidden" id="term2">
-						  <td>1</td>
-						  <td>STD001 </td>
-						  <td>G11501</td>
-						  <td>Karthik</td>
-						  <td><a  href="<?php echo base_url('FeesCntrl/payFees');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
-					     </tr>
-					     <tr class="hidden" id="str">
-						  <td>1</td>
-						  <td>STD005</td>
-						  <td>G11507</td>
-						  <td>Mani</td>
-						  <td><a  href="<?php echo base_url('FeesCntrl/payFees');?>" role="button"  id="edit" class="btn btn-xs btn-primary">Pay fees</a></td>
-					     </tr>
-					</tbody>
-				   </table>
-			    </div>
-		    
-		    <div class="col-sm-2 col-sm-offset-5">
+     <div class="table-responsive">
+	  <table id="example" class="table datatable table-bordered nowrap responsive " cellspacing="0" width="100%">
+	       <thead>
+	       <tr>
+	       <th data-class="hidden">id</th>
+	       <th>S.No</th>
+	       <th>Name</th>
+	       <th>Email</th>
+	       <th>Emp_Id</th>
+	       <th>Payslip NO</th>
+	       <th>Designation</th>
+	       <th>For The Month Of</th>
+	       <th>Total Working Days</th>
+	       <th>Worked Days</th>
+	       <th>Basic Salary</th>
+	       <th>HRA</th>
+	       <th>DA</th>
+	       <th>TA</th>
+	       <th>Incentive</th>
+	       <th>Increment</th>
+	       <th>Gross Earnings</th>
+	       <th>LOP</th>
+	       <th>Advance salary paid</th>
+	       <th>Other deduction</th>
+	       <th>Gross deductions</th>
+	       <th>Net-Salary</th>
+	       <th>Remarks</th>
+	       <th>Insert Timestamp</th>
+	       <th>Update Timestamp</th>
+	       </tr>
+	       </thead>
+	       <tbody id="sbody">
+		   
+	       </tbody>
+	  </table>
+	       <div class="col-md-offset-3">
+		    <br>
+		    <div class="col-sm-2">
 			 <a class="form-control btn btn-primary btn-sm" href="<?php echo base_url('FeesCntrl/defaulter_pdf_generate');?>">PDF report</a>
-		    </div>  
+		    </div>
+		    <div class="col-md-3">
+		    <input type="button" class="form-control btn btn-success" name="send" onclick="multiple_mail_send()"  value="Send Email"> 		
+		    </div>
+		   <!-- <button type="button" id="updatebutton"  class="btn btn-primary" disabled> Edit </button>
+		    <button type="button" id="deletebutton" name="" class="btn btn-danger">Delete</button>-->
 	       </div>
+
+     </div>
+		    
+		   <!-- <div class="col-sm-2 col-sm-offset-3">
+			 <a class="form-control btn btn-primary btn-sm" href="<?php echo base_url('FeesCntrl/defaulter_pdf_generate');?>">PDF report</a>
+			 
+		    </div>
+		    <div class="col-sm-2">
+			 
+			 <a class="form-control btn btn-primary btn-sm" data-toggle="modal" data-target="#getToEmail" id="sendEmail" name="sendEmail"><i class="fa fa-envelope"></i> Email</a>
+		    </div> -->
+	       </div> 
 	       </div>
 	    </div>
 	 </div>
 	 <div>
     </div>
- 
+	 
+	 
+<!--     <div class="modal fade" id="EmailUserFancy" data_value="EmailUserFancy" data-backdrop="static"  tabindex="-1" role="dialog" aria-labelledby="EmailUserFancy">
+	  <div class="modal-dialog">
+	    <div class="modal-content">		
+		<form  id="EmailUserFancy" class="smart-form" >
+		    <div class="modal-header" style="border-bottom: 1px solid #e5e5e5; min-height: 16.4286px; padding: 15px;">			
+			<b>
+			   <img alt="Ruby" data-id="login-cover-image" src="<?php echo base_url();?>/assets/img/logo.jpg" style="width: 55px;">			    
+			</b>						
+			<button aria-hidden="true" data-dismiss="modal" class="close" type="button onClick="onClickHandler(this)">
+			    <i class="fa  fa-times-circle "></i>
+			</button>
+		    </div>		    
+		    <div class="model-body">
+			<fieldset>
+			    <p></p>
+			    <div class="form-group">
+				<div class="col-md-12">
+				    <label class="col-md-4">Enter Email Address</label>
+					<div class="col-md-5">
+					    <input type="text" class="form-control EmailIdClass" name="EmailId" />
+					</div>
+				</div>
+			    </div>
+			</fieldset>
+			<fieldset><p></p></fieldset>
+		    </div>		   
+		    <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<button type="button" id="Savechanges" onclick="EmailIdPerson();"  class="btn btn-primary">Send Email</button>				    							
+		    </div>	    
+		</form>
+		
+	    </div>
+	</div>
+    </div>
+-->
+
     <script>
     $(document).ready(function(){
-     $('#selectClass').change(function(){
+	  $('#selectClass').change(function(){
+	       
+	       if($(this).val()=='Grade1'){
+		    $('.show').removeClass('hidden');
+		    $('#emptyBatch').addClass('hidden');
+	       }else{
+		    $('.hidden').addClass('hidden');
+	       }
+	  });
+	//  $('#dropdown1').change(function(){
+	//     console.log($(this).val());
+	//     if($(this).val()=='Term1'  )
+	//     {
+	//	$('#panel').removeClass('hidden');
+	//	$('#view').removeClass('hidden');
+	//	$('#termData1').removeClass('hidden');
+	//	$('#termData2').removeClass('hidden');
+	//	$('#str').addClass('hidden');
+	//	$('#feeStd').addClass('hidden');
+	//     }
+	//     else if ($(this).val()=='feeStd1' ) {
+	//	 $('#panel').removeClass('hidden');
+	//	 $('#view').removeClass('hidden');
+	//	 $('#feeStd').removeClass('hidden');
+	//	 $('#termData1').addClass('hidden');
+	//	 $('#termData2').addClass('hidden');
+	//	 $('#term2').addClass('hidden');
+	//	 
+	//	 
+	//     } else if ($(this).val()=='Term2' ) {
+	//	 $('#panel').removeClass('hidden');
+	//	 $('#view').removeClass('hidden');
+	//	 $('#term2').removeClass('hidden');
+	//	 $('#str').addClass('hidden');
+	//	 $('#feeStd').addClass('hidden');
+	//	 $('#termData1').addClass('hidden');
+	//	 $('#termData2').addClass('hidden');
+	//     }
+	//     else if ($(this).val()=='str') {
+	//	 $('#panel').removeClass('hidden');
+	//	 $('#view').removeClass('hidden');
+	//	 $('#str').removeClass('hidden');
+	//	 $('#term2').addClass('hidden');
+	//	 $('#feeStd').addClass('hidden');
+	//	 $('#termData1').addClass('hidden');
+	//	 $('#termData2').addClass('hidden');
+	//     }
+	//     else
+	//     {
+	//	     $('#panel').addClass('hidden');
+	//     }
+	//  });
 	  
-	  if($(this).val()=='Grade1'){
-	       $('.show').removeClass('hidden');
-	       $('#emptyBatch').addClass('hidden');
-	  }else{
-	       $('.hidden').addClass('hidden');
+	  
+	  var t= $('#example').DataTable({
+     
+	       "bServerSide": true,
+	       "bProcessing": true,
+	       "sAjaxSource": '<?php echo site_url('FeesCntrl/payslip_Multiple_Data');?>',
+	       'responsive': true,
+	       
+	       'scrollX':true,
+	       "lengthMenu": [
+			     [5,10, 20, 50, -1],
+			     [5,10, 20, 50, "All"] // change per page values here
+			 ],
+   
+		   columns: [
+		   { data: 'ID',"orderable": true},
+		   { data: 'ID'},
+		   { data: 'EMP_NAME'},
+		   { data: 'EMP_EMAIL'},
+		   { data: 'EMP_ID'},
+		   { data: 'PAYSLIP_NO'},
+		   { data: 'EMP_DEPARTMENT'},
+		   { data: 'MONTH_YEAR'},
+		   
+		   { data: 'TOTAL_WORKING_DAYS'},
+		   { data: 'WORKED_DAYS'},
+		   { data: 'BASIC_SALARY'},
+		   { data: 'HRA'},
+		   { data: 'DA'},
+		   { data: 'TRAVELLING_ALLOWANCE'},
+		   { data: 'INCENTIVE'},
+		   { data: 'INCREMENT'},
+		   { data: 'GROSS_EARNINGS'},
+		   { data: 'LOP'},
+		   { data: 'ADVANCE_SALARY'},
+		   { data: 'OTHER_DEDUCTIONS'},
+		   { data: 'GROSS_DEDUCTIONS'},
+		   { data: 'NET_AMOUNT'},
+		   { data: 'REMARKS'},
+		   { data: 'CR_DATE'},
+		    { data: 'UPDATED_DATE'},
+		   ],
+		   'columnDefs': [
+		      {
+			 'targets': 0,
+			 'checkboxes': {
+		       'selectRow': true
+			 }
+		      }
+		   ],
+		   'select': {
+		      'style': 'multi'
+		   },
+		   'order': [[0, 'desc']],
+	       //"order": [[ 0, 'desc' ]],
+	       'fnServerData': function(sSource, aoData, fnCallback){
+		   $.ajax({
+		       'dataType': 'json',
+		       'type'    : 'POST',
+		       'url'     : sSource,
+		       'data'    : aoData,
+		       'success' : fnCallback
+		   });
+	       },
+      });
+	   t.on( 'order.dt search.dt processing.dt page.dt', function () {
+                t.column(1, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+			cell.innerHTML = i+1;
+			var info = t.page.info();
+			var page = info.page+1;             
+			if (page >'1') { 
+			    hal = (page-1) *5;  // u can change this value of ur page
+			    cell.innerHTML = hal+i+1;
+			} 
+		    } );
+     } ).draw();
+	   
+
+	
+       function loadLoader() {
+	      $('body').addClass('loading').loader('show', { overlay: true });    
 	  }
-     });
-    $('#dropdown1').change(function(){
-	    console.log($(this).val());
-	    if($(this).val()=='Term1'  )
-	    {
-	       $('#panel').removeClass('hidden');
-	       $('#view').removeClass('hidden');
-	       $('#termData1').removeClass('hidden');
-	       $('#termData2').removeClass('hidden');
-	       $('#str').addClass('hidden');
-	       $('#feeStd').addClass('hidden');
-	    }
-	    else if ($(this).val()=='feeStd1' ) {
-	        $('#panel').removeClass('hidden');
-		$('#view').removeClass('hidden');
-		$('#feeStd').removeClass('hidden');
-		$('#termData1').addClass('hidden');
-		$('#termData2').addClass('hidden');
-		$('#term2').addClass('hidden');
-		
-		
-	    } else if ($(this).val()=='Term2' ) {
-	        $('#panel').removeClass('hidden');
-		$('#view').removeClass('hidden');
-		$('#term2').removeClass('hidden');
-		$('#str').addClass('hidden');
-		$('#feeStd').addClass('hidden');
-		$('#termData1').addClass('hidden');
-		$('#termData2').addClass('hidden');
-	    }
-	    else if ($(this).val()=='str') {
-	        $('#panel').removeClass('hidden');
-		$('#view').removeClass('hidden');
-		$('#str').removeClass('hidden');
-		$('#term2').addClass('hidden');
-		$('#feeStd').addClass('hidden');
-		$('#termData1').addClass('hidden');
-		$('#termData2').addClass('hidden');
-	    }
-	    else
-	    {
-		    $('#panel').addClass('hidden');
-	    }
+	  function unLoader() {
+	      $('body').removeClass('loading').loader('hide');
+	      //alert('Mail Send Sucessfully');
+	  }
+	  
+	  
+	  
+	  $('#sendEmail').on('click',function(){
+	     
+	     $('#EmailUserFancy').modal('show');
+	     
+	 });
+	 
     });
-    });
+      function multiple_mail_send() {
+	      
+	  var names=[];
+	  var email=[];
+	  $('tr.selected').each(function(){
+	  var datas=$(this).find('td:eq(2)').text();
+	  var data1=$(this).find('td:eq(3)').text();
+	  names.push(datas);
+	  email.push(data1);
+	  }); 
+	  console.log(names);
+	  console.log(email); 
+	      //loadLoader();
+	   $.ajax({
+	      type:"post",
+	      url:"http://localhost/smartedu/FeesCntrl/Multiple_send_email",
+	      data:{names:names,email:email},
+	      
+	      success:function(){
+	      //unLoader();
+		   bootbox.alert('<h4><center>Email Send Successfully<center></h4>');
+		   $('#emailfa').removeAttr('class',true).attr('class','fa fa-envelope');
+	      },
+	  });
+      }
+      
+//     function EmailIdPerson(){
+//	       $('#EmailUserFancy').modal('hide');
+//	       $('#emailfa').removeAttr('class',true).attr('class','fa fa-circle-o-notch fa-spin fa-fw margin-bottom');
+//	       //var emailSystemId = $('#emailSystemId').val();
+//	       var EmailIdClass = $('.EmailIdClass').val();
+//	       console.log(EmailIdClass);
+//	       $.ajax({
+//	       type: "POST",
+//	       data: {EmailId:EmailIdClass},
+//	       url:"<?php echo site_url('FeesCntrl/feesDefaulterEmail')?>",
+//	       success: function (response) {
+//		   $('.EmailIdClass').val('');
+//		   bootbox.alert('<b><img alt="" data-id="login-cover-image" src="<?php echo base_url();?>/assets/img/logo.jpg" style="width: 55px;"></b><h4><center>Email Send Successfully<center></h4>');
+//		   $('#emailfa').removeAttr('class',true).attr('class','fa fa-envelope');
+//		   }
+//	       });
+//	       
+//	   }
     </script>
+   
