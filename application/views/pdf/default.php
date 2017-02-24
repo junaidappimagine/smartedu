@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <title></title>
         <style>
+             
           @page {
           size: A4 portrait;  
           margin: 30pt 60pt 70pt 60pt;
@@ -26,11 +27,21 @@
           table td{
             font-size: 13px;
           }
+          .textAlign{
+            margin-left:10px!important;
+          }
+         
+        .innerTable th{
+           text-align: left!important;
+           padding-left: 10px;
+           font-size: 12px;
+            font-family: "Helvetica";
+        }
           
         </style>
     </head>
 <body>
-    <div>
+  
         <table>
             <tr>
                 <td> <img id="previewing" src="<?php echo base_url();?>/assets/img/logo.jpg"  name="profile" width="60px" height="60px"></td>
@@ -44,56 +55,47 @@
             <table style="width: 100%;border-top: 1px solid;border-bottom: 1px solid;line-height: 28px;" id="number1">
                 <tr>
                     <th>
-                        <span style="font-size: 14px;"><b>Fees Defaulters</b></span><br>
+                        <span style="font-size: 14px;"><b>Fee Defaulter</b></span><br>
                     </th>
                 </tr>
             </table>
             </center> <br><br>
-            <table>
+            <table style="line-height: 29px;">
                 <tr>
                     <td style="width:50%">
                         <span>Class    : G01 - A</span>
                     </td>
                 </tr>
+              
             </table>
              <table style="width:100%;line-height: 28px;" id="number3">
-                <thead style="background-color: #EDEDED;">
+                <thead style="background-color: #EDEDED;font-weight: 500!important;" class="innerTable">
                     <tr>
-                    <th style="width:10%;text-align: center;">
-                        <span style="font-size: 14px;">Sl.No</span>
+                    <th style="width:10%;">
+                      Sl.No
                     </th>
-                     <th style="width:25%;text-align: center;">
-                        <span style="font-size: 14px;">Name</span>
+                    <th style="width:25%;">
+                       Name
                     </th>
-                    <th style="width:20%;text-align: center;">
-                        <span style="font-size: 14px;">Roll Number</span>
+                    <th style="width:25%;">
+                       Roll Number
                     </th>
-                    <th style="width:21%;text-align: center;">
-                        <span style="font-size: 14px;">Amount(Rs.) </span>
+                    <th style="width:21%;">
+                        Amount(Rs.)
                     </th>
                 </tr>
                 </thead>
                 <tbody>
-                    <tr style="text-align: center;">
-                        <td>1</td>
-                        <td>STD001 </td>
-                        <td>G11501</td>
-                        <td>Karthik</td>
+                    <tr>
+                        <td class="textAlign">1</td>
+                        <td class="textAlign">Karthik</td>
+                        <td class="textAlign"> G11501</td>
+                        <td class="textAlign"> 5000.00</td>
                     </tr>
-                    
-                    <!--<tr style="text-align: center;">
-                        <td>2</td>
-                        <td>STD002</td>
-                        <td>G11502</td>
-                        <td>Arun</td>
-                    </tr>-->
                 </tbody>
-              
-               
             </table>
-             <br>
-        
-            </div>
+              <br>
+            </table>
     </div>
 
 </body>

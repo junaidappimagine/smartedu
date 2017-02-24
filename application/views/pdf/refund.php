@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <title></title>
         <style>
+             
           @page {
           size: A4 portrait;  
           margin: 30pt 60pt 70pt 60pt;
@@ -17,6 +18,7 @@
           {
             border:1px solid #DADADA;
             border-collapse: collapse;
+           
           }
            table#number4 td,  table#number4 th, table#number4
           {
@@ -25,11 +27,21 @@
           table td{
             font-size: 13px;
           }
+          .textAlign{
+            margin-left:10px!important;
+          }
+         
+        .innerTable th{
+           text-align: left!important;
+           padding-left: 10px;
+           font-size: 12px;
+            font-family: "Helvetica";
+        }
           
         </style>
     </head>
 <body>
-    <div>
+  
         <table>
             <tr>
                 <td> <img id="previewing" src="<?php echo base_url();?>/assets/img/logo.jpg"  name="profile" width="60px" height="60px"></td>
@@ -40,69 +52,64 @@
         <br>
         <div class="main">
             <center>
-            <table style="width: 100%;border-top: 1px solid;border-bottom: 1px solid" id="number1">
+            <table style="width: 100%;border-top: 1px solid;border-bottom: 1px solid;line-height: 28px;" id="number1">
                 <tr>
                     <th>
-                        <span style="font-size: 14px;"><b>Fees Refund</b></span>
+                        <span style="font-size: 14px;"><b>Fee Refund</b></span><br>
                     </th>
                 </tr>
             </table>
-            </center>
-             <br><br>
-             <table style="width:100%;line-height: 28px;line-height: 28px;" id="number3">
-                <thead style="background-color: #EDEDED;">
+            </center> <br><br>
+          
+             <table style="width:100%;line-height: 28px;" id="number3">
+                <thead style="background-color: #EDEDED;font-weight: 500!important;" class="innerTable">
                     <tr>
-                    <th style="width:10%;text-align: center;">
-                        <span style="font-size: 14px;">Sl.No</span>
+                    <th style="width:10%;">
+                      Sl.No
                     </th>
-                     <th style="width:25%;text-align: center;">
-                        <span style="font-size: 14px;">Student Name</span>
+                    <th style="width:25%;">
+                       Student Name
                     </th>
-                    <th style="width:20%;text-align: center;">
-                        <span style="font-size: 14px;">Amount</span>
+                    <th style="width:21%;">
+                        Amount(Rs.)
                     </th>
-                    <th style="width:21%;text-align: center;">
-                        <span style="font-size: 14px;">Date</span>
+                    <th style="width:25%;">
+                       Date
                     </th>
-                    <th style="width:29%;text-align: center;">
-                        <span style="font-size: 14px;">Fee Collection</span>
+                    <th style="width:25%;">
+                       Fee Collection
                     </th>
-                    <th style="width:19%;text-align: center;">
-                        <span style="font-size: 14px;">Refunded By</span>
+                    <th style="width:25%;">
+                       Refunded By
                     </th>
-                    <th style="width:15%;text-align: center;">
-                        <span style="font-size: 14px;">Voucher No.</span>
+                    <th style="width:25%;">
+                       Voucher No.
                     </th>
                 </tr>
                 </thead>
                 <tbody>
-                    <tr style="text-align: center;">
-                        <td>1</td>
-                        <td>Rafeeq</td>
-                        <td>3000.00</td>
-                        <td>06/04/2016 </td>
-                        <td>Fee str</td>
-                        <td>Admin</td>
-                        <td>11</td>
-                        
+                    <tr>
+                        <td class="textAlign">1</td>
+                        <td class="textAlign">Karthik</td>
+                        <td class="textAlign"> 2000.00</td>
+                        <td class="textAlign"> 06/04/2016</td>
+                        <td class="textAlign"> Fee str</td>
+                        <td class="textAlign"> Admin</td>
+                        <td class="textAlign"> 11</td>
                     </tr>
-                    
-                    <tr style="text-align: center;">
-                        <td>2</td>
-                        <td>vijay</td>
-                        <td>3825.00</td>
-                        <td>25/03/2016 </td>
-                        <td>Term 2 fee collection</td>
-                        <td>Admin</td>
-                        <td>09</td>
+                    <tr>
+                        <td class="textAlign">2</td>
+                        <td class="textAlign">Rafeeq</td>
+                        <td class="textAlign"> 4000.00</td>
+                        <td class="textAlign"> 23/06/2016</td>
+                        <td class="textAlign"> Term 2 fee collection</td>
+                        <td class="textAlign"> Admin</td>
+                        <td class="textAlign"> 09</td>
                     </tr>
                 </tbody>
-              
-               
             </table>
-             <br>
-        
-            </div>
+              <br>
+            </table>
     </div>
 
 </body>
