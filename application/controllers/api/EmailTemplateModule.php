@@ -2,7 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . '/libraries/REST_Controller.php';
 require APPPATH . '/helpers/checktoken_helper.php';
-class EmailTemplateModule extends REST_Controller {    
+require APPPATH . '/helpers/mailGun/test.php';
+class EmailTemplateModule extends REST_Controller {  
     function EmailTemplateModule()
     {
 		parent::__construct();
@@ -10,9 +11,9 @@ class EmailTemplateModule extends REST_Controller {
 		header("Access-Control-Allow-Origin: *");
 		header("Access-Control-Allow-Headers: Content-Type,access_token");
 		header("Access-Control-Allow-Methods: GET,POST,DELETE");
-		$userIDByToken="";
-		checkTokenAccess();
-		checkAccess();
+		//$userIDByToken="";
+		//checkTokenAccess();
+		//checkAccess();
 		
     }
 
@@ -91,6 +92,23 @@ class EmailTemplateModule extends REST_Controller {
 				'message' => 'Email Template could not be found'
 				], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
 			}
+		}
+	}
+	
+	// Send Email via MailGun
+	
+	function sendMail_get(){
+		$to=$this->get('mailId');
+		$result=mailGun($to);
+		if (!empty($result)){
+			$this->set_response(['status' =>TRUE,'message'=>$result], REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+		}
+		else
+		{
+			$this->set_response([
+			'status' => FALSE,
+			'message' => 'Email sending failed'
+			], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
 		}
 	}
 	
