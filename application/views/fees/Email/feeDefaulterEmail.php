@@ -151,20 +151,54 @@
                     </tr>
                     <tr style="height: 14px;border-right:hidden; border-left:hidden;"></tr>
                     <tr class="sedar-table-head">
-                        <th class="test" style="width: 4%">S.No</th>
-                        <th class="test" style="" colspan="3">Employee Name</th>
-                        <th class="test" style="width: 13%">Earning</th>
-                        <th class="test" style="width: 9%">Deduction</th>
-                        <th class="test" style="width: 18%">Total Amount</th>
+                        <th colspan="4" style="text-align: left">S.No</th>
+                        <th colspan="4" style="text-align: left">Employee Name</th>
+                       
 		    </tr>
 		</thead>    
                  <tbody>     
                     <tr>
-                        <td class="test">1</td>
-                        <td class="test" colspan="3"><?php echo $resDetails[0]['EMP_FIRST_NAME']?></td>
-                        <td class="test" >1000</td>
-                        <td class="test" align="right">0</td>
-                        <td class="test">1000</td>
+                         <tr>
+                            <td colspan="2" style="border:1px solid; padding: 5px">Regular Earnings</td>
+                            <td colspan="2" style="border:1px solid; padding: 5px;text-align: right;">5500.00</td>
+                            <td colspan="2" style="border:1px solid; padding: 5px;">Advance if any</td>
+                            <td colspan="2" style="border:1px solid; padding: 5px;text-align: right;">0.00</td>
+                            
+                        </tr>
+                        <tr>
+                           
+                            <td colspan="2" style="border:1px solid; padding: 5px">HRA</td>
+                            <td colspan="2" style="border:1px solid; padding: 5px;text-align: right;">4000.00</td>
+                            <td colspan="2" style="border:1px solid; padding: 5px;">Loan</td>
+                            <td colspan="2" style="border:1px solid; padding: 5px;text-align: right;">-</td>
+                            
+                      
+                        <tr>
+                            
+                            <td colspan="2" style="border:1px solid; padding: 5px">Conveyance</td>
+                            <td colspan="2" style="border:1px solid; padding: 5px;text-align: right;">500</td>
+                            <td colspan="2" style="border:1px solid; padding: 5px;">Other Deductiom</td>
+                            <td colspan="2" style="border:1px solid; padding: 5px;text-align: right;">0.00</td>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td colspan="2" style="border:1px solid; padding: 5px">Special Allowance</td>
+                            <td colspan="2" style="border:1px solid; padding: 5px;text-align: right;">0.00</td>
+                            <td colspan="2" style="border:1px solid; padding: 5px;"></td>
+                            <td colspan="2" style="border:1px solid; padding: 5px;"></td>
+                            
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="border:1px solid; padding: 5px">Total Earnings</td>
+                            <td colspan="2" style="border:1px solid; padding: 5px;text-align: right;">10000</td>
+                            <td colspan="2" style="border:1px solid; padding: 5px;">Total Deductions</td>
+                            <td colspan="2" style="border:1px solid; padding: 5px;text-align: right;">0.00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="border:1px solid; padding: 5px;height: 33px;">Current NET Salary</td>
+                            <td colspan="4" style="border:1px solid; padding: 5px;text-align: right;">10000</td>
+                        </tr>
                     </tr>
                 </tbody>
 	    </table>
