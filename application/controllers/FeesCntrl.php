@@ -393,11 +393,16 @@ class FeesCntrl extends CI_Controller {
 		return $this->load->view('fees/PrintDocument/feeDefaulterRec',$value);
 	    }
     }
-    function defaulter_pdf_generate($id)
+    function defaulter_pdf_generate()
     {
-       $value['resDetails'] = $this->financefeesmod->getPdf_details($id);
-	 $html=$this->load->view('fees/PrintDocument/emailprint/feeDefaulter',$value,true);
-	 pdf_create($html,"test",$stream=TRUE,'portrait');
+      
+        //$value['resDetails'] = $this->financefeesmod->getPdf_details($id);
+	 $json = file_get_contents('php://input');
+         $resData = json_decode($json, TRUE);
+	 
+	 $html=$this->load->view('fees/PrintDocument/pdf/feeDefaulterPdf',$resData,true);
+	 //print_r($html);exit;
+	 pdf_create($html,"test",$stream=TRUE,'portrait','1.0');
 //      print_r($id);exit;
 //      $json = file_get_contents('php://input');
 //      $resData = json_decode($json, TRUE);
