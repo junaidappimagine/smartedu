@@ -126,20 +126,20 @@
                         <td style="border:hidden;" colspan="2"><b>Employee Name</b></td>
                         <td style="border:hidden;" colspan="2">: <?php echo $resDetails[0]['EMP_FIRST_NAME']?></td>
                         <td style="border:hidden;" colspan="2"><b>Joining Date</b></td>
-                        <td style="border:hidden;" colspan="2">: <?php echo $resDetails[0]['EMP_JOINING_DATE']?></td>
+                        <td style="border:hidden;" colspan="2">: <?php echo $resDetails[0]['EMP_JOIN_DT']?></td>
                     </tr>
                     <tr style="border:hidden;" >
                         <td style="border:hidden;" colspan="2"><b>Marital Status</b></td>
                         <td style="border:hidden;" colspan="2">: Single</td>
                         <td style="border:hidden;" colspan="2"><b>Position</b></td>
-                        <td style="border:hidden;" colspan="2">: <?php echo $resDetails[0]['EMP_DESIGNATION']?></td>
+                        <td style="border:hidden;" colspan="2">: <?php echo $resDetails[0]['EMP_POSITION']?></td>
                         
                     </tr>
                     <tr style="border:hidden;" >
                         <td style="border:hidden;" colspan="2"><b>Department</b></td>
-                        <td style="border:hidden;" colspan="2">: <?php echo $resDetails[0]['EMP_DEPARTMENT']?></td>
+                        <td style="border:hidden;" colspan="2">: <?php echo $resDetails[0]['EMP_DEPT']?></td>
                         <td style="border:hidden;" colspan="2"><b>Qualification</b></td>
-                        <td style="border:hidden;" colspan="2">:  <?php echo $resDetails[0]['EMP_QUALIFICATION']?></td>
+                        <td style="border:hidden;" colspan="2">:  <?php echo $resDetails[0]['EMP_QUALI']?></td>
                         
                     </tr>
                         <tr style="border:hidden;" >
