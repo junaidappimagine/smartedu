@@ -355,9 +355,15 @@
 			return $result = $this->db->query($sql, $return_object = TRUE)->result_array();
 	    }
 	    //---------------fee Defaulters---------------------------------//
+	//        function getMail_details($id){
+	//		
+	//		$sql="SELECT * FROM employee_admission WHERE EMP_ID='$id'";
+	//		return $this->db->query($sql)->result_array();
+	//		//print_r($ret);exit;
+	//	}
 		function getMail_details($id){
-			
-			$sql="SELECT * FROM employee_admission WHERE EMP_ID='$id'";
+			//print_r($id);exit;
+			$sql="SELECT * FROM employee_admission WHERE EMP_ID='$id[0]'";
 			return $this->db->query($sql)->result_array();
 			//print_r($ret);exit;
 		
