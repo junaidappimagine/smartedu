@@ -357,14 +357,14 @@
 	    //---------------fee Defaulters---------------------------------//
 		function getMail_details($id){
 			
-			$sql="SELECT * FROM emp_details WHERE id='$id'";
+			$sql="SELECT * FROM employee_admission WHERE EMP_ID='$id'";
 			return $this->db->query($sql)->result_array();
 			//print_r($ret);exit;
 		
 		}
 		function getPdf_details($id){
 			//print_r($id);exit;
-			$sql="SELECT * FROM emp_details WHERE id='$id'";
+			$sql="SELECT * FROM employee_admission WHERE EMP_ID='$id'";
 			return $this->db->query($sql)->result_array();
 			//print_r($ret);exit;
 		
