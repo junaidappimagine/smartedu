@@ -296,10 +296,16 @@ class FeesCntrl extends CI_Controller {
       function getmail_id(){
 	 $json = file_get_contents('php://input');
 	 $result = json_decode($json, TRUE);
-	 $id =$result['ID'];
-	 $res = $this->financefeesmod->getmail_id($id);
-	 //print_r($res);exit;
-	 echo $res[0]['EMP_EMAIL'];
+	 $id =$result['id'];
+	 $tot_id = count($id);
+	 //print_r($tot_id);exit;
+	 $data = [];
+	 for($i = 0; $i < $tot_id; $i++){
+	    $res = $this->financefeesmod->getMail_details($id[$i]);
+	    array_push($data,$res);
+	   
+	 }
+	  echo json_encode($data);  
       }
       function getpdf_id(){
 	 $json = file_get_contents('php://input');
@@ -331,61 +337,39 @@ class FeesCntrl extends CI_Controller {
 	);
 	    $this->email->initialize($config);
 	    $this->load->library('email', $config);
-	    //$name=$_POST['names'];
-	    //$mail=$_POST['mail_id'];
 	    $json = file_get_contents('php://input');
 	    $result = json_decode($json, TRUE);
-	    $mail =array($result['mail_id']);
-	    $id =$result['id'];
-	    //print_r($id);exit;
-	    $tot=count($id);
-	   
-	     for ($i = 0; $i <$tot; $i++) {
-		//echo $id[$i];
-		$EEEmail="";
-		$MultiFileName="";
-		$html = $this->Multiple_email($id[$i],$UniqEmailsend='email');
-		$htmlpdf = $this->Multiple_email($id[$i],$UniqEmailsend='pdf');
-		require_once('../helpers/dompdf/dompdf_config.inc.php');
-		$dompdf = new DOMPDF();
-		//$dompdf->set_paper('A4','landscape');
-		$dompdf->load_html($htmlpdf);
-		$dompdf->render();
-		$output = $dompdf->output();
-		
-		$FileName = 'RubyReport';
-		$MultiFileName = $FileName.'.pdf';
-		
-		$Payslip = file_put_contents("application/uploads/$MultiFileName",$output);
-		
-		$this->email->set_newline("\r\n");
-		$this->email->from('manisrikan@gmail.com','Ruby');
-		$this->email->to($mail[$i]);
-		 //echo $mail;exit;
-		$this->email->subject('Report');
-	        $this->email->message($html);
-		$EEEmail=$this->email->attach("application/uploads/".$MultiFileName);
-		//print_r($EEEmail);exit;
-		$this->email->send();
-		$this->email->clear(TRUE);
-	   }
-	   //exit;
-	     //unlink('http://cloudlogic.in/payslip/application/uploads/$MultiFileName');
+	    $total_count =$result['params'];
+	    for ($i = 0; $i <count($total_count); $i++) {
+	       $EEEmail="";
+	       $MultiFileName="";
+	       $html = $this->Multiple_email($total_count[$i][0]['EMP_ID'],$UniqEmailsend='email');
+	       $htmlpdf = $this->Multiple_email($total_count[$i][0]['EMP_ID'],$UniqEmailsend='pdf');
+	       require_once('../helpers/dompdf/dompdf_config.inc.php');
+	       $dompdf = new DOMPDF();
+	       $dompdf->load_html($htmlpdf);
+	       $dompdf->render();
+	       $output = $dompdf->output();
+	       $FileName = 'RubyReport';
+	       $MultiFileName = $FileName.'.pdf';
+	       $Payslip = file_put_contents("application/uploads/$MultiFileName",$output);
+	       $this->email->set_newline("\r\n");
+	       $this->email->from('manisrikan@gmail.com','Ruby');
+	       $this->email->to($total_count[$i][0]['EMP_EMAIL']);
+	       $this->email->subject('Report');
+	       $this->email->message($html);
+	       $EEEmail=$this->email->attach("application/uploads/".$MultiFileName);
+	       $this->email->send();
+	       $this->email->clear(TRUE);
+	    }
     }
    
 
     function Multiple_email($id,$UniqEmailsend){
-	
 	 $value['resDetails']=$this->financefeesmod->getMail_details($id);
-	 //print_r($value['resDetails']);exit;
-	//$getslip['datas1']=$this->financefeesmod->getfrom_salaryMail($name);
-	//print_r($getslip['datas1']);exit;
-	//return $dataa=$this->load->view('test1',$getslip,true);
 	  if($UniqEmailsend=='email')
 	    {
-	    
-		return $this->load->view('fees/Email/feeDefaulterEmail',$value,true);
-	
+	       return $this->load->view('fees/Email/feeDefaulterEmail',$value,true);
 	    }else if($UniqEmailsend=='pdf'){
 		return $this->load->view('fees/PrintDocument/emailprint/feeDefaulter',$value,true);
 	    }
@@ -395,44 +379,10 @@ class FeesCntrl extends CI_Controller {
     }
     function defaulter_pdf_generate()
     {
-      
-        //$value['resDetails'] = $this->financefeesmod->getPdf_details($id);
-	 $json = file_get_contents('php://input');
-         $resData = json_decode($json, TRUE);
-	 
-	 $html=$this->load->view('fees/PrintDocument/pdf/feeDefaulterPdf',$resData,true);
-	 //print_r($html);exit;
-	 pdf_create($html,"test",$stream=TRUE,'portrait','1.0');
-//      print_r($id);exit;
-//      $json = file_get_contents('php://input');
-//      $resData = json_decode($json, TRUE);
-//      $total= $resData['pdfId'];
-//      for($i=0;$i<count($total);$i++){
-//	 $value['resDetails'] = $this->financefeesmod->getPdf_details($total[$i]);
-//	 $html=$this->load->view('fees/PrintDocument/emailprint/feeDefaulter',$value,true);
-//	 pdf_create($html,"test",$stream=TRUE,'portrait');
-//      }
-      //exit;
-      
-      //$value['resDetails'] = $this->financefeesmod->getPdf_details(2);
-      //$html=$this->load->view('fees/PrintDocument/emailprint/feeDefaulter',$value,true);
-      //pdf_create($html,"test",$stream=TRUE,'portrait');
-     // print_r($resData);exit;
-     //$total1 = count($resData['pdfId']);
-     //echo 't_counttt'.$total1;
-      //exit;
-      //$resId = $resData['pdfId'];
-      // 
-      //$total = count($resId);
-      ////print_r($total);exit;
-      //var_dump($total);exit;
-      //for($i=0;$i<$total1;$i++){
-      // //$html=$this->load->view('pdf/default',$data=array(),true);
-      // //pdf_create($html,"test",$stream=TRUE,'portrait');
-      // echo $i;
-      // echo "<br>";
-      //}
-       
+      $json = file_get_contents('php://input');
+      $resData = json_decode($json, TRUE);	 
+      $html=$this->load->view('fees/PrintDocument/pdf/feeDefaulterPdf',$resData,true);
+      pdf_create($html,"test",$stream=TRUE,'portrait','1.0');
     }
     function payFees()
    {
