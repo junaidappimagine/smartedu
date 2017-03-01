@@ -143,19 +143,19 @@
                         <td align="left" width="9%"><b>E-Name</b></td>
                         <td align="left" width="30.5%" style="text-align: justify">: <?php echo $resDetails[0]['EMP_FIRST_NAME']?></td>
                         <td align="left" width="11%"><b>Joining Date</b></td>
-                        <td align="right" width="20.5%" style="text-align: justify">: <?php echo $resDetails[0]['EMP_JOINING_DATE']?></td>
+                        <td align="right" width="20.5%" style="text-align: justify">: <?php echo $resDetails[0]['EMP_JOIN_DT']?></td>
                     </tr>
                     <tr>
                         <td align="left" width="10%"><b>Marital Status</b></td>
                         <td align="left" width="30.5%" style="text-align: justify">: Single</td>
                         <td align="left" width="11%"><b>Position</b></td>
-                        <td align="right" width="20.5%" style="text-align: justify">: <?php echo $resDetails[0]['EMP_DESIGNATION']?></td>
+                        <td align="right" width="20.5%" style="text-align: justify">: <?php echo $resDetails[0]['EMP_POSITION']?></td>
                     </tr>
                     <tr>
                         <td align="left" width="9%"><b>Department</b></td>
-                        <td align="left" width="30.5%" style="text-align: justify">: <?php echo $resDetails[0]['EMP_DEPARTMENT']?></td>
+                        <td align="left" width="30.5%" style="text-align: justify">: <?php echo $resDetails[0]['EMP_DEPT']?></td>
                         <td align="left" width="11%"><b>Qualification</b></td>
-                        <td align="right" width="20.5%" style="text-align: justify">: <?php echo $resDetails[0]['EMP_QUALIFICATION']?></td>
+                        <td align="right" width="20.5%" style="text-align: justify">: <?php echo $resDetails[0]['EMP_QUALI']?></td>
                         
                     </tr>
                     <tr>
