@@ -127,6 +127,12 @@
                 margin-right: 30px;
                 margin-left: 8px;
             }
+            .print{
+                page-break-before: always;
+            }
+           /* .print:last-child {
+                    page-break-after: auto;
+               }*/
        
         </style>
     </head>
@@ -149,12 +155,12 @@
                 <table style="width: 100%;">
                     <tr>
                         <td align="left" width="9%"><b>E-Name</b></td>
-                        <td align="left" width="30.5%" style="text-align: justify">: <?php echo $resDetails[0]['EMP_FIRST_NAME']?></td>
+                        <td align="left" width="60.5%" style="text-align: justify">: <?php echo $resDetails[0]['EMP_FIRST_NAME']?></td>
                         <td align="left" width="11%"><b>Joining Date</b></td>
                         <td align="right" width="20.5%" style="text-align: justify">: <?php echo $resDetails[0]['EMP_JOIN_DT']?></td>
                     </tr>
                     <tr>
-                        <td align="left" width="10%"><b>Marital Status</b></td>
+                        <td align="left" width="20%"><b>Marital Status</b></td>
                         <td align="left" width="30.5%" style="text-align: justify">: Single</td>
                         <td align="left" width="11%"><b>Position</b></td>
                         <td align="right" width="20.5%" style="text-align: justify">: <?php echo $resDetails[0]['EMP_POSITION']?></td>
@@ -162,7 +168,7 @@
                     <tr>
                         <td align="left" width="9%"><b>Department</b></td>
                         <td align="left" width="30.5%" style="text-align: justify">: <?php echo $resDetails[0]['EMP_DEPT']?></td>
-                        <td align="left" width="11%"><b>Qualification</b></td>
+                        <td align="left" width="20%"><b>Qualification</b></td>
                         <td align="right" width="20.5%" style="text-align: justify">: <?php echo $resDetails[0]['EMP_QUALI']?></td>
                         
                     </tr>
@@ -265,7 +271,7 @@
               
             </div>
         </div>
-        <div style="page-break-before: always;"></div>
+        <div class="print"></div>
        <?php }?>
    
     </body>
